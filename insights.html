@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="icon" type="image/png" href="assets/fzd-mark.png"><title>Insights — FZD Global</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300..700;1,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.featured-post { display: grid; grid-template-columns: 1fr; gap: 0; background: var(--navy); color: var(--canvas); margin-bottom: 48px; cursor: pointer; }
+@media (min-width: 900px) { .featured-post { grid-template-columns: 5fr 6fr; min-height: 480px; } }
+.featured-post .fp-img { background: linear-gradient(140deg, var(--coral), var(--gold)); position: relative; overflow: hidden; min-height: 280px; }
+.featured-post .fp-img::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.18), transparent 50%); }
+.featured-post .fp-img::after { content: "01"; position: absolute; right: 24px; bottom: 16px; font-family: var(--serif); font-size: 220px; color: rgba(15,23,42,0.18); line-height: 0.85; }
+.featured-post .fp-body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.featured-post .fp-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
+.featured-post .fp-title { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.18; color: var(--canvas); margin: 0; letter-spacing: -0.01em; }
+.featured-post .fp-excerpt { color: rgba(247,245,240,0.82); line-height: 1.65; margin: 0; max-width: 50ch; }
+.featured-post .fp-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-top: 8px; }
+.posts-list-full { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+@media (min-width: 700px) { .posts-list-full { grid-template-columns: 1fr 1fr; } }
+.post-card { background: var(--paper); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 260px; text-decoration: none; color: inherit; transition: background .2s; }
+.post-card:hover { background: var(--canvas); }
+.post-card .pc-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; }
+.post-card .pc-title { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--navy); margin: 0; font-weight: 500; }
+.post-card .pc-excerpt { color: var(--ink-2); line-height: 1.55; font-size: 14px; }
+.post-card .pc-meta { margin-top: auto; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); display: flex; gap: 12px; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.filter-bar button { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 16px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2); cursor: pointer; transition: all .2s; }
+.filter-bar button.is-active { background: var(--navy); color: var(--canvas); border-color: var(--navy); }
+.filter-bar button:hover { border-color: var(--coral); color: var(--coral); }
+.filter-bar button.is-active:hover { color: var(--canvas); }
+</style>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+<a href="index.html" class="" data-i18n="nav.home">Home</a>
+<a href="about.html" class="" data-i18n="nav.about">About</a>
+<a href="services.html" class="" data-i18n="nav.services">Services</a>
+<a href="industries.html" class="" data-i18n="nav.industries">Industries</a>
+<a href="insights.html" class="is-active" data-i18n="nav.insights">Insights</a>
+<a href="contact.html" class="" data-i18n="nav.contact">Contact</a>
+</nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+          <rect width="18" height="2" fill="currentColor"/>
+          <rect y="5" width="18" height="2" fill="currentColor"/>
+          <rect y="10" width="18" height="2" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.insights">Insights</span></div>
+<div class="eyebrow" data-i18n="insightsidx.eyebrow">— Field notes</div>
+<h1 class="h-display" style="margin-top: 24px;"><span data-i18n="insightsidx.title.1">Working notes from</span><br><span data-i18n="insightsidx.title.2">the practice.</span></h1>
+<p class="lead" style="max-width: 60ch;" data-i18n="insightsidx.lead">Architecture decisions, evaluation methodology, things we learned the expensive way. Written by senior architects, for senior architects and the people who hire them.</p>
+<div class="filter-bar">
+<button class="is-active" data-filter="all" data-i18n="insightsidx.filter.all">All</button>
+<button data-filter="Architecture">Architecture</button>
+<button data-filter="AI">AI</button>
+<button data-filter="Tooling">Tooling</button>
+<button data-filter="Strategy">Strategy</button>
+<button data-filter="Analytics">Analytics</button>
+<button data-filter="Engineering">Engineering</button>
+<button data-filter="Governance">Governance</button>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<a class="featured-post reveal" href="post-lakehouse-vs-warehouse.html">
+<div class="fp-img"></div>
+<div class="fp-body">
+<div class="fp-meta">FEATURED · Architecture · Mar 2026</div>
+<h2 class="fp-title">Lakehouse vs. Warehouse: when each pattern actually pays off</h2>
+<p class="fp-excerpt">A decade after the lakehouse first showed up in vendor decks, the architectural debate is mostly settled — but the engagement-level decision still isn't. A practical guide to picking the pattern your business will actually use.</p>
+<div class="fp-cta">Read the full post →</div>
+</div>
+</a>
+
+<div class="posts-list-full reveal" data-delay="1" id="posts-list">
+<a class="post-card" href="post-fabric-vs-databricks.html" data-cat="Tooling">
+<span class="pc-cat">Tooling</span>
+<h3 class="pc-title">Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
+<p class="pc-excerpt">Both can be the right answer. Neither is the right answer everywhere. Where each platform earns its keep across DACH enterprise engagements, and the questions to ask before you commit.</p>
+<div class="pc-meta"><span>Feb 2026</span><span>·</span><span>12 min read</span></div>
+</a><a class="post-card" href="post-rag-evaluation.html" data-cat="AI">
+<span class="pc-cat">AI</span>
+<h3 class="pc-title">Why most enterprise RAG projects fail — and what to instrument instead</h3>
+<p class="pc-excerpt">It is easy to ship a working demo. It is hard to ship a system that stays correct as your knowledge base evolves. The four metrics every production RAG system needs from day one.</p>
+<div class="pc-meta"><span>Feb 2026</span><span>·</span><span>10 min read</span></div>
+</a><a class="post-card" href="post-sap-modernization.html" data-cat="Strategy">
+<span class="pc-cat">Strategy</span>
+<h3 class="pc-title">Modernizing SAP analytics in the Microsoft Fabric era</h3>
+<p class="pc-excerpt">You don't have to rip out SAP BW to get to Fabric. A migration path that respects existing investments, brings new capabilities online incrementally, and keeps the close cycle running.</p>
+<div class="pc-meta"><span>Jan 2026</span><span>·</span><span>9 min read</span></div>
+</a><a class="post-card" href="post-kpi-tree.html" data-cat="Analytics">
+<span class="pc-cat">Analytics</span>
+<h3 class="pc-title">The KPI tree that actually works in the boardroom</h3>
+<p class="pc-excerpt">Most KPI frameworks are too long, too flat or both. A simple structure — three layers, financial outcome at the top — that survives the C-suite and the front line.</p>
+<div class="pc-meta"><span>Jan 2026</span><span>·</span><span>7 min read</span></div>
+</a><a class="post-card" href="post-mdm-pharma.html" data-cat="Governance">
+<span class="pc-cat">Governance</span>
+<h3 class="pc-title">Master data governance in pharma supply chains: lessons from the field</h3>
+<p class="pc-excerpt">Audit findings on master-data drift are not solved by another policy document. They are solved by plumbing governance into the platform. A walk-through of what worked.</p>
+<div class="pc-meta"><span>Dec 2025</span><span>·</span><span>11 min read</span></div>
+</a><a class="post-card" href="post-streaming-iot-cost.html" data-cat="Engineering">
+<span class="pc-cat">Engineering</span>
+<h3 class="pc-title">Streaming IoT analytics without breaking the cost model</h3>
+<p class="pc-excerpt">Real-time architectures that scale linearly with event volume bankrupt their owners. The patterns we use to keep latency low and the bill predictable.</p>
+<div class="pc-meta"><span>Dec 2025</span><span>·</span><span>9 min read</span></div>
+</a><a class="post-card" href="post-data-team-org.html" data-cat="Strategy">
+<span class="pc-cat">Strategy</span>
+<h3 class="pc-title">Centralized, federated, hub-and-spoke: how to actually choose</h3>
+<p class="pc-excerpt">The org-design question never has a single right answer — but the wrong one is expensive. A framework for matching data team structure to organizational reality.</p>
+<div class="pc-meta"><span>Nov 2025</span><span>·</span><span>8 min read</span></div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+<script>
+document.querySelectorAll('.filter-bar button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-bar button').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#posts-list .post-card').forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body></html>
