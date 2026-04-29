@@ -554,8 +554,30 @@ button { font-family: inherit; cursor: pointer; }
     width: 40px; height: 40px;
     align-items: center; justify-content: center;
     color: var(--navy);
+    flex-shrink: 0;
   }
   .header-tools .btn { display: none; }
+
+  /* Open state */
+  body.menu-open .nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    left: 0; right: 0;
+    background: var(--canvas);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 24px var(--gutter) 32px;
+    gap: 4px;
+    z-index: 59;
+    box-shadow: 0 8px 24px rgba(11,31,58,0.1);
+  }
+  body.menu-open .nav a {
+    padding: 12px 0;
+    font-size: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  body.menu-open .menu-toggle { background: var(--navy); color: var(--canvas); border-color: var(--navy); }
 }
 
 /* utility */

@@ -10,8 +10,17 @@
   // Mobile nav
   document.addEventListener('click', function(e) {
     const t = e.target.closest('[data-menu-toggle]');
-    if (!t) return;
-    document.body.classList.toggle('menu-open');
+    if (t) {
+      const open = document.body.classList.toggle('menu-open');
+      t.setAttribute('aria-expanded', open);
+      return;
+    }
+    // Close menu when a nav link is clicked
+    if (e.target.closest('.nav a') && document.body.classList.contains('menu-open')) {
+      document.body.classList.remove('menu-open');
+      const toggle = document.querySelector('[data-menu-toggle]');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
   });
 
   // Reveal on scroll
