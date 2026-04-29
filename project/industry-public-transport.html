@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Public Transportation — FZD Global</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300..700;1,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.ind-hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(247,245,240,0.16); }
+@media (min-width: 700px) { .ind-hero-meta { grid-template-columns: repeat(4, 1fr); } }
+.ind-hero-meta .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--coral); }
+.ind-hero-meta .v { font-family: var(--serif); font-size: 24px; color: var(--canvas); margin-top: 8px; }
+.client-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
+@media (min-width: 700px) { .client-logos { grid-template-columns: repeat(5, 1fr); } }
+.client-logos .logo { background: var(--paper); aspect-ratio: 3/2; display: grid; place-items: center; padding: 24px; }
+.client-logos .logo .lg { font-family: var(--serif); font-size: 18px; color: var(--navy); letter-spacing: -0.01em; text-align: center; line-height: 1.1; opacity: 0.85; }
+.client-logos .logo .lg-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--muted); margin-top: 6px; text-align: center; }
+.case-block { background: var(--paper); border: 1px solid var(--rule); padding: 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 900px) { .case-block { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.case-block + .case-block { margin-top: 24px; }
+.case-block .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; margin-bottom: 16px; }
+.case-block .case-title { font-family: var(--serif); font-size: 30px; color: var(--navy); font-weight: 500; margin: 0 0 20px; line-height: 1.18; letter-spacing: -0.01em; }
+.case-block .case-body { color: var(--ink-2); line-height: 1.7; }
+.case-block .case-outcome { background: var(--canvas-warm); border-left: 3px solid var(--coral); padding: 20px 24px; margin-top: 20px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--navy); line-height: 1.4; }
+.case-block .case-tools { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.challenges-list { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--rule); }
+@media (min-width: 700px) { .challenges-list { grid-template-columns: repeat(2, 1fr); } }
+.challenges-list li { list-style: none; padding: 24px 0; border-bottom: 1px solid var(--rule); padding-right: 24px; display: flex; gap: 16px; align-items: start; }
+@media (min-width: 700px) { .challenges-list li:nth-child(odd) { border-right: 1px solid var(--rule); padding-right: 24px; } .challenges-list li:nth-child(even) { padding-left: 24px; } }
+.challenges-list li::before { content: "—"; color: var(--coral); font-family: var(--mono); flex-shrink: 0; }
+.challenges-list li span { color: var(--ink-2); line-height: 1.5; }
+</style>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+<a href="index.html" class="" data-i18n="nav.home">Home</a>
+<a href="about.html" class="" data-i18n="nav.about">About</a>
+<a href="services.html" class="" data-i18n="nav.services">Services</a>
+<a href="industries.html" class="is-active" data-i18n="nav.industries">Industries</a>
+<a href="insights.html" class="" data-i18n="nav.insights">Insights</a>
+<a href="contact.html" class="" data-i18n="nav.contact">Contact</a>
+</nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+</div></div></header>
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><a href="industries.html" data-i18n="nav.industries">Industries</a><span class="breadcrumb__sep">/</span><span>Public Transportation</span></div>
+<div class="eyebrow">INDUSTRY 08</div>
+<h1 class="h-display" style="margin-top: 24px; max-width: 22ch;">Public Transportation.</h1>
+<p class="lead" style="max-width: 60ch;">Public transport networks are some of the most operationally complex organizations we work with. The data architecture has to match.</p>
+<div class="ind-hero-meta">
+<div><div class="k">Sub-sectors</div><div class="v" style="font-size: 16px; line-height: 1.4;">Cloud data platform · REST APIs · Document monitoring</div></div>
+<div><div class="k">Engagements</div><div class="v">1+</div></div>
+<div><div class="k">Specializations</div><div class="v">DACH</div></div>
+<div><div class="k">Status</div><div class="v">Actively serving</div></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow">— Anonymized engagements</div><h2 class="h-section" style="margin-top: 20px;">Selected clients in this sector</h2></div>
+<div class="reveal" data-delay="1"><p class="lead">Confidential by default. Logos shown anonymized; named references available under NDA on request.</p></div>
+</div>
+<div class="client-logos reveal"><div class="logo"><div><div class="lg">DACH Insurer</div><div class="lg-sub">Tier-1</div></div></div><div class="logo"><div><div class="lg">Packaging Group</div><div class="lg-sub">5 Countries</div></div></div><div class="logo"><div><div class="lg">MedTech OEM</div><div class="lg-sub">Global</div></div></div><div class="logo"><div><div class="lg">Energy Co.</div><div class="lg-sub">Renewables</div></div></div><div class="logo"><div><div class="lg">Industrial B2B</div><div class="lg-sub">EU</div></div></div></div>
+</div>
+</section>
+
+<section class="section" style="background: var(--canvas-warm);">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow">— Common challenges</div><h2 class="h-section" style="margin-top: 20px;">What public leaders bring to us.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead">Recurring patterns across engagements. Each is solvable. None is solved by a slide deck alone.</p></div>
+</div>
+<ul class="challenges-list reveal" style="padding: 0; margin: 0;"><li><span>Cloud migration of operational data</span></li><li><span>REST API integration across vendors</span></li><li><span>Document workflow modernization</span></li><li><span>SAP and Cloudera integration</span></li></ul>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow">— Case studies</div><h2 class="h-section" style="margin-top: 20px;">Selected work in Public Transportation.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead">Engagement details below. Specific clients, financials and architecture diagrams shared under NDA.</p></div>
+</div>
+<div class="case-block reveal">
+<div><div class="case-meta">Public Transportation · 2021–2022</div><h3 class="case-title">Cloud data platform end-to-end</h3><div class="case-tools" style="border-top:0; padding-top:0; margin-top:0;">Azure Synapse · Stream Analytics · Power Apps · Power Automate · Databricks</div></div>
+<div><p class="case-body">Built a cloud-based data platform. Integrated on-premise data into the cloud. Established cloud data governance and security guidelines. Developed custom monitoring interfaces. Created REST API data interfaces. Built a document monitoring app using Power Apps and Power Automate. Connected SAP BW, SAP HANA and Cloudera to Azure Synapse. Delivered internal IT training and workshops.</p><div class="case-outcome">Operational data unified. IT empowered to deliver further analytics independently.</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+</body></html>

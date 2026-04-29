@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>About — FZD Global</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300..700;1,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.about-hero-portrait { background: var(--navy); aspect-ratio: 4/5; display: grid; place-items: center; color: var(--canvas); position: relative; overflow: hidden; }
+.about-hero-portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(212,127,79,0.18), transparent 60%); }
+.about-hero-portrait .initials { font-family: var(--serif); font-size: 220px; font-weight: 300; letter-spacing: -0.04em; line-height: 1; opacity: 0.92; }
+.about-hero-portrait .label { position: absolute; bottom: 24px; left: 24px; right: 24px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(247,245,240,0.6); display: flex; justify-content: space-between; text-transform: uppercase; }
+.bio-paragraphs p { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--navy); margin: 0 0 20px; }
+.bio-paragraphs p:first-child::first-letter { font-family: var(--serif); font-size: 78px; font-weight: 500; float: left; line-height: 0.85; padding: 8px 14px 0 0; color: var(--coral); }
+.timeline { border-top: 1px solid var(--rule); margin-top: 32px; }
+.timeline-row { display: grid; grid-template-columns: 100px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.timeline-row .yr { font-family: var(--mono); font-size: 13px; color: var(--coral); letter-spacing: 0.06em; }
+.timeline-row h4 { font-family: var(--serif); font-size: 22px; color: var(--navy); margin: 0 0 8px; font-weight: 500; }
+.timeline-row p { color: var(--ink-2); margin: 0; line-height: 1.6; }
+.values-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
+@media (min-width: 800px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
+.value-card { background: var(--paper); padding: 36px 32px; }
+.value-card .vc-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); }
+.value-card h3 { font-family: var(--serif); font-size: 26px; margin: 16px 0 12px; color: var(--navy); font-weight: 500; }
+.value-card p { color: var(--ink-2); line-height: 1.6; margin: 0; }
+.cred-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+@media (min-width: 800px) { .cred-grid { grid-template-columns: repeat(3, 1fr); } }
+.cred { padding: 28px; background: var(--canvas-warm); border-left: 3px solid var(--gold); }
+.cred .name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); }
+.cred h4 { font-family: var(--serif); font-size: 20px; color: var(--navy); margin: 12px 0 8px; font-weight: 500; }
+.cred p { color: var(--ink-2); margin: 0; font-size: 14px; line-height: 1.5; }
+</style>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+<a href="index.html" class="" data-i18n="nav.home">Home</a>
+<a href="about.html" class="is-active" data-i18n="nav.about">About</a>
+<a href="services.html" class="" data-i18n="nav.services">Services</a>
+<a href="industries.html" class="" data-i18n="nav.industries">Industries</a>
+<a href="insights.html" class="" data-i18n="nav.insights">Insights</a>
+<a href="contact.html" class="" data-i18n="nav.contact">Contact</a>
+</nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+</div></div></header>
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.about">About</span></div>
+<div class="eyebrow" data-i18n="about.eyebrow">— Founder &amp; practice</div>
+<h1 class="h-display" style="margin-top: 24px;"><span data-i18n="about.title.1">A boutique data &amp;</span><br><span data-i18n="about.title.2">AI consultancy</span><br><span style="color: var(--coral); font-style: italic;" data-i18n="about.title.3">built around one principle.</span></h1>
+<p class="lead" style="margin-top: 32px; max-width: 60ch;" data-i18n="about.lead">FZD Global is led by Faruk Zorlu — Senior Data &amp; AI Solutions Architect, founder, and the senior architect on every engagement we take. The principle: senior people, on the work, every day. Not a sales motion that ends with a junior team.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="split-2 split-2--6-5">
+<div class="bio-paragraphs reveal">
+<p>I started building enterprise data systems in 2014, working through banking, insurance, energy, manufacturing and medical technology before founding FZD Global to do the work the way I always wanted to do it: with senior architects, in close collaboration with leadership, and with a bias toward outcomes that survive the consultant leaving.</p>
+<p>Over the past decade I have led architectures across SAP BW, IBM Cognos, Microsoft Fabric, Azure Synapse, Databricks, Snowflake, Power BI and the modern AI stack. The technologies change. The discipline does not: understand the business, model the data honestly, ship something useful, instrument it, iterate.</p>
+<p>FZD Global serves DACH-region clients in five core sectors. Engagements range from focused architecture sprints to multi-year strategic partnerships. Whatever the shape — I am on every one.</p>
+</div>
+<div class="reveal" data-delay="1">
+<div class="about-hero-portrait">
+<div class="initials">FZ</div>
+<div class="label"><span>Faruk Zorlu</span><span>Founder · Heidelberg</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background: var(--canvas-warm);">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.track.eyebrow">— Track record</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.track.title">A decade across industries that don't tolerate slop.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.track.lead">Selected milestones from a hands-on practice. Specific clients shared under NDA.</p></div>
+</div>
+<div class="timeline reveal">
+<div class="timeline-row"><div class="yr">2024–2025</div><div><h4>Insurance — 200 dashboards migrated, end-to-end</h4><p>Led the migration of 200 Power BI dashboards to Grafana for a tier-1 European insurer. Built CIO-level dashboards. Implemented row-level security across all departments. Delivered training and adoption.</p></div></div>
+<div class="timeline-row"><div class="yr">2024–Present</div><div><h4>Medical Technology — MS Fabric Data Mesh, Lakehouse and IoT analytics</h4><p>Architecting a Data Mesh and Lakehouse on Microsoft Fabric. Power BI reports across aggregated and live data. Asset-management Power Apps. PoC IoT analytics for medical devices.</p></div></div>
+<div class="timeline-row"><div class="yr">2023–2024</div><div><h4>Packaging — Five-country DWH consolidation</h4><p>Cloud DWH consolidating ERPs across five countries. SSIS-to-ADF migration. SAP BW and HANA connected. Group reporting cycle cut materially.</p></div></div>
+<div class="timeline-row"><div class="yr">2021–2022</div><div><h4>Energy &amp; Public Transportation — Cloud platforms and IoT</h4><p>Lead Architect on cloud-based data platforms for a renewable-energy operator and a major public transportation network. Streaming, governance, REST APIs and Power Apps for operational workflows.</p></div></div>
+<div class="timeline-row"><div class="yr">2017–2020</div><div><h4>Banking &amp; Insurance — Cognos and BI modernization</h4><p>Migration from Cognos 10 to Cognos 11. Sales-management reporting. Data modeling, dashboards and coaching across multiple financial-services clients.</p></div></div>
+<div class="timeline-row"><div class="yr">2014–2017</div><div><h4>Foundations — SAP BW, BPC, IFRS reporting</h4><p>Hands-on engineering across SAP Business Warehouse, BPC, SEM-BCS and IFRS group reporting. The discipline of getting the numbers right shaped everything that came after.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.principles.eyebrow">— Operating principles</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.principles.title">Three commitments that shape the work.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.principles.lead">These are not posters. They are how engagements are scoped, staffed and judged.</p></div>
+</div>
+<div class="values-grid reveal">
+<div class="value-card"><div class="vc-num">01</div><h3>Senior on the work.</h3><p>You buy our practice, you get our practice. No bait-and-switch to junior teams. Every engagement has a senior architect doing the work — not just attending the steerco.</p></div>
+<div class="value-card"><div class="vc-num">02</div><h3>Outcome over output.</h3><p>Anyone can ship slides and deliverables. We measure ourselves on what changes after we leave: faster close cycles, better forecasts, decisions made on data instead of intuition.</p></div>
+<div class="value-card"><div class="vc-num">03</div><h3>Boutique by choice.</h3><p>We say no to engagements that need 30 consultants. The work we take is the work that benefits from depth and continuity, not headcount. That keeps quality up and senior attention undiluted.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background: var(--canvas-warm);">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.cred.eyebrow">— Credentials</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.cred.title">Certifications &amp; training.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.cred.lead">A working list. Updated as they expire and renew.</p></div>
+</div>
+<div class="cred-grid reveal">
+<div class="cred"><div class="name">Microsoft</div><h4>Azure Data Engineer Associate</h4><p>DP-203 / DP-700 track. Microsoft Fabric, Synapse, Databricks practitioner.</p></div>
+<div class="cred"><div class="name">Microsoft</div><h4>Azure Solutions Architect</h4><p>Architecture and operations for enterprise Azure data platforms.</p></div>
+<div class="cred"><div class="name">SAP</div><h4>SAP BW &amp; BPC Practitioner</h4><p>Years of hands-on delivery on Business Warehouse, BPC and group consolidation.</p></div>
+<div class="cred"><div class="name">IBM</div><h4>Cognos Analytics Specialist</h4><p>Framework Manager, Cognos 11 migrations and enterprise reporting.</p></div>
+<div class="cred"><div class="name">Languages</div><h4>German · English · Turkish</h4><p>Native German, professional English, native Turkish. Engagements run in any of the three.</p></div>
+<div class="cred"><div class="name">Continuing</div><h4>LLM &amp; AI agent practice</h4><p>Active practitioner: LangChain, LangGraph, RAG architectures, evaluation methodology.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+</body></html>
