@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="assets/fzd-mark.png">
+<title>Solutions — FZD Global</title>
+<meta name="description" content="Packaged solutions: KPI cockpit, data platform assessment, Power BI modernization, AI readiness sprint, healthcare operations dashboard, data integration starter.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.sol-grid { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: clamp(40px, 5vw, 64px); }
+@media (min-width: 700px) { .sol-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .sol-grid { grid-template-columns: repeat(3, 1fr); } }
+.sol-nav-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-decoration: none; transition: border-color .25s, transform .25s; }
+.sol-nav-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.sol-nav-card .num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sol-nav-card .t { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--text); margin: 8px 0 0; letter-spacing: -0.015em; }
+
+.sol { padding: clamp(72px, 10vw, 120px) 0; border-bottom: 1px solid var(--border); }
+.sol:nth-child(even) { background: var(--bg-2); }
+.sol__head { margin-bottom: 48px; }
+.sol__num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 500; text-transform: uppercase; }
+.sol__title { font-family: var(--display); font-weight: 600; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.06; color: var(--text); margin: 14px 0 18px; letter-spacing: -0.025em; }
+.sol__intro { font-size: 17px; line-height: 1.65; color: var(--text-2); max-width: 70ch; margin: 0; }
+.sol__body { display: grid; gap: 48px; grid-template-columns: 1fr; }
+@media (min-width: 1000px) { .sol__body { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 64px; } }
+.sol__lists { display: grid; gap: 32px; }
+.sol__lists h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); margin: 0 0 14px; font-weight: 500; }
+.sol__lists ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sol__lists ul li { padding-left: 18px; position: relative; font-size: 15px; color: var(--text-2); line-height: 1.55; }
+.sol__lists ul li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 1px; background: var(--gradient); }
+@media (min-width: 700px) { .sol__lists { grid-template-columns: 1fr 1fr; gap: 32px 40px; } }
+.sol__aside { display: grid; gap: 16px; align-content: start; }
+.sol__aside .sidebox { background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); }
+.sol__aside .sidebox h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0 0 14px; font-weight: 500; }
+.sol__aside .sidebox p, .sol__aside .sidebox .stack { font-size: 13px; color: var(--text-2); line-height: 1.65; margin: 0; font-family: var(--mono); }
+.sol__cta { background: var(--bg-3); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); }
+.sol__cta p { font-size: 14px; color: var(--text-2); line-height: 1.5; margin: 0 0 14px; }
+.sol__cta .btn { width: 100%; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" class="is-active" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Book a Data Assessment</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span data-i18n="nav.solutions">Solutions</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow">— Packaged solutions</div>
+        <h1 class="h-display" style="margin-top:24px;">Packaged solutions for faster decisions, cleaner data, smarter operations.</h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead">Choose a focused starting point. Each solution is a defined scope with documented deliverables, fixed timeline, and clear business outcomes — designed to deliver value in weeks, not quarters.</p>
+      </div>
+    </div>
+    <div class="sol-grid">
+      <a class="sol-nav-card" href="#kpi-cockpit"><div class="num">01</div><div class="t">Management KPI Cockpit</div></a>
+      <a class="sol-nav-card" href="#platform-assessment"><div class="num">02</div><div class="t">Data Platform Assessment</div></a>
+      <a class="sol-nav-card" href="#power-bi-modernization"><div class="num">03</div><div class="t">Power BI Modernization</div></a>
+      <a class="sol-nav-card" href="#ai-readiness"><div class="num">04</div><div class="t">AI Readiness Sprint</div></a>
+      <a class="sol-nav-card" href="#healthcare-ops"><div class="num">05</div><div class="t">Healthcare / MedTech Dashboard</div></a>
+      <a class="sol-nav-card" href="#data-integration"><div class="num">06</div><div class="t">Data Integration Starter</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 KPI COCKPIT ────────────────────────────────── -->
+<section class="sol" id="kpi-cockpit">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 01 — For CEOs · CFOs · COOs · Operations leaders</div>
+      <h2 class="sol__title">Management KPI Cockpit</h2>
+      <p class="sol__intro">Replace manual Excel reporting and inconsistent monthly decks with one executive dashboard, a governed KPI tree, and an automated refresh you can rely on for board meetings.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>No single source of truth for management KPIs</li>
+            <li>Manual Excel reporting consuming days each month</li>
+            <li>Inconsistent KPI definitions across business units</li>
+            <li>Slow management reporting cycles</li>
+            <li>Different teams reporting different numbers</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Executive dashboard, board-ready</li>
+            <li>KPI tree with documented definitions</li>
+            <li>Automated daily refresh pipeline</li>
+            <li>Drill-down logic for line-of-business analysis</li>
+            <li>Governance model and ownership map</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business outcomes</h3>
+          <ul>
+            <li>Faster, more confident management decisions</li>
+            <li>Reliable, trusted reporting</li>
+            <li>Reduced manual work in finance and ops</li>
+            <li>Better visibility across business units</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Typical timeline</h3>
+          <ul>
+            <li>Discovery &amp; KPI workshops — 2 weeks</li>
+            <li>Data model &amp; pipeline build — 4–6 weeks</li>
+            <li>Dashboard build &amp; review cycles — 3–4 weeks</li>
+            <li>Training &amp; handover — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies</h4>
+          <p class="stack">Power BI · Microsoft Fabric · Azure SQL · dbt · Excel connectors</p>
+        </div>
+        <div class="sol__cta">
+          <p>Book a 30-minute scoping call to discuss your KPI structure and reporting pain points.</p>
+          <a href="contact.html" class="btn"><span>Build a KPI cockpit</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 PLATFORM ASSESSMENT ────────────────────────── -->
+<section class="sol" id="platform-assessment">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 02 — For CTOs · IT Directors · Data Managers · Digital Transformation</div>
+      <h2 class="sol__title">Data Platform Assessment</h2>
+      <p class="sol__intro">A written architecture review with a target-state roadmap. We map your current data sources, pipelines, costs and quality issues — then recommend the smallest set of changes that move you forward.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>Unclear current data architecture</li>
+            <li>Duplicated systems, undocumented pipelines</li>
+            <li>Rising cloud and BI costs without clear ROI</li>
+            <li>Unreliable refresh, broken dependencies</li>
+            <li>No agreed roadmap for the next 12 months</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Current architecture review (written report)</li>
+            <li>Data source map &amp; data-quality assessment</li>
+            <li>Cost review of cloud and BI estate</li>
+            <li>Target architecture proposal</li>
+            <li>Prioritized implementation roadmap</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business outcomes</h3>
+          <ul>
+            <li>Clear understanding of platform risks</li>
+            <li>Realistic cost-reduction opportunities</li>
+            <li>A roadmap your CFO and CIO both endorse</li>
+            <li>Foundation for vendor and tool decisions</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Typical timeline</h3>
+          <ul>
+            <li>Discovery interviews — 1–2 weeks</li>
+            <li>Technical assessment — 2–3 weeks</li>
+            <li>Roadmap &amp; presentation — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies covered</h4>
+          <p class="stack">Azure · Microsoft Fabric · Synapse · Databricks · dbt · Snowflake · Data Factory · Purview</p>
+        </div>
+        <div class="sol__cta">
+          <p>Get a written architecture review with concrete next steps in 4–6 weeks.</p>
+          <a href="contact.html" class="btn"><span>Request architecture review</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 POWER BI MODERNIZATION ─────────────────────── -->
+<section class="sol" id="power-bi-modernization">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 03 — For BI leads · Finance · Operations · Reporting teams</div>
+      <h2 class="sol__title">Power BI Modernization</h2>
+      <p class="sol__intro">Most Power BI estates we see have grown organically: hundreds of dashboards, unclear ownership, slow refreshes, and users who quietly fall back to Excel. This solution turns that estate into a governed, performant, adopted platform.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>Hundreds of dashboards, unclear which to use</li>
+            <li>Slow Power BI reports, frustrated users</li>
+            <li>Inconsistent KPIs across reports</li>
+            <li>Weak visual design, low executive engagement</li>
+            <li>Users still copying numbers into Excel</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Dashboard audit &amp; consolidation plan</li>
+            <li>Semantic model rebuild for performance</li>
+            <li>Redesign of executive &amp; operational reports</li>
+            <li>Power BI governance model</li>
+            <li>Adoption plan with training and ownership</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business outcomes</h3>
+          <ul>
+            <li>Trusted, fast, well-designed dashboards</li>
+            <li>Fewer dashboards, more usage</li>
+            <li>Reduced effort to maintain reporting estate</li>
+            <li>Users move out of Excel into governed reports</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Typical timeline</h3>
+          <ul>
+            <li>Audit &amp; consolidation plan — 3 weeks</li>
+            <li>Semantic model &amp; performance — 4–6 weeks</li>
+            <li>Redesign &amp; rollout — 6–10 weeks</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies</h4>
+          <p class="stack">Power BI · Tabular Editor · DAX Studio · SQL · Microsoft Fabric · Purview</p>
+        </div>
+        <div class="sol__cta">
+          <p>Start with a dashboard audit — fixed scope, fixed price, written recommendations.</p>
+          <a href="contact.html" class="btn"><span>Modernize Power BI</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 AI READINESS ───────────────────────────────── -->
+<section class="sol" id="ai-readiness">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 04 — For CEOs · Innovation leads · CIOs · Product owners</div>
+      <h2 class="sol__title">AI Readiness Sprint</h2>
+      <p class="sol__intro">Most AI ambition gets stuck between "interesting demo" and "production system." This sprint identifies the highest-ROI use cases for your data, validates feasibility, and builds a working prototype with a clear path to production.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>Many AI ideas, no clear ROI prioritization</li>
+            <li>Sensitive data and compliance concerns</li>
+            <li>Weak data foundation for AI</li>
+            <li>No production deployment plan</li>
+            <li>Unclear governance and risk model</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Use-case discovery workshops</li>
+            <li>Feasibility &amp; ROI assessment per use case</li>
+            <li>Data-readiness analysis</li>
+            <li>Working prototype on real data</li>
+            <li>Risk assessment &amp; implementation roadmap</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business outcomes</h3>
+          <ul>
+            <li>Confidence in which AI ideas to pursue</li>
+            <li>A working demo to align stakeholders</li>
+            <li>Realistic timeline and cost estimate</li>
+            <li>Clear governance and compliance picture</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Typical timeline</h3>
+          <ul>
+            <li>Use-case discovery — 1–2 weeks</li>
+            <li>Feasibility &amp; data analysis — 2 weeks</li>
+            <li>Prototype build — 3–4 weeks</li>
+            <li>Roadmap &amp; presentation — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies</h4>
+          <p class="stack">Azure OpenAI · LangChain · LangGraph · Microsoft Fabric · Power Automate · pgvector</p>
+        </div>
+        <div class="sol__cta">
+          <p>Move from AI ambition to a working prototype with a clear path to production.</p>
+          <a href="contact.html" class="btn"><span>Explore AI use cases</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 HEALTHCARE OPS ─────────────────────────────── -->
+<section class="sol" id="healthcare-ops">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 05 — For Healthcare providers · Diagnostic centers · MedTech operators</div>
+      <h2 class="sol__title">Healthcare / MedTech Operations Dashboard</h2>
+      <p class="sol__intro">Connect EHR, IoT device data, scheduling and ERP into one operational view. Built for healthcare and MedTech organizations where device utilization, capacity planning and cancellation analytics directly affect revenue and patient care.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>Device utilization unclear across sites</li>
+            <li>Manual appointment and capacity planning</li>
+            <li>Clinical and operational data separated</li>
+            <li>Cancellations and blocked slots not analyzed</li>
+            <li>Management reports arrive too late</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Device capacity cockpit</li>
+            <li>Appointment &amp; cancellation analytics</li>
+            <li>Site utilization dashboard</li>
+            <li>Predictive calendar &amp; load forecasting</li>
+            <li>Operational alert rules</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Example KPIs tracked</h3>
+          <ul>
+            <li>Device utilization, weekly examination volume</li>
+            <li>Appointment cancellations &amp; blocked slots</li>
+            <li>Waiting time, staff capacity</li>
+            <li>Revenue per device, revenue per site</li>
+            <li>Private-patient share, no-show rate</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Compliance &amp; data</h3>
+          <ul>
+            <li>DSGVO/GDPR-aware architecture</li>
+            <li>EHR / HL7 / FHIR integration</li>
+            <li>IoT device telemetry pipelines</li>
+            <li>Role-based access &amp; audit logs</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies</h4>
+          <p class="stack">Microsoft Fabric · Azure IoT Hub · Power BI · FHIR APIs · Purview · Azure SQL</p>
+        </div>
+        <div class="sol__cta">
+          <p>Designed specifically for diagnostic centers, MedTech operators, and care providers.</p>
+          <a href="contact.html" class="btn"><span>Discuss healthcare analytics</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 DATA INTEGRATION ───────────────────────────── -->
+<section class="sol" id="data-integration">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num">Solution 06 — For mid-sized enterprises · Group reporting teams · IT</div>
+      <h2 class="sol__title">Data Integration Starter Package</h2>
+      <p class="sol__intro">For companies juggling ERP, CRM, Excel and APIs with no shared layer. We build the integration backbone — source mapping, pipelines, a cloud DWH, and a dashboard-ready model — in a fixed scope.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3>Problems we solve</h3>
+          <ul>
+            <li>Multiple sources of truth across systems</li>
+            <li>Manual exports and repeated data entry</li>
+            <li>Inconsistent reporting between departments</li>
+            <li>Poor data quality, no clear lineage</li>
+            <li>Reports that take hours to refresh</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What we deliver</h3>
+          <ul>
+            <li>Source-system mapping &amp; ownership</li>
+            <li>Integration pipelines (ELT/ETL/API)</li>
+            <li>Cloud data warehouse or lakehouse</li>
+            <li>Automated refresh schedule</li>
+            <li>Dashboard-ready data model</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business outcomes</h3>
+          <ul>
+            <li>One trusted layer for all reporting</li>
+            <li>Less manual data entry and copy-paste</li>
+            <li>Faster month-end close</li>
+            <li>Better data quality across the company</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Typical timeline</h3>
+          <ul>
+            <li>Source mapping &amp; design — 2 weeks</li>
+            <li>Pipelines &amp; DWH build — 6–8 weeks</li>
+            <li>Data model &amp; handover — 2 weeks</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4>Technologies</h4>
+          <p class="stack">Azure Data Factory · Microsoft Fabric · Azure SQL · dbt · REST APIs · Power BI</p>
+        </div>
+        <div class="sol__cta">
+          <p>Start with a fixed-scope source mapping in two weeks — then decide.</p>
+          <a href="contact.html" class="btn"><span>Connect your systems</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Ready to turn fragmented data into trusted decisions?</h2>
+      <p class="lead" data-i18n="cta.lead">Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Book a Data Assessment</span> <span class="arr">→</span></a>
+          <a href="case-studies.html" class="btn btn--ghost btn--lg"><span data-i18n="cta.button2">View Case Studies</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

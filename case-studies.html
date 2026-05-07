@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="assets/fzd-mark.png">
+<title>Case Studies — FZD Global</title>
+<meta name="description" content="Selected work: data platforms, dashboards, automation and AI in production across healthcare, MedTech, manufacturing, energy and insurance.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.cs { padding: clamp(72px, 10vw, 120px) 0; border-bottom: 1px solid var(--border); }
+.cs:nth-child(even) { background: var(--bg-2); }
+.cs__head { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+@media (min-width: 800px) { .cs__head { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); align-items: end; gap: 56px; } }
+.cs__meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 500; text-transform: uppercase; }
+.cs__title { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.06; color: var(--text); margin: 12px 0 0; letter-spacing: -0.025em; }
+.cs__intro { font-size: 17px; line-height: 1.65; color: var(--text-2); max-width: 60ch; margin: 0; }
+.cs__body { display: grid; gap: 32px; grid-template-columns: 1fr; }
+@media (min-width: 800px) { .cs__body { grid-template-columns: 1fr 1fr; gap: 32px 40px; } }
+@media (min-width: 1100px) { .cs__body { grid-template-columns: repeat(4, 1fr); } }
+.cs__block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.cs__block h3 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); margin: 0 0 14px; font-weight: 500; }
+.cs__block p, .cs__block ul { font-size: 14px; color: var(--text-2); line-height: 1.6; margin: 0; }
+.cs__block ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+.cs__block ul li { padding-left: 16px; position: relative; }
+.cs__block ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 1px; background: var(--gradient); }
+.cs__stack { font-family: var(--mono); font-size: 12px; color: var(--text-2); line-height: 1.6; }
+.cs__cta { margin-top: 28px; }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" class="is-active" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Book a Data Assessment</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span data-i18n="nav.cases">Case Studies</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow">— Selected work</div>
+        <h1 class="h-display" style="margin-top:24px;">Data platforms, dashboards, automation and AI in production.</h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead">Representative engagements across healthcare, MedTech, manufacturing, energy, insurance and regulated enterprise environments. Client names anonymized; named references available under NDA on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE 01 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 01 — Insurance · Tier-1 carrier · 2023–2024</div>
+        <h2 class="cs__title">Migrating 200+ dashboards from Power BI to Grafana.</h2>
+      </div>
+      <p class="cs__intro">A Tier-1 European insurer needed to consolidate two reporting platforms and reduce licensing cost while preserving every business-critical KPI.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>200+ dashboards on Power BI</li><li>Migration complexity, adoption risk</li><li>Inconsistent KPI definitions</li><li>Slow refresh on legacy semantic models</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>Migration framework &amp; mapping tool</li><li>Dashboard redesign for Grafana</li><li>Performance &amp; refresh logic</li><li>Governance and ownership model</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Power BI · Grafana · SQL Server · Azure · Python migration tooling</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Modernized reporting estate</li><li>Improved dashboard performance</li><li>Clearer governance &amp; ownership</li><li>Reduced platform licensing cost</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Discuss dashboard modernization</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ── CASE 02 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 02 — Medical Technology · 2024–Present</div>
+        <h2 class="cs__title">Microsoft Fabric data mesh for medical technology.</h2>
+      </div>
+      <p class="cs__intro">A MedTech operator needed a scalable, governed analytics layer across multiple business domains — connecting devices, scheduling and clinical operations.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>Fragmented data across domains</li><li>No shared governance model</li><li>Analytics could not scale</li><li>DSGVO/GDPR compliance pressure</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>Fabric-based data mesh with domains</li><li>Domain-owned reporting layer</li><li>Purview governance &amp; lineage</li><li>Self-service analytics for operations</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Microsoft Fabric · Azure · Power BI · Purview · IoT Hub · Azure SQL</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Trusted domain-level data</li><li>Scalable analytics architecture</li><li>Better operational insight</li><li>Compliance-ready governance</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Discuss healthcare analytics</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ── CASE 03 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 03 — Industrial · Multi-country group · 2022–2023</div>
+        <h2 class="cs__title">Five-country ERP consolidation into a cloud data warehouse.</h2>
+      </div>
+      <p class="cs__intro">A multi-country industrial group ran five ERP systems with inconsistent definitions, slow group reporting, and no shared analytical foundation.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>Five ERP systems, different versions</li><li>Inconsistent KPI definitions</li><li>Slow, manual group reporting</li><li>No shared cost/revenue view</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>Cloud data warehouse on Azure</li><li>ELT integration layer for all 5 ERPs</li><li>Harmonized KPI model</li><li>Group-level Power BI reporting</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Azure SQL · Azure Data Factory · dbt · Power BI · SAP / Oracle / Dynamics connectors</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Single reporting foundation</li><li>Faster group-level visibility</li><li>Consistent KPI definitions</li><li>Foundation for FP&amp;A automation</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Discuss ERP consolidation</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ── CASE 04 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 04 — Energy &amp; Industrial Equipment · 2024–Present</div>
+        <h2 class="cs__title">IoT analytics platform for energy and medical-device equipment.</h2>
+      </div>
+      <p class="cs__intro">Equipment-heavy organizations needed real-time visibility into device usage, performance and predictive maintenance signals — all in one operational view.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>Usage data not visible to operations</li><li>No predictive monitoring</li><li>Disconnected device telemetry</li><li>Reactive instead of proactive ops</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>IoT streaming pipeline</li><li>Utilization &amp; uptime dashboard</li><li>Predictive maintenance signals</li><li>Operational alert rules</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Azure IoT Hub · Stream Analytics · Microsoft Fabric · Power BI · Grafana</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Better capacity utilization</li><li>Faster issue detection</li><li>Lower unplanned downtime</li><li>Foundation for predictive ops</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Discuss IoT analytics</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ── CASE 05 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 05 — DACH Enterprise Finance · 2023</div>
+        <h2 class="cs__title">CFO dashboard and enterprise performance reporting.</h2>
+      </div>
+      <p class="cs__intro">A controlling team relied on manual Excel for monthly reporting. Month-end took five days; numbers often disagreed between business units.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>Manual Excel reporting cycle</li><li>Slow month-end visibility</li><li>Different numbers across BUs</li><li>No drill-down for board questions</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>CFO dashboard with KPI tree</li><li>Automated refresh from finance systems</li><li>Standardized definitions across BUs</li><li>Drill-down to transaction level</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Power BI · Azure SQL · IFRS reporting model · dbt · SAP / Dynamics</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Faster financial insight</li><li>Reduced manual reporting effort</li><li>Trusted single source of truth</li><li>Confident board reporting</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Build a KPI cockpit</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ── CASE 06 ─────────────────────────────────────────── -->
+<section class="cs">
+  <div class="container">
+    <div class="cs__head reveal">
+      <div>
+        <div class="cs__meta">Case 06 — Asset-heavy Operations · 2024</div>
+        <h2 class="cs__title">Power Apps asset-management solution.</h2>
+      </div>
+      <p class="cs__intro">An operationally complex business tracked physical assets across spreadsheets and SharePoint lists. Updates were inconsistent; ownership unclear.</p>
+    </div>
+    <div class="cs__body reveal" data-delay="1">
+      <div class="cs__block"><h3>Challenge</h3><ul><li>Manual asset tracking</li><li>Scattered lists and spreadsheets</li><li>No clear ownership of records</li><li>No visibility for management</li></ul></div>
+      <div class="cs__block"><h3>What we built</h3><ul><li>Power Apps front-end for field use</li><li>Dataverse / List backend</li><li>Power Automate workflow rules</li><li>Power BI tracking dashboard</li></ul></div>
+      <div class="cs__block"><h3>Technologies</h3><div class="cs__stack">Power Apps · Power Automate · Dataverse · Microsoft Lists · Power BI</div></div>
+      <div class="cs__block"><h3>Business impact</h3><ul><li>Cleaner operational data</li><li>Better asset tracking</li><li>Fewer manual steps</li><li>Visibility for management</li></ul></div>
+    </div>
+    <div class="cs__cta reveal"><a href="contact.html" class="btn btn--ghost"><span>Discuss process automation</span> <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Ready to turn fragmented data into trusted decisions?</h2>
+      <p class="lead" data-i18n="cta.lead">Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Book a Data Assessment</span> <span class="arr">→</span></a>
+          <a href="solutions.html" class="btn btn--ghost btn--lg"><span>Explore Solutions</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
