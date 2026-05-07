@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="assets/fzd-mark.png">
+<title>Technology Stack — FZD Global</title>
+<meta name="description" content="The technology stack we work with: Microsoft Fabric, Power BI, Azure, Databricks, Power Platform, AI tooling, and governance.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.tech-grid { display:grid; gap:16px; grid-template-columns: 1fr; margin-top: clamp(32px, 4vw, 48px); }
+@media (min-width: 700px) { .tech-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
+.tech-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+.tech-block h3 { font-family: var(--display); font-weight:600; font-size:18px; color: var(--text); margin: 0 0 8px; letter-spacing:-0.015em; }
+.tech-block .sub { font-family: var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight:500; margin-bottom:18px; display:block; }
+.tech-block ul { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.tech-block ul li { padding-left:18px; position:relative; font-size:14px; color: var(--text-2); line-height:1.55; font-family: var(--mono); }
+.tech-block ul li::before { content:""; position:absolute; left:0; top:10px; width:8px; height:1px; background: var(--gradient); }
+.note-band { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin-top: 48px; display: grid; gap: 14px; }
+.note-band h3 { font-family: var(--display); font-weight:600; font-size:20px; color: var(--text); margin: 0; letter-spacing:-0.02em; }
+.note-band p { font-size: 15px; color: var(--text-2); line-height:1.65; margin: 0; max-width: 75ch; }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="en" class="is-active">EN</button><button data-lang-btn="de">DE</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Book a Data Assessment</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span>Technology Stack</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow">— Technology stack</div>
+        <h1 class="h-display" style="margin-top:24px;">The technology stack we work with.</h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead">Pragmatic choices, not buzzword bingo. We pick technologies for the specific problem at hand — bias toward Microsoft Azure and Fabric for DACH enterprise environments, with best-of-breed alternatives where they fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal"><div class="eyebrow">— Stack categories</div><h2 class="h-section" style="margin-top:20px;">Six categories. Senior expertise across all.</h2></div>
+      <div class="reveal" data-delay="1"><p class="lead">Each tool earns its place in the stack only after it's proven its value in production engagements.</p></div>
+    </div>
+    <div class="tech-grid reveal">
+
+      <div class="tech-block">
+        <span class="sub">Category 01</span>
+        <h3>Microsoft Data &amp; BI</h3>
+        <ul>
+          <li>Power BI</li>
+          <li>Microsoft Fabric</li>
+          <li>Azure Synapse Analytics</li>
+          <li>Azure SQL Database</li>
+          <li>Dataverse</li>
+          <li>Power Apps</li>
+          <li>Power Automate</li>
+        </ul>
+      </div>
+
+      <div class="tech-block">
+        <span class="sub">Category 02</span>
+        <h3>Cloud &amp; Engineering</h3>
+        <ul>
+          <li>Azure Data Factory</li>
+          <li>Azure Databricks</li>
+          <li>Azure Data Lake Storage</li>
+          <li>SQL (T-SQL, PL/SQL, Postgres)</li>
+          <li>Python &amp; PySpark</li>
+          <li>dbt (data build tool)</li>
+          <li>REST &amp; GraphQL APIs</li>
+        </ul>
+      </div>
+
+      <div class="tech-block">
+        <span class="sub">Category 03</span>
+        <h3>AI &amp; Analytics</h3>
+        <ul>
+          <li>Azure OpenAI / OpenAI / Anthropic</li>
+          <li>LangChain &amp; LangGraph</li>
+          <li>RAG &amp; vector databases (pgvector, Pinecone)</li>
+          <li>Forecasting &amp; ML pipelines</li>
+          <li>Anomaly detection</li>
+          <li>Predictive analytics</li>
+          <li>Evaluation &amp; observability frameworks</li>
+        </ul>
+      </div>
+
+      <div class="tech-block">
+        <span class="sub">Category 04</span>
+        <h3>Governance &amp; Compliance</h3>
+        <ul>
+          <li>Microsoft Purview</li>
+          <li>Role-based access control (RBAC)</li>
+          <li>Data lineage &amp; cataloging</li>
+          <li>DSGVO / GDPR-aware design</li>
+          <li>Data quality rules &amp; monitoring</li>
+          <li>Documentation standards</li>
+          <li>Version control (Git, Azure DevOps)</li>
+        </ul>
+      </div>
+
+      <div class="tech-block">
+        <span class="sub">Category 05</span>
+        <h3>Visualization &amp; Reporting</h3>
+        <ul>
+          <li>Power BI (executive &amp; operational)</li>
+          <li>Grafana (real-time &amp; IoT)</li>
+          <li>KPI cockpits &amp; KPI trees</li>
+          <li>CFO dashboards &amp; IFRS reporting</li>
+          <li>Self-service semantic models</li>
+          <li>Embedded analytics</li>
+          <li>Adoption analytics</li>
+        </ul>
+      </div>
+
+      <div class="tech-block">
+        <span class="sub">Category 06</span>
+        <h3>Streaming &amp; IoT</h3>
+        <ul>
+          <li>Azure IoT Hub</li>
+          <li>Azure Stream Analytics</li>
+          <li>Azure Event Hubs</li>
+          <li>Apache Kafka</li>
+          <li>Real-time alert rules</li>
+          <li>Device telemetry pipelines</li>
+          <li>FHIR / HL7 (healthcare)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="note-band reveal">
+      <h3>Tool selection is part of the engagement.</h3>
+      <p>We don't sell tools. Tool choice is a deliverable: a written recommendation tied to your scale, team skill profile, regulatory environment and TCO. If you already have an investment in Microsoft, Databricks or Snowflake, we work with what you have — and only recommend change when the evidence is overwhelming.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Ready to turn fragmented data into trusted decisions?</h2>
+      <p class="lead" data-i18n="cta.lead">Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Book a Data Assessment</span> <span class="arr">→</span></a>
+          <a href="solutions.html" class="btn btn--ghost btn--lg"><span>Explore Solutions</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

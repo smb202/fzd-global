@@ -10,21 +10,21 @@
 .detail-grid { display: grid; grid-template-columns: 1fr; gap: 64px; margin-top: 48px; }
 @media (min-width: 1000px) { .detail-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 80px; } }
 .detail-section { margin-bottom: 64px; }
-.detail-section h2 { font-family: var(--serif); font-weight: 500; font-size: 36px; color: var(--navy); margin: 0 0 24px; letter-spacing: -0.01em; }
+.detail-section h2 { font-family: var(--serif); font-weight: 500; font-size: 36px; color: var(--text); margin: 0 0 24px; letter-spacing: -0.01em; }
 .how-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
 .how-list li { padding: 24px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 32px 200px 1fr; gap: 24px; align-items: start; }
 @media (max-width: 800px) { .how-list li { grid-template-columns: 32px 1fr; } .how-list li > p { grid-column: 2 / -1; } }
-.how-list .how-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--coral); padding-top: 4px; }
-.how-list .how-title { font-family: var(--serif); font-size: 22px; color: var(--navy); font-weight: 500; }
+.how-list .how-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-light-1); padding-top: 4px; }
+.how-list .how-title { font-family: var(--serif); font-size: 22px; color: var(--text); font-weight: 500; }
 .how-list p { margin: 0; color: var(--ink-2); line-height: 1.6; }
 .case-card { background: var(--paper); border: 1px solid var(--rule); padding: 32px; display: grid; gap: 16px; }
 .case-card + .case-card { margin-top: 16px; }
-.case-card .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; }
-.case-card .case-title { font-family: var(--serif); font-size: 24px; color: var(--navy); margin: 0; font-weight: 500; }
+.case-card .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
+.case-card .case-title { font-family: var(--serif); font-size: 24px; color: var(--text); margin: 0; font-weight: 500; }
 .case-card .case-desc { color: var(--ink-2); line-height: 1.6; }
 .case-card .case-tools { font-family: var(--mono); font-size: 11px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 14px; }
 .sidebox { background: var(--paper); border: 1px solid var(--rule); padding: 28px; }
-.sidebox h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin: 0 0 18px; font-weight: 500; }
+.sidebox h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-light-1); margin: 0 0 18px; font-weight: 500; }
 .sidebox ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .sidebox ul li { padding-left: 18px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
 .sidebox ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 1px; background: var(--coral); }
@@ -34,9 +34,9 @@
 .related-card { background: var(--paper); padding: 28px; text-decoration: none; color: inherit; transition: background .2s; }
 .related-card:hover { background: var(--canvas); }
 .related-card .rc-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--muted); }
-.related-card .rc-title { font-family: var(--serif); font-size: 20px; color: var(--navy); margin: 12px 0 0; font-weight: 500; }
-.related-card .rc-arr { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--coral); display: inline-flex; gap: 6px; margin-top: 16px; }
-.intro-quote { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.4; color: var(--navy); border-left: 3px solid var(--coral); padding: 8px 0 8px 28px; margin: 32px 0 0; }
+.related-card .rc-title { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 12px 0 0; font-weight: 500; }
+.related-card .rc-arr { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-light-1); display: inline-flex; gap: 6px; margin-top: 16px; }
+.intro-quote { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.4; color: var(--text); border-left: 3px solid var(--coral); padding: 8px 0 8px 28px; margin: 32px 0 0; }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -129,7 +129,7 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="service-data-platform-architecture.html">Data Platform</a></li><li><a href="service-ai-agents.html">AI Agents</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>

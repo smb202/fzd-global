@@ -21,14 +21,14 @@
 @media (min-width: 700px) { .posts-list-full { grid-template-columns: 1fr 1fr; } }
 .post-card { background: var(--paper); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 260px; text-decoration: none; color: inherit; transition: background .2s; }
 .post-card:hover { background: var(--canvas); }
-.post-card .pc-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; }
-.post-card .pc-title { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--navy); margin: 0; font-weight: 500; }
+.post-card .pc-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
+.post-card .pc-title { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--text); margin: 0; font-weight: 500; }
 .post-card .pc-excerpt { color: var(--ink-2); line-height: 1.55; font-size: 14px; }
 .post-card .pc-meta { margin-top: auto; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); display: flex; gap: 12px; }
 .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--rule); }
 .filter-bar button { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 16px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2); cursor: pointer; transition: all .2s; }
-.filter-bar button.is-active { background: var(--navy); color: var(--canvas); border-color: var(--navy); }
-.filter-bar button:hover { border-color: var(--coral); color: var(--coral); }
+.filter-bar button.is-active { background: var(--navy); color: var(--canvas); border-color: var(--text); }
+.filter-bar button:hover { border-color: var(--accent-light-1); color: var(--accent-light-1); }
 .filter-bar button.is-active:hover { color: var(--canvas); }
 </style>
 </head><body>
@@ -138,7 +138,7 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>

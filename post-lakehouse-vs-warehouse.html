@@ -12,22 +12,22 @@
 .post-hero-image::after { content: "01"; position: absolute; right: 32px; bottom: -24px; font-family: var(--serif); font-size: 280px; color: rgba(255,255,255,0.10); line-height: 0.85; }
 .post-content { max-width: 720px; margin: 0 auto; }
 .post-content p { font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; }
-.post-content h2 { font-family: var(--serif); font-size: 30px; color: var(--navy); margin: 48px 0 20px; font-weight: 500; letter-spacing: -0.01em; }
-.post-content em { font-style: italic; color: var(--coral); }
-.post-content strong { font-weight: 600; color: var(--navy); }
+.post-content h2 { font-family: var(--serif); font-size: 30px; color: var(--text); margin: 48px 0 20px; font-weight: 500; letter-spacing: -0.01em; }
+.post-content em { font-style: italic; color: var(--accent-light-1); }
+.post-content strong { font-weight: 600; color: var(--text); }
 .post-meta-bar { max-width: 720px; margin: 0 auto 48px; display: flex; flex-wrap: wrap; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
 .post-meta-bar .pmb-item { display: flex; gap: 8px; align-items: center; }
-.post-meta-bar .pmb-item span:first-child { color: var(--coral); }
+.post-meta-bar .pmb-item span:first-child { color: var(--accent-light-1); }
 .author-card { max-width: 720px; margin: 64px auto 0; padding: 32px; background: var(--canvas-warm); border-left: 3px solid var(--coral); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
 .author-card .av { width: 64px; height: 64px; background: var(--navy); color: var(--canvas); display: grid; place-items: center; font-family: var(--serif); font-size: 24px; font-weight: 500; }
-.author-card .ac-name { font-family: var(--serif); font-size: 20px; color: var(--navy); margin: 0; font-weight: 500; }
+.author-card .ac-name { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 0; font-weight: 500; }
 .author-card .ac-bio { color: var(--ink-2); font-size: 14px; margin: 4px 0 0; line-height: 1.5; }
 .related-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
 @media (min-width: 800px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
 .related-post { background: var(--paper); padding: 28px; text-decoration: none; color: inherit; transition: background .2s; }
 .related-post:hover { background: var(--canvas); }
-.related-post .rp-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; }
-.related-post h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin: 12px 0; font-weight: 500; line-height: 1.3; }
+.related-post .rp-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
+.related-post h3 { font-family: var(--serif); font-size: 18px; color: var(--text); margin: 12px 0; font-weight: 500; line-height: 1.3; }
 .related-post .rp-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); }
 </style>
 </head><body>
@@ -131,7 +131,7 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>

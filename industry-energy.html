@@ -9,27 +9,34 @@
 <style>
 .ind-hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(247,245,240,0.16); }
 @media (min-width: 700px) { .ind-hero-meta { grid-template-columns: repeat(4, 1fr); } }
-.ind-hero-meta .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--coral); }
+.ind-hero-meta .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-light-1); }
 .ind-hero-meta .v { font-family: var(--serif); font-size: 24px; color: var(--canvas); margin-top: 8px; }
 .client-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
 @media (min-width: 700px) { .client-logos { grid-template-columns: repeat(5, 1fr); } }
 .client-logos .logo { background: var(--paper); aspect-ratio: 3/2; display: grid; place-items: center; padding: 24px; }
-.client-logos .logo .lg { font-family: var(--serif); font-size: 18px; color: var(--navy); letter-spacing: -0.01em; text-align: center; line-height: 1.1; opacity: 0.85; }
+.client-logos .logo .lg { font-family: var(--serif); font-size: 18px; color: var(--text); letter-spacing: -0.01em; text-align: center; line-height: 1.1; opacity: 0.85; }
 .client-logos .logo .lg-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--muted); margin-top: 6px; text-align: center; }
 .case-block { background: var(--paper); border: 1px solid var(--rule); padding: 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
 @media (min-width: 900px) { .case-block { grid-template-columns: 1fr 1fr; gap: 48px; } }
 .case-block + .case-block { margin-top: 24px; }
-.case-block .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase; margin-bottom: 16px; }
-.case-block .case-title { font-family: var(--serif); font-size: 30px; color: var(--navy); font-weight: 500; margin: 0 0 20px; line-height: 1.18; letter-spacing: -0.01em; }
+.case-block .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; margin-bottom: 16px; }
+.case-block .case-title { font-family: var(--serif); font-size: 30px; color: var(--text); font-weight: 500; margin: 0 0 20px; line-height: 1.18; letter-spacing: -0.01em; }
 .case-block .case-body { color: var(--ink-2); line-height: 1.7; }
-.case-block .case-outcome { background: var(--canvas-warm); border-left: 3px solid var(--coral); padding: 20px 24px; margin-top: 20px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--navy); line-height: 1.4; }
+.case-block .case-outcome { background: var(--canvas-warm); border-left: 3px solid var(--coral); padding: 20px 24px; margin-top: 20px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--text); line-height: 1.4; }
 .case-block .case-tools { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
 .challenges-list { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--rule); }
 @media (min-width: 700px) { .challenges-list { grid-template-columns: repeat(2, 1fr); } }
 .challenges-list li { list-style: none; padding: 24px 0; border-bottom: 1px solid var(--rule); padding-right: 24px; display: flex; gap: 16px; align-items: start; }
 @media (min-width: 700px) { .challenges-list li:nth-child(odd) { border-right: 1px solid var(--rule); padding-right: 24px; } .challenges-list li:nth-child(even) { padding-left: 24px; } }
-.challenges-list li::before { content: "—"; color: var(--coral); font-family: var(--mono); flex-shrink: 0; }
+.challenges-list li::before { content: "—"; color: var(--accent-light-1); font-family: var(--mono); flex-shrink: 0; }
 .challenges-list li span { color: var(--ink-2); line-height: 1.5; }
+.ind-detail-grid { display:grid; grid-template-columns:1fr; gap:16px; margin-top:48px; }
+@media (min-width: 900px) { .ind-detail-grid { grid-template-columns: repeat(3, 1fr); } }
+.ind-block { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+.ind-block h3 { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0 0 18px; font-weight:500; }
+.ind-block ul { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.ind-block ul li { padding-left:18px; position:relative; font-size:15px; color:var(--text-2); line-height:1.55; }
+.ind-block ul li::before { content:""; position:absolute; left:0; top:11px; width:8px; height:1px; background:var(--gradient); }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -75,6 +82,54 @@
 </section>
 
 <section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal"><div class="eyebrow">— Common business problems</div><h2 class="h-section" style="margin-top:20px;">What energy and utility leaders bring to us.</h2></div>
+      <div class="reveal" data-delay="1"><p class="lead">Recurring patterns we see in renewable energy, grid operations and utility companies. Real-time sensor data is abundant; turning it into operational insight is the gap.</p></div>
+    </div>
+    <div class="ind-detail-grid reveal">
+      <div class="ind-block">
+        <h3>Problems we solve</h3>
+        <ul>
+          <li>Real-time sensor data not integrated</li>
+          <li>Asset performance unclear at portfolio level</li>
+          <li>Forecasting for demand and generation difficult</li>
+          <li>Operational alerts missing or noisy</li>
+          <li>Maintenance scheduling reactive</li>
+          <li>Cost allocation across sites unclear</li>
+        </ul>
+      </div>
+      <div class="ind-block">
+        <h3>Solutions we build</h3>
+        <ul>
+          <li>IoT analytics platform for asset telemetry</li>
+          <li>Energy operations dashboard</li>
+          <li>Demand and generation forecasting models</li>
+          <li>Real-time alert and threshold rules</li>
+          <li>Predictive maintenance signals</li>
+          <li>Cloud data platform with governance</li>
+        </ul>
+      </div>
+      <div class="ind-block">
+        <h3>Example KPIs</h3>
+        <ul>
+          <li>Asset uptime, capacity factor</li>
+          <li>Energy production / forecast accuracy</li>
+          <li>Network losses, transmission efficiency</li>
+          <li>Maintenance cost per MW</li>
+          <li>Demand forecast deviation</li>
+          <li>CO₂ intensity per site</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center; margin-top:48px;">
+      <a href="contact.html" class="btn"><span>Discuss energy analytics</span> <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
 <div class="container">
 <div class="section-head">
 <div class="reveal"><div class="eyebrow">— Anonymized engagements</div><h2 class="h-section" style="margin-top: 20px;">Selected clients in this sector</h2></div>
@@ -117,7 +172,7 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global"></span><span class="brand__stack"><span>FZD Global</span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li></ul></div>
