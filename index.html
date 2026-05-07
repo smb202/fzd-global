@@ -15,43 +15,36 @@
 
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero {
-  padding: clamp(80px, 11vw, 160px) 0 clamp(64px, 9vw, 120px);
+  padding: clamp(72px, 10vw, 140px) 0 clamp(64px, 9vw, 120px);
   position: relative;
   overflow: hidden;
   background: var(--bg);
 }
 .hero__mesh, .hero__blob, .hero__grid-overlay { display: none; }
 
-.hero__inner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-.hero__eyebrow {
-  margin-bottom: 28px;
-}
+.hero__layout { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 5vw, 64px); align-items: center; }
+@media (min-width: 1000px) { .hero__layout { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(48px, 6vw, 96px); } }
+
+.hero__eyebrow { margin-bottom: 28px; }
 .hero h1.h-display {
   font-size: clamp(44px, 6.4vw, 88px);
   letter-spacing: -0.025em;
   font-weight: 400;
   line-height: 1.04;
 }
-.hero h1.h-display em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--text);
-}
+.hero h1.h-display em { font-style: italic; font-weight: 400; color: var(--text); }
 .hero .lead {
   margin: 28px 0 0;
   font-size: clamp(17px, 1.5vw, 20px);
-  max-width: 64ch;
+  max-width: 56ch;
   color: var(--text-2);
 }
-.hero__cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
+.hero .lead strong { color: var(--text); font-weight: 600; }
+.hero__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
+.hero__photo { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: var(--radius); position: relative; overflow: hidden; box-shadow: var(--shadow-lift); }
+.hero__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(5,28,44,0.5) 100%); pointer-events: none; }
+.hero__photo .label { position: absolute; left: 18px; bottom: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; padding: 6px 10px; background: rgba(5,28,44,0.5); border-left: 2px solid var(--accent-1); z-index: 2; }
+
 .hero__meta {
   margin-top: 72px;
   display: grid;
@@ -60,9 +53,7 @@
   border-top: 1px solid var(--border);
   padding-top: 32px;
 }
-.hero__meta-item {
-  padding-right: 28px;
-}
+.hero__meta-item { padding-right: 28px; }
 .hero__meta-item .k {
   font-family: var(--mono);
   font-size: 10px;
@@ -544,36 +535,37 @@
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <section class="hero">
-  <div class="hero__mesh">
-    <div class="hero__blob hero__blob--1"></div>
-    <div class="hero__blob hero__blob--2"></div>
-    <div class="hero__blob hero__blob--3"></div>
-  </div>
-  <div class="hero__grid-overlay"></div>
   <div class="container">
-    <div class="hero__inner reveal">
-      <div class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">FZD Global GmbH — Data & Technology Consulting</div>
-      <h1 class="h-display">
-        <span data-i18n="hero.title.1">We engineer the data foundations</span><br>
-        <em data-i18n="hero.title.2">modern enterprises run on.</em>
-      </h1>
-      <p class="lead" data-i18n="hero.lead">From cloud data platforms to AI agents, we partner with leadership teams across DACH and beyond to turn fragmented data into measurable competitive advantage.</p>
-      <div class="hero__cta">
-        <a href="contact.html" class="btn btn--lg"><span data-i18n="hero.cta.primary">Book a Data Assessment</span> <span class="arr">→</span></a>
-        <a href="case-studies.html" class="btn btn--lg btn--ghost"><span data-i18n="hero.cta.secondary">View Case Studies</span></a>
+    <div class="hero__layout">
+      <div class="reveal">
+        <div class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">FZD Global GmbH — Data, AI & Cloud Consulting</div>
+        <h1 class="h-display">
+          <span data-i18n="hero.title.1">Turn fragmented data into</span><br>
+          <em data-i18n="hero.title.2">decision-ready systems.</em>
+        </h1>
+        <p class="lead" data-i18n="hero.lead"><strong>Trusted dashboards.</strong> <strong>Governed cloud data.</strong> <strong>Production-ready AI.</strong> Senior-led consulting for enterprises across DACH.</p>
+        <div class="hero__cta">
+          <a href="contact.html" class="btn btn--lg"><span data-i18n="hero.cta.primary">Book a Data Assessment</span> <span class="arr">→</span></a>
+          <a href="case-studies.html" class="btn btn--lg btn--ghost"><span data-i18n="hero.cta.secondary">View Case Studies</span></a>
+        </div>
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <div class="k">Based in</div>
+            <div class="v">Heidelberg</div>
+          </div>
+          <div class="hero__meta-item">
+            <div class="k">Practice since</div>
+            <div class="v">2017</div>
+          </div>
+          <div class="hero__meta-item">
+            <div class="k">Languages</div>
+            <div class="v">DE · EN</div>
+          </div>
+        </div>
       </div>
-      <div class="hero__meta">
-        <div class="hero__meta-item">
-          <div class="k">Founded</div>
-          <div class="v">Heidelberg</div>
-        </div>
-        <div class="hero__meta-item">
-          <div class="k">Capabilities</div>
-          <div class="v">12 domains</div>
-        </div>
-        <div class="hero__meta-item">
-          <div class="k">Languages</div>
-          <div class="v">DE · EN</div>
+      <div class="reveal" data-delay="1">
+        <div class="hero__photo" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" aria-label="Data analytics dashboard">
+          <span class="label">Data &amp; analytics dashboard</span>
         </div>
       </div>
     </div>
@@ -629,44 +621,44 @@
   <div class="container">
     <div class="section-head">
       <div class="reveal">
-        <div class="eyebrow">01 — Problems we solve</div>
-        <h2 class="h-section" style="margin-top:20px;">Common business data problems we solve.</h2>
+        <div class="eyebrow" data-i18n="problems.eyebrow">01 — Problems we solve</div>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="problems.title">Common business data problems we solve.</h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead">Symptoms vary across companies. The underlying causes are usually the same six. Each is fixable with the right architecture and discipline.</p>
+        <p class="lead" data-i18n="problems.lead">Symptoms vary across companies. The underlying causes are usually the same six. Each is fixable with the right architecture and discipline.</p>
       </div>
     </div>
 
     <div class="svc-grid reveal">
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 01</div>
-        <h3 class="svc-card__title">Reporting is manual and slow.</h3>
-        <p class="svc-card__desc">Automated dashboards, governed KPIs and reliable refresh pipelines that replace month-end Excel marathons with daily, trusted numbers.</p>
+        <h3 class="svc-card__title" data-i18n="problems.1.t">Reporting is manual and slow.</h3>
+        <p class="svc-card__desc" data-i18n="problems.1.d">Automated dashboards, governed KPIs and reliable refresh pipelines that replace month-end Excel marathons with daily, trusted numbers.</p>
       </div>
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 02</div>
-        <h3 class="svc-card__title">Data sits in disconnected systems.</h3>
-        <p class="svc-card__desc">Cloud data warehouses, lakehouses, APIs and integration pipelines that bring ERP, CRM, IoT and Excel into one analytics-ready model.</p>
+        <h3 class="svc-card__title" data-i18n="problems.2.t">Data sits in disconnected systems.</h3>
+        <p class="svc-card__desc" data-i18n="problems.2.d">Cloud data warehouses, lakehouses, APIs and integration pipelines that bring ERP, CRM, IoT and Excel into one analytics-ready model.</p>
       </div>
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 03</div>
-        <h3 class="svc-card__title">Management does not trust the numbers.</h3>
-        <p class="svc-card__desc">Data-quality rules, KPI definitions, ownership models and governance — so the dashboard your CFO opens on Monday is the one source of truth.</p>
+        <h3 class="svc-card__title" data-i18n="problems.3.t">Management does not trust the numbers.</h3>
+        <p class="svc-card__desc" data-i18n="problems.3.d">Data-quality rules, KPI definitions, ownership models and governance — so the dashboard your CFO opens on Monday is the one source of truth.</p>
       </div>
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 04</div>
-        <h3 class="svc-card__title">AI projects stay as demos.</h3>
-        <p class="svc-card__desc">Production-ready RAG systems, agents and forecasting models with evaluation frameworks that survive past the proof-of-concept stage.</p>
+        <h3 class="svc-card__title" data-i18n="problems.4.t">AI projects stay as demos.</h3>
+        <p class="svc-card__desc" data-i18n="problems.4.d">Production-ready RAG systems, agents and forecasting models with evaluation frameworks that survive past the proof-of-concept stage.</p>
       </div>
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 05</div>
-        <h3 class="svc-card__title">Dashboards exist, but nobody uses them.</h3>
-        <p class="svc-card__desc">Executive-focused dashboard redesign, adoption logic and performance optimization — moving users out of Excel and into the report.</p>
+        <h3 class="svc-card__title" data-i18n="problems.5.t">Dashboards exist, but nobody uses them.</h3>
+        <p class="svc-card__desc" data-i18n="problems.5.d">Executive-focused dashboard redesign, adoption logic and performance optimization — moving users out of Excel and into the report.</p>
       </div>
       <div class="svc-card">
         <div class="svc-card__num">PROBLEM 06</div>
-        <h3 class="svc-card__title">Cloud and BI costs keep growing.</h3>
-        <p class="svc-card__desc">Architecture review, platform simplification and cost optimization — typically removing 20–40% of unused capacity in the first 60 days.</p>
+        <h3 class="svc-card__title" data-i18n="problems.6.t">Cloud and BI costs keep growing.</h3>
+        <p class="svc-card__desc" data-i18n="problems.6.d">Architecture review, platform simplification and cost optimization — typically removing 20–40% of unused capacity in the first 60 days.</p>
       </div>
     </div>
   </div>
@@ -677,11 +669,11 @@
   <div class="container">
     <div class="section-head">
       <div class="reveal">
-        <div class="eyebrow">02 — Services</div>
-        <h2 class="h-section" style="margin-top:20px;">Four service families. One delivery culture.</h2>
+        <div class="eyebrow" data-i18n="svcfam.eyebrow">02 — Services</div>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="svcfam.title">Four service families. One delivery culture.</h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead">We design, build and operate the data and AI infrastructure decisions are made on — across data engineering, analytics, AI, and governance.</p>
+        <p class="lead" data-i18n="svcfam.lead">We design, build and operate the data and AI infrastructure decisions are made on — across data engineering, analytics, AI, and governance.</p>
         <a href="services.html" class="btn btn--ghost mt-32"><span>See all services</span> <span class="arr">→</span></a>
       </div>
     </div>
@@ -689,29 +681,29 @@
     <div class="svc-grid reveal" style="grid-template-columns:1fr 1fr;">
       <a class="svc-card" href="services.html#data-platforms" style="min-height:280px;">
         <div class="svc-card__num">FAMILY 01</div>
-        <h3 class="svc-card__title">Data Platforms &amp; Engineering</h3>
-        <p class="svc-card__desc">Lakehouses, warehouses, ETL/ELT, streaming, IoT and DataOps. Build the cloud data foundation your reporting can trust.</p>
+        <h3 class="svc-card__title" data-i18n="svcfam.1.t">Data Platforms &amp; Engineering</h3>
+        <p class="svc-card__desc" data-i18n="svcfam.1.d">Lakehouses, warehouses, ETL/ELT, streaming, IoT and DataOps. Build the cloud data foundation your reporting can trust.</p>
         <p class="svc-card__desc" style="opacity:.75;font-size:13px;">Azure · Microsoft Fabric · Databricks · dbt · Synapse · Data Factory</p>
         <span class="svc-card__cta">Explore family <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="services.html#analytics-bi" style="min-height:280px;">
         <div class="svc-card__num">FAMILY 02</div>
-        <h3 class="svc-card__title">Analytics, BI &amp; Enterprise Performance</h3>
-        <p class="svc-card__desc">CFO dashboards, KPI trees, management cockpits, Power BI modernization and self-service reporting that executives actually use.</p>
+        <h3 class="svc-card__title" data-i18n="svcfam.2.t">Analytics, BI &amp; Enterprise Performance</h3>
+        <p class="svc-card__desc" data-i18n="svcfam.2.d">CFO dashboards, KPI trees, management cockpits, Power BI modernization and self-service reporting that executives actually use.</p>
         <p class="svc-card__desc" style="opacity:.75;font-size:13px;">Power BI · Grafana · IFRS reporting · KPI governance</p>
         <span class="svc-card__cta">Explore family <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="services.html#ai-automation" style="min-height:280px;">
         <div class="svc-card__num">FAMILY 03</div>
-        <h3 class="svc-card__title">AI, Automation &amp; Intelligent Workflows</h3>
-        <p class="svc-card__desc">From AI experiments to production: RAG, agents, copilots, forecasting, anomaly detection and Power Automate workflows.</p>
+        <h3 class="svc-card__title" data-i18n="svcfam.3.t">AI, Automation &amp; Intelligent Workflows</h3>
+        <p class="svc-card__desc" data-i18n="svcfam.3.d">From AI experiments to production: RAG, agents, copilots, forecasting, anomaly detection and Power Automate workflows.</p>
         <p class="svc-card__desc" style="opacity:.75;font-size:13px;">LangChain · Azure OpenAI · Power Automate · ML pipelines</p>
         <span class="svc-card__cta">Explore family <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="services.html#governance-strategy" style="min-height:280px;">
         <div class="svc-card__num">FAMILY 04</div>
-        <h3 class="svc-card__title">Governance, Strategy &amp; Advisory</h3>
-        <p class="svc-card__desc">Architecture review, data governance, MDM, tool selection and roadmap — the right decisions before expensive implementation begins.</p>
+        <h3 class="svc-card__title" data-i18n="svcfam.4.t">Governance, Strategy &amp; Advisory</h3>
+        <p class="svc-card__desc" data-i18n="svcfam.4.d">Architecture review, data governance, MDM, tool selection and roadmap — the right decisions before expensive implementation begins.</p>
         <p class="svc-card__desc" style="opacity:.75;font-size:13px;">Microsoft Purview · DSGVO/GDPR · Data lineage · Roadmap</p>
         <span class="svc-card__cta">Explore family <span class="arr">→</span></span>
       </a>
@@ -724,11 +716,11 @@
   <div class="container">
     <div class="section-head">
       <div class="reveal">
-        <div class="eyebrow">03 — Solutions you can buy</div>
-        <h2 class="h-section" style="margin-top:20px;">Packaged solutions for faster decisions.</h2>
+        <div class="eyebrow" data-i18n="solpreview.eyebrow">03 — Solutions you can buy</div>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="solpreview.title">Packaged solutions for faster decisions.</h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead">Choose a focused starting point: from dashboard modernization and platform assessment to AI readiness and healthcare operations analytics.</p>
+        <p class="lead" data-i18n="solpreview.lead">Choose a focused starting point: from dashboard modernization and platform assessment to AI readiness and healthcare operations analytics.</p>
         <a href="solutions.html" class="btn btn--ghost mt-32"><span>See all solutions</span> <span class="arr">→</span></a>
       </div>
     </div>
@@ -736,39 +728,39 @@
     <div class="svc-grid reveal">
       <a class="svc-card" href="solutions.html#kpi-cockpit">
         <div class="svc-card__num">SOLUTION 01</div>
-        <h3 class="svc-card__title">Management KPI Cockpit</h3>
-        <p class="svc-card__desc">Executive dashboard, KPI tree, automated refresh and governed definitions. For CEOs, CFOs and COOs tired of inconsistent monthly reports.</p>
-        <span class="svc-card__cta">Build a KPI cockpit <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.1.t">Management KPI Cockpit</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.1.d">Executive dashboard, KPI tree, automated refresh and governed definitions. For CEOs, CFOs and COOs tired of inconsistent monthly reports.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.1.cta">Build a KPI cockpit</span> <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="solutions.html#platform-assessment">
         <div class="svc-card__num">SOLUTION 02</div>
-        <h3 class="svc-card__title">Data Platform Assessment</h3>
-        <p class="svc-card__desc">Architecture review, cost analysis and target-state roadmap. For IT leaders facing rising cloud costs or unclear data architecture.</p>
-        <span class="svc-card__cta">Request architecture review <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.2.t">Data Platform Assessment</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.2.d">Architecture review, cost analysis and target-state roadmap. For IT leaders facing rising cloud costs or unclear data architecture.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.2.cta">Request architecture review</span> <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="solutions.html#power-bi-modernization">
         <div class="svc-card__num">SOLUTION 03</div>
-        <h3 class="svc-card__title">Power BI Modernization</h3>
-        <p class="svc-card__desc">Dashboard audit, semantic-model rebuild, performance optimization and adoption plan. For organizations where users are still in Excel.</p>
-        <span class="svc-card__cta">Modernize Power BI <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.3.t">Power BI Modernization</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.3.d">Dashboard audit, semantic-model rebuild, performance optimization and adoption plan. For organizations where users are still in Excel.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.3.cta">Modernize Power BI</span> <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="solutions.html#ai-readiness">
         <div class="svc-card__num">SOLUTION 04</div>
-        <h3 class="svc-card__title">AI Readiness Sprint</h3>
-        <p class="svc-card__desc">Use-case discovery, feasibility check, data-readiness analysis and prototype. For companies with AI ambition but no clear ROI path.</p>
-        <span class="svc-card__cta">Explore AI use cases <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.4.t">AI Readiness Sprint</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.4.d">Use-case discovery, feasibility check, data-readiness analysis and prototype. For companies with AI ambition but no clear ROI path.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.4.cta">Explore AI use cases</span> <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="solutions.html#healthcare-ops">
         <div class="svc-card__num">SOLUTION 05</div>
-        <h3 class="svc-card__title">Healthcare / MedTech Operations Dashboard</h3>
-        <p class="svc-card__desc">Device utilization, capacity planning, cancellation analytics and operational alerts. Built for diagnostic centers, MedTech and care providers.</p>
-        <span class="svc-card__cta">Discuss healthcare analytics <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.5.t">Healthcare / MedTech Operations Dashboard</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.5.d">Device utilization, capacity planning, cancellation analytics and operational alerts. Built for diagnostic centers, MedTech and care providers.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.5.cta">Discuss healthcare analytics</span> <span class="arr">→</span></span>
       </a>
       <a class="svc-card" href="solutions.html#data-integration">
         <div class="svc-card__num">SOLUTION 06</div>
-        <h3 class="svc-card__title">Data Integration Starter</h3>
-        <p class="svc-card__desc">Source mapping, integration pipelines, cloud DWH and dashboard-ready data model. For companies juggling ERP, CRM, Excel and APIs.</p>
-        <span class="svc-card__cta">Connect your systems <span class="arr">→</span></span>
+        <h3 class="svc-card__title" data-i18n="solpreview.6.t">Data Integration Starter</h3>
+        <p class="svc-card__desc" data-i18n="solpreview.6.d">Source mapping, integration pipelines, cloud DWH and dashboard-ready data model. For companies juggling ERP, CRM, Excel and APIs.</p>
+        <span class="svc-card__cta"><span data-i18n="solpreview.6.cta">Connect your systems</span> <span class="arr">→</span></span>
       </a>
     </div>
   </div>
@@ -997,12 +989,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.col3">Company</h4>
-        <ul>
-          <li><a href="about.html" data-i18n="nav.about">About</a></li>
-          <li><a href="insights.html" data-i18n="nav.insights">Insights</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-        </ul>
+        <h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.col4">Contact</h4>
