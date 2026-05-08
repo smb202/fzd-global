@@ -8,7 +8,7 @@
 <meta name="description" content="FZD Global GmbH — Heidelberg-based data and technology consulting. Cloud data platforms, BI, AI agents, automation. Trusted across DACH.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
 /* Page-specific styles for Home — Big Three editorial light theme */
@@ -42,8 +42,9 @@
 .hero .lead strong { color: var(--text); font-weight: 600; }
 .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
 .hero__photo { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: var(--radius); position: relative; overflow: hidden; box-shadow: var(--shadow-lift); }
-.hero__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(5,28,44,0.5) 100%); pointer-events: none; }
-.hero__photo .label { position: absolute; left: 18px; bottom: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; padding: 6px 10px; background: rgba(5,28,44,0.5); border-left: 2px solid var(--accent-1); z-index: 2; }
+.hero__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(11,15,16,0.7) 100%), linear-gradient(135deg, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
+.hero__photo .label { position: absolute; left: 18px; bottom: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; padding: 6px 10px; background: rgba(11,15,16,0.65); backdrop-filter: blur(8px); border-left: 2px solid var(--accent-1); z-index: 2; }
+.hero__photo { box-shadow: var(--glow), var(--shadow-lift); border: 1px solid var(--border); }
 
 .hero__meta {
   margin-top: 72px;
@@ -564,7 +565,7 @@
         </div>
       </div>
       <div class="reveal" data-delay="1">
-        <div class="hero__photo" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" aria-label="Data analytics dashboard">
+        <div class="hero__photo" style="background-image:url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80');" aria-label="Data analytics dashboard">
           <span class="label">Data &amp; analytics dashboard</span>
         </div>
       </div>
