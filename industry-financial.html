@@ -37,6 +37,27 @@
 .ind-block ul { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
 .ind-block ul li { padding-left:18px; position:relative; font-size:15px; color:var(--text-2); line-height:1.55; }
 .ind-block ul li::before { content:""; position:absolute; left:0; top:11px; width:8px; height:1px; background:var(--gradient); }
+
+/* ── Hero background ─────────────────────────────────────── */
+.page-hero { background: #07090f url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat; border-bottom:0; }
+.page-hero::before { background: linear-gradient(135deg,rgba(5,8,18,0.90) 0%,rgba(5,8,18,0.72) 55%,rgba(5,8,18,0.48) 100%); filter:none; z-index:0; }
+.page-hero > .container { position:relative; z-index:1; }
+.page-hero .eyebrow { color:rgba(255,255,255,0.52)!important; background:none!important; -webkit-background-clip:initial!important; background-clip:initial!important; }
+.page-hero .h-display { color:#fff!important; font-size:clamp(32px,4vw,54px)!important; }
+.page-hero .h-display em { font-style:italic; background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.page-hero .lead { color:rgba(255,255,255,0.72)!important; }
+.page-hero .lead strong { color:#fff; font-weight:600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color:rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color:rgba(255,255,255,0.2); }
+/* ── Fix card/box transparency ───────────────────────────── */
+.case-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); }
+.sidebox { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); }
+.tools-band { background:var(--surface); border-left:3px solid var(--accent-1); color:var(--text-2); border-radius:var(--radius); }
+.related-grid { background:transparent; gap:12px; border:0; }
+.related-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); }
+.related-card:hover { background:var(--surface-2); border-color:var(--border-strong); }
+.how-list, .how-list li { border-color:var(--border); }
+.intro-quote { border-left-color:var(--accent-1); }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -81,7 +102,7 @@
 </div>
 </section>
 
-<section class="section">
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
   <div class="container">
     <div class="section-head">
       <div class="reveal"><div class="eyebrow" data-i18n="ind.common.eyebrow">— Common business problems</div><h2 class="h-section" style="margin-top:20px;" data-i18n="ind.fin.title">What financial services and insurance leaders bring to us.</h2></div>
