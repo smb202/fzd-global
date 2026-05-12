@@ -30,6 +30,27 @@
 .cred .name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); }
 .cred h4 { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 12px 0 8px; font-weight: 500; }
 .cred p { color: var(--ink-2); margin: 0; font-size: 14px; line-height: 1.5; }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('assets/about_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.90) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.48) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display: none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .h-display strong { font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff !important; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -62,9 +83,9 @@
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.about">About</span></div>
-<div class="eyebrow" data-i18n="about.eyebrow">— Founder &amp; practice</div>
-<h1 class="h-display" style="margin-top: 24px;"><span data-i18n="about.title.1">A boutique data &amp;</span><br><span data-i18n="about.title.2">AI consultancy</span><br><span style="color: var(--coral); font-style: italic;" data-i18n="about.title.3">built around one principle.</span></h1>
-<p class="lead" style="margin-top: 32px; max-width: 60ch;" data-i18n="about.lead">FZD Global is led by Farhod Rasulov — Senior Data &amp; AI Solutions Architect, founder, and the senior architect on every engagement we take. The principle: senior people, on the work, every day. Not a sales motion that ends with a junior team.</p>
+<div class="eyebrow">Founder &amp; practice</div>
+<h1 class="h-display" style="margin-top: 24px;"><strong>Senior</strong> architects.<br><em>Every engagement.</em></h1>
+<p class="lead" style="margin-top: 32px; max-width: 60ch;">Led by <strong>Farhod Rasulov</strong> — Senior Data &amp; AI Solutions Architect. The principle: <strong>senior people on the work</strong>, every day. Not a sales motion that ends with a junior team.</p>
 </div>
 </section>
 

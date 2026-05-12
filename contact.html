@@ -30,6 +30,27 @@
 .contact-signature { margin-top: 32px; padding: 24px; background: rgba(247,245,240,0.06); border: 1px solid rgba(247,245,240,0.12); }
 .contact-signature img { display: block; width: 100%; max-width: 320px; height: auto; background: #fff; padding: 12px 16px; }
 .contact-signature .sig-caption { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 16px; }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('assets/contact_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.90) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.48) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display: none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .h-display strong { font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff !important; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -62,9 +83,9 @@
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.contact">Contact</span></div>
-<div class="eyebrow" data-i18n="contact.eyebrow">— Start the conversation</div>
-<h1 class="h-display" style="margin-top: 24px; max-width: 22ch;"><span data-i18n="contact.title.1">Tell us about</span><br><span data-i18n="contact.title.2">the data problem</span><br><span style="color: var(--coral); font-style: italic;" data-i18n="contact.title.3">that's keeping you up.</span></h1>
-<p class="lead" style="max-width: 60ch;" data-i18n="contact.lead">First conversation is always free and confidential. Most engagements start with a 30-minute call to assess fit. From there, a written diagnostic, then a scoped engagement.</p>
+<div class="eyebrow">Start the conversation</div>
+<h1 class="h-display" style="margin-top: 24px; max-width: 22ch;">Tell us your<br><strong>data problem.</strong><br><em>We'll solve it.</em></h1>
+<p class="lead" style="max-width: 60ch;">First conversation is <strong>free and confidential</strong>. We respond within <strong>one working day</strong> — then a written diagnostic, then a scoped engagement.</p>
 </div>
 </section>
 
