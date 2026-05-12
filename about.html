@@ -31,6 +31,102 @@
 .cred h4 { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 12px 0 8px; font-weight: 500; }
 .cred p { color: var(--ink-2); margin: 0; font-size: 14px; line-height: 1.5; }
 
+/* ── Team cards ──────────────────────────────────────────── */
+.team-section { padding: clamp(64px, 8vw, 100px) 0; }
+.team-section .section-head { margin-bottom: 48px; }
+.team-section .h-section em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.team-card {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background-size: cover;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: stretch;
+}
+.team-card:last-child { margin-bottom: 0; }
+
+.team-card__overlay { position: absolute; inset: 0; pointer-events: none; }
+.team-card--left  .team-card__overlay { background: linear-gradient(to right, rgba(5,8,18,0.95) 0%, rgba(5,8,18,0.88) 28%, rgba(5,8,18,0.5) 50%, transparent 66%); }
+.team-card--right .team-card__overlay { background: linear-gradient(to left,  rgba(5,8,18,0.95) 0%, rgba(5,8,18,0.88) 28%, rgba(5,8,18,0.5) 50%, transparent 66%); }
+
+.team-card__text {
+  position: relative;
+  z-index: 1;
+  width: 48%;
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.team-card--right .team-card__text { margin-left: auto; }
+
+.team-card__role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+.team-card__name {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.team-card__title {
+  font-size: 15px;
+  color: rgba(255,255,255,0.60);
+  margin-top: -4px;
+}
+.team-card__exp { font-size: 16px; color: rgba(255,255,255,0.78); }
+.team-card__exp strong { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+.team-card__cert { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.6; }
+.team-card__cert strong { color: #fff; font-weight: 600; }
+.team-card__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.team-card__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border: 1px solid rgba(0,212,255,0.38);
+  color: rgba(0,212,255,0.88);
+  border-radius: 3px;
+}
+.team-card__industries {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+}
+.team-card__langs {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.32);
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .team-card { min-height: 440px; flex-direction: column; }
+  .team-card__text { width: 100%; padding: 28px 24px; justify-content: flex-end; min-height: 260px; }
+  .team-card--left  .team-card__overlay,
+  .team-card--right .team-card__overlay { background: linear-gradient(to top, rgba(5,8,18,0.97) 0%, rgba(5,8,18,0.8) 45%, transparent 72%); }
+  .team-card--right .team-card__text { margin-left: 0; }
+}
+
 /* ── Hero background image ────────────────────────────────── */
 .page-hero {
   background: #07090f url('assets/about_background.png') center/cover no-repeat;
@@ -83,9 +179,88 @@
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.about">About</span></div>
-<div class="eyebrow">Founder &amp; practice</div>
-<h1 class="h-display" style="margin-top: 24px;"><strong>Senior</strong> architects.<br><em>Every engagement.</em></h1>
-<p class="lead" style="margin-top: 32px; max-width: 60ch;">Led by <strong>Farhod Rasulov</strong> — Senior Data &amp; AI Solutions Architect. The principle: <strong>senior people on the work</strong>, every day. Not a sales motion that ends with a junior team.</p>
+<div class="eyebrow">The team · Heidelberg</div>
+<h1 class="h-display" style="margin-top: 24px;"><strong>Three seniors.</strong><br><em>Every engagement.</em></h1>
+<p class="lead" style="margin-top: 32px; max-width: 60ch;"><strong>50+ combined years</strong> of enterprise data experience. Senior people on the work, every day — not a sales motion that ends with a junior team.</p>
+</div>
+</section>
+
+<!-- ── TEAM ──────────────────────────────────────────────── -->
+<section class="section team-section">
+<div class="container">
+  <div class="section-head">
+    <div class="reveal">
+      <div class="eyebrow">— Our team</div>
+      <h2 class="h-section" style="margin-top:20px;">The people <em>behind the work.</em></h2>
+    </div>
+    <div class="reveal" data-delay="1">
+      <p class="lead">Three senior practitioners. <strong>50+ combined years</strong> of enterprise data, cloud and AI experience across DACH and beyond.</p>
+    </div>
+  </div>
+
+  <!-- Akhmedov — text LEFT, person RIGHT -->
+  <div class="team-card team-card--left reveal" style="background-image:url('assets/akhmedov.png');background-position:right center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">CEO &amp; Founder</div>
+      <h3 class="team-card__name">Fazliddin Akhmedov</h3>
+      <div class="team-card__title">Principal Consultant · MDM &amp; Controlling</div>
+      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">SAP BW</span>
+        <span class="team-card__tag">S/4HANA</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">SAP FICO</span>
+        <span class="team-card__tag">MDM</span>
+        <span class="team-card__tag">SAP BPC</span>
+      </div>
+      <div class="team-card__industries">Steel · Energy · Automotive · Cement · Manufacturing</div>
+      <div class="team-card__langs">DE · EN · TR · RU</div>
+    </div>
+  </div>
+
+  <!-- Rasulov — text RIGHT, person LEFT -->
+  <div class="team-card team-card--right reveal" style="background-image:url('assets/rasulov.png');background-position:left center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">CIO &amp; Co-Founder</div>
+      <h3 class="team-card__name">Farhod Rasulov</h3>
+      <div class="team-card__title">Senior Data &amp; Azure Solutions Architect</div>
+      <div class="team-card__exp"><strong>15+ years</strong> of enterprise data experience</div>
+      <div class="team-card__cert"><strong>Azure Solutions Architect</strong> · <strong>Azure Data Engineer Associate</strong> · Azure Administrator Associate</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">MS Fabric</span>
+        <span class="team-card__tag">Azure</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">Databricks</span>
+        <span class="team-card__tag">Grafana</span>
+        <span class="team-card__tag">Python</span>
+      </div>
+      <div class="team-card__langs">DE · EN · UZ · TR</div>
+    </div>
+  </div>
+
+  <!-- Saminov — text LEFT, person RIGHT -->
+  <div class="team-card team-card--left reveal" style="background-image:url('assets/saminov.png');background-position:right center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">Senior Consultant</div>
+      <h3 class="team-card__name">Rashidjon Saminov</h3>
+      <div class="team-card__title">MS Fabric Consultant &amp; BI Architect</div>
+      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">MS Fabric</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">Azure</span>
+        <span class="team-card__tag">Grafana</span>
+        <span class="team-card__tag">Python</span>
+        <span class="team-card__tag">Qlik</span>
+      </div>
+      <div class="team-card__industries">MedTech · Insurance · Telecom · Consumer Goods · Packaging</div>
+      <div class="team-card__langs">EN · DE · TR · RU · UZ</div>
+    </div>
+  </div>
+
 </div>
 </section>
 
