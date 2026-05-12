@@ -222,21 +222,27 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   overflow: hidden;
+  gap: 0;
 }
 .lang-switch button {
   border: 0;
   background: transparent;
-  color: var(--text-3);
-  padding: 7px 12px;
+  color: rgba(255,255,255,0.28);
+  padding: 8px 0;
+  width: 40px;
+  text-align: center;
   font: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
   transition: color .2s, background .2s;
+  cursor: pointer;
 }
-.lang-switch button:hover { color: var(--text); }
+.lang-switch button:hover:not(.is-active) {
+  color: rgba(255,255,255,0.55);
+}
 .lang-switch button.is-active {
-  background: var(--accent-1);
-  color: #00171c;
+  background: transparent;
+  color: rgba(255,255,255,0.92);
   font-weight: 600;
 }
 
