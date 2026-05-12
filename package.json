@@ -1,0 +1,10 @@
+{
+  "name": "fzd-global",
+  "version": "1.0.0",
+  "description": "FZD Global GmbH — static website",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx serve . -p 3000 --no-request-handler-timeout"
+  },
+  "private": true
+}
