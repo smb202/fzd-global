@@ -170,6 +170,16 @@ button { font-family: inherit; cursor: pointer; }
 }
 .brand__stack { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
 
+/* ── Author avatar photo ─────────────────────────────────── */
+.av--photo {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50% !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  overflow: hidden;
+}
+
 .nav { display: flex; align-items: center; gap: 26px; }
 .nav a {
   font-size: 14px;

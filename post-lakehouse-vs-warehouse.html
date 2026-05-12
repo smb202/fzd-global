@@ -18,10 +18,10 @@
 .post-meta-bar { max-width: 720px; margin: 0 auto 48px; display: flex; flex-wrap: wrap; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
 .post-meta-bar .pmb-item { display: flex; gap: 8px; align-items: center; }
 .post-meta-bar .pmb-item span:first-child { color: var(--accent-light-1); }
-.author-card { max-width: 720px; margin: 64px auto 0; padding: 32px; background: var(--canvas-warm); border-left: 3px solid var(--coral); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
-.author-card .av { width: 64px; height: 64px; background: var(--navy); color: var(--canvas); display: grid; place-items: center; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+.author-card { max-width: 720px; margin: 64px auto 0; padding: 32px; background: var(--surface-2); border-left: 3px solid var(--accent-1); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
+.author-card .av { width: 64px; height: 64px; background: var(--surface-3); color: var(--text); display: grid; place-items: center; font-family: var(--serif); font-size: 24px; font-weight: 500; }
 .author-card .ac-name { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 0; font-weight: 500; }
-.author-card .ac-bio { color: var(--ink-2); font-size: 14px; margin: 4px 0 0; line-height: 1.5; }
+.author-card .ac-bio { color: var(--text-2); font-size: 14px; margin: 4px 0 0; line-height: 1.5; }
 .related-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
 @media (min-width: 800px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
 .related-post { background: var(--paper); padding: 28px; text-decoration: none; color: inherit; transition: background .2s; }
@@ -100,7 +100,7 @@
 <p>For most enterprises in the DACH region we work with, the answer is hybrid. A lakehouse on Microsoft Fabric or Databricks for the broad analytical estate, with a curated warehouse layer (Snowflake, Synapse, or Fabric Warehouse) for the regulated, finance-grade workloads. Storage neutrality where flexibility matters, governed serving where consistency matters.</p>
 <p>The vendor space has converged on this pattern. Microsoft Fabric ships it as a single product. Databricks does it through Unity Catalog and SQL Warehouses. Even Snowflake supports Iceberg natively now. The architectural debate is over. The engagement-level decision remains.</p></div>
 <div class="author-card reveal">
-<div class="av">FZ</div>
+<div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
 </div>
 
