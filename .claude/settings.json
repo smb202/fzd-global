@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git -C /Users/murodjonberdimurodov/fzd-global add case-studies.html)",
-      "Bash(git -C /Users/murodjonberdimurodov/fzd-global commit -m \"Fix Case 03 background — replace invalid photo ID with steel/industrial image\")"
+      "Bash(git -C /Users/murodjonberdimurodov/fzd-global commit -m \"Fix Case 03 background — replace invalid photo ID with steel/industrial image\")",
+      "Bash(git -C /Users/murodjonberdimurodov/fzd-global commit -m ' *)"
     ]
   }
 }

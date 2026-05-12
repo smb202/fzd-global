@@ -586,7 +586,17 @@ button { font-family: inherit; cursor: pointer; }
   padding: clamp(96px, 14vw, 180px) 0 clamp(64px, 9vw, 112px);
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0;
+}
+/* Bottom fade — blends page-hero into first content section */
+.page-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, #101415);
+  z-index: 3;
+  pointer-events: none;
 }
 .page-hero::before {
   content: "";
@@ -596,18 +606,6 @@ button { font-family: inherit; cursor: pointer; }
     radial-gradient(ellipse at 15% 10%, rgba(0,212,255,0.12), transparent 50%),
     radial-gradient(ellipse at 85% 30%, rgba(202,243,0,0.06), transparent 50%);
   filter: blur(30px);
-  pointer-events: none;
-}
-.page-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   pointer-events: none;
 }
 .page-hero .eyebrow { color: var(--accent-1); background: none; -webkit-background-clip: initial; background-clip: initial; }
