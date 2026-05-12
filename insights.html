@@ -7,29 +7,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-.featured-post { display: grid; grid-template-columns: 1fr; gap: 0; background: var(--navy); color: var(--canvas); margin-bottom: 48px; cursor: pointer; }
+.featured-post { display: grid; grid-template-columns: 1fr; gap: 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 48px; cursor: pointer; text-decoration: none; overflow: hidden; transition: border-color .25s; }
+.featured-post:hover { border-color: var(--border-strong); }
 @media (min-width: 900px) { .featured-post { grid-template-columns: 5fr 6fr; min-height: 480px; } }
-.featured-post .fp-img { background: linear-gradient(140deg, var(--coral), var(--gold)); position: relative; overflow: hidden; min-height: 280px; }
+.featured-post .fp-img { background: linear-gradient(140deg, var(--accent-1), var(--lime)); position: relative; overflow: hidden; min-height: 280px; }
 .featured-post .fp-img::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.18), transparent 50%); }
-.featured-post .fp-img::after { content: "01"; position: absolute; right: 24px; bottom: 16px; font-family: var(--serif); font-size: 220px; color: rgba(15,23,42,0.18); line-height: 0.85; }
+.featured-post .fp-img::after { content: "01"; position: absolute; right: 24px; bottom: 16px; font-family: var(--display); font-size: 220px; color: rgba(5,8,18,0.18); line-height: 0.85; }
 .featured-post .fp-body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
-.featured-post .fp-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
-.featured-post .fp-title { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.18; color: var(--canvas); margin: 0; letter-spacing: -0.01em; }
-.featured-post .fp-excerpt { color: rgba(247,245,240,0.82); line-height: 1.65; margin: 0; max-width: 50ch; }
-.featured-post .fp-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-top: 8px; }
-.posts-list-full { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.featured-post .fp-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-1); text-transform: uppercase; }
+.featured-post .fp-title { font-family: var(--display); font-size: clamp(24px, 3vw, 36px); font-weight: 600; line-height: 1.14; color: var(--text); margin: 0; letter-spacing: -0.02em; }
+.featured-post .fp-excerpt { color: var(--text-2); line-height: 1.65; margin: 0; max-width: 50ch; }
+.featured-post .fp-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-1); text-transform: uppercase; margin-top: 8px; }
+.posts-list-full { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 700px) { .posts-list-full { grid-template-columns: 1fr 1fr; } }
-.post-card { background: var(--paper); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 260px; text-decoration: none; color: inherit; transition: background .2s; }
-.post-card:hover { background: var(--canvas); }
-.post-card .pc-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
-.post-card .pc-title { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--text); margin: 0; font-weight: 500; }
-.post-card .pc-excerpt { color: var(--ink-2); line-height: 1.55; font-size: 14px; }
-.post-card .pc-meta { margin-top: auto; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); display: flex; gap: 12px; }
-.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--rule); }
-.filter-bar button { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 16px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2); cursor: pointer; transition: all .2s; }
-.filter-bar button.is-active { background: var(--navy); color: var(--canvas); border-color: var(--text); }
-.filter-bar button:hover { border-color: var(--accent-light-1); color: var(--accent-light-1); }
-.filter-bar button.is-active:hover { color: var(--canvas); }
+.post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 260px; text-decoration: none; color: inherit; transition: background .2s, border-color .2s, transform .2s; }
+.post-card:hover { background: var(--surface-2); border-color: var(--border-strong); transform: translateY(-3px); }
+.post-card .pc-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; text-transform: uppercase; font-weight: 500; }
+.post-card .pc-title { font-family: var(--display); font-size: 20px; line-height: 1.25; color: var(--text); margin: 0; font-weight: 600; letter-spacing: -0.015em; }
+.post-card .pc-excerpt { color: var(--text-2); line-height: 1.55; font-size: 14px; }
+.post-card .pc-meta { margin-top: auto; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-3); display: flex; gap: 12px; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+.filter-bar button { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.72); cursor: pointer; transition: all .2s; border-radius: 3px; }
+.filter-bar button.is-active { background: var(--accent-1); border-color: var(--accent-1); color: #04080f; font-weight: 600; }
+.filter-bar button:hover:not(.is-active) { border-color: var(--accent-1); color: var(--accent-1); background: rgba(0,212,255,0.08); }
+
+/* ── post-card colors on dark theme ──────────────────────── */
+.post-card { background: var(--surface); border: 1px solid var(--border); }
+.post-card:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.post-card .pc-title { color: var(--text); }
+.post-card .pc-excerpt { color: var(--text-2); }
+.post-card .pc-meta { color: var(--text-3); }
+.post-card[style*="display: none"] { display: none !important; }
+
+/* ── hidden cards don't leave ghost gaps in the grid ─────── */
+#posts-list { transition: none; }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -148,15 +159,24 @@
 <script src="assets/i18n.js"></script>
 <script src="assets/site.js"></script>
 <script>
-document.querySelectorAll('.filter-bar button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-bar button').forEach(b => b.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    const f = btn.dataset.filter;
-    document.querySelectorAll('#posts-list .post-card').forEach(card => {
-      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+(function () {
+  var btns  = document.querySelectorAll('.filter-bar button');
+  var cards = document.querySelectorAll('#posts-list .post-card');
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      // update active button
+      btns.forEach(function (b) { b.classList.remove('is-active'); });
+      this.classList.add('is-active');
+
+      var filter = this.dataset.filter;
+
+      cards.forEach(function (card) {
+        var match = filter === 'all' || card.dataset.cat === filter;
+        card.style.display = match ? 'flex' : 'none';
+      });
     });
   });
-});
+}());
 </script>
 </body></html>
