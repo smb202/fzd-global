@@ -137,6 +137,15 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: -0.005em;
   color: var(--text);
 }
+.brand__gmbh {
+  font-size: 0.58em;
+  font-weight: 400;
+  color: var(--text-3);
+  letter-spacing: 0.06em;
+  font-family: var(--mono);
+  vertical-align: middle;
+  margin-left: 1px;
+}
 .brand__mark {
   width: 36px;
   height: 36px;
