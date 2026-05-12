@@ -170,6 +170,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .brand__stack { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
 
+/* ── Global CTA band background ─────────────────────────── */
+.cta-band {
+  background:
+    linear-gradient(rgba(7,9,15,0.88), rgba(7,9,15,0.88)),
+    url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1440&q=80')
+    center/cover no-repeat !important;
+}
+
 /* ── Author avatar photo ─────────────────────────────────── */
 .av--photo {
   background-size: cover !important;
