@@ -7,29 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-.ind-hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(247,245,240,0.16); }
+.ind-hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
 @media (min-width: 700px) { .ind-hero-meta { grid-template-columns: repeat(4, 1fr); } }
 .ind-hero-meta .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-light-1); }
-.ind-hero-meta .v { font-family: var(--serif); font-size: 24px; color: var(--canvas); margin-top: 8px; }
-.client-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 32px; }
+.ind-hero-meta .v { font-family: var(--display); font-size: 22px; color: var(--text); margin-top: 8px; }
+.client-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 32px; }
 @media (min-width: 700px) { .client-logos { grid-template-columns: repeat(5, 1fr); } }
-.client-logos .logo { background: var(--paper); aspect-ratio: 3/2; display: grid; place-items: center; padding: 24px; }
+.client-logos .logo { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); aspect-ratio: 3/2; display: grid; place-items: center; padding: 24px; }
 .client-logos .logo .lg { font-family: var(--serif); font-size: 18px; color: var(--text); letter-spacing: -0.01em; text-align: center; line-height: 1.1; opacity: 0.85; }
 .client-logos .logo .lg-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--muted); margin-top: 6px; text-align: center; }
-.case-block { background: var(--paper); border: 1px solid var(--rule); padding: 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
+.case-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
 @media (min-width: 900px) { .case-block { grid-template-columns: 1fr 1fr; gap: 48px; } }
 .case-block + .case-block { margin-top: 24px; }
 .case-block .case-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; margin-bottom: 16px; }
 .case-block .case-title { font-family: var(--serif); font-size: 30px; color: var(--text); font-weight: 500; margin: 0 0 20px; line-height: 1.18; letter-spacing: -0.01em; }
 .case-block .case-body { color: var(--ink-2); line-height: 1.7; }
-.case-block .case-outcome { background: var(--canvas-warm); border-left: 3px solid var(--coral); padding: 20px 24px; margin-top: 20px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--text); line-height: 1.4; }
-.case-block .case-tools { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.case-block .case-outcome { background: var(--surface-2); border-left: 3px solid var(--accent-1); padding: 20px 24px; margin-top: 20px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--text); line-height: 1.4; }
+.case-block .case-tools { font-family: var(--mono); font-size: 11px; color: var(--text-3); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
 .challenges-list { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--rule); }
 @media (min-width: 700px) { .challenges-list { grid-template-columns: repeat(2, 1fr); } }
 .challenges-list li { list-style: none; padding: 24px 0; border-bottom: 1px solid var(--rule); padding-right: 24px; display: flex; gap: 16px; align-items: start; }
-@media (min-width: 700px) { .challenges-list li:nth-child(odd) { border-right: 1px solid var(--rule); padding-right: 24px; } .challenges-list li:nth-child(even) { padding-left: 24px; } }
+@media (min-width: 700px) { .challenges-list li:nth-child(odd) { border-right: 1px solid var(--border); padding-right: 24px; } .challenges-list li:nth-child(even) { padding-left: 24px; } }
 .challenges-list li::before { content: "—"; color: var(--accent-light-1); font-family: var(--mono); flex-shrink: 0; }
-.challenges-list li span { color: var(--ink-2); line-height: 1.5; }
+.challenges-list li span { color: var(--text-2); line-height: 1.5; }
 
 /* ── Hero background ─────────────────────────────────────── */
 .page-hero { background: #07090f url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat; border-bottom:0; }
