@@ -170,12 +170,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .brand__stack { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
 
-/* ── Global CTA band background ─────────────────────────── */
+/* ── Global CTA band — brand gradient, no image ─────────── */
 .cta-band {
   background:
-    linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),
-    url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1440&q=80')
-    center/cover no-repeat !important;
+    radial-gradient(ellipse at 15% 50%, rgba(0,212,255,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 50%, rgba(202,243,0,0.07) 0%, transparent 55%),
+    linear-gradient(160deg, #090d17 0%, #101415 45%, #0c1119 100%) !important;
 }
 
 /* ── Author avatar photo ─────────────────────────────────── */
