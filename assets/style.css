@@ -169,6 +169,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 400;
 }
 .brand__stack { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
+.brand__stack > span:first-child { white-space: nowrap; }
 
 /* ── Global CTA band — brand gradient, no image ─────────── */
 .cta-band {
