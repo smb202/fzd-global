@@ -10,13 +10,13 @@ window.FZD_I18N = {
     "nav.insights": "Insights",
     "nav.about": "About",
     "nav.contact": "Contact",
-    "nav.cta": "Book a Data Assessment",
+    "nav.cta": "Book a call",
 
     "hero.eyebrow": "FZD Global GmbH — Data, AI & Cloud Consulting",
     "hero.title.1": "Turn fragmented data into",
     "hero.title.2": "decision-ready systems.",
     "hero.lead": "FZD Global GmbH helps DACH companies build trusted dashboards, cloud data platforms, automation workflows, and AI solutions that improve reporting, operations, and management decisions.",
-    "hero.cta.primary": "Book a Data Assessment",
+    "hero.cta.primary": "Book a call",
     "hero.cta.secondary": "View Case Studies",
     "hero.imglabel": "EDITORIAL PHOTOGRAPHY · Heidelberg studio · Q2 2026",
 
@@ -130,7 +130,7 @@ window.FZD_I18N = {
 
     "cta.title": "Ready to turn fragmented data into trusted decisions?",
     "cta.lead": "Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.",
-    "cta.button": "Book a Data Assessment",
+    "cta.button": "Book a call",
     "cta.button2": "View Case Studies",
     "cta.email": "info@fzd-global.de",
 
@@ -782,7 +782,7 @@ window.FZD_I18N = {
 
     "cta.title": "Bereit, fragmentierte Daten in verlässliche Entscheidungen zu verwandeln?",
     "cta.lead": "Sagen Sie uns, wo Ihr Reporting, Ihre Systeme oder Ihre KI-Initiativen feststecken. Wir antworten innerhalb eines Werktags und finden den richtigen Startpunkt.",
-    "cta.button": "Datenanalyse buchen",
+    "cta.button": "Jetzt buchen",
     "cta.button2": "Fallstudien ansehen",
     "cta.email": "info@fzd-global.de",
 
