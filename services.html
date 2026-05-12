@@ -26,10 +26,14 @@
   flex-direction: column;
   gap: 16px;
   position: relative;
-  transition: background .25s;
+  transition: background .25s, box-shadow .5s ease;
   min-height: 280px;
   text-decoration: none;
   color: inherit;
+}
+.svc-card--active {
+  background: rgba(0, 212, 255, 0.04) !important;
+  box-shadow: inset 3px 0 0 rgba(0, 212, 255, 0.55) !important;
 }
 .svc-card::before {
   content: "";
@@ -48,6 +52,26 @@
 .svc-card__desc { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
 .svc-card__cta { margin-top: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); display: inline-flex; gap: 8px; }
 .svc-card:hover .svc-card__cta { color: var(--accent-light-1); }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('assets/sevices_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.90) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.48) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display: none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
 </style>
 </head>
 <body>
@@ -89,11 +113,11 @@
     </div>
     <div class="split-2 split-2--6-5">
       <div>
-        <div class="eyebrow">— Services that connect strategy and delivery</div>
-        <h1 class="h-display" style="margin-top:24px;">Services that connect data strategy, engineering, analytics, automation and AI.</h1>
+        <div class="eyebrow">Strategy meets delivery</div>
+        <h1 class="h-display" style="margin-top:24px;">Four families.<br><em>Zero hand-waving.</em></h1>
       </div>
       <div style="display:flex; align-items:end;">
-        <p class="lead">We help companies move from fragmented systems and manual reporting to governed data platforms, trusted dashboards, automated workflows and production-ready AI — across four service families.</p>
+        <p class="lead">From <strong>cloud data platforms</strong> to <strong>production AI</strong> — we design, build and operate the infrastructure your business decisions run on.</p>
       </div>
     </div>
   </div>
@@ -103,35 +127,35 @@
 <section class="section">
   <div class="container">
     <div class="svc-grid reveal" style="grid-template-columns:1fr;gap:16px;">
-      <a class="svc-card" id="data-platforms" href="#data-platforms" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
+      <a class="svc-card" href="#capabilities" data-family-nav="data-platforms" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
         <div class="svc-card__num" style="font-size:13px;letter-spacing:0.18em;">FAMILY 01</div>
         <div>
           <h3 class="svc-card__title" style="font-size:24px;margin-bottom:6px;">Data Platforms &amp; Engineering</h3>
-          <p class="svc-card__desc">Lakehouses, warehouses, ETL/ELT, streaming, IoT and DataOps. Build the cloud data foundation your reporting can trust. <span style="opacity:.7;">Includes capabilities 01, 02, 03, 09, 10 below.</span></p>
+          <p class="svc-card__desc">Lakehouses, warehouses, ETL/ELT, streaming, IoT and DataOps. Build the cloud data foundation your reporting can trust.</p>
         </div>
         <span class="svc-card__cta" style="white-space:nowrap;">↓ Capabilities</span>
       </a>
-      <a class="svc-card" id="analytics-bi" href="#analytics-bi" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
+      <a class="svc-card" href="#capabilities" data-family-nav="analytics-bi" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
         <div class="svc-card__num" style="font-size:13px;letter-spacing:0.18em;">FAMILY 02</div>
         <div>
           <h3 class="svc-card__title" style="font-size:24px;margin-bottom:6px;">Analytics, BI &amp; Enterprise Performance</h3>
-          <p class="svc-card__desc">CFO dashboards, KPI trees, management cockpits and self-service reporting executives actually use. <span style="opacity:.7;">Includes capabilities 04, 12 below.</span></p>
+          <p class="svc-card__desc">CFO dashboards, KPI trees, management cockpits and self-service reporting executives actually use.</p>
         </div>
         <span class="svc-card__cta" style="white-space:nowrap;">↓ Capabilities</span>
       </a>
-      <a class="svc-card" id="ai-automation" href="#ai-automation" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
+      <a class="svc-card" href="#capabilities" data-family-nav="ai-automation" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
         <div class="svc-card__num" style="font-size:13px;letter-spacing:0.18em;">FAMILY 03</div>
         <div>
           <h3 class="svc-card__title" style="font-size:24px;margin-bottom:6px;">AI, Automation &amp; Intelligent Workflows</h3>
-          <p class="svc-card__desc">From AI experiments to production: RAG, agents, copilots, forecasting, anomaly detection and Power Automate. <span style="opacity:.7;">Includes capabilities 05, 06, 07 below.</span></p>
+          <p class="svc-card__desc">From AI experiments to production: RAG, agents, copilots, forecasting, anomaly detection and Power Automate.</p>
         </div>
         <span class="svc-card__cta" style="white-space:nowrap;">↓ Capabilities</span>
       </a>
-      <a class="svc-card" id="governance-strategy" href="#governance-strategy" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
+      <a class="svc-card" href="#capabilities" data-family-nav="governance-strategy" style="grid-template-columns:auto 1fr auto;display:grid;gap:24px;align-items:center;min-height:auto;padding:28px 32px;">
         <div class="svc-card__num" style="font-size:13px;letter-spacing:0.18em;">FAMILY 04</div>
         <div>
           <h3 class="svc-card__title" style="font-size:24px;margin-bottom:6px;">Governance, Strategy &amp; Advisory</h3>
-          <p class="svc-card__desc">Architecture review, data governance, MDM, tool selection and roadmaps — the right decisions before expensive implementation begins. <span style="opacity:.7;">Includes capabilities 08, 11 below.</span></p>
+          <p class="svc-card__desc">Architecture review, data governance, MDM, tool selection and roadmaps — the right decisions before expensive implementation begins.</p>
         </div>
         <span class="svc-card__cta" style="white-space:nowrap;">↓ Capabilities</span>
       </a>
@@ -139,7 +163,7 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt" id="capabilities">
   <div class="container">
     <div class="section-head">
       <div class="reveal">
@@ -151,18 +175,18 @@
       </div>
     </div>
     <div class="svc-grid-full reveal">
-      <a class="svc-card" href="service-data-platform-architecture.html"><div class="svc-card__num">01</div><h3 class="svc-card__title" data-i18n="svc.1.title">Data Platform Architecture</h3><p class="svc-card__desc" data-i18n="svc.1.desc">Lakehouse, DWH and multi-cloud infrastructure design and optimization.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-cloud-data-engineering.html"><div class="svc-card__num">02</div><h3 class="svc-card__title" data-i18n="svc.2.title">Cloud Data Engineering</h3><p class="svc-card__desc" data-i18n="svc.2.desc">Pipelines, ETL/ELT, DataOps and streaming architecture at enterprise scale.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-modern-data-stack.html"><div class="svc-card__num">03</div><h3 class="svc-card__title" data-i18n="svc.3.title">Modern Data Stack</h3><p class="svc-card__desc" data-i18n="svc.3.desc">dbt, Snowflake, Microsoft Fabric and analytics engineering.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-analytics-bi.html"><div class="svc-card__num">04</div><h3 class="svc-card__title" data-i18n="svc.4.title">Analytics & Business Intelligence</h3><p class="svc-card__desc" data-i18n="svc.4.desc">Power BI, KPI frameworks and self-service dashboards executives actually use.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-ai-ml.html"><div class="svc-card__num">05</div><h3 class="svc-card__title" data-i18n="svc.5.title">AI & Machine Learning</h3><p class="svc-card__desc" data-i18n="svc.5.desc">ML models, MLOps, prediction and anomaly detection in production.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-ai-agents.html"><div class="svc-card__num">06</div><h3 class="svc-card__title" data-i18n="svc.6.title">AI Agents & LLM Solutions</h3><p class="svc-card__desc" data-i18n="svc.6.desc">RAG, copilots, LangChain and vector databases for the enterprise.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-process-automation.html"><div class="svc-card__num">07</div><h3 class="svc-card__title" data-i18n="svc.7.title">Process Automation</h3><p class="svc-card__desc" data-i18n="svc.7.desc">Power Platform, RPA and low-code application development.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-data-governance.html"><div class="svc-card__num">08</div><h3 class="svc-card__title" data-i18n="svc.8.title">Data Governance & MDM</h3><p class="svc-card__desc" data-i18n="svc.8.desc">Microsoft Purview, Collibra and data quality management.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-dataops-devops.html"><div class="svc-card__num">09</div><h3 class="svc-card__title" data-i18n="svc.9.title">DataOps & DevOps</h3><p class="svc-card__desc" data-i18n="svc.9.desc">CI/CD, Terraform, monitoring and infrastructure as code.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-streaming-iot.html"><div class="svc-card__num">10</div><h3 class="svc-card__title" data-i18n="svc.10.title">Real-Time Streaming & IoT</h3><p class="svc-card__desc" data-i18n="svc.10.desc">Kafka, Event Hubs, IoT Hub and stream processing.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-it-strategy.html"><div class="svc-card__num">11</div><h3 class="svc-card__title" data-i18n="svc.11.title">IT Strategy Advisory</h3><p class="svc-card__desc" data-i18n="svc.11.desc">Architecture, roadmap and digital transformation change management.</p><span class="svc-card__cta">Read more →</span></a>
-      <a class="svc-card" href="service-enterprise-performance.html"><div class="svc-card__num">12</div><h3 class="svc-card__title" data-i18n="svc.12.title">Enterprise Performance</h3><p class="svc-card__desc" data-i18n="svc.12.desc">IFRS, group reporting, KPI frameworks and CFO dashboards.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-data-platform-architecture.html" data-family="data-platforms"><div class="svc-card__num">01</div><h3 class="svc-card__title" data-i18n="svc.1.title">Data Platform Architecture</h3><p class="svc-card__desc" data-i18n="svc.1.desc">Lakehouse, DWH and multi-cloud infrastructure design and optimization.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-cloud-data-engineering.html" data-family="data-platforms"><div class="svc-card__num">02</div><h3 class="svc-card__title" data-i18n="svc.2.title">Cloud Data Engineering</h3><p class="svc-card__desc" data-i18n="svc.2.desc">Pipelines, ETL/ELT, DataOps and streaming architecture at enterprise scale.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-modern-data-stack.html" data-family="data-platforms"><div class="svc-card__num">03</div><h3 class="svc-card__title" data-i18n="svc.3.title">Modern Data Stack</h3><p class="svc-card__desc" data-i18n="svc.3.desc">dbt, Snowflake, Microsoft Fabric and analytics engineering.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-analytics-bi.html" data-family="analytics-bi"><div class="svc-card__num">04</div><h3 class="svc-card__title" data-i18n="svc.4.title">Analytics & Business Intelligence</h3><p class="svc-card__desc" data-i18n="svc.4.desc">Power BI, KPI frameworks and self-service dashboards executives actually use.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-ai-ml.html" data-family="ai-automation"><div class="svc-card__num">05</div><h3 class="svc-card__title" data-i18n="svc.5.title">AI & Machine Learning</h3><p class="svc-card__desc" data-i18n="svc.5.desc">ML models, MLOps, prediction and anomaly detection in production.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-ai-agents.html" data-family="ai-automation"><div class="svc-card__num">06</div><h3 class="svc-card__title" data-i18n="svc.6.title">AI Agents & LLM Solutions</h3><p class="svc-card__desc" data-i18n="svc.6.desc">RAG, copilots, LangChain and vector databases for the enterprise.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-process-automation.html" data-family="ai-automation"><div class="svc-card__num">07</div><h3 class="svc-card__title" data-i18n="svc.7.title">Process Automation</h3><p class="svc-card__desc" data-i18n="svc.7.desc">Power Platform, RPA and low-code application development.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-data-governance.html" data-family="governance-strategy"><div class="svc-card__num">08</div><h3 class="svc-card__title" data-i18n="svc.8.title">Data Governance & MDM</h3><p class="svc-card__desc" data-i18n="svc.8.desc">Microsoft Purview, Collibra and data quality management.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-dataops-devops.html" data-family="data-platforms"><div class="svc-card__num">09</div><h3 class="svc-card__title" data-i18n="svc.9.title">DataOps & DevOps</h3><p class="svc-card__desc" data-i18n="svc.9.desc">CI/CD, Terraform, monitoring and infrastructure as code.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-streaming-iot.html" data-family="data-platforms"><div class="svc-card__num">10</div><h3 class="svc-card__title" data-i18n="svc.10.title">Real-Time Streaming & IoT</h3><p class="svc-card__desc" data-i18n="svc.10.desc">Kafka, Event Hubs, IoT Hub and stream processing.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-it-strategy.html" data-family="governance-strategy"><div class="svc-card__num">11</div><h3 class="svc-card__title" data-i18n="svc.11.title">IT Strategy Advisory</h3><p class="svc-card__desc" data-i18n="svc.11.desc">Architecture, roadmap and digital transformation change management.</p><span class="svc-card__cta">Read more →</span></a>
+      <a class="svc-card" href="service-enterprise-performance.html" data-family="analytics-bi"><div class="svc-card__num">12</div><h3 class="svc-card__title" data-i18n="svc.12.title">Enterprise Performance</h3><p class="svc-card__desc" data-i18n="svc.12.desc">IFRS, group reporting, KPI frameworks and CFO dashboards.</p><span class="svc-card__cta">Read more →</span></a>
     </div>
   </div>
 </section>
@@ -189,5 +213,34 @@
 
 <script src="assets/i18n.js"></script>
 <script src="assets/site.js"></script>
+<script>
+(function () {
+  var header = document.querySelector('.site-header');
+
+  document.querySelectorAll('[data-family-nav]').forEach(function (navCard) {
+    navCard.addEventListener('click', function (e) {
+      e.preventDefault();
+      var family = this.dataset.familyNav;
+
+      // Find the first capability card belonging to this family
+      var firstMatch = document.querySelector('[data-family="' + family + '"]');
+      if (!firstMatch) return;
+
+      // Scroll so that first matching card sits just below the sticky header
+      var offset = header ? header.offsetHeight + 24 : 24;
+      var top = firstMatch.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+
+      // Swap highlights immediately (highlight stays until next click)
+      document.querySelectorAll('.svc-card--active').forEach(function (c) {
+        c.classList.remove('svc-card--active');
+      });
+      document.querySelectorAll('[data-family="' + family + '"]').forEach(function (c) {
+        c.classList.add('svc-card--active');
+      });
+    });
+  });
+}());
+</script>
 </body>
 </html>

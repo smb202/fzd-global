@@ -19,6 +19,26 @@
 .ind-card:hover .ic-tags { color: rgba(247,245,240,0.7); }
 .ind-card .ic-cta { margin-top: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); }
 .ind-card:hover .ic-cta { color: var(--accent-light-1); }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('assets/industries_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.90) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.48) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display: none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
 </style>
 </head><body>
 <div class="top-bar"></div>
@@ -52,8 +72,8 @@
 <div class="container">
 <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.industries">Industries</span></div>
 <div class="split-2 split-2--6-5">
-<div><div class="eyebrow" data-i18n="industriesidx.eyebrow">02 — Where we work</div><h1 class="h-display" style="margin-top: 24px;"><span data-i18n="industriesidx.title.1">Eight industries.</span><br><span data-i18n="industriesidx.title.2">Real engagements.</span></h1></div>
-<div style="display:flex; align-items:end;"><p class="lead" data-i18n="industriesidx.lead">The methodology is the same. The vocabulary is yours. Pick any industry to see the recurring problems we solve and the engagements we have delivered.</p></div>
+<div><div class="eyebrow" data-i18n="industriesidx.eyebrow">Where we work</div><h1 class="h-display" style="margin-top: 24px;"><span data-i18n="industriesidx.title.1">8 industries.</span><br><em data-i18n="industriesidx.title.2">Zero compromises.</em></h1></div>
+<div style="display:flex; align-items:end;"><p class="lead" data-i18n="industriesidx.lead">From <strong>manufacturing</strong> to <strong>MedTech</strong> — where <strong>data quality</strong> and <strong>governance</strong> aren't optional.</p></div>
 </div>
 </div>
 </section>

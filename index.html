@@ -15,44 +15,60 @@
 
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero {
-  padding: clamp(72px, 10vw, 140px) 0 clamp(64px, 9vw, 120px);
+  padding: clamp(110px, 16vw, 200px) 0 clamp(80px, 10vw, 140px);
   position: relative;
   overflow: hidden;
-  background: var(--bg);
+  background: #07090f url('assets/home_bachground.png') center/cover no-repeat;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5,8,18,0.88) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.50) 100%);
+  z-index: 0;
+}
+.hero > .container { position: relative; z-index: 1; }
 .hero__mesh, .hero__blob, .hero__grid-overlay { display: none; }
 
-.hero__layout { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 5vw, 64px); align-items: center; }
-@media (min-width: 1000px) { .hero__layout { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(48px, 6vw, 96px); } }
+.hero__layout { display: block; max-width: 820px; }
 
-.hero__eyebrow { margin-bottom: 28px; }
+.hero__eyebrow { margin-bottom: 24px; color: rgba(255,255,255,0.55) !important; }
 .hero h1.h-display {
-  font-size: clamp(44px, 6.4vw, 88px);
-  letter-spacing: -0.025em;
+  font-size: clamp(44px, 6.4vw, 84px);
+  letter-spacing: -0.03em;
   font-weight: 400;
   line-height: 1.04;
+  color: #fff;
 }
-.hero h1.h-display em { font-style: italic; font-weight: 400; color: var(--text); }
+.hero h1.h-display em {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .hero .lead {
-  margin: 28px 0 0;
+  margin: 26px 0 0;
   font-size: clamp(17px, 1.5vw, 20px);
-  max-width: 56ch;
-  color: var(--text-2);
+  max-width: 54ch;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
 }
-.hero .lead strong { color: var(--text); font-weight: 600; }
+.hero .lead strong {
+  color: #fff;
+  font-weight: 600;
+}
 .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
-.hero__photo { aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: var(--radius); position: relative; overflow: hidden; box-shadow: var(--shadow-lift); }
-.hero__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(11,15,16,0.7) 100%), linear-gradient(135deg, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
-.hero__photo .label { position: absolute; left: 18px; bottom: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; padding: 6px 10px; background: rgba(11,15,16,0.65); backdrop-filter: blur(8px); border-left: 2px solid var(--accent-1); z-index: 2; }
-.hero__photo { box-shadow: var(--glow), var(--shadow-lift); border: 1px solid var(--border); }
 
 .hero__meta {
-  margin-top: 72px;
+  margin-top: 64px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  border-top: 1px solid var(--border);
-  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  padding-top: 28px;
+  max-width: 560px;
 }
 .hero__meta-item { padding-right: 28px; }
 .hero__meta-item .k {
@@ -60,19 +76,19 @@
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.38);
 }
 .hero__meta-item .v {
   font-family: var(--display);
   font-weight: 500;
-  font-size: 22px;
-  color: var(--text);
+  font-size: 20px;
+  color: #fff;
   margin-top: 6px;
   letter-spacing: -0.01em;
 }
 @media (max-width: 700px) {
-  .hero__meta { grid-template-columns: 1fr; }
-  .hero__meta-item { border-right: 0; border-bottom: 1px solid var(--border); }
+  .hero__meta { grid-template-columns: 1fr; max-width: 100%; }
+  .hero__meta-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
   .hero__meta-item:last-child { border-bottom: 0; }
 }
 
@@ -460,6 +476,16 @@
 .post--sm .post__title { font-size: 20px; }
 .post--sm .post__media { aspect-ratio: 16/10; }
 
+/* ── Section keyword highlights ───────────────────────────── */
+.h-section em {
+  font-style: italic;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.section .lead strong { color: var(--text); font-weight: 600; }
+
 /* ── CTA band — full gradient mesh ────────────────────────── */
 .cta-band {
   position: relative;
@@ -539,14 +565,14 @@
   <div class="container">
     <div class="hero__layout">
       <div class="reveal">
-        <div class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">FZD Global GmbH — Data, AI & Cloud Consulting</div>
+        <div class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">Data · AI · Cloud Consulting · DACH</div>
         <h1 class="h-display">
-          <span data-i18n="hero.title.1">Turn fragmented data into</span><br>
-          <em data-i18n="hero.title.2">decision-ready systems.</em>
+          <span data-i18n="hero.title.1">Data that drives decisions —</span><br>
+          <em data-i18n="hero.title.2">not spreadsheet debates.</em>
         </h1>
-        <p class="lead" data-i18n="hero.lead"><strong>Trusted dashboards.</strong> <strong>Governed cloud data.</strong> <strong>Production-ready AI.</strong> Senior-led consulting for enterprises across DACH.</p>
+        <p class="lead" data-i18n="hero.lead">We build the <strong>cloud data platforms</strong>, <strong>AI systems</strong> and <strong>executive dashboards</strong> that DACH enterprises run on. Senior-led. Production-ready.</p>
         <div class="hero__cta">
-          <a href="contact.html" class="btn btn--lg"><span data-i18n="hero.cta.primary">Book a Data Assessment</span> <span class="arr">→</span></a>
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="hero.cta.primary">Book a Free Assessment</span> <span class="arr">→</span></a>
           <a href="case-studies.html" class="btn btn--lg btn--ghost"><span data-i18n="hero.cta.secondary">View Case Studies</span></a>
         </div>
         <div class="hero__meta">
@@ -559,14 +585,9 @@
             <div class="v">2017</div>
           </div>
           <div class="hero__meta-item">
-            <div class="k">Languages</div>
-            <div class="v">DE · EN</div>
+            <div class="k">Industries served</div>
+            <div class="v">8+</div>
           </div>
-        </div>
-      </div>
-      <div class="reveal" data-delay="1">
-        <div class="hero__photo" style="background-image:url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80');" aria-label="Data analytics dashboard">
-          <span class="label">Data &amp; analytics dashboard</span>
         </div>
       </div>
     </div>
@@ -586,10 +607,10 @@
   <div class="container">
     <div class="section-head">
       <div class="reveal">
-        <h2 class="h-section" data-i18n="stats.title">A practice measured in outcomes.</h2>
+        <h2 class="h-section" data-i18n="stats.title">Outcomes, <em>not promises.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="stats.lead">Eight years of senior delivery across the data and technology value chain. Numbers from active and completed engagements.</p>
+        <p class="lead" data-i18n="stats.lead">Eight years. Senior delivery. Numbers from live engagements — not marketing decks.</p>
       </div>
     </div>
     <div class="stats__grid reveal">
@@ -623,10 +644,10 @@
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow" data-i18n="problems.eyebrow">01 — Problems we solve</div>
-        <h2 class="h-section" style="margin-top:20px;" data-i18n="problems.title">Common business data problems we solve.</h2>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="problems.title">Six problems. <em>All fixable.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="problems.lead">Symptoms vary across companies. The underlying causes are usually the same six. Each is fixable with the right architecture and discipline.</p>
+        <p class="lead" data-i18n="problems.lead">Same root causes, different symptoms. The right <strong>architecture</strong> and <strong>governance</strong> resolves each one.</p>
       </div>
     </div>
 
@@ -671,10 +692,10 @@
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow" data-i18n="svcfam.eyebrow">02 — Services</div>
-        <h2 class="h-section" style="margin-top:20px;" data-i18n="svcfam.title">Four service families. One delivery culture.</h2>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="svcfam.title">Four families. <em>One standard.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="svcfam.lead">We design, build and operate the data and AI infrastructure decisions are made on — across data engineering, analytics, AI, and governance.</p>
+        <p class="lead" data-i18n="svcfam.lead">From <strong>data engineering</strong> to <strong>production AI</strong> — we design, build and operate the infrastructure your decisions run on.</p>
         <a href="services.html" class="btn btn--ghost mt-32"><span>See all services</span> <span class="arr">→</span></a>
       </div>
     </div>
@@ -718,10 +739,10 @@
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow" data-i18n="solpreview.eyebrow">03 — Solutions you can buy</div>
-        <h2 class="h-section" style="margin-top:20px;" data-i18n="solpreview.title">Packaged solutions for faster decisions.</h2>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="solpreview.title">Results in weeks, <em>not quarters.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="solpreview.lead">Choose a focused starting point: from dashboard modernization and platform assessment to AI readiness and healthcare operations analytics.</p>
+        <p class="lead" data-i18n="solpreview.lead"><strong>Fixed scope.</strong> <strong>Documented deliverables.</strong> <strong>Clear ROI.</strong> Six starting points built for fast, measurable impact.</p>
         <a href="solutions.html" class="btn btn--ghost mt-32"><span>See all solutions</span> <span class="arr">→</span></a>
       </div>
     </div>
@@ -773,10 +794,10 @@
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow" data-i18n="industries.eyebrow">04 — Where we work</div>
-        <h2 class="h-section" style="margin-top:20px;" data-i18n="industries.title">Deep experience in data-intensive, regulated industries.</h2>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="industries.title">Eight industries. <em>Zero compromises.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="industries.lead">Healthcare, MedTech, manufacturing, insurance, energy and the public sector — environments where data quality, reliability and governance are non-negotiable.</p>
+        <p class="lead" data-i18n="industries.lead">From <strong>MedTech</strong> to <strong>manufacturing</strong> — where <strong>governance</strong> and <strong>data reliability</strong> are non-negotiable.</p>
         <a href="industries.html" class="btn btn--ghost mt-32"><span data-i18n="industries.cta">Browse industries</span> <span class="arr">→</span></a>
       </div>
     </div>
@@ -847,10 +868,10 @@
     <div class="section-head">
       <div class="reveal">
         <div class="eyebrow" data-i18n="approach.eyebrow">05 — How we work</div>
-        <h2 class="h-section" style="margin-top:20px;" data-i18n="approach.title">Senior consultants. From whiteboard to production.</h2>
+        <h2 class="h-section" style="margin-top:20px;" data-i18n="approach.title">Whiteboard <em>to production.</em></h2>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead" data-i18n="approach.lead">FZD Global is built on the conviction that strategy without delivery is a slide deck, and delivery without strategy is technical debt. Our consultants do both.</p>
+        <p class="lead" data-i18n="approach.lead">Strategy without delivery is a slide deck. <strong>We do both</strong> — on every engagement.</p>
       </div>
     </div>
     <div class="approach__grid reveal">
@@ -947,8 +968,8 @@
 <section class="cta-band">
   <div class="container cta-band__inner">
     <div class="reveal">
-      <h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2>
-      <p class="lead" data-i18n="cta.lead">We respond to every inquiry within one working day. The first conversation is always free, always confidential, and almost always useful.</p>
+      <h2 class="h-section" data-i18n="cta.title">Data problem <em>worth solving?</em></h2>
+      <p class="lead" data-i18n="cta.lead">We respond within <strong>one working day</strong>. First conversation: free, confidential, useful.</p>
     </div>
     <div class="reveal" data-delay="1" style="text-align:right;">
       <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
