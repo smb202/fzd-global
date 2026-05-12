@@ -10,9 +10,9 @@
   --bg: #101415;
   --bg-2: #191c1e;
   --bg-3: #1d2022;
-  --surface: rgba(255,255,255,0.025);
-  --surface-2: #272a2c;
-  --surface-3: #323537;
+  --surface: rgba(18,24,34,0.88);
+  --surface-2: rgba(26,32,44,0.90);
+  --surface-3: rgba(34,40,52,0.92);
   --surface-lowest: #0b0f10;
 
   /* ── Aliases for legacy CSS in interior pages ────────────── */
@@ -173,7 +173,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ── Global CTA band background ─────────────────────────── */
 .cta-band {
   background:
-    linear-gradient(rgba(7,9,15,0.88), rgba(7,9,15,0.88)),
+    linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),
     url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1440&q=80')
     center/cover no-repeat !important;
 }
