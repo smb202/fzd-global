@@ -246,41 +246,41 @@ button { font-family: inherit; cursor: pointer; }
   gap: 10px;
   padding: 13px 24px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.005em;
-  border: 1px solid var(--accent-1);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: var(--radius);
-  background: var(--accent-1);
-  color: #00171c;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.88);
   transition: background .2s, color .2s, transform .2s, border-color .2s, box-shadow .2s;
   cursor: pointer;
 }
 .btn:hover {
-  background: var(--accent-3);
-  border-color: var(--accent-3);
-  color: #00171c;
-  box-shadow: var(--glow);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.30);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255,255,255,0.05);
 }
 .btn--ghost {
   background: transparent;
-  border-color: var(--accent-1);
-  color: var(--accent-1);
+  border-color: rgba(255,255,255,0.20);
+  color: rgba(255,255,255,0.70);
 }
 .btn--ghost:hover {
-  background: rgba(0, 212, 255, 0.08);
-  border-color: var(--accent-3);
-  color: var(--accent-3);
-  box-shadow: var(--glow);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.90);
 }
 .btn--coral {
-  background: var(--accent-1);
-  border-color: var(--accent-1);
-  color: #00171c;
+  background: rgba(0,212,255,0.10);
+  border-color: rgba(0,212,255,0.32);
+  color: var(--accent-1);
 }
 .btn--coral:hover {
-  background: var(--accent-3);
-  border-color: var(--accent-3);
-  box-shadow: var(--glow-strong);
+  background: rgba(0,212,255,0.16);
+  border-color: rgba(0,212,255,0.55);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0,212,255,0.10);
 }
 .btn--lg { padding: 16px 30px; font-size: 15px; }
 .btn .arr { transition: transform .25s; }
