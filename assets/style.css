@@ -138,13 +138,14 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 .brand__gmbh {
-  font-size: 0.58em;
+  font-size: 11px;
   font-weight: 400;
   color: var(--text-3);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-family: var(--mono);
-  vertical-align: middle;
-  margin-left: 1px;
+  position: relative;
+  top: -1px;
+  margin-left: 3px;
 }
 .brand__mark {
   width: 36px;
