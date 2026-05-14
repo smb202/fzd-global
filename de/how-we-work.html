@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png">
+<title>How We Work — FZD Global GmbH</title>
+<meta name="description" content="Our 7-step delivery methodology: discovery, assessment, design, prototype, implementation, training, continuous improvement.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.flow { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: clamp(40px, 5vw, 64px); }
+@media (min-width: 800px) { .flow { grid-template-columns: 1fr 1fr; } }
+.flow-step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 28px 24px; position: relative; overflow: hidden; transition: border-color .25s, transform .25s; }
+.flow-step::after { content:""; position:absolute; inset:0; background:var(--gradient-soft); opacity:0; transition:opacity .3s; pointer-events:none; }
+.flow-step:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.flow-step:hover::after { opacity:.6; }
+.flow-step > * { position: relative; z-index: 1; }
+.flow-step__num { font-family:var(--mono); font-size:11px; letter-spacing:0.2em; background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:500; }
+.flow-step__title { font-family:var(--display); font-weight:600; font-size:22px; color:var(--text); margin: 12px 0 12px; letter-spacing:-0.02em; }
+.flow-step__desc { font-size:14.5px; color: var(--text-2); line-height:1.6; margin:0 0 16px; }
+.flow-step__list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.flow-step__list li { padding-left:18px; position:relative; font-size:13.5px; color:var(--text-3); line-height:1.55; }
+.flow-step__list li::before { content:""; position:absolute; left:0; top:10px; width:8px; height:1px; background:var(--gradient); }
+.flow-step__time { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-3); margin-top:18px; padding-top:14px; border-top:1px solid var(--border); }
+.principles { display:grid; gap:16px; grid-template-columns:1fr; margin-top:32px; }
+@media (min-width: 800px) { .principles { grid-template-columns: 1fr 1fr 1fr; } }
+.principle { background:var(--bg-3); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+.principle h3 { font-family:var(--display); font-weight:600; font-size:18px; color:var(--text); margin:0 0 10px; letter-spacing:-0.015em; }
+.principle p { font-size:14.5px; color:var(--text-2); line-height:1.6; margin:0; }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="en">EN</button><button data-lang-btn="de" class="is-active">DE</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Book a call</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span>How We Work</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow" data-i18n="hww.hero.eyebrow">— Delivery methodology</div>
+        <h1 class="h-display" style="margin-top:24px;" data-i18n="hww.hero.title">From discovery to continuous improvement, in seven defined steps.</h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead" data-i18n="hww.hero.lead">Every engagement follows the same disciplined sequence — adapted to your scope and timeline. Senior consultants on the work from day one. No junior-heavy delivery, no slide-deck handoffs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal"><div class="eyebrow" data-i18n="hww.process.eyebrow">— The process</div><h2 class="h-section" style="margin-top:20px;" data-i18n="hww.process.title">Seven steps. Documented outcomes at every milestone.</h2></div>
+      <div class="reveal" data-delay="1"><p class="lead" data-i18n="hww.process.lead">Each step has a defined deliverable, a clear owner, and a documented decision point before moving forward.</p></div>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 01</div>
+        <h3 class="flow-step__title" data-i18n="hww.s1.title">Discovery</h3>
+        <p class="flow-step__desc" data-i18n="hww.s1.desc">Understand business goals, users, systems, KPIs and pain points. Map who owns what, who decides what, and what's hurting most.</p>
+        <ul class="flow-step__list">
+          <li data-i18n="hww.s1.l.1">Stakeholder interviews</li>
+          <li>Current-state systems &amp; reports inventory</li>
+          <li data-i18n="hww.s1.l.3">Business goals and success criteria</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s1.time">Typical: 1–2 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 02</div>
+        <h3 class="flow-step__title" data-i18n="hww.s2.title">Assessment</h3>
+        <p class="flow-step__desc" data-i18n="hww.s2.desc">Review data sources, architecture, data quality, manual processes, costs and risks. Written assessment with concrete recommendations.</p>
+        <ul class="flow-step__list">
+          <li>Architecture &amp; data-source review</li>
+          <li data-i18n="hww.s2.l.2">Data-quality assessment</li>
+          <li>Cost &amp; risk analysis</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s2.time">Typical: 2–3 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 03</div>
+        <h3 class="flow-step__title" data-i18n="hww.s3.title">Solution Design</h3>
+        <p class="flow-step__desc" data-i18n="hww.s3.desc">Define target architecture, dashboard concepts, automation logic, AI components and governance model — tied to business outcomes, not technology launches.</p>
+        <ul class="flow-step__list">
+          <li data-i18n="hww.s3.l.1">Reference architecture</li>
+          <li data-i18n="hww.s3.l.2">KPI / dashboard specification</li>
+          <li>Governance &amp; ownership model</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s3.time">Typical: 2–4 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 04</div>
+        <h3 class="flow-step__title" data-i18n="hww.s4.title">Prototype</h3>
+        <p class="flow-step__desc" data-i18n="hww.s4.desc">Build a working proof of value quickly, on real data, so stakeholders see and validate the solution before full-scale build begins.</p>
+        <ul class="flow-step__list">
+          <li data-i18n="hww.s4.l.1">Working prototype on real data</li>
+          <li>Stakeholder review &amp; iteration</li>
+          <li data-i18n="hww.s4.l.3">Go / no-go decision</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s4.time">Typical: 3–4 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 05</div>
+        <h3 class="flow-step__title" data-i18n="hww.s5.title">Implementation</h3>
+        <p class="flow-step__desc" data-i18n="hww.s5.desc">Hands-on delivery: pipelines, data models, dashboards, cloud infrastructure, automation flows and AI components. Documented to enable handover.</p>
+        <ul class="flow-step__list">
+          <li>Pipelines &amp; cloud infrastructure</li>
+          <li>Dashboards &amp; semantic models</li>
+          <li>Automation &amp; AI components</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s5.time">Typical: 8–16 weeks</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">STEP 06</div>
+        <h3 class="flow-step__title">Training &amp; Handover</h3>
+        <p class="flow-step__desc" data-i18n="hww.s6.desc">Documentation, user training, runbooks for operations teams, and clearly defined ownership for every component built.</p>
+        <ul class="flow-step__list">
+          <li>Architecture &amp; runbook documentation</li>
+          <li>End-user &amp; admin training</li>
+          <li data-i18n="hww.s6.l.3">Ownership transition</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s6.time">Typical: 1–2 weeks</div>
+      </div>
+      <div class="flow-step" style="grid-column: 1 / -1;">
+        <div class="flow-step__num">STEP 07</div>
+        <h3 class="flow-step__title" data-i18n="hww.s7.title">Continuous Improvement</h3>
+        <p class="flow-step__desc" data-i18n="hww.s7.desc">New KPIs, additional automation, performance optimization and governance refinement — typically delivered as small, predictable monthly engagements rather than another big-bang project.</p>
+        <ul class="flow-step__list">
+          <li>Quarterly KPI &amp; performance review</li>
+          <li data-i18n="hww.s7.l.2">Incremental dashboard / pipeline improvements</li>
+          <li>Governance refinement &amp; new use-case onboarding</li>
+        </ul>
+        <div class="flow-step__time" data-i18n="hww.s7.time">Ongoing: monthly engagement model</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal"><div class="eyebrow" data-i18n="hww.princ.eyebrow">— Operating principles</div><h2 class="h-section" style="margin-top:20px;" data-i18n="hww.princ.title">Three commitments that shape every engagement.</h2></div>
+      <div class="reveal" data-delay="1"><p class="lead" data-i18n="hww.princ.lead">These are not posters. They define how we scope, staff and judge every project.</p></div>
+    </div>
+    <div class="principles reveal">
+      <div class="principle">
+        <h3 data-i18n="hww.p1.title">Senior consultants, on the work.</h3>
+        <p data-i18n="hww.p1.desc">Every engagement is led by experienced consultants who do the work themselves — not a sales-led handoff to a junior team. The architect who designs your solution is the architect who builds it.</p>
+      </div>
+      <div class="principle">
+        <h3 data-i18n="hww.p2.title">Architecture before implementation.</h3>
+        <p data-i18n="hww.p2.desc">The cheapest mistake is the one we never make. We invest in design, governance and decision rationale before code, so implementation is fast and reversible.</p>
+      </div>
+      <div class="principle">
+        <h3 data-i18n="hww.p3.title">Make ourselves unnecessary.</h3>
+        <p data-i18n="hww.p3.desc">Documentation, training, and clear handover are scoped into every engagement. We aim for your internal team to operate, extend and own the solution after we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="client-ticker">
+  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Ready to turn fragmented data into trusted decisions?</h2>
+      <p class="lead" data-i18n="cta.lead">Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Book a call</span> <span class="arr">→</span></a>
+          <a href="case-studies.html" class="btn btn--ghost btn--lg"><span data-i18n="cta.button2">View Case Studies</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

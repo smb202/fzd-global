@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png">
+<title>Solutions — FZD Global GmbH</title>
+<meta name="description" content="Packaged solutions: KPI cockpit, data platform assessment, Power BI modernization, AI readiness sprint, healthcare operations dashboard, data integration starter.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.sol-nav-section { background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 15%,rgba(7,9,15,0.82) 85%,#101415 100%),url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat; padding: clamp(32px, 4vw, 52px) 0; border-bottom: 1px solid var(--border); }
+.sol-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .sol-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .sol-grid { grid-template-columns: repeat(3, 1fr); } }
+.sol-nav-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-decoration: none; transition: border-color .25s, transform .25s; }
+.sol-nav-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.sol-nav-card .num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sol-nav-card .t { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--text); margin: 8px 0 0; letter-spacing: -0.015em; }
+
+.sol { padding: clamp(72px, 10vw, 120px) 0; border-bottom: 1px solid var(--border); }
+.sol:nth-child(even) { background: var(--bg-2); }
+.sol__head { margin-bottom: 48px; }
+.sol__num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 500; text-transform: uppercase; }
+.sol__title { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3vw, 42px); line-height: 1.08; color: var(--text); margin: 14px 0 18px; letter-spacing: -0.025em; }
+.sol__title em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sol__intro { font-size: 17px; line-height: 1.65; color: var(--text-2); max-width: 70ch; margin: 0; }
+.sol__intro strong { color: var(--text); font-weight: 600; }
+.sol__body { display: grid; gap: 48px; grid-template-columns: 1fr; }
+@media (min-width: 1000px) { .sol__body { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 64px; } }
+.sol__lists { display: grid; gap: 32px; }
+.sol__lists h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); margin: 0 0 14px; font-weight: 500; }
+.sol__lists ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sol__lists ul li { padding-left: 18px; position: relative; font-size: 15px; color: var(--text-2); line-height: 1.55; }
+.sol__lists ul li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 1px; background: var(--gradient); }
+@media (min-width: 700px) { .sol__lists { grid-template-columns: 1fr 1fr; gap: 32px 40px; } }
+.sol__aside { display: grid; gap: 16px; align-content: start; }
+.sol__aside .sidebox { background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); }
+.sol__aside .sidebox h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0 0 14px; font-weight: 500; }
+.sol__aside .sidebox p, .sol__aside .sidebox .stack { font-size: 13px; color: var(--text-2); line-height: 1.65; margin: 0; font-family: var(--mono); }
+.sol__cta { background: var(--bg-3); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); }
+.sol__cta p { font-size: 14px; color: var(--text-2); line-height: 1.5; margin: 0 0 14px; }
+.sol__cta .btn { width: 100%; justify-content: center; }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('../assets/solutions_background.png') center/cover no-repeat;
+  border-bottom: 0;
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.92) 0%, rgba(5,8,18,0.75) 55%, rgba(5,8,18,0.52) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display:block; content:""; position:absolute; bottom:0; left:0; right:0; height:140px; background:linear-gradient(to bottom,transparent,#101415); z-index:2; pointer-events:none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .h-display strong { font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" class="is-active" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="en">EN</button><button data-lang-btn="de" class="is-active">DE</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Book a call</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span data-i18n="nav.solutions">Solutions</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow">Packaged solutions · Fixed scope</div>
+        <h1 class="h-display" style="margin-top:24px;"><strong>Six</strong> solutions.<br><em>Weeks,</em> not quarters.</h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead">Each solution ships with <strong>fixed timelines</strong>, <strong>documented deliverables</strong> and <strong>measurable outcomes</strong> — not open-ended retainers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sol-nav-section">
+  <div class="container">
+    <div class="sol-grid">
+      <a class="sol-nav-card" href="#kpi-cockpit"><div class="num">01</div><div class="t">Management KPI Cockpit</div></a>
+      <a class="sol-nav-card" href="#platform-assessment"><div class="num">02</div><div class="t">Data Platform Assessment</div></a>
+      <a class="sol-nav-card" href="#power-bi-modernization"><div class="num">03</div><div class="t">Power BI Modernization</div></a>
+      <a class="sol-nav-card" href="#ai-readiness"><div class="num">04</div><div class="t">AI Readiness Sprint</div></a>
+      <a class="sol-nav-card" href="#healthcare-ops"><div class="num">05</div><div class="t">Healthcare / MedTech Dashboard</div></a>
+      <a class="sol-nav-card" href="#data-integration"><div class="num">06</div><div class="t">Data Integration Starter</div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 01 KPI COCKPIT ────────────────────────────────── -->
+<section class="sol" id="kpi-cockpit" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.1.meta">Solution 01 — For CEOs · CFOs · COOs · Operations leaders</div>
+      <h2 class="sol__title" data-i18n="sol.1.title">Management <em>KPI Cockpit</em></h2>
+      <p class="sol__intro" data-i18n="sol.1.intro">Replace <strong>manual Excel reporting</strong> with one <strong>executive dashboard</strong>, a <strong>governed KPI tree</strong> and an <strong>automated daily refresh</strong> your board can rely on.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.1.p.1">No single source of truth for management KPIs</li>
+            <li data-i18n="sol.1.p.2">Manual Excel reporting consuming days each month</li>
+            <li data-i18n="sol.1.p.3">Inconsistent KPI definitions across business units</li>
+            <li data-i18n="sol.1.p.4">Slow management reporting cycles</li>
+            <li data-i18n="sol.1.p.5">Different teams reporting different numbers</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li data-i18n="sol.1.d.1">Executive dashboard, board-ready</li>
+            <li data-i18n="sol.1.d.2">KPI tree with documented definitions</li>
+            <li data-i18n="sol.1.d.3">Automated daily refresh pipeline</li>
+            <li data-i18n="sol.1.d.4">Drill-down logic for line-of-business analysis</li>
+            <li data-i18n="sol.1.d.5">Governance model and ownership map</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.outcomes">Business outcomes</h3>
+          <ul>
+            <li data-i18n="sol.1.o.1">Faster, more confident management decisions</li>
+            <li data-i18n="sol.1.o.2">Reliable, trusted reporting</li>
+            <li data-i18n="sol.1.o.3">Reduced manual work in finance and ops</li>
+            <li data-i18n="sol.1.o.4">Better visibility across business units</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.timeline">Typical timeline</h3>
+          <ul>
+            <li>Discovery &amp; KPI workshops — 2 weeks</li>
+            <li>Data model &amp; pipeline build — 4–6 weeks</li>
+            <li>Dashboard build &amp; review cycles — 3–4 weeks</li>
+            <li>Training &amp; handover — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech">Technologies</h4>
+          <p class="stack">Power BI · Microsoft Fabric · Azure SQL · dbt · Excel connectors</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.1.cta.note">Book a 30-minute scoping call to discuss your KPI structure and reporting pain points.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.1.cta">Build a KPI cockpit</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 PLATFORM ASSESSMENT ────────────────────────── -->
+<section class="sol" id="platform-assessment" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.2.meta">Solution 02 — For CTOs · IT Directors · Data Managers · Digital Transformation</div>
+      <h2 class="sol__title" data-i18n="sol.2.title">Data Platform <em>Assessment</em></h2>
+      <p class="sol__intro" data-i18n="sol.2.intro">A <strong>written architecture review</strong> with a <strong>target-state roadmap</strong>. We map sources, pipelines and costs — then recommend the <strong>smallest changes</strong> that move you furthest forward.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.2.p.1">Unclear current data architecture</li>
+            <li data-i18n="sol.2.p.2">Duplicated systems, undocumented pipelines</li>
+            <li data-i18n="sol.2.p.3">Rising cloud and BI costs without clear ROI</li>
+            <li data-i18n="sol.2.p.4">Unreliable refresh, broken dependencies</li>
+            <li data-i18n="sol.2.p.5">No agreed roadmap for the next 12 months</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li data-i18n="sol.2.d.1">Current architecture review (written report)</li>
+            <li>Data source map &amp; data-quality assessment</li>
+            <li data-i18n="sol.2.d.3">Cost review of cloud and BI estate</li>
+            <li data-i18n="sol.2.d.4">Target architecture proposal</li>
+            <li data-i18n="sol.2.d.5">Prioritized implementation roadmap</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.outcomes">Business outcomes</h3>
+          <ul>
+            <li data-i18n="sol.2.o.1">Clear understanding of platform risks</li>
+            <li data-i18n="sol.2.o.2">Realistic cost-reduction opportunities</li>
+            <li data-i18n="sol.2.o.3">A roadmap your CFO and CIO both endorse</li>
+            <li data-i18n="sol.2.o.4">Foundation for vendor and tool decisions</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.timeline">Typical timeline</h3>
+          <ul>
+            <li data-i18n="sol.2.t.1">Discovery interviews — 1–2 weeks</li>
+            <li data-i18n="sol.2.t.2">Technical assessment — 2–3 weeks</li>
+            <li>Roadmap &amp; presentation — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech.covered">Technologies covered</h4>
+          <p class="stack">Azure · Microsoft Fabric · Synapse · Databricks · dbt · Snowflake · Data Factory · Purview</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.2.cta.note">Get a written architecture review with concrete next steps in 4–6 weeks.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.2.cta">Request architecture review</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 POWER BI MODERNIZATION ─────────────────────── -->
+<section class="sol" id="power-bi-modernization" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.3.meta">Solution 03 — For BI leads · Finance · Operations · Reporting teams</div>
+      <h2 class="sol__title" data-i18n="sol.3.title">Power BI <em>Modernization</em></h2>
+      <p class="sol__intro" data-i18n="sol.3.intro">Hundreds of dashboards, unclear ownership, users back in Excel. We turn that chaos into a <strong>governed</strong>, <strong>performant</strong> platform that people <strong>actually use</strong>.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.3.p.1">Hundreds of dashboards, unclear which to use</li>
+            <li data-i18n="sol.3.p.2">Slow Power BI reports, frustrated users</li>
+            <li data-i18n="sol.3.p.3">Inconsistent KPIs across reports</li>
+            <li data-i18n="sol.3.p.4">Weak visual design, low executive engagement</li>
+            <li data-i18n="sol.3.p.5">Users still copying numbers into Excel</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li>Dashboard audit &amp; consolidation plan</li>
+            <li data-i18n="sol.3.d.2">Semantic model rebuild for performance</li>
+            <li>Redesign of executive &amp; operational reports</li>
+            <li data-i18n="sol.3.d.4">Power BI governance model</li>
+            <li data-i18n="sol.3.d.5">Adoption plan with training and ownership</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.outcomes">Business outcomes</h3>
+          <ul>
+            <li data-i18n="sol.3.o.1">Trusted, fast, well-designed dashboards</li>
+            <li data-i18n="sol.3.o.2">Fewer dashboards, more usage</li>
+            <li data-i18n="sol.3.o.3">Reduced effort to maintain reporting estate</li>
+            <li data-i18n="sol.3.o.4">Users move out of Excel into governed reports</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.timeline">Typical timeline</h3>
+          <ul>
+            <li>Audit &amp; consolidation plan — 3 weeks</li>
+            <li>Semantic model &amp; performance — 4–6 weeks</li>
+            <li>Redesign &amp; rollout — 6–10 weeks</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech">Technologies</h4>
+          <p class="stack">Power BI · Tabular Editor · DAX Studio · SQL · Microsoft Fabric · Purview</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.3.cta.note">Start with a dashboard audit — fixed scope, fixed price, written recommendations.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.3.cta">Modernize Power BI</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 AI READINESS ───────────────────────────────── -->
+<section class="sol" id="ai-readiness" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.4.meta">Solution 04 — For CEOs · Innovation leads · CIOs · Product owners</div>
+      <h2 class="sol__title" data-i18n="sol.4.title">AI Readiness <em>Sprint</em></h2>
+      <p class="sol__intro" data-i18n="sol.4.intro">AI ambition stuck between demo and production? We identify your <strong>highest-ROI use cases</strong>, validate feasibility and deliver a <strong>working prototype</strong> with a <strong>clear path to production</strong>.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.4.p.1">Many AI ideas, no clear ROI prioritization</li>
+            <li data-i18n="sol.4.p.2">Sensitive data and compliance concerns</li>
+            <li data-i18n="sol.4.p.3">Weak data foundation for AI</li>
+            <li data-i18n="sol.4.p.4">No production deployment plan</li>
+            <li data-i18n="sol.4.p.5">Unclear governance and risk model</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li data-i18n="sol.4.d.1">Use-case discovery workshops</li>
+            <li>Feasibility &amp; ROI assessment per use case</li>
+            <li data-i18n="sol.4.d.3">Data-readiness analysis</li>
+            <li data-i18n="sol.4.d.4">Working prototype on real data</li>
+            <li>Risk assessment &amp; implementation roadmap</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.outcomes">Business outcomes</h3>
+          <ul>
+            <li data-i18n="sol.4.o.1">Confidence in which AI ideas to pursue</li>
+            <li data-i18n="sol.4.o.2">A working demo to align stakeholders</li>
+            <li data-i18n="sol.4.o.3">Realistic timeline and cost estimate</li>
+            <li data-i18n="sol.4.o.4">Clear governance and compliance picture</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.timeline">Typical timeline</h3>
+          <ul>
+            <li data-i18n="sol.4.t.1">Use-case discovery — 1–2 weeks</li>
+            <li>Feasibility &amp; data analysis — 2 weeks</li>
+            <li data-i18n="sol.4.t.3">Prototype build — 3–4 weeks</li>
+            <li>Roadmap &amp; presentation — 1 week</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech">Technologies</h4>
+          <p class="stack">Azure OpenAI · LangChain · LangGraph · Microsoft Fabric · Power Automate · pgvector</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.4.cta.note">Move from AI ambition to a working prototype with a clear path to production.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.4.cta">Explore AI use cases</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 HEALTHCARE OPS ─────────────────────────────── -->
+<section class="sol" id="healthcare-ops" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.5.meta">Solution 05 — For Healthcare providers · Diagnostic centers · MedTech operators</div>
+      <h2 class="sol__title" data-i18n="sol.5.title">Healthcare / MedTech <em>Ops Dashboard</em></h2>
+      <p class="sol__intro" data-i18n="sol.5.intro">EHR, IoT devices, scheduling and ERP unified in one view. Built where <strong>device utilization</strong>, <strong>capacity planning</strong> and <strong>cancellation analytics</strong> directly affect revenue and patient outcomes.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.5.p.1">Device utilization unclear across sites</li>
+            <li data-i18n="sol.5.p.2">Manual appointment and capacity planning</li>
+            <li data-i18n="sol.5.p.3">Clinical and operational data separated</li>
+            <li data-i18n="sol.5.p.4">Cancellations and blocked slots not analyzed</li>
+            <li data-i18n="sol.5.p.5">Management reports arrive too late</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li data-i18n="sol.5.d.1">Device capacity cockpit</li>
+            <li>Appointment &amp; cancellation analytics</li>
+            <li data-i18n="sol.5.d.3">Site utilization dashboard</li>
+            <li>Predictive calendar &amp; load forecasting</li>
+            <li data-i18n="sol.5.d.5">Operational alert rules</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.kpis">Example KPIs tracked</h3>
+          <ul>
+            <li data-i18n="sol.5.k.1">Device utilization, weekly examination volume</li>
+            <li>Appointment cancellations &amp; blocked slots</li>
+            <li data-i18n="sol.5.k.3">Waiting time, staff capacity</li>
+            <li data-i18n="sol.5.k.4">Revenue per device, revenue per site</li>
+            <li data-i18n="sol.5.k.5">Private-patient share, no-show rate</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.compliance">Compliance &amp; data</h3>
+          <ul>
+            <li data-i18n="sol.5.c.1">DSGVO/GDPR-aware architecture</li>
+            <li data-i18n="sol.5.c.2">EHR / HL7 / FHIR integration</li>
+            <li data-i18n="sol.5.c.3">IoT device telemetry pipelines</li>
+            <li>Role-based access &amp; audit logs</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech">Technologies</h4>
+          <p class="stack">Microsoft Fabric · Azure IoT Hub · Power BI · FHIR APIs · Purview · Azure SQL</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.5.cta.note">Designed specifically for diagnostic centers, MedTech operators, and care providers.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.5.cta">Discuss healthcare analytics</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 DATA INTEGRATION ───────────────────────────── -->
+<section class="sol" id="data-integration" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+  <div class="container">
+    <div class="sol__head reveal">
+      <div class="sol__num" data-i18n="sol.6.meta">Solution 06 — For mid-sized enterprises · Group reporting teams · IT</div>
+      <h2 class="sol__title" data-i18n="sol.6.title">Data Integration <em>Starter</em></h2>
+      <p class="sol__intro" data-i18n="sol.6.intro">ERP, CRM, Excel and APIs with no shared layer. We build the <strong>integration backbone</strong> — source mapping, <strong>automated pipelines</strong> and a <strong>cloud data warehouse</strong> — fixed scope, fixed timeline.</p>
+    </div>
+    <div class="sol__body">
+      <div class="sol__lists reveal">
+        <div>
+          <h3 data-i18n="sol.h.problems">Problems we solve</h3>
+          <ul>
+            <li data-i18n="sol.6.p.1">Multiple sources of truth across systems</li>
+            <li data-i18n="sol.6.p.2">Manual exports and repeated data entry</li>
+            <li data-i18n="sol.6.p.3">Inconsistent reporting between departments</li>
+            <li data-i18n="sol.6.p.4">Poor data quality, no clear lineage</li>
+            <li data-i18n="sol.6.p.5">Reports that take hours to refresh</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.deliver">What we deliver</h3>
+          <ul>
+            <li>Source-system mapping &amp; ownership</li>
+            <li data-i18n="sol.6.d.2">Integration pipelines (ELT/ETL/API)</li>
+            <li data-i18n="sol.6.d.3">Cloud data warehouse or lakehouse</li>
+            <li data-i18n="sol.6.d.4">Automated refresh schedule</li>
+            <li data-i18n="sol.6.d.5">Dashboard-ready data model</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.outcomes">Business outcomes</h3>
+          <ul>
+            <li data-i18n="sol.6.o.1">One trusted layer for all reporting</li>
+            <li data-i18n="sol.6.o.2">Less manual data entry and copy-paste</li>
+            <li data-i18n="sol.6.o.3">Faster month-end close</li>
+            <li data-i18n="sol.6.o.4">Better data quality across the company</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="sol.h.timeline">Typical timeline</h3>
+          <ul>
+            <li>Source mapping &amp; design — 2 weeks</li>
+            <li>Pipelines &amp; DWH build — 6–8 weeks</li>
+            <li>Data model &amp; handover — 2 weeks</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="sol__aside reveal" data-delay="1">
+        <div class="sidebox">
+          <h4 data-i18n="sol.h.tech">Technologies</h4>
+          <p class="stack">Azure Data Factory · Microsoft Fabric · Azure SQL · dbt · REST APIs · Power BI</p>
+        </div>
+        <div class="sol__cta">
+          <p data-i18n="sol.6.cta.note">Start with a fixed-scope source mapping in two weeks — then decide.</p>
+          <a href="contact.html" class="btn"><span data-i18n="sol.6.cta">Connect your systems</span> <span class="arr">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="client-ticker">
+  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Ready to turn fragmented data into trusted decisions?</h2>
+      <p class="lead" data-i18n="cta.lead">Tell us where your reporting, systems, or AI initiatives are stuck. We respond within one working day and help you identify the right starting point.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Book a call</span> <span class="arr">→</span></a>
+          <a href="case-studies.html" class="btn btn--ghost btn--lg"><span data-i18n="cta.button2">View Case Studies</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-financial.html">Financial</a></li><li><a href="industry-energy.html">Energy</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

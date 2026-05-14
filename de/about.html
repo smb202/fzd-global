@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>About — FZD Global GmbH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.about-hero-portrait { background: var(--navy); aspect-ratio: 4/5; display: grid; place-items: center; color: var(--canvas); position: relative; overflow: hidden; }
+.about-hero-portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(212,127,79,0.18), transparent 60%); }
+.about-hero-portrait .initials { font-family: var(--serif); font-size: 220px; font-weight: 300; letter-spacing: -0.04em; line-height: 1; opacity: 0.92; }
+.about-hero-portrait .label { position: absolute; bottom: 24px; left: 24px; right: 24px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(247,245,240,0.6); display: flex; justify-content: space-between; text-transform: uppercase; }
+.bio-paragraphs p { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--text); margin: 0 0 20px; }
+.bio-paragraphs p:first-child::first-letter { font-family: var(--serif); font-size: 78px; font-weight: 500; float: left; line-height: 0.85; padding: 8px 14px 0 0; color: var(--accent-light-1); }
+.timeline { border-top: 1px solid var(--border); margin-top: 32px; }
+.timeline-row { display: grid; grid-template-columns: 100px 1fr; gap: 32px; padding: 28px; border-bottom: 1px solid var(--border); align-items: start; background: var(--surface); border-radius: var(--radius); margin-bottom: 8px; }
+.timeline-row .yr { font-family: var(--mono); font-size: 13px; color: var(--accent-1); letter-spacing: 0.06em; }
+.timeline-row h4 { font-family: var(--display); font-size: 18px; color: var(--text); margin: 0 0 8px; font-weight: 600; }
+.timeline-row p { color: var(--text-2); margin: 0; line-height: 1.6; font-size: 14px; }
+.values-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+@media (min-width: 800px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
+.value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; transition: border-color .25s, transform .25s; }
+.value-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.value-card .vc-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.value-card h3 { font-family: var(--display); font-size: 22px; margin: 16px 0 12px; color: var(--text); font-weight: 600; letter-spacing: -0.015em; }
+.value-card p { color: var(--text-2); line-height: 1.6; margin: 0; }
+.cred-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+@media (min-width: 800px) { .cred-grid { grid-template-columns: repeat(3, 1fr); } }
+.cred { padding: 28px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent-1); border-radius: var(--radius); transition: border-color .25s, transform .25s; }
+.cred:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.cred .name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cred h4 { font-family: var(--display); font-size: 18px; color: var(--text); margin: 12px 0 8px; font-weight: 600; }
+.cred p { color: var(--text-2); margin: 0; font-size: 14px; line-height: 1.5; }
+
+/* ── Team cards ──────────────────────────────────────────── */
+.team-section { padding: clamp(64px, 8vw, 100px) 0; }
+.team-section .section-head { margin-bottom: 48px; }
+.team-section .h-section em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.team-card {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background-size: cover;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: stretch;
+}
+.team-card:last-child { margin-bottom: 0; }
+
+.team-card__overlay { position: absolute; inset: 0; pointer-events: none; }
+.team-card--left  .team-card__overlay { background: linear-gradient(to right, rgba(5,8,18,0.95) 0%, rgba(5,8,18,0.88) 28%, rgba(5,8,18,0.5) 50%, transparent 66%); }
+.team-card--right .team-card__overlay { background: linear-gradient(to left,  rgba(5,8,18,0.95) 0%, rgba(5,8,18,0.88) 28%, rgba(5,8,18,0.5) 50%, transparent 66%); }
+
+.team-card__text {
+  position: relative;
+  z-index: 1;
+  width: 48%;
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.team-card--right .team-card__text { margin-left: auto; }
+
+.team-card__role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+.team-card__name {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.team-card__title {
+  font-size: 15px;
+  color: rgba(255,255,255,0.60);
+  margin-top: -4px;
+}
+.team-card__exp { font-size: 16px; color: rgba(255,255,255,0.78); }
+.team-card__exp strong { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+.team-card__cert { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.6; }
+.team-card__cert strong { color: #fff; font-weight: 600; }
+.team-card__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.team-card__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border: 1px solid rgba(0,212,255,0.38);
+  color: rgba(0,212,255,0.88);
+  border-radius: 3px;
+}
+.team-card__industries {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+}
+.team-card__langs {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.32);
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .team-card { min-height: 440px; flex-direction: column; }
+  .team-card__text { width: 100%; padding: 28px 24px; justify-content: flex-end; min-height: 260px; }
+  .team-card--left  .team-card__overlay,
+  .team-card--right .team-card__overlay { background: linear-gradient(to top, rgba(5,8,18,0.97) 0%, rgba(5,8,18,0.8) 45%, transparent 72%); }
+  .team-card--right .team-card__text { margin-left: 0; }
+}
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('../assets/about_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.90) 0%, rgba(5,8,18,0.72) 55%, rgba(5,8,18,0.48) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display:block; content:""; position:absolute; bottom:0; left:0; right:0; height:140px; background:linear-gradient(to bottom,transparent,#101415); z-index:2; pointer-events:none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .h-display strong { font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff !important; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" class="is-active" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="en">EN</button><button data-lang-btn="de" class="is-active">DE</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+          <rect width="18" height="2" fill="currentColor"/>
+          <rect y="5" width="18" height="2" fill="currentColor"/>
+          <rect y="10" width="18" height="2" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.about">About</span></div>
+<div class="eyebrow">The team · Heidelberg</div>
+<h1 class="h-display" style="margin-top: 24px;"><strong>Three seniors.</strong><br><em>Every engagement.</em></h1>
+<p class="lead" style="margin-top: 32px; max-width: 60ch;"><strong>50+ combined years</strong> of enterprise data experience. Senior people on the work, every day — not a sales motion that ends with a junior team.</p>
+</div>
+</section>
+
+<!-- ── TEAM ──────────────────────────────────────────────── -->
+<section class="section team-section">
+<div class="container">
+  <div class="section-head">
+    <div class="reveal">
+      <div class="eyebrow">— Our team</div>
+      <h2 class="h-section" style="margin-top:20px;">The people <em>behind the work.</em></h2>
+    </div>
+    <div class="reveal" data-delay="1">
+      <p class="lead">Three senior practitioners. <strong>50+ combined years</strong> of enterprise data, cloud and AI experience across DACH and beyond.</p>
+    </div>
+  </div>
+
+  <!-- Akhmedov — text LEFT, person RIGHT -->
+  <div class="team-card team-card--left reveal" style="background-image:url('../assets/akhmedov.png');background-position:right center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">CEO &amp; Founder</div>
+      <h3 class="team-card__name">Fazliddin Akhmedov</h3>
+      <div class="team-card__title">Principal Consultant · MDM &amp; Controlling</div>
+      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">SAP BW</span>
+        <span class="team-card__tag">S/4HANA</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">SAP FICO</span>
+        <span class="team-card__tag">MDM</span>
+        <span class="team-card__tag">SAP BPC</span>
+      </div>
+      <div class="team-card__industries">Steel · Energy · Automotive · Cement · Manufacturing</div>
+      <div class="team-card__langs">DE · EN · TR · RU</div>
+    </div>
+  </div>
+
+  <!-- Rasulov — text RIGHT, person LEFT -->
+  <div class="team-card team-card--right reveal" style="background-image:url('../assets/rasulov.png');background-position:left center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">CIO &amp; Co-Founder</div>
+      <h3 class="team-card__name">Farhod Rasulov</h3>
+      <div class="team-card__title">Senior Data &amp; Azure Solutions Architect</div>
+      <div class="team-card__exp"><strong>15+ years</strong> of enterprise data experience</div>
+      <div class="team-card__cert"><strong>Azure Solutions Architect</strong> · <strong>Azure Data Engineer Associate</strong> · Azure Administrator Associate</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">MS Fabric</span>
+        <span class="team-card__tag">Azure</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">Databricks</span>
+        <span class="team-card__tag">Grafana</span>
+        <span class="team-card__tag">Python</span>
+      </div>
+      <div class="team-card__langs">DE · EN · UZ · TR</div>
+    </div>
+  </div>
+
+  <!-- Saminov — text LEFT, person RIGHT -->
+  <div class="team-card team-card--left reveal" style="background-image:url('../assets/saminov.png');background-position:right center;">
+    <div class="team-card__overlay"></div>
+    <div class="team-card__text">
+      <div class="team-card__role">Senior Consultant</div>
+      <h3 class="team-card__name">Rashidjon Saminov</h3>
+      <div class="team-card__title">MS Fabric Consultant &amp; BI Architect</div>
+      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__tags">
+        <span class="team-card__tag">MS Fabric</span>
+        <span class="team-card__tag">Power BI</span>
+        <span class="team-card__tag">Azure</span>
+        <span class="team-card__tag">Grafana</span>
+        <span class="team-card__tag">Python</span>
+        <span class="team-card__tag">Qlik</span>
+      </div>
+      <div class="team-card__industries">MedTech · Insurance · Telecom · Consumer Goods · Packaging</div>
+      <div class="team-card__langs">EN · DE · TR · RU · UZ</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.track.eyebrow">— Track record</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.track.title">A decade across industries that don't tolerate slop.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.track.lead">Selected milestones from a hands-on practice. Specific clients shared under NDA.</p></div>
+</div>
+<div class="timeline reveal">
+<div class="timeline-row"><div class="yr">2024–2025</div><div><h4>Insurance — 200 dashboards migrated, end-to-end</h4><p>Led the migration of 200 Power BI dashboards to Grafana for a tier-1 European insurer. Built CIO-level dashboards. Implemented row-level security across all departments. Delivered training and adoption.</p></div></div>
+<div class="timeline-row"><div class="yr">2024–Present</div><div><h4>Medical Technology — MS Fabric Data Mesh, Lakehouse and IoT analytics</h4><p>Architecting a Data Mesh and Lakehouse on Microsoft Fabric. Power BI reports across aggregated and live data. Asset-management Power Apps. PoC IoT analytics for medical devices.</p></div></div>
+<div class="timeline-row"><div class="yr">2023–2024</div><div><h4>Packaging — Five-country DWH consolidation</h4><p>Cloud DWH consolidating ERPs across five countries. SSIS-to-ADF migration. SAP BW and HANA connected. Group reporting cycle cut materially.</p></div></div>
+<div class="timeline-row"><div class="yr">2021–2022</div><div><h4>Energy &amp; Public Transportation — Cloud platforms and IoT</h4><p>Lead Architect on cloud-based data platforms for a renewable-energy operator and a major public transportation network. Streaming, governance, REST APIs and Power Apps for operational workflows.</p></div></div>
+<div class="timeline-row"><div class="yr">2017–2020</div><div><h4>Banking &amp; Insurance — Cognos and BI modernization</h4><p>Migration from Cognos 10 to Cognos 11. Sales-management reporting. Data modeling, dashboards and coaching across multiple financial-services clients.</p></div></div>
+<div class="timeline-row"><div class="yr">2014–2017</div><div><h4>Foundations — SAP BW, BPC, IFRS reporting</h4><p>Hands-on engineering across SAP Business Warehouse, BPC, SEM-BCS and IFRS group reporting. The discipline of getting the numbers right shaped everything that came after.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.principles.eyebrow">— Operating principles</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.principles.title">Three commitments that shape the work.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.principles.lead">These are not posters. They are how engagements are scoped, staffed and judged.</p></div>
+</div>
+<div class="values-grid reveal">
+<div class="value-card"><div class="vc-num">01</div><h3>Senior on the work.</h3><p>You buy our practice, you get our practice. No bait-and-switch to junior teams. Every engagement has a senior architect doing the work — not just attending the steerco.</p></div>
+<div class="value-card"><div class="vc-num">02</div><h3>Outcome over output.</h3><p>Anyone can ship slides and deliverables. We measure ourselves on what changes after we leave: faster close cycles, better forecasts, decisions made on data instead of intuition.</p></div>
+<div class="value-card"><div class="vc-num">03</div><h3>Boutique by choice.</h3><p>We say no to engagements that need 30 consultants. The work we take is the work that benefits from depth and continuity, not headcount. That keeps quality up and senior attention undiluted.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow" data-i18n="about.section.cred.eyebrow">— Credentials</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.cred.title">Certifications &amp; training.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.cred.lead">A working list. Updated as they expire and renew.</p></div>
+</div>
+<div class="cred-grid reveal">
+<div class="cred"><div class="name">Microsoft</div><h4>Azure Data Engineer Associate</h4><p>DP-203 / DP-700 track. Microsoft Fabric, Synapse, Databricks practitioner.</p></div>
+<div class="cred"><div class="name">Microsoft</div><h4>Azure Solutions Architect</h4><p>Architecture and operations for enterprise Azure data platforms.</p></div>
+<div class="cred"><div class="name">SAP</div><h4>SAP BW &amp; BPC Practitioner</h4><p>Years of hands-on delivery on Business Warehouse, BPC and group consolidation.</p></div>
+<div class="cred"><div class="name">IBM</div><h4>Cognos Analytics Specialist</h4><p>Framework Manager, Cognos 11 migrations and enterprise reporting.</p></div>
+<div class="cred"><div class="name">Languages</div><h4>German · English · Turkish</h4><p>Native German, professional English, native Turkish. Engagements run in any of the three.</p></div>
+<div class="cred"><div class="name">Continuing</div><h4>LLM &amp; AI agent practice</h4><p>Active practitioner: LangChain, LangGraph, RAG architectures, evaluation methodology.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow">— Our clients</div><h2 class="h-section" style="margin-top:20px;">The organisations that trust us.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead">From global manufacturers and energy operators to banks and logistics groups — we have delivered across sectors where the cost of bad data is highest.</p></div>
+</div>
+<div class="logo-grid reveal">
+  <div class="logo-pill" style="overflow:visible;">
+    <img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'" style="width:120%;height:auto;display:block;margin:0 auto;">
+  </div>
+  <div class="logo-pill"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Deutsche Bahn</span></div>
+  <div class="logo-pill" style="overflow:visible;">
+    <img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'" style="width:120%;height:auto;display:block;margin:0 auto;">
+  </div>
+  <div class="logo-pill"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Wien Energie</span></div>
+  <div class="logo-pill"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Infomotion</span></div>
+  <div class="logo-pill"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">R+V Versicherung</span></div>
+  <div class="logo-pill"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Lufthansa</span></div>
+  <div class="logo-pill"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Groupe SEB</span></div>
+  <div class="logo-pill"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Deutsche Bank</span></div>
+  <div class="logo-pill"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="logo-pill"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Siemens</span></div>
+  <div class="logo-pill"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">ALTEN</span></div>
+  <div class="logo-pill"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">ENERCON</span></div>
+  <div class="logo-pill"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Knauf</span></div>
+  <div class="logo-pill" style="overflow:visible;">
+    <img src="../assets/logos/askchemicals.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'" style="width:150%;height:auto;display:block;margin:0 auto;">
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section section--alt" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="eyebrow">— Technology ecosystem</div><h2 class="h-section" style="margin-top:20px;">Trusted partners &amp; platforms.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead">We are technology-agnostic in principle and expert in practice. These are the platforms and ecosystems we work inside every day.</p></div>
+</div>
+<div class="logo-grid reveal">
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Microsoft</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">SAP</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Oracle</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">AWS</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Azure</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Databricks</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Python</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">SQL Server</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">MongoDB</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">InfluxDB</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">JavaScript</span></div>
+</div>
+</div>
+</section>
+
+<section class="client-ticker">
+  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+  </div>
+</section>
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>

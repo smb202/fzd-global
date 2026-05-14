@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Why most enterprise RAG projects fail — and what to instrument instead — FZD Global GmbH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.post-hero-image { background-size: cover; background-position: center; background-color: #07090f; aspect-ratio: 21/9; margin: 0 0 48px; position: relative; overflow: hidden; }
+.post-hero-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,8,18,0.60) 0%, rgba(5,8,18,0.35) 50%, rgba(5,8,18,0.70) 100%); }
+.post-hero-image::after { content: "03"; position: absolute; right: 32px; bottom: -24px; font-family: var(--serif); font-size: 280px; color: rgba(255,255,255,0.10); line-height: 0.85; }
+.post-content { max-width: 720px; margin: 0 auto; }
+.post-content p { font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; }
+.post-content h2 { font-family: var(--serif); font-size: 30px; color: var(--text); margin: 48px 0 20px; font-weight: 500; letter-spacing: -0.01em; }
+.post-content em { font-style: italic; color: var(--accent-light-1); }
+.post-content strong { font-weight: 600; color: var(--text); }
+.post-meta-bar { max-width: 720px; margin: 0 auto 48px; display: flex; flex-wrap: wrap; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
+.post-meta-bar .pmb-item { display: flex; gap: 8px; align-items: center; }
+.post-meta-bar .pmb-item span:first-child { color: var(--accent-light-1); }
+.author-card { max-width: 720px; margin: 64px auto 0; padding: 32px; background: var(--surface-2); border-left: 3px solid var(--accent-1); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
+.author-card .av { width: 64px; height: 64px; background: var(--surface-3); color: var(--text); display: grid; place-items: center; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+.author-card .ac-name { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 0; font-weight: 500; }
+.author-card .ac-bio { color: var(--text-2); font-size: 14px; margin: 4px 0 0; line-height: 1.5; }
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; background: transparent; border: none; margin-top: 32px; }
+@media (min-width: 800px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
+.related-post { background: rgba(16,20,21,0.92); backdrop-filter: blur(6px); border: 1px solid var(--border); padding: 28px; text-decoration: none; color: inherit; transition: background .2s, border-color .2s; border-radius: 4px; }
+.related-post:hover { background: rgba(25,28,30,0.96); border-color: var(--border-strong); }
+.related-post .rp-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
+.related-post h3 { font-family: var(--serif); font-size: 18px; color: var(--text); margin: 12px 0; font-weight: 500; line-height: 1.3; }
+.related-post .rp-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" class="is-active" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="en">EN</button><button data-lang-btn="de" class="is-active">DE</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+          <rect width="18" height="2" fill="currentColor"/>
+          <rect y="5" width="18" height="2" fill="currentColor"/>
+          <rect y="10" width="18" height="2" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top: 32px;">
+<div class="container">
+<div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>AI</span></div>
+<div class="post-content" style="margin-bottom: 32px;">
+<div class="eyebrow">AI · Feb 2026</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.2.title">Why most enterprise RAG projects fail — and what to instrument instead</h1>
+</div>
+</div>
+</section>
+
+<div class="container">
+<div class="post-hero-image" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1600&q=85')"></div>
+</div>
+
+<section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
+<div class="container">
+<div class="post-meta-bar">
+<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>—</span><span>Feb 2026</span></div>
+<div class="pmb-item"><span>—</span><span>10 min read</span></div>
+<div class="pmb-item"><span>—</span><span>AI</span></div>
+</div>
+<div class="post-content reveal">
+<p class="lead" style="font-size: 22px; margin-bottom: 32px;">It is easy to ship a working demo. It is hard to ship a system that stays correct as your knowledge base evolves.</p>
+<p>The pattern is familiar. A team builds a RAG prototype in two weeks. Stakeholders are delighted. Six months later, the system is giving wrong answers on questions it used to handle, no one knows when the regression started, and rolling back to the right model and prompt is impossible because nothing was versioned.</p>
+<p>Here are the four things every production RAG system needs from day one.</p>
+<h2>1. A golden dataset, versioned and reviewed</h2>
+<p>50–200 representative queries with hand-graded ideal responses. Stored in source control. Reviewed by a domain expert quarterly. This is the single highest-leverage investment in a RAG project. Without it you cannot detect regressions and you cannot evaluate alternative architectures.</p>
+<h2>2. Continuous evaluation, not point-in-time</h2>
+<p>Run the golden dataset on every change to the prompt, the retrieval system, the embedding model, the ranker or the underlying LLM. Track results over time. Make the metric trends visible to the team — the same way SRE teams track latency.</p>
+<h2>3. Hallucination detection and source attribution</h2>
+<p>Every answer cites the chunks it drew from. The UI surfaces them. A separate evaluator model checks whether the answer is actually supported by the cited chunks. When the rate of unsupported answers rises, an alert fires.</p>
+<h2>4. Failure mode triage</h2>
+<p>RAG fails in three ways: bad retrieval, bad synthesis, or bad source data. Most teams confuse these. Build evaluation views that distinguish them. Bad retrieval is fixed by changing chunking, embedding or ranking. Bad synthesis is fixed by prompt or model changes. Bad source data is fixed by your governance team.</p>
+<p>None of this is hard. All of it is boring. That is why most teams skip it — and why most enterprise RAG systems quietly degrade until they are abandoned.</p></div>
+<div class="author-card reveal">
+<div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
+</div>
+
+<div class="post-content" style="margin-top: 96px;">
+<div class="eyebrow">— Continue reading</div>
+<h2 style="font-family: var(--serif); font-size: 28px; color: var(--text); margin: 16px 0 0; font-weight: 500;">Related field notes.</h2>
+</div>
+<div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
+<div class="rp-cat">Architecture</div>
+<h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
+<div class="rp-meta">Mar 2026 · 8 min read</div>
+</a><a class="related-post" href="post-fabric-vs-databricks.html">
+<div class="rp-cat">Tooling</div>
+<h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
+<div class="rp-meta">Feb 2026 · 12 min read</div>
+</a><a class="related-post" href="post-sap-modernization.html">
+<div class="rp-cat">Strategy</div>
+<h3>Modernizing SAP analytics in the Microsoft Fabric era</h3>
+<div class="rp-meta">Jan 2026 · 9 min read</div>
+</a></div>
+</div>
+</section>
+
+<section class="client-ticker">
+  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true">
+      <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bahn</span></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Daimler</span></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Wien Energie</span></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Infomotion</span></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">R+V Versicherung</span></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Lufthansa</span></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Groupe SEB</span></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Deutsche Bank</span></span>
+      <span class="client-logo"><img src="../assets/logos/degussabank.svg" alt="Degussa Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Siemens</span></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ALTEN</span></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">ENERCON</span></span>
+      <span class="client-logo"><img src="../assets/logos/knauf.svg" alt="Knauf" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Knauf</span></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">IBM</span></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Microsoft</span></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SAP</span></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Oracle</span></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">AWS</span></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Azure</span></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Databricks</span></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">Python</span></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">SQL Server</span></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">MongoDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">InfluxDB</span></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="client-logo__name">JavaScript</span></span>
+    </div>
+  </div>
+</section>
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>
