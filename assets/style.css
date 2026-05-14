@@ -133,7 +133,7 @@ button { font-family: inherit; cursor: pointer; }
 .client-ticker__track {
   display: flex;
   width: max-content;
-  animation: clientScroll 42s linear infinite;
+  animation: clientScroll 65s linear infinite;
 }
 .client-ticker__track:hover { animation-play-state: paused; }
 .client-ticker__set {
