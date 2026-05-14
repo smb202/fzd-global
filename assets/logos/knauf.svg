@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 8 118 114" width="118" height="114" role="img" aria-label="Knauf logo">
+<title>Knauf logo</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00a5e8"/><stop offset="1" stop-color="#003f8f"/></linearGradient></defs>
+<path fill="#11a8df" d="M20 24h54L58 120H5z"/>
+<path fill="url(#g)" d="M72 10h51l-16 95H58z"/>
+</svg>
