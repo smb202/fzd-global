@@ -14,7 +14,7 @@ window.FZD_I18N = {
 
     "hero.eyebrow": "FZD Global GmbH — Data, AI & Cloud Consulting",
     "hero.title.1": "Turn fragmented data into",
-    "hero.title.2": "decision-ready systems.",
+    "hero.title.2": "decision‑ready systems.",
     "hero.lead": "FZD Global GmbH helps DACH companies build trusted dashboards, cloud data platforms, automation workflows, and AI solutions that improve reporting, operations, and management decisions.",
     "hero.cta.primary": "Book a call",
     "hero.cta.secondary": "View Case Studies",
