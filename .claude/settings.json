@@ -19,7 +19,9 @@
       "Bash(curl -s \"https://api.github.com/repos/simple-icons/simple-icons/git/trees/HEAD?recursive=0\")",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(t['path']\\) for t in d.get\\('tree',[]\\) if 'icons' in t['path'] or t['type']=='tree']\")",
       "Bash(curl -s \"https://raw.githubusercontent.com/simple-icons/simple-icons/develop/data/simple-icons.json\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "WebSearch",
+      "WebFetch(domain:images.unsplash.com)"
     ]
   }
 }
