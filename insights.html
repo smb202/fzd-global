@@ -41,6 +41,22 @@
 
 /* ── hidden cards don't leave ghost gaps in the grid ─────── */
 #posts-list { transition: none; }
+
+/* ── Hero background image ────────────────────────────────── */
+.page-hero {
+  background: #07090f url('assets/insights_background.png') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.88) 0%, rgba(5,8,18,0.70) 55%, rgba(5,8,18,0.45) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display:block; content:""; position:absolute; bottom:0; left:0; right:0; height:140px; background:linear-gradient(to bottom,transparent,#101415); z-index:2; pointer-events:none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 </style>
 </head><body>
 <div class="top-bar"></div>
