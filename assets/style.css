@@ -462,6 +462,8 @@ button { font-family: inherit; cursor: pointer; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  padding-bottom: 0.15em;
+  display: inline-block;
 }
 .h-section {
   font-family: var(--display);
