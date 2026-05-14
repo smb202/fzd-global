@@ -143,19 +143,24 @@ button { font-family: inherit; cursor: pointer; }
   padding-right: 60px;
 }
 .client-logo {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--text-2);
-  opacity: 0.45;
-  transition: opacity 0.25s;
-  white-space: nowrap;
-  font-family: var(--display);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
   user-select: none;
 }
-.client-logo:hover { opacity: 1; }
+.client-logo img {
+  height: 28px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.4);
+  transition: filter 0.25s;
+  display: block;
+}
+.client-logo:hover img {
+  filter: brightness(0) invert(1) opacity(0.85);
+}
 @keyframes clientScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -172,30 +177,32 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72px;
+  height: 88px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgba(255,255,255,0.03);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--text-2);
-  opacity: 0.65;
-  transition: opacity 0.2s, border-color 0.2s, background 0.2s;
-  font-family: var(--display);
-  padding: 0 20px;
-  text-align: center;
+  padding: 0 24px;
   cursor: default;
+  transition: border-color 0.2s, background 0.2s;
+}
+.logo-pill img {
+  height: 36px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.45);
+  transition: filter 0.2s;
+  display: block;
 }
 .logo-pill:hover {
-  opacity: 1;
   border-color: rgba(0,212,255,0.35);
   background: rgba(0,212,255,0.04);
 }
-.logo-pill--partner {
-  font-size: 12px;
-  letter-spacing: 0.06em;
+.logo-pill:hover img {
+  filter: brightness(0) invert(1) opacity(0.9);
+}
+.logo-pill--partner img {
+  height: 32px;
 }
 
 /* ── Top accent bar — gradient cyan → lime ───────────────── */
