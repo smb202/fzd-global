@@ -10,9 +10,9 @@
 .featured-post { display: grid; grid-template-columns: 1fr; gap: 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 48px; cursor: pointer; text-decoration: none; overflow: hidden; transition: border-color .25s; }
 .featured-post:hover { border-color: var(--border-strong); }
 @media (min-width: 900px) { .featured-post { grid-template-columns: 5fr 6fr; min-height: 480px; } }
-.featured-post .fp-img { background: linear-gradient(140deg, var(--accent-1), var(--lime)); position: relative; overflow: hidden; min-height: 280px; }
-.featured-post .fp-img::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.18), transparent 50%); }
-.featured-post .fp-img::after { content: "01"; position: absolute; right: 24px; bottom: 16px; font-family: var(--display); font-size: 220px; color: rgba(5,8,18,0.18); line-height: 0.85; }
+.featured-post .fp-img { background: center/cover no-repeat var(--surface-2); position: relative; overflow: hidden; min-height: 280px; }
+.featured-post .fp-img::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,8,18,0.55) 0%, rgba(5,8,18,0.15) 60%, transparent 100%); }
+.featured-post .fp-img::after { content: ""; }
 .featured-post .fp-body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
 .featured-post .fp-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-1); text-transform: uppercase; }
 .featured-post .fp-title { font-family: var(--display); font-size: clamp(24px, 3vw, 36px); font-weight: 600; line-height: 1.14; color: var(--text); margin: 0; letter-spacing: -0.02em; }
@@ -41,6 +41,23 @@
 
 /* ── hidden cards don't leave ghost gaps in the grid ─────── */
 #posts-list { transition: none; }
+
+/* ── Post card image thumbnails ───────────────────────────── */
+.post-card { overflow: hidden; }
+.pc-img {
+  height: 160px;
+  margin: -36px -32px 4px;
+  background: center/cover no-repeat var(--surface-2);
+  border-radius: var(--radius) var(--radius) 0 0;
+  flex-shrink: 0;
+  position: relative;
+}
+.pc-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(5,8,18,0.55) 100%);
+}
 
 /* ── Hero background image ────────────────────────────────── */
 .page-hero {
@@ -108,7 +125,7 @@
 <section class="section">
 <div class="container">
 <a class="featured-post reveal" href="post-lakehouse-vs-warehouse.html">
-<div class="fp-img"></div>
+<div class="fp-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80')"></div>
 <div class="fp-body">
 <div class="fp-meta">FEATURED · Architecture · Mar 2026</div>
 <h2 class="fp-title">Lakehouse vs. Warehouse: when each pattern actually pays off</h2>
@@ -119,36 +136,43 @@
 
 <div class="posts-list-full reveal" data-delay="1" id="posts-list">
 <a class="post-card" href="post-fabric-vs-databricks.html" data-cat="Tooling">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Tooling</span>
 <h3 class="pc-title">Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
 <p class="pc-excerpt">Both can be the right answer. Neither is the right answer everywhere. Where each platform earns its keep across DACH enterprise engagements, and the questions to ask before you commit.</p>
 <div class="pc-meta"><span>Feb 2026</span><span>·</span><span>12 min read</span></div>
 </a><a class="post-card" href="post-rag-evaluation.html" data-cat="AI">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">AI</span>
 <h3 class="pc-title">Why most enterprise RAG projects fail — and what to instrument instead</h3>
 <p class="pc-excerpt">It is easy to ship a working demo. It is hard to ship a system that stays correct as your knowledge base evolves. The four metrics every production RAG system needs from day one.</p>
 <div class="pc-meta"><span>Feb 2026</span><span>·</span><span>10 min read</span></div>
 </a><a class="post-card" href="post-sap-modernization.html" data-cat="Strategy">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Strategy</span>
 <h3 class="pc-title">Modernizing SAP analytics in the Microsoft Fabric era</h3>
 <p class="pc-excerpt">You don't have to rip out SAP BW to get to Fabric. A migration path that respects existing investments, brings new capabilities online incrementally, and keeps the close cycle running.</p>
 <div class="pc-meta"><span>Jan 2026</span><span>·</span><span>9 min read</span></div>
 </a><a class="post-card" href="post-kpi-tree.html" data-cat="Analytics">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Analytics</span>
 <h3 class="pc-title">The KPI tree that actually works in the boardroom</h3>
 <p class="pc-excerpt">Most KPI frameworks are too long, too flat or both. A simple structure — three layers, financial outcome at the top — that survives the C-suite and the front line.</p>
 <div class="pc-meta"><span>Jan 2026</span><span>·</span><span>7 min read</span></div>
 </a><a class="post-card" href="post-mdm-pharma.html" data-cat="Governance">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Governance</span>
 <h3 class="pc-title">Master data governance in pharma supply chains: lessons from the field</h3>
 <p class="pc-excerpt">Audit findings on master-data drift are not solved by another policy document. They are solved by plumbing governance into the platform. A walk-through of what worked.</p>
 <div class="pc-meta"><span>Dec 2025</span><span>·</span><span>11 min read</span></div>
 </a><a class="post-card" href="post-streaming-iot-cost.html" data-cat="Engineering">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Engineering</span>
 <h3 class="pc-title">Streaming IoT analytics without breaking the cost model</h3>
 <p class="pc-excerpt">Real-time architectures that scale linearly with event volume bankrupt their owners. The patterns we use to keep latency low and the bill predictable.</p>
 <div class="pc-meta"><span>Dec 2025</span><span>·</span><span>9 min read</span></div>
 </a><a class="post-card" href="post-data-team-org.html" data-cat="Strategy">
+<div class="pc-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80')"></div>
 <span class="pc-cat">Strategy</span>
 <h3 class="pc-title">Centralized, federated, hub-and-spoke: how to actually choose</h3>
 <p class="pc-excerpt">The org-design question never has a single right answer — but the wrong one is expensive. A framework for matching data team structure to organizational reality.</p>
