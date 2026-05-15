@@ -21,7 +21,9 @@
       "Bash(curl -s \"https://raw.githubusercontent.com/simple-icons/simple-icons/develop/data/simple-icons.json\")",
       "Bash(python3 -c ' *)",
       "WebSearch",
-      "WebFetch(domain:images.unsplash.com)"
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(git add *)",
+      "Bash(git push *)"
     ]
   }
 }

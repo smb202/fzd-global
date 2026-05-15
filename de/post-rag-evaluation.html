@@ -77,51 +77,51 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Feb 2026</span></div>
-<div class="pmb-item"><span>—</span><span>10 min read</span></div>
+<div class="pmb-item"><span>—</span><span>10 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>AI</span></div>
 </div>
 <div class="post-content reveal">
-<p class="lead" style="font-size: 22px; margin-bottom: 32px;">It is easy to ship a working demo. It is hard to ship a system that stays correct as your knowledge base evolves.</p>
-<p>The pattern is familiar. A team builds a RAG prototype in two weeks. Stakeholders are delighted. Six months later, the system is giving wrong answers on questions it used to handle, no one knows when the regression started, and rolling back to the right model and prompt is impossible because nothing was versioned.</p>
-<p>Here are the four things every production RAG system needs from day one.</p>
-<h2>1. A golden dataset, versioned and reviewed</h2>
-<p>50–200 representative queries with hand-graded ideal responses. Stored in source control. Reviewed by a domain expert quarterly. This is the single highest-leverage investment in a RAG project. Without it you cannot detect regressions and you cannot evaluate alternative architectures.</p>
-<h2>2. Continuous evaluation, not point-in-time</h2>
-<p>Run the golden dataset on every change to the prompt, the retrieval system, the embedding model, the ranker or the underlying LLM. Track results over time. Make the metric trends visible to the team — the same way SRE teams track latency.</p>
-<h2>3. Hallucination detection and source attribution</h2>
-<p>Every answer cites the chunks it drew from. The UI surfaces them. A separate evaluator model checks whether the answer is actually supported by the cited chunks. When the rate of unsupported answers rises, an alert fires.</p>
-<h2>4. Failure mode triage</h2>
-<p>RAG fails in three ways: bad retrieval, bad synthesis, or bad source data. Most teams confuse these. Build evaluation views that distinguish them. Bad retrieval is fixed by changing chunking, embedding or ranking. Bad synthesis is fixed by prompt or model changes. Bad source data is fixed by your governance team.</p>
-<p>None of this is hard. All of it is boring. That is why most teams skip it — and why most enterprise RAG systems quietly degrade until they are abandoned.</p></div>
+<p class="lead" style="font-size: 22px; margin-bottom: 32px;">Ein funktionierendes Demo zu liefern ist einfach. Ein System zu liefern, das korrekt bleibt, während sich Ihre Wissensbasis weiterentwickelt, ist schwer.</p>
+<p>Das Muster ist bekannt. Ein Team baut einen RAG-Prototyp in zwei Wochen. Stakeholder sind begeistert. Sechs Monate später gibt das System falsche Antworten auf Fragen, die es früher beherrschte, niemand weiß, wann die Regression begann, und ein Rollback zum richtigen Modell und Prompt ist unmöglich, weil nichts versioniert wurde.</p>
+<p>Hier sind die vier Dinge, die jedes produktive RAG-System von Anfang an benötigt.</p>
+<h2>1. Ein Golden Dataset, versioniert und geprüft</h2>
+<p>50–200 repräsentative Anfragen mit manuell bewerteten idealen Antworten. In der Versionskontrolle gespeichert. Vierteljährlich von einem Domänenexperten überprüft. Dies ist die einzeln wirksamste Investition in ein RAG-Projekt. Ohne sie können Sie keine Regressionen erkennen und keine alternativen Architekturen bewerten.</p>
+<h2>2. Kontinuierliche Evaluierung, nicht punktuell</h2>
+<p>Das Golden Dataset bei jeder Änderung am Prompt, dem Retrieval-System, dem Embedding-Modell, dem Ranker oder dem zugrundeliegenden LLM ausführen. Ergebnisse im Zeitverlauf verfolgen. Die Metrik-Trends für das Team sichtbar machen — genauso wie SRE-Teams Latenz verfolgen.</p>
+<h2>3. Halluzinationserkennung und Quellenattribution</h2>
+<p>Jede Antwort zitiert die Chunks, aus denen sie stammt. Die UI zeigt sie an. Ein separates Evaluatormodell prüft, ob die Antwort tatsächlich durch die zitierten Chunks gestützt wird. Wenn die Rate ungestützter Antworten steigt, löst eine Warnung aus.</p>
+<h2>4. Fehlermodus-Triage</h2>
+<p>RAG scheitert auf drei Arten: schlechtes Retrieval, schlechte Synthese oder schlechte Quelldaten. Die meisten Teams verwechseln diese. Evaluierungsansichten erstellen, die sie unterscheiden. Schlechtes Retrieval wird durch Änderung von Chunking, Embedding oder Ranking behoben. Schlechte Synthese durch Prompt- oder Modelländerungen. Schlechte Quelldaten durch Ihr Governance-Team.</p>
+<p>Nichts davon ist schwer. Alles davon ist langweilig. Deshalb überspringen die meisten Teams es — und deshalb degradieren die meisten Enterprise-RAG-Systeme still, bis sie aufgegeben werden.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
+<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
-<div class="eyebrow">— Continue reading</div>
-<h2 style="font-family: var(--serif); font-size: 28px; color: var(--text); margin: 16px 0 0; font-weight: 500;">Related field notes.</h2>
+<div class="eyebrow">— Weiterlesen</div>
+<h2 style="font-family: var(--serif); font-size: 28px; color: var(--text); margin: 16px 0 0; font-weight: 500;">Verwandte Beiträge.</h2>
 </div>
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
-<div class="rp-cat">Architecture</div>
-<h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-cat">Architektur</div>
+<h3>Lakehouse vs. Warehouse: wann sich jedes Muster wirklich lohnt</h3>
+<div class="rp-meta">Mar 2026 · 8 Min. Lesezeit</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
-<h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
+<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
 </a><a class="related-post" href="post-sap-modernization.html">
-<div class="rp-cat">Strategy</div>
-<h3>Modernizing SAP analytics in the Microsoft Fabric era</h3>
-<div class="rp-meta">Jan 2026 · 9 min read</div>
+<div class="rp-cat">Strategie</div>
+<h3>SAP-Analytics modernisieren im Microsoft Fabric Zeitalter</h3>
+<div class="rp-meta">Jan 2026 · 9 Min. Lesezeit</div>
 </a></div>
 </div>
 </section>
 
 <section class="client-ticker">
-  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__label">Vertrauen von Branchenführern</div>
   <div class="client-ticker__track">
     <div class="client-ticker__set">
       <span class="client-logo"><img src="../assets/logos/mbcc.svg" alt="MBCC Group" loading="lazy" onerror="this.style.display='none'"></span>
@@ -190,7 +190,7 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">How We Work</a></li><li><a href="technology.html">Technology Stack</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">Arbeitsweise</a></li><li><a href="technology.html">Technologie-Stack</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
 <div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
