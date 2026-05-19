@@ -23,7 +23,9 @@
       "WebSearch",
       "WebFetch(domain:images.unsplash.com)",
       "Bash(git add *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(python3)",
+      "Bash(rm /Users/murodjonberdimurodov/fzd-global-1/.git/index.lock)"
     ]
   }
 }
