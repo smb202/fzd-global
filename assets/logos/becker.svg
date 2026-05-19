@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" fill="none">
+  <circle cx="14" cy="30" r="10" fill="#000"/>
+  <circle cx="14" cy="30" r="5" fill="white"/>
+  <text x="30" y="42" font-family="Arial, sans-serif" font-weight="400" font-size="32" fill="#000">becker</text>
+</svg>

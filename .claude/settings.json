@@ -25,7 +25,12 @@
       "Bash(git add *)",
       "Bash(git push *)",
       "Bash(python3)",
-      "Bash(rm /Users/murodjonberdimurodov/fzd-global-1/.git/index.lock)"
+      "Bash(rm /Users/murodjonberdimurodov/fzd-global-1/.git/index.lock)",
+      "Bash(sed -i '' 's|Insurance analytics · FP&A · IBM Cognos · ML|Regulatory reporting · FP\\\\&amp;A automation · Risk modelling · Audit-ready data · ML scoring|g' /Users/murodjonberdimurodov/fzd-global-1/index.html)",
+      "Bash(sed -i '' 's|MDM governance · SAP WM · Supply chain quality|MDM governance · Supply chain analytics · Regulatory compliance · Clinical data pipelines|g' /Users/murodjonberdimurodov/fzd-global-1/index.html)",
+      "Bash(sed -i '' 's|SAP EWM rollouts · Pricing analytics · E-commerce|Warehouse management · Demand forecasting · Pricing analytics · E-commerce integration|g' /Users/murodjonberdimurodov/fzd-global-1/index.html)",
+      "Bash(sed -i '' 's|SAP ERP · Lean WM · Purchase-to-pay · Airline FI|ERP integration · Lean warehouse · Purchase-to-pay · Financial consolidation|g' /Users/murodjonberdimurodov/fzd-global-1/index.html)",
+      "Bash(sed -i '' 's|Insurance analytics · FP&A · IBM Cognos · ML|Regulatorisches Reporting · FP\\\\&amp;A-Automatisierung · Risikomodellierung · Prüffähige Daten · ML-Scoring|g' /Users/murodjonberdimurodov/fzd-global-1/de/index.html)"
     ]
   }
 }
