@@ -38,6 +38,7 @@ window.FZD_I18N = {
     "services.title": "Twelve capability domains. One delivery culture.",
     "services.lead": "We design, build, and operate the data and AI infrastructure that decisions are made on. Click any capability for the methodology, deliverables, and case studies.",
     "services.cta": "See all services",
+    "solutions.cta": "See all solutions",
 
     "svc.1.title": "Data Platform Architecture",
     "svc.1.desc": "Lakehouse, DWH and multi-cloud infrastructure design and optimization.",
@@ -691,6 +692,7 @@ window.FZD_I18N = {
     "services.title": "Zwölf Kompetenzfelder. Eine Lieferkultur.",
     "services.lead": "Wir entwerfen, bauen und betreiben die Daten- und KI-Infrastruktur, auf der Entscheidungen getroffen werden. Klicken Sie auf ein Feld für Methodik, Ergebnisse und Fallstudien.",
     "services.cta": "Alle Leistungen",
+    "solutions.cta": "Alle Lösungen ansehen",
 
     "svc.1.title": "Datenplattform-Architektur",
     "svc.1.desc": "Lakehouse, DWH und Multi-Cloud-Infrastruktur — Design und Optimierung.",
