@@ -39,7 +39,8 @@ window.FZD_I18N = {
     "services.lead": "We design, build, and operate the data and AI infrastructure that decisions are made on. Click any capability for the methodology, deliverables, and case studies.",
     "services.cta": "See all services",
     "services.hero.eyebrow": "Strategy meets delivery",
-    "services.hero.title": "Four service groups.<br><em>Zero hand-waving.</em>",
+    "services.hero.title.1": "Four service groups.",
+    "services.hero.title.2": "Zero hand-waving.",
     "services.hero.lead": "From <strong>cloud data platforms</strong> to <strong>production AI</strong> — we design, build and operate the infrastructure your business decisions run on.",
     "services.sg.cta": "↓ Capabilities",
     "services.cap.eyebrow": "— All capabilities",
@@ -701,7 +702,8 @@ window.FZD_I18N = {
     "services.lead": "Wir entwerfen, bauen und betreiben die Daten- und KI-Infrastruktur, auf der Entscheidungen getroffen werden. Klicken Sie auf ein Feld für Methodik, Ergebnisse und Fallstudien.",
     "services.cta": "Alle Leistungen",
     "services.hero.eyebrow": "Strategie trifft Umsetzung",
-    "services.hero.title": "Vier Service-Gruppen.<br><em>Kein Blendwerk.</em>",
+    "services.hero.title.1": "Vier Service-Gruppen.",
+    "services.hero.title.2": "Kein Blendwerk.",
     "services.hero.lead": "Von <strong>Cloud-Datenplattformen</strong> bis <strong>KI in Produktion</strong> — wir entwerfen, bauen und betreiben die Infrastruktur, auf der Ihre Unternehmensentscheidungen basieren.",
     "services.sg.cta": "↓ Kompetenzen",
     "services.cap.eyebrow": "— Alle Kompetenzen",
@@ -1343,6 +1345,10 @@ window.FZD_setLang = function(lang) {
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     if (dict[key] !== undefined) el.placeholder = dict[key];
+  });
+  // update hrefs for language-specific pages
+  document.querySelectorAll('[data-href-de]').forEach(el => {
+    el.setAttribute('href', lang === 'de' ? el.getAttribute('data-href-de') : el.getAttribute('data-href-en'));
   });
   // toggle button states
   document.querySelectorAll('[data-lang-btn]').forEach(b => {
