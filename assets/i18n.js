@@ -1332,6 +1332,24 @@ window.FZD_I18N = {
 window.FZD_setLang = function(lang) {
   if (!['en','de'].includes(lang)) lang = 'en';
   try { localStorage.setItem('fzd_lang', lang); } catch(e){}
+
+  // Navigate between language versions instead of translating in place
+  const path = window.location.pathname;
+  const hash = window.location.hash;
+  const isInDe = /\/de\//.test(path);
+
+  if (lang === 'de' && !isInDe) {
+    // /some/page.html → /some/de/page.html
+    const dePath = path.replace(/\/([^/]+\.html)$/, '/de/$1');
+    window.location.href = dePath + hash;
+    return;
+  }
+  if (lang === 'en' && isInDe) {
+    // /some/de/page.html → /some/page.html
+    const enPath = path.replace('/de/', '/');
+    window.location.href = enPath + hash;
+    return;
+  }
   document.documentElement.lang = lang;
   const dict = window.FZD_I18N[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
