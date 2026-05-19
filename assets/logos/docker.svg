@@ -1,12 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" fill="none">
-  <!-- Whale body -->
-  <rect x="4" y="32" width="120" height="6" rx="3" fill="#000"/>
-  <!-- Container stacks -->
-  <rect x="14" y="20" width="14" height="10" rx="1" fill="#000"/>
-  <rect x="32" y="20" width="14" height="10" rx="1" fill="#000"/>
-  <rect x="50" y="20" width="14" height="10" rx="1" fill="#000"/>
-  <rect x="32" y="8" width="14" height="10" rx="1" fill="#000"/>
-  <!-- Water spout -->
-  <path d="M100 30 Q110 20 120 24" stroke="#000" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <text x="138" y="44" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="16" fill="#000">DOCKER</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 56" fill="none">
+  <!-- Container stack icon -->
+  <rect x="4"  y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="19" y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="19" y="15" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="15" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="4"  width="13" height="9" rx="1" fill="#000"/>
+  <!-- Base line -->
+  <rect x="2" y="37" width="55" height="3" rx="1.5" fill="#000"/>
+  <!-- Whale spout curve -->
+  <path d="M55 38 Q66 28 75 32" stroke="#000" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Wordmark -->
+  <text x="80" y="40" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#000">Docker</text>
 </svg>
