@@ -23,6 +23,20 @@
 .note-band { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin-top: 48px; display: grid; gap: 14px; }
 .note-band h3 { font-family: var(--display); font-weight:600; font-size:20px; color: var(--text); margin: 0; letter-spacing:-0.02em; }
 .note-band p { font-size: 15px; color: var(--text-2); line-height:1.65; margin: 0; max-width: 75ch; }
+.page-hero {
+  background: #07090f url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.92) 0%, rgba(5,8,18,0.75) 55%, rgba(5,8,18,0.52) 100%);
+  filter: none; z-index: 0;
+}
+.page-hero::after { display:block; content:""; position:absolute; bottom:0; left:0; right:0; height:140px; background:linear-gradient(to bottom,transparent,#101415); z-index:2; pointer-events:none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
 </style>
 <script>window.FZD_FORCE_LANG="de";</script>
 </head>
@@ -69,7 +83,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 10%,rgba(7,9,15,0.82) 90%,#101415 100%),url('https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
   <div class="container">
     <div class="section-head">
       <div class="reveal"><div class="eyebrow" data-i18n="tech.body.eyebrow">— Stack categories</div><h2 class="h-section" style="margin-top:20px;" data-i18n="tech.body.title">Six categories. Senior expertise across all.</h2></div>
