@@ -76,9 +76,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Jan 2026</span></div>
-<div class="pmb-item"><span>—</span><span>9 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Strategy</span></div>
 </div>
 <div class="post-content reveal">
@@ -86,10 +85,18 @@
 <p>This is a working note from the practice — written for senior architects, CDOs and the leadership teams that hire them. The full edition will appear here shortly.</p>
 <h2>The short version</h2>
 <p>Modernizing SAP analytics in the Microsoft Fabric era touches on patterns we encounter regularly across DACH enterprise engagements. Like most architectural questions, the right answer depends on the organization, the workload and the team — but there are recurring decision points worth naming.</p>
-<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p></div>
+<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p>
+<h2>Why SAP BW stays longer than planned</h2>
+<p>SAP BW has been in production at most large DACH enterprises since the early 2000s. The typical installation we audit has 8–15 years of transformation logic embedded in InfoCubes, DSOs and BEx queries. A complete rip-and-replace migration is not just technically complex — it is politically risky, because finance and controlling teams have built their month-end processes around BW output for over a decade. We have seen three attempted "big bang" migrations fail in the last four years. In each case, the project ran 18–24 months over schedule and was ultimately scaled back to a hybrid state anyway.</p>
+<p>SAP's own maintenance roadmap for BW/4HANA runs through 2040. Organizations that have already invested in BW/4HANA migration have a stable foundation. The question is not whether to migrate off SAP, but how to layer modern analytics capabilities on top of it without disrupting the close cycle.</p>
+<h2>The Microsoft Fabric + SAP connector landscape in 2025</h2>
+<p>As of Q1 2025, the primary patterns for connecting SAP to Microsoft Fabric are: (1) SAP Connector for Azure Data Factory (mature, production-ready, supports BW Open Hub, ODP, and Direct Extractor Connection). (2) Azure Synapse Link for SAP (currently in preview for S/4HANA Cloud; allows near-real-time delta replication without custom extractors). (3) Third-party connectors: Theobald Software's Xtract Universal and SNP Glue are the dominant choices in DACH, both of which support Fabric as a target. (4) SAP BTP Integration Suite for event-based streaming, useful for high-frequency transactional data.</p>
+<p>For most clients running ECC or BW/4HANA on-premises, ADF with ODP extractors remains the most reliable path. It handles delta loads, supports change-data-capture semantics, and the connector is maintained by Microsoft. Extraction throughput averages 2–4 GB/hour per parallel stream — sufficient for most overnight load windows.</p>
+<h2>A migration architecture that actually works</h2>
+<p>The pattern we recommend: keep SAP BW as the authoritative system for existing reports through at least one fiscal year after Fabric goes live. Run both systems in parallel on a shared Golden Record layer in OneLake, with reconciliation checks run nightly. This parallel-run phase — typically 6–9 months — catches the 15–20% of transformation edge cases that are never documented anywhere but in the output of the BEx query itself. Once reconciliation variance falls below 0.1% on all key KPIs for three consecutive months, decommissioning BW becomes a low-risk operational decision rather than a leap of faith.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI Architect, FZD Global. 18+ years of enterprise data and Microsoft Fabric expertise across MedTech, insurance and consumer goods. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -99,15 +106,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architecture</div>
 <h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

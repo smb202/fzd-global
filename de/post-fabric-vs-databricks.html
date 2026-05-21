@@ -65,7 +65,7 @@
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Tooling</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
 <div class="eyebrow">TOOLING · Feb 2026</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.8.title">Microsoft Fabric vs. Databricks: a senior architect's field notes</h1>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h1>
 </div>
 </div>
 </section>
@@ -77,9 +77,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Feb 2026</span></div>
-<div class="pmb-item"><span>—</span><span>12 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Tooling</span></div>
 </div>
 <div class="post-content reveal">
@@ -93,10 +92,19 @@
 <p>Reines Storage und SQL-Warehousing für moderate Workloads. Beide sind vollkommen ausreichend. Die Entscheidung hängt dann von allem anderen ab.</p>
 <h2>Was wir in der Diagnostik prüfen</h2>
 <p>Bestehender Skill-Mix. Cloud-Commitments. Struktur des analytischen Workloads. ML-Roadmap. Reifegrad der Betriebsfunktion. Power Platform-Footprint. Lizenzökonomie über einen Drei-Jahres-Horizont.</p>
-<p>Die meisten Entscheidungen kippen am Menschen, nicht an der Plattform. Beide Produkte sind ausgereift genug, dass ein kompetentes Team auf beiden liefern kann. Die Frage ist, in welchem Umfeld Ihr Team aufblühen wird.</p></div>
+<p>Die meisten Entscheidungen kippen am Menschen, nicht an der Plattform. Beide Produkte sind ausgereift genug, dass ein kompetentes Team auf beiden liefern kann. Die Frage ist, in welchem Umfeld Ihr Team aufblühen wird.</p>
+<h2>Preisgestaltung: Wie der Drei-Jahres-TCO wirklich aussieht</h2>
+<p>Microsoft Fabric ist kapazitätsbasiert bepreist: Eine einzelne F64-SKU (etwa 64 vCores Compute) kostet in West-Europa ca. €5.800/Monat. Diese Kapazität wird über alle Fabric-Workloads geteilt — Pipelines, Notebooks, SQL-Endpunkte, Power BI Premium. Für Organisationen, die bereits Power BI Premium P2 zahlen (€4.200/Monat), sind die inkrementellen Kosten zur Nutzung aller Fabric-Funktionen niedriger als die meisten Lizenzteams erwarten.</p>
+<p>Databricks ist über DBU (Databricks Unit) verbrauchsbasiert bepreist. Ein Photon-fähiges SQL Warehouse auf Azure kostet je nach Tier ca. €0,22–0,55 pro DBU. Eine reale analytische Workload, die 10 Stunden/Tag auf einem mittelgroßen Cluster (8 Kerne) läuft, verbraucht ca. 80 DBU/Tag — etwa €1.750/Monat allein für diesen Cluster, vor Storage und Orchestrierung. Organisationen mit unvorhersehbaren oder stoßweisen Workloads zahlen am Ende oft erheblich mehr als ihre Fabric-äquivalenten Pendants.</p>
+<p>Der Break-even-Punkt in unseren Berechnungen liegt typischerweise zwischen 40 und 80 durchschnittlichen gleichzeitigen Nutzern. Unterhalb dieser Schwelle ist Fabrics Inklusiv-Modell meist günstiger. Darüber gewinnt Databricks granulares Scaling oft — insbesondere wenn ML- und ETL-Workloads gegenüber BI dominieren.</p>
+<h2>Der Governance-Vergleich</h2>
+<p>Microsoft Purview integriert nativ mit Fabric und erfasst automatisch Lineage über Pipelines, Notebooks, Dataflows und semantische Modelle. In DACH-Unternehmensumgebungen, in denen DSGVO-Compliance-Dokumentation erforderlich ist, ist diese automatische Lineage-Erfassung ein materieller Differenziator — die Einrichtung in Databricks erfordert Unity Catalog (ab Premium-Tier) plus zusätzliche Konfiguration für externe BI-Tools.</p>
+<p>Unity Catalog ist Databricks' Antwort auf diese Lücke und wirklich gut. Spalten-Level-Lineage, Row-Level-Security und zentrale Zugriffsrichtlinien funktionieren über alle Databricks-Workloads hinweg. Wenn Ihre Organisation bereits Databricks hat und eine Governance-Schicht evaluiert, ist Unity Catalog die richtige Antwort. Wenn Sie auf der grünen Wiese starten und Microsoft Ihre Cloud ist, gewinnt Fabric + Purview bei der Time-to-Governance um mehrere Monate.</p>
+<h2>Unser tatsächlicher Empfehlungsprozess</h2>
+<p>Wir führen eine Sechs-Fragen-Diagnose durch, bevor wir eine der beiden Plattformen empfehlen: (1) Ist Ihre primäre Cloud Microsoft Azure? (2) Haben Sie bestehende Power BI Premium-Lizenzen? (3) Ist ML eine aktuelle Priorität oder eine Zweijahreszukunftsvision? (4) Haben Sie Data Engineers, die mit Spark und Python vertraut sind, oder SQL-First-Analysten? (5) Ist Ihre Datenarchitektur Multi-Cloud oder Single-Cloud? (6) Was ist Ihre Drei-Jahres-Datenvolumen-Prognose? Die Antworten deuten fast immer klar auf eine Plattform hin. Wenn sie 3–3 aufspalten, empfehlen wir, mit Fabric zu starten und nach 18 Monaten neu zu bewerten.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur im DACH-Raum. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('../assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI-Architekt, FZD Global. 18+ Jahre Enterprise-Daten- und Microsoft-Fabric-Expertise in MedTech, Versicherung und Konsumgütern. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -106,15 +114,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich welches Muster wirklich lohnt</h3>
-<div class="rp-meta">Mär 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mär 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was stattdessen zu instrumentieren ist</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-sap-modernization.html">
 <div class="rp-cat">Strategie</div>
 <h3>SAP-Analytics modernisieren im Zeitalter von Microsoft Fabric</h3>
-<div class="rp-meta">Jan 2026 · 9 Min. Lesezeit</div>
+<div class="rp-meta">Jan 2026</div>
 </a></div>
 </div>
 </section>

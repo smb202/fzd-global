@@ -76,9 +76,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Jan 2026</span></div>
-<div class="pmb-item"><span>—</span><span>7 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Analytics</span></div>
 </div>
 <div class="post-content reveal">
@@ -86,10 +85,18 @@
 <p>This is a working note from the practice — written for senior architects, CDOs and the leadership teams that hire them. The full edition will appear here shortly.</p>
 <h2>The short version</h2>
 <p>The KPI tree that actually works in the boardroom touches on patterns we encounter regularly across DACH enterprise engagements. Like most architectural questions, the right answer depends on the organization, the workload and the team — but there are recurring decision points worth naming.</p>
-<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p></div>
+<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p>
+<h2>Why most KPI frameworks collapse in practice</h2>
+<p>The average DACH enterprise has 127 KPIs defined in their BI documentation, according to a 2023 survey of 340 CFOs conducted by BARC. Of those, fewer than 30% are reviewed by senior management more than quarterly. The remainder exist in reports that someone built in 2019 and no one has looked at since. The problem is not measurement — it is hierarchy. When every metric sits at the same level of abstraction, none of them tells you where to act.</p>
+<p>A functional KPI tree has exactly three levels. Level 1: one or two financial outcomes (EBIT margin, revenue growth, cash conversion). Level 2: four to eight operational drivers that directly and demonstrably influence the Level 1 outcome. Level 3: ten to twenty leading indicators that predict changes in the Level 2 drivers before they appear in the financials. Anything that doesn't fit in this structure is a report, not a KPI.</p>
+<h2>Building the tree: the technical side</h2>
+<p>In Power BI, a KPI tree is best implemented as a calculation group in the semantic model, not as a page-level visual. This means the tree logic lives in DAX, not in report layout — it travels with the model and remains consistent across every report that connects to it. We use a parent-child hierarchy in the semantic model to encode the KPI relationships, with a custom DAX measure that evaluates variance at every node and propagates root-cause signals upward.</p>
+<p>The semantic model pattern: one fact table per KPI value (date, entity, KPI ID, actual, target, prior period), joined to a KPI dimension table that carries the hierarchy. A calculation group applies time-intelligence (MTD, QTD, YTD, rolling 12) uniformly across all KPIs without per-measure duplication. This structure reduces measure count by 60–75% compared to the typical "one measure per KPI per time period" approach we inherit on most modernization engagements.</p>
+<h2>The governance side no one plans for</h2>
+<p>A KPI tree is a contract. It encodes which metrics the business uses to judge performance. Once it is live in the board report, changing a definition requires a change control process, not just a DAX edit. Organizations that skip this step spend months arguing about whether the sales target variance is "really" -3% or -4% because two teams defined close date differently. We insist on a KPI glossary — documented in Microsoft Purview or Confluence — before the first line of DAX is written. The glossary defines calculation logic, owner, refresh frequency, and the business rule for each metric. A KPI tree without a glossary is a visual with no authority.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI Architect, FZD Global. 18+ years of enterprise data and Microsoft Fabric expertise across MedTech, insurance and consumer goods. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -99,15 +106,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architecture</div>
 <h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

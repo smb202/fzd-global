@@ -78,7 +78,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Nov 2025</span></div>
-<div class="pmb-item"><span>—</span><span>8 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Strategy</span></div>
 </div>
 <div class="post-content reveal">
@@ -86,7 +85,18 @@
 <p>This is a working note from the practice — written for senior architects, CDOs and the leadership teams that hire them. The full edition will appear here shortly.</p>
 <h2>The short version</h2>
 <p>Centralized, federated, hub-and-spoke: how to actually choose touches on patterns we encounter regularly across DACH enterprise engagements. Like most architectural questions, the right answer depends on the organization, the workload and the team — but there are recurring decision points worth naming.</p>
-<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p></div>
+<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p>
+<h2>The cost of the wrong structure</h2>
+<p>McKinsey's 2023 data and AI study found that organizations with centralized data teams were 1.4× more likely to report "excellent" data quality, but 0.7× as likely to report fast analytics delivery. Federated organizations flipped this: faster delivery, lower consistency. Neither extreme optimizes for both simultaneously — which is why 67% of large DACH enterprises in a 2024 Bitkom survey reported operating some form of hybrid or hub-and-spoke structure.</p>
+<p>The organizational cost of a mismatched structure is concrete. In one manufacturing engagement, a fully centralized data team of 12 was serving 6 business units. Average lead time for a new dashboard request: 11 weeks. Business units had stopped submitting requests and were maintaining their own Excel "shadow BI." When we moved to a hub-and-spoke model — keeping the central team for governance and platform, embedding two data engineers per business unit — the lead time dropped to 8 days and Excel shadow BI usage declined by 60% within a year.</p>
+<h2>The three models and when each works</h2>
+<p><strong>Centralized:</strong> One team owns all data infrastructure, pipelines, governance and reporting. Works when the organization has fewer than 500 data consumers, when regulatory compliance requires strict lineage control (pharma, financial services), or when the business units do not have the data literacy to operate independently. The ceiling is staffing: a central team of 20 cannot realistically serve 15 business units with diverse analytical needs.</p>
+<p><strong>Federated:</strong> Each business unit owns its own data infrastructure and reporting. Works at organizations where business units operate as independent P&amp;L centers with distinct data domains and no cross-unit reporting requirements. Almost never works for group-level financial reporting — you end up with five definitions of EBITDA and no one who can reconcile them. We recommend full federation only at the domain level within a data mesh architecture, not as a company-wide operating model.</p>
+<p><strong>Hub-and-spoke:</strong> Central platform team owns infrastructure, governance, data quality standards and the golden record layer. Embedded domain teams (1–3 analysts or data engineers per business unit) own domain-specific pipelines and reporting. This is the most operationally complex model but scales best. The critical success factor is a clear contract between the hub and the spokes: what the platform team delivers (APIs, governed datasets, infrastructure), what the domain teams own (transformation logic, business rules, report design).</p>
+<h2>Making the decision: a three-question diagnostic</h2>
+<p>Question 1: <strong>How often do business units need data from other business units?</strong> If cross-domain data requests are rare (less than 20% of analytical work), federation is viable. If cross-domain reporting is the norm, you need a centralized layer — the only question is whether it is owned centrally or by a hub.</p>
+<p>Question 2: <strong>What is the regulatory compliance burden?</strong> DSGVO, MiFID II, GxP, and Solvency II all impose audit trail and data lineage requirements that are easier to enforce with a centralized governance layer. If two or more of these frameworks apply, plan for a central hub regardless of how the domain teams are structured.</p>
+<p>Question 3: <strong>How mature is data engineering talent across the organization?</strong> Hub-and-spoke requires capable data practitioners in each domain. If the talent pool is thin — which is the reality in most DACH mid-market companies — start centralized, build skills in the domains through embedded rotation programs, and plan a transition to hub-and-spoke over 18–24 months.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
@@ -99,15 +109,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architecture</div>
 <h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

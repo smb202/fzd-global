@@ -78,7 +78,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Mar 2026</span></div>
-<div class="pmb-item"><span>—</span><span>8 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Architecture</span></div>
 </div>
 <div class="post-content reveal">
@@ -98,7 +97,15 @@
 <p><strong>3. Do you have, or are you committed to hiring, the operational maturity?</strong> Lakehouses are more powerful and more demanding. They reward teams that have invested in DataOps, schema management and observability. They punish teams that haven't.</p>
 <h2>The hybrid that often wins</h2>
 <p>For most enterprises in the DACH region we work with, the answer is hybrid. A lakehouse on Microsoft Fabric or Databricks for the broad analytical estate, with a curated warehouse layer (Snowflake, Synapse, or Fabric Warehouse) for the regulated, finance-grade workloads. Storage neutrality where flexibility matters, governed serving where consistency matters.</p>
-<p>The vendor space has converged on this pattern. Microsoft Fabric ships it as a single product. Databricks does it through Unity Catalog and SQL Warehouses. Even Snowflake supports Iceberg natively now. The architectural debate is over. The engagement-level decision remains.</p></div>
+<p>The vendor space has converged on this pattern. Microsoft Fabric ships it as a single product. Databricks does it through Unity Catalog and SQL Warehouses. Even Snowflake supports Iceberg natively now. The architectural debate is over. The engagement-level decision remains.</p>
+<h2>The numbers behind the debate</h2>
+<p>A 2024 Databricks survey of 1,600 data teams found that 73% now run some form of lakehouse architecture, up from 41% in 2021. Yet in the same survey, 38% of respondents reported their warehouse workloads running on Databricks SQL or Snowflake alongside a lakehouse — not instead of one. The "either/or" framing is obsolete. The practical question is where you draw the line.</p>
+<p>Storage cost is real but frequently overstated in vendor materials. At current Azure pricing, Data Lake Storage Gen2 costs roughly €0.018 per GB/month for the hot tier. Synapse Dedicated SQL Pool starts at around €5.80 per DWH unit per hour. For a 100 TB analytical estate, the difference in storage alone is meaningful — but compute, governance and operational overhead typically dwarf raw storage in total cost of ownership calculations.</p>
+<h2>Where open table formats change the calculation</h2>
+<p>Delta Lake (Databricks), Apache Iceberg and Apache Hudi have materially shifted the lakehouse value proposition since 2022. ACID transactions, schema evolution and time travel — previously only available in managed warehouses — now work reliably on object storage. Microsoft Fabric's OneLake uses Delta Parquet natively. Snowflake added Iceberg support in 2023. This convergence means the storage neutrality dividend is now available without sacrificing governance.</p>
+<p>In practice, we see three patterns that consistently work well: (1) Full lakehouse on Fabric or Databricks for organizations with mixed BI, ML and streaming workloads. (2) Warehouse (Snowflake, Synapse, BigQuery) for organizations whose entire analytical workload is structured SQL against well-understood relational sources. (3) Hybrid: Delta Lake on ADLS for raw and silver layers, Fabric Warehouse or Snowflake for the curated gold layer consumed by Power BI. Pattern 3 is the most common outcome of our architecture reviews.</p>
+<h2>What actually breaks projects</h2>
+<p>In our experience across 80+ enterprise data engagements, the decision between lakehouse and warehouse accounts for maybe 20% of project outcomes. The remaining 80% is determined by data quality discipline, ownership models, and whether the team has the operational maturity to maintain schema contracts over time. We have seen well-architected lakehouses fail because no one owned the schema registry, and simple SQL warehouses succeed because the finance team reviewed data quality metrics every Monday.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
@@ -111,15 +118,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-sap-modernization.html">
 <div class="rp-cat">Strategy</div>
 <h3>Modernizing SAP analytics in the Microsoft Fabric era</h3>
-<div class="rp-meta">Jan 2026 · 9 min read</div>
+<div class="rp-meta">Jan 2026</div>
 </a></div>
 </div>
 </section>

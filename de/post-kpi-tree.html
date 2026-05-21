@@ -65,7 +65,7 @@
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Analytics</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
 <div class="eyebrow">ANALYTICS · Jan 2026</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.5.title">The KPI tree that actually works in the boardroom</h1>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Der KPI-Baum, der im Vorstand wirklich funktioniert</h1>
 </div>
 </div>
 </section>
@@ -77,9 +77,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Jan 2026</span></div>
-<div class="pmb-item"><span>—</span><span>7 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Analytics</span></div>
 </div>
 <div class="post-content reveal">
@@ -87,10 +86,18 @@
 <p>Dies ist eine Arbeitsnotiz aus der Praxis — geschrieben für erfahrene Architekten, CDOs und die Führungsteams, die sie beauftragen. Die vollständige Ausgabe erscheint in Kürze.</p>
 <h2>Die Kurzfassung</h2>
 <p>Der KPI-Baum, der im Vorstand wirklich funktioniert, berührt Muster, die wir regelmäßig in DACH-Unternehmensengagements beobachten. Wie bei den meisten Architekturentscheidungen hängt die richtige Antwort von der Organisation, dem Workload und dem Team ab — doch es gibt wiederkehrende Entscheidungspunkte, die es wert sind, benannt zu werden.</p>
-<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version bei Erscheinen zu erhalten, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre konkrete Situation zutrifft.</p></div>
+<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version bei Erscheinen zu erhalten, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre konkrete Situation zutrifft.</p>
+<h2>Warum die meisten KPI-Frameworks in der Praxis zusammenbrechen</h2>
+<p>Das durchschnittliche DACH-Unternehmen hat laut einer BARC-Umfrage von 2023 unter 340 CFOs 127 KPIs in seiner BI-Dokumentation definiert. Davon werden weniger als 30% von der Geschäftsführung öfter als quartalsweise überprüft. Der Rest existiert in Berichten, die jemand 2019 erstellt hat und die seitdem niemand mehr angeschaut hat. Das Problem ist nicht die Messung — es ist die Hierarchie. Wenn jede Kennzahl auf derselben Abstraktionsebene sitzt, sagt keine von ihnen, wo gehandelt werden muss.</p>
+<p>Ein funktionaler KPI-Baum hat genau drei Ebenen. Ebene 1: ein oder zwei finanzielle Ergebnisse (EBIT-Marge, Umsatzwachstum, Cash Conversion). Ebene 2: vier bis acht operative Treiber, die die Ebene-1-Ergebnisse direkt und nachweislich beeinflussen. Ebene 3: zehn bis zwanzig Frühindikatoren, die Veränderungen der Ebene-2-Treiber vorhersagen, bevor sie in den Finanzkennzahlen erscheinen. Alles, was nicht in diese Struktur passt, ist ein Bericht, kein KPI.</p>
+<h2>Den Baum aufbauen: die technische Seite</h2>
+<p>In Power BI wird ein KPI-Baum am besten als Berechnungsgruppe im semantischen Modell implementiert, nicht als seitenspezifisches Visual. Das bedeutet, die Baumlogik lebt in DAX, nicht im Berichtslayout — sie wandert mit dem Modell und bleibt in jedem Bericht konsistent, der sich mit ihm verbindet. Wir verwenden eine Parent-Child-Hierarchie im semantischen Modell, um die KPI-Beziehungen zu kodieren, mit einem benutzerdefinierten DAX-Measure, das Abweichungen an jedem Knoten auswertet und Ursachensignale nach oben propagiert.</p>
+<p>Das semantische Modellmuster: eine Faktentabelle pro KPI-Wert (Datum, Entität, KPI-ID, Ist, Ziel, Vorperiode), verbunden mit einer KPI-Dimensionstabelle, die die Hierarchie trägt. Eine Berechnungsgruppe wendet Time-Intelligence (MTD, QTD, YTD, Rolling 12) einheitlich auf alle KPIs an, ohne Measures pro KPI und Zeitperiode zu duplizieren. Diese Struktur reduziert die Measure-Anzahl um 60–75% im Vergleich zum typischen „ein Measure pro KPI pro Zeitperiode"-Ansatz, den wir bei den meisten Modernisierungs-Engagements vorfinden.</p>
+<h2>Die Governance-Seite, die niemand einplant</h2>
+<p>Ein KPI-Baum ist ein Vertrag. Er legt fest, welche Kennzahlen das Unternehmen zur Leistungsbeurteilung verwendet. Sobald er im Vorstandsbericht lebt, erfordert die Änderung einer Definition einen Change-Control-Prozess, nicht nur eine DAX-Bearbeitung. Organisationen, die diesen Schritt überspringen, verbringen Monate damit zu diskutieren, ob die Vertriebszielabweichung „wirklich" -3% oder -4% beträgt, weil zwei Teams das Abschlussdatum unterschiedlich definiert haben. Wir bestehen auf einem KPI-Glossar — dokumentiert in Microsoft Purview oder Confluence — bevor die erste DAX-Zeile geschrieben wird. Das Glossar definiert Berechnungslogik, Eigentümer, Aktualisierungsfrequenz und die Geschäftsregel für jede Kennzahl. Ein KPI-Baum ohne Glossar ist ein Visual ohne Autorität.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur im DACH-Raum. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('../assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI-Architekt, FZD Global. 18+ Jahre Enterprise-Daten- und Microsoft-Fabric-Expertise in MedTech, Versicherung und Konsumgütern. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -100,15 +107,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich welches Muster wirklich lohnt</h3>
-<div class="rp-meta">Mär 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mär 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was stattdessen zu instrumentieren ist</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

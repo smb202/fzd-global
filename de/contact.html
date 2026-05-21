@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8">
-<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Contact — FZD Global GmbH</title>
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Kontakt — FZD Global GmbH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,18 +79,18 @@
 <header class="site-header"><div class="site-header__inner">
 <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
 <nav class="nav">
-      <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="services.html" data-i18n="nav.services">Services</a>
-      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
-      <a href="industries.html" data-i18n="nav.industries">Industries</a>
-      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="index.html" data-i18n="nav.home">Startseite</a>
+      <a href="services.html" data-i18n="nav.services">Leistungen</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Lösungen</a>
+      <a href="industries.html" data-i18n="nav.industries">Branchen</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Fallstudien</a>
       <a href="insights.html" data-i18n="nav.insights">Insights</a>
-      <a href="about.html" data-i18n="nav.about">About</a>
-      <a href="contact.html" class="is-active" data-i18n="nav.contact">Contact</a>
+      <a href="about.html" data-i18n="nav.about">Über uns</a>
+      <a href="contact.html" class="is-active" data-i18n="nav.contact">Kontakt</a>
       </nav>
 <div class="header-tools">
 <div class="lang-switch"><button data-lang-btn="en">EN</button><button data-lang-btn="de" class="is-active">DE</button></div>
-<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Anruf buchen</span> <span class="arr">→</span></a>
 
       <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
@@ -104,10 +104,10 @@
 </header>
 <section class="page-hero">
 <div class="container">
-<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.contact">Contact</span></div>
-<div class="eyebrow">Start the conversation</div>
-<h1 class="h-display" style="margin-top: 24px; max-width: 22ch;">Tell us your<br><strong>data problem.</strong><br><em>We'll solve it.</em></h1>
-<p class="lead" style="max-width: 60ch;">First conversation is <strong>free and confidential</strong>. We respond within <strong>one working day</strong> — then a written diagnostic, then a scoped engagement.</p>
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Startseite</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.contact">Kontakt</span></div>
+<div class="eyebrow">Gespräch beginnen</div>
+<h1 class="h-display" style="margin-top: 24px; max-width: 22ch;">Sagen Sie uns Ihr<br><strong>Datenproblem.</strong><br><em>Wir lösen es.</em></h1>
+<p class="lead" style="max-width: 60ch;">Das erste Gespräch ist <strong>kostenlos und vertraulich</strong>. Wir antworten innerhalb von <strong>einem Werktag</strong> — danach eine schriftliche Diagnose, dann ein klar umrissenes Mandat.</p>
 </div>
 </section>
 
@@ -116,34 +116,55 @@
 <div class="contact-grid">
 <form class="contact-form reveal" id="contact-form" onsubmit="return handleSubmit(event)">
 <div class="field-grid">
-<div class="field"><label data-i18n="contact.form.first">First name</label><input required type="text" name="first" data-i18n-placeholder="contact.form.placeholder.first" placeholder="Maria"></div>
-<div class="field"><label data-i18n="contact.form.last">Last name</label><input required type="text" name="last" data-i18n-placeholder="contact.form.placeholder.last" placeholder="Schmidt"></div>
+<div class="field"><label data-i18n="contact.form.first">Vorname</label><input required type="text" name="first" data-i18n-placeholder="contact.form.placeholder.first" placeholder="Maria"></div>
+<div class="field"><label data-i18n="contact.form.last">Nachname</label><input required type="text" name="last" data-i18n-placeholder="contact.form.placeholder.last" placeholder="Schmidt"></div>
 </div>
 <div class="field-grid">
-<div class="field"><label data-i18n="contact.form.email">Work email</label><input required type="email" name="email" data-i18n-placeholder="contact.form.placeholder.email" placeholder="m.schmidt@company.de"></div>
-<div class="field"><label data-i18n="contact.form.company">Company</label><input required type="text" name="company" data-i18n-placeholder="contact.form.placeholder.company" placeholder="Acme GmbH"></div>
+<div class="field"><label data-i18n="contact.form.email">Geschäftliche E-Mail</label><input required type="email" name="email" data-i18n-placeholder="contact.form.placeholder.email" placeholder="m.schmidt@unternehmen.de"></div>
+<div class="field"><label data-i18n="contact.form.company">Unternehmen</label><input required type="text" name="company" data-i18n-placeholder="contact.form.placeholder.company" placeholder="Muster GmbH"></div>
 </div>
 <div class="field-grid">
-<div class="field"><label data-i18n="contact.form.role">Role</label><input type="text" name="role" data-i18n-placeholder="contact.form.placeholder.role" placeholder="CDO, Head of BI, ..."></div>
-<div class="field"><label data-i18n="contact.form.industry">Industry</label><select name="industry"><option>Manufacturing &amp; Industrial</option><option>Financial Services &amp; Insurance</option><option>Energy &amp; Utilities</option><option>Pharmaceutical &amp; Life Sciences</option><option>Retail &amp; Consumer Goods</option><option>Aerospace &amp; Aviation</option><option>Healthcare &amp; Medical Tech</option><option>Public Transportation</option><option>Other</option></select></div>
-</div>
-<div class="field"><label data-i18n="contact.form.capability">Capability of interest</label><select name="capability">
-<option>Data Platform Architecture</option><option>Cloud Data Engineering</option><option>Modern Data Stack</option><option>Analytics &amp; BI</option><option>AI &amp; Machine Learning</option><option>AI Agents &amp; LLM</option><option>Process Automation</option><option>Data Governance &amp; MDM</option><option>DataOps &amp; DevOps</option><option>Streaming &amp; IoT</option><option>IT Strategy Advisory</option><option>Enterprise Performance</option><option>Not sure yet</option>
+<div class="field"><label data-i18n="contact.form.role">Position</label><input type="text" name="role" data-i18n-placeholder="contact.form.placeholder.role" placeholder="CDO, Head of BI, ..."></div>
+<div class="field"><label data-i18n="contact.form.industry">Branche</label><select name="industry">
+  <option>Industrie &amp; Fertigung</option>
+  <option>Finanzdienstleistungen &amp; Versicherung</option>
+  <option>Energie &amp; Versorgung</option>
+  <option>Pharma &amp; Life Sciences</option>
+  <option>Handel &amp; Konsumgüter</option>
+  <option>Luft- &amp; Raumfahrt</option>
+  <option>Gesundheitswesen &amp; Medizintechnik</option>
+  <option>Öffentlicher Verkehr</option>
+  <option>Sonstiges</option>
 </select></div>
-<div class="field"><label data-i18n="contact.form.message">What's the situation?</label><textarea required name="message" data-i18n-placeholder="contact.form.placeholder.message" placeholder="A few sentences on what you're trying to solve, the timeline, and any constraints we should know about."></textarea></div>
-<label class="checkbox-row"><input type="checkbox" required><span data-i18n="contact.form.consent">I consent to FZD Global processing my information to respond to this inquiry, in accordance with the privacy policy. (GDPR-compliant.)</span></label>
-<div><button type="submit" class="btn btn--coral btn--lg" style="width: 100%; justify-content: center;"><span data-i18n="contact.form.submit">Send inquiry</span> <span class="arr">→</span></button></div>
+</div>
+<div class="field"><label data-i18n="contact.form.capability">Kompetenzfeld von Interesse</label><select name="capability">
+  <option>Datenplattform-Architektur</option>
+  <option>Cloud Data Engineering</option>
+  <option>Modern Data Stack</option>
+  <option>Analytics &amp; BI</option>
+  <option>KI &amp; Machine Learning</option>
+  <option>KI-Agenten &amp; LLM</option>
+  <option>Prozessautomatisierung</option>
+  <option>Data Governance &amp; MDM</option>
+  <option>DataOps &amp; DevOps</option>
+  <option>Streaming &amp; IoT</option>
+  <option>IT-Strategie-Beratung</option>
+  <option>Enterprise Performance</option>
+  <option>Noch nicht sicher</option>
+</select></div>
+<div class="field"><label data-i18n="contact.form.message">Worum geht es?</label><textarea required name="message" data-i18n-placeholder="contact.form.placeholder.message" placeholder="Ein paar Sätze zu Ihrem Vorhaben, dem Zeitrahmen und etwaigen Rahmenbedingungen."></textarea></div>
+<label class="checkbox-row"><input type="checkbox" required><span data-i18n="contact.form.consent">Ich stimme zu, dass FZD Global GmbH meine Angaben zur Beantwortung dieser Anfrage gemäß Datenschutzerklärung verarbeitet. (DSGVO-konform.)</span></label>
+<div><button type="submit" class="btn btn--coral btn--lg" style="width: 100%; justify-content: center;"><span data-i18n="contact.form.submit">Anfrage senden</span> <span class="arr">→</span></button></div>
 </form>
 
 <aside class="reveal" data-delay="1">
 <div class="contact-info-block">
-<h2 data-i18n="contact.direct.title">Direct contact preferred?</h2>
-<p data-i18n="contact.direct.lead">For senior-level inquiries, going direct is usually fastest. We respond within one business day.</p>
-<div class="info-row"><div class="k" data-i18n="contact.direct.email">Email</div><div class="v"><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></div></div>
-<div class="info-row"><div class="k" data-i18n="contact.direct.phone">Phone</div><div class="v"><a href="tel:+491754642026">+49 175 4642 026</a></div></div>
-<div class="info-row"><div class="k" data-i18n="contact.direct.office">Office</div><div class="v">Neuenheimer Landstr. 5<br>69120 Heidelberg<br>Deutschland</div></div>
-<div class="info-row"><div class="k" data-i18n="contact.direct.hours">Hours</div><div class="v" data-i18n="contact.direct.hours.value">Mon–Fri 09:00–18:00 CET</div></div>
-<div class="info-row"><div class="k" data-i18n="contact.direct.lang">Languages</div><div class="v">DE · EN · TR</div></div>
+<h2 data-i18n="contact.direct.title">Lieber direkt?</h2>
+<p data-i18n="contact.direct.lead">Bei Anfragen auf Führungsebene ist der direkte Weg meist der schnellste. Wir antworten innerhalb eines Werktags.</p>
+<div class="info-row"><div class="k" data-i18n="contact.direct.email">E-Mail</div><div class="v"><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></div></div>
+<div class="info-row"><div class="k" data-i18n="contact.direct.phone">Telefon</div><div class="v"><a href="tel:+4962216736786">+49 6221 6736786</a></div></div>
+<div class="info-row"><div class="k" data-i18n="contact.direct.office">Büro</div><div class="v">Neuenheimer Landstr. 5<br>69120 Heidelberg<br>Deutschland</div></div>
+<div class="info-row"><div class="k" data-i18n="contact.direct.hours">Sprechzeiten</div><div class="v" data-i18n="contact.direct.hours.value">Mo–Fr 09:00–18:00 MEZ</div></div>
 <div class="contact-signature">
 <img src="../assets/fzd-wordmark.jpg" alt="FZD Global GmbH — We Make The Difference">
 <div class="sig-caption">— Eingetragen in Heidelberg · HRB</div>
@@ -157,12 +178,12 @@
 <footer class="site-footer"><div class="container">
 <div class="footer-top">
 <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
-<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">Arbeitsweise</a></li><li><a href="technology.html">Technologie-Stack</a></li></ul></div>
-<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
-<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
-<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Praxis</h4><ul><li><a href="services.html" data-i18n="nav.services">Leistungen</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Lösungen</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Fallstudien</a></li><li><a href="how-we-work.html">Arbeitsweise</a></li><li><a href="technology.html">Technologie-Stack</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Branchen</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Branchen</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Unternehmen</h4><ul><li><a href="about.html" data-i18n="nav.about">Über uns</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Kontakt</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+4962216736786">+49 6221 6736786</a></li></ul></div>
 </div>
-<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="#" data-i18n="footer.privacy">Privacy</a></div></div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. Alle Rechte vorbehalten.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Impressum</a><a href="#" data-i18n="footer.privacy">Datenschutz</a></div></div>
 </div></footer>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/site.js"></script>
@@ -170,7 +191,7 @@
 function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  form.innerHTML = '<div style="padding: 48px 40px; background: var(--paper); border-left: 3px solid var(--coral);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">— Received</div><h3 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin: 16px 0; font-weight: 500;">Thank you. We will be in touch within one business day.</h3><p style="color: var(--ink-2); line-height: 1.6;">If your timeline is urgent, email <a href="mailto:info@fzd-global.de" style="color: var(--coral);">info@fzd-global.de</a> directly and reference this inquiry.</p></div>';
+  form.innerHTML = '<div style="padding: 48px 40px; background: var(--paper); border-left: 3px solid var(--coral);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">— Eingegangen</div><h3 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin: 16px 0; font-weight: 500;">Vielen Dank. Wir melden uns innerhalb eines Werktags.</h3><p style="color: var(--ink-2); line-height: 1.6;">Bei dringendem Zeitplan schreiben Sie uns direkt an <a href="mailto:info@fzd-global.de" style="color: var(--coral);">info@fzd-global.de</a> und verweisen Sie auf diese Anfrage.</p></div>';
   return false;
 }
 </script>

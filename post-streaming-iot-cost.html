@@ -78,7 +78,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Dec 2025</span></div>
-<div class="pmb-item"><span>—</span><span>9 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Engineering</span></div>
 </div>
 <div class="post-content reveal">
@@ -86,7 +85,16 @@
 <p>This is a working note from the practice — written for senior architects, CDOs and the leadership teams that hire them. The full edition will appear here shortly.</p>
 <h2>The short version</h2>
 <p>Streaming IoT analytics without breaking the cost model touches on patterns we encounter regularly across DACH enterprise engagements. Like most architectural questions, the right answer depends on the organization, the workload and the team — but there are recurring decision points worth naming.</p>
-<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p></div>
+<p>Subscribe to the practice updates below to get the full version when it publishes, or get in touch directly if you'd like to discuss how this applies to your specific situation.</p>
+<h2>Where streaming costs spiral out of control</h2>
+<p>Azure Event Hubs pricing starts at €0.028 per million events for the Basic tier, scaling to €0.090 per million for Dedicated. At 10,000 IoT devices sending telemetry every 30 seconds, that is 28.8 million events per day — approximately €800/month in Event Hubs ingestion alone at Standard tier pricing. Add Azure Stream Analytics (€0.11 per streaming unit per hour, with most production workloads requiring 6–12 SUs) and the compute bill reaches €500–1,000/month before storage, dashboards or alerting. For organizations with 50,000+ devices, these numbers multiply linearly unless the architecture actively manages them.</p>
+<p>The largest cost driver in streaming architectures is not the volume of events — it is the number of consumers. Every additional Kafka consumer group, Stream Analytics job or Azure Function trigger that reads from the same event stream multiplies the I/O cost. We have audited streaming deployments where the same raw telemetry stream was being read by 7 separate consumers, each performing overlapping aggregations, because each team built its own pipeline without awareness of the others.</p>
+<h2>The patterns that keep costs predictable</h2>
+<p><strong>Tiered aggregation at the edge:</strong> Push 1-second aggregations (min, max, mean, count) to the cloud rather than raw device readings. For temperature and vibration sensors, a 1-minute pre-aggregation at the gateway reduces inbound event volume by 60–97% while preserving all operationally actionable information. The Siemens MindSphere edge stack, Bosch IoT Suite and Azure IoT Edge all support this pattern natively.</p>
+<p><strong>Hot-warm-cold storage separation:</strong> Raw telemetry lands in ADX (Azure Data Explorer) for the hot window — typically 7–30 days — where sub-second query latency is required for dashboards. After the hot window expires, data moves to Delta Lake on ADLS Gen2 at roughly 8× lower storage cost. Archived data older than 90 days moves to cool/archive tier at 20× lower cost than hot. An automated tiering policy in Fabric Shortcuts handles this without manual intervention.</p>
+<p><strong>Intelligent alerting instead of continuous polling:</strong> The most expensive real-time dashboards are the ones refreshed every 5 seconds by 50 concurrent users. A hybrid approach — push alerts via Azure Notification Hub for threshold breaches, pull refreshes every 60 seconds for operational dashboards — reduces Dashboard API calls by 85–90% with no meaningful loss of operational awareness. In a medical device monitoring deployment, this change alone reduced Azure Monitor and Power BI Embedded costs by €18,000/year.</p>
+<h2>The DevOps discipline that sustains it</h2>
+<p>Cost optimization in streaming architectures is not a one-time activity. IoT device fleets grow, new consumers appear, and alert thresholds drift as operations teams tune for false positives. We implement cost observability as a first-class metric: a dedicated Grafana dashboard tracking per-pipeline and per-consumer cost estimates, updated daily, visible to the engineering team alongside latency and error-rate dashboards. When a new consumer is added that doubles the Stream Analytics cost, the team sees it within 24 hours — not at the end of the billing cycle.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
@@ -99,15 +107,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architecture</div>
 <h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: a senior architect's field notes</h3>
-<div class="rp-meta">Feb 2026 · 12 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

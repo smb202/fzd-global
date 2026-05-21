@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8">
-<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Modernizing SAP analytics in the Microsoft Fabric era — FZD Global GmbH</title>
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>SAP-Analytics modernisieren im Zeitalter von Microsoft Fabric — FZD Global GmbH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +64,8 @@
 <div class="container">
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Strategie</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
-<div class="eyebrow">STRATEGY · Jan 2026</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.4.title">Modernizing SAP analytics in the Microsoft Fabric era</h1>
+<div class="eyebrow">STRATEGIE · Jan 2026</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">SAP-Analytics modernisieren im Zeitalter von Microsoft Fabric</h1>
 </div>
 </div>
 </section>
@@ -77,9 +77,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Jan 2026</span></div>
-<div class="pmb-item"><span>—</span><span>9 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Strategie</span></div>
 </div>
 <div class="post-content reveal">
@@ -87,10 +86,18 @@
 <p>Dies ist eine Arbeitsnote aus der Praxis — geschrieben für Senior-Architekten, CDOs und die Führungsteams, die sie einstellen. Die vollständige Ausgabe erscheint hier in Kürze.</p>
 <h2>Die Kurzversion</h2>
 <p>SAP-Analytics modernisieren im Microsoft Fabric Zeitalter berührt Muster, die wir regelmäßig in DACH-Unternehmensengagements antreffen. Wie bei den meisten architektonischen Fragen hängt die richtige Antwort von der Organisation, dem Workload und dem Team ab — aber es gibt wiederkehrende Entscheidungspunkte, die es wert sind, benannt zu werden.</p>
-<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p></div>
+<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p>
+<h2>Warum SAP BW länger bleibt als geplant</h2>
+<p>SAP BW ist bei den meisten großen DACH-Unternehmen seit den frühen 2000er Jahren in Produktion. Die typische Installation, die wir prüfen, hat 8–15 Jahre Transformationslogik eingebettet in InfoCubes, DSOs und BEx-Queries. Eine vollständige Rip-and-Replace-Migration ist nicht nur technisch komplex — sie ist politisch riskant, weil Finanz- und Controlling-Teams ihre Monatsabschlussprozesse seit über einem Jahrzehnt auf BW-Output aufgebaut haben. Wir haben in den letzten vier Jahren drei gescheiterte „Big-Bang"-Migrationen erlebt. In jedem Fall lief das Projekt 18–24 Monate über den Zeitplan und wurde letztlich auf einen Hybridzustand zurückgeschraubt.</p>
+<p>SAPs eigene Wartungs-Roadmap für BW/4HANA läuft bis 2040. Organisationen, die bereits in BW/4HANA-Migration investiert haben, haben ein stabiles Fundament. Die Frage ist nicht, ob man von SAP migrieren soll, sondern wie man moderne Analysefähigkeiten darauf schichtet, ohne den Abschlusszyklus zu unterbrechen.</p>
+<h2>Die Microsoft Fabric + SAP-Connector-Landschaft im Jahr 2025</h2>
+<p>Ab Q1 2025 sind die primären Muster zur Verbindung von SAP mit Microsoft Fabric: (1) SAP Connector für Azure Data Factory (ausgereift, produktionsbereit, unterstützt BW Open Hub, ODP und Direct Extractor Connection). (2) Azure Synapse Link für SAP (derzeit in der Vorschau für S/4HANA Cloud; ermöglicht nahezu Echtzeit-Delta-Replikation ohne benutzerdefinierte Extraktoren). (3) Drittanbieter-Connectoren: Theobald Softwares Xtract Universal und SNP Glue sind die dominierenden Optionen in DACH, beide unterstützen Fabric als Ziel. (4) SAP BTP Integration Suite für ereignisbasiertes Streaming, nützlich für hochfrequente Transaktionsdaten.</p>
+<p>Für die meisten Kunden, die ECC oder BW/4HANA On-Premises betreiben, bleibt ADF mit ODP-Extraktoren der zuverlässigste Weg. Es verarbeitet Delta-Loads, unterstützt Change-Data-Capture-Semantik, und der Connector wird von Microsoft gepflegt. Der Extraktionsdurchsatz beträgt durchschnittlich 2–4 GB/Stunde pro parallelem Stream — ausreichend für die meisten nächtlichen Ladefenster.</p>
+<h2>Eine Migrationsarchitektur, die tatsächlich funktioniert</h2>
+<p>Das von uns empfohlene Muster: Halten Sie SAP BW mindestens ein Geschäftsjahr nach dem Fabric-Go-live als autoritative System für bestehende Reports. Betreiben Sie beide Systeme parallel auf einer gemeinsamen Golden-Record-Schicht in OneLake, mit nächtlich ausgeführten Abstimmungsprüfungen. Diese Parallelphase — typischerweise 6–9 Monate — fängt die 15–20% der Transformations-Randfälle ab, die nirgendwo dokumentiert sind außer im Output der BEx-Query selbst. Sobald die Abstimmungsabweichung für drei aufeinanderfolgende Monate bei allen Schlüssel-KPIs unter 0,1% fällt, wird die Stilllegung von BW zu einer risikoarmen operativen Entscheidung statt einem Vertrauenssprung.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('../assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI-Architekt, FZD Global. 18+ Jahre Enterprise-Daten- und Microsoft-Fabric-Expertise in MedTech, Versicherung und Konsumgütern. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -100,15 +107,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich jedes Muster wirklich lohnt</h3>
-<div class="rp-meta">Mar 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was man stattdessen messen sollte</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

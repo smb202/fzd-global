@@ -65,7 +65,7 @@
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Architektur</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
 <div class="eyebrow">ARCHITEKTUR · Mär 2026</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.1.title">Lakehouse vs. Warehouse: when each pattern actually pays off</h1>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Lakehouse vs. Warehouse: wann sich welches Muster wirklich lohnt</h1>
 </div>
 </div>
 </section>
@@ -79,7 +79,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Mär 2026</span></div>
-<div class="pmb-item"><span>—</span><span>8 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Architektur</span></div>
 </div>
 <div class="post-content reveal">
@@ -99,7 +98,15 @@
 <p><strong>3. Verfügen Sie über die nötige operative Reife oder sind Sie bereit, sie aufzubauen?</strong> Lakehouses sind leistungsstärker und anspruchsvoller. Teams, die in DataOps, Schema-Management und Observability investiert haben, werden belohnt. Teams, die das nicht getan haben, werden bestraft.</p>
 <h2>Das Hybrid-Modell, das oft gewinnt</h2>
 <p>Für die meisten Unternehmen im DACH-Raum, mit denen wir arbeiten, lautet die Antwort: hybrid. Ein Lakehouse auf Microsoft Fabric oder Databricks für den breiten analytischen Bestand, ergänzt durch eine kuratierte Warehouse-Schicht (Snowflake, Synapse oder Fabric Warehouse) für regulierte, finanzkritische Workloads. Speicherneutralität wo Flexibilität zählt, governed Serving wo Konsistenz zählt.</p>
-<p>Der Markt hat sich auf dieses Muster konvergiert. Microsoft Fabric liefert es als ein einziges Produkt. Databricks setzt es über Unity Catalog und SQL Warehouses um. Sogar Snowflake unterstützt Iceberg jetzt nativ. Die Architekturdebatte ist vorbei. Die Entscheidung auf Engagement-Ebene bleibt.</p></div>
+<p>Der Markt hat sich auf dieses Muster konvergiert. Microsoft Fabric liefert es als ein einziges Produkt. Databricks setzt es über Unity Catalog und SQL Warehouses um. Sogar Snowflake unterstützt Iceberg jetzt nativ. Die Architekturdebatte ist vorbei. Die Entscheidung auf Engagement-Ebene bleibt.</p>
+<h2>Die Zahlen hinter der Debatte</h2>
+<p>Eine Databricks-Umfrage von 2024 unter 1.600 Datenteams ergab, dass 73% heute eine Form von Lakehouse-Architektur betreiben, gegenüber 41% im Jahr 2021. In derselben Umfrage berichteten jedoch 38% der Befragten, dass ihre Warehouse-Workloads auf Databricks SQL oder Snowflake neben einem Lakehouse laufen — nicht stattdessen. Das „Entweder-oder"-Framing ist überholt. Die praktische Frage ist, wo man die Grenze zieht.</p>
+<p>Speicherkosten sind real, werden in Hersteller-Unterlagen aber häufig übertrieben. Zu aktuellen Azure-Preisen kostet Data Lake Storage Gen2 etwa €0,018 pro GB/Monat für den Hot-Tier. Synapse Dedicated SQL Pool beginnt bei ca. €5,80 pro DWH-Unit pro Stunde. Bei einem analytischen Bestand von 100 TB ist der reine Speicherunterschied spürbar — doch Compute, Governance und Betriebsaufwand überwiegen in den Gesamtbetriebskosten typischerweise den rohen Speicher bei Weitem.</p>
+<h2>Wo offene Tabellenformate die Kalkulation verschieben</h2>
+<p>Delta Lake (Databricks), Apache Iceberg und Apache Hudi haben den Lakehouse-Wertbeitrag seit 2022 grundlegend verändert. ACID-Transaktionen, Schema-Evolution und Time Travel — bisher nur in verwalteten Warehouses verfügbar — funktionieren nun zuverlässig auf Object Storage. Microsoft Fabrics OneLake verwendet nativ Delta Parquet. Snowflake hat 2023 Iceberg-Unterstützung hinzugefügt. Diese Konvergenz bedeutet, dass die Speicherneutralitätsdividende jetzt ohne Einbußen bei der Governance verfügbar ist.</p>
+<p>In der Praxis sehen wir drei Muster, die konsistent funktionieren: (1) Vollständiger Lakehouse auf Fabric oder Databricks für Organisationen mit gemischten BI-, ML- und Streaming-Workloads. (2) Warehouse (Snowflake, Synapse, BigQuery) für Organisationen, deren gesamter analytischer Workload strukturiertes SQL gegen klar verstandene relationale Quellen umfasst. (3) Hybrid: Delta Lake auf ADLS für Raw- und Silver-Schichten, Fabric Warehouse oder Snowflake für die kuratierte Gold-Schicht, die Power BI konsumiert. Muster 3 ist das häufigste Ergebnis unserer Architekturprüfungen.</p>
+<h2>Was Projekte tatsächlich scheitern lässt</h2>
+<p>In unserer Erfahrung aus 80+ Enterprise-Daten-Engagements macht die Entscheidung zwischen Lakehouse und Warehouse vielleicht 20% der Projektergebnisse aus. Die restlichen 80% werden bestimmt durch Datenqualitätsdisziplin, Eigentümerschaftsmodelle und ob das Team die operative Reife hat, Schema-Verträge über die Zeit einzuhalten. Wir haben gut architektonierte Lakehouses scheitern sehen, weil niemand die Schema-Registry verantwortete, und einfache SQL-Warehouses erfolgreich sein sehen, weil das Finanzteam die Datenqualitätskennzahlen jeden Montag überprüfte.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
@@ -112,15 +119,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was man stattdessen messen sollte</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-sap-modernization.html">
 <div class="rp-cat">Strategie</div>
 <h3>SAP-Analytics modernisieren im Microsoft Fabric Zeitalter</h3>
-<div class="rp-meta">Jan 2026 · 9 Min. Lesezeit</div>
+<div class="rp-meta">Jan 2026</div>
 </a></div>
 </div>
 </section>

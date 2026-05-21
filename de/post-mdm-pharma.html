@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8">
-<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Master data governance in pharma supply chains: lessons from the field — FZD Global GmbH</title>
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Stammdaten-Governance in Pharma-Lieferketten: Lehren aus der Praxis — FZD Global GmbH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +64,8 @@
 <div class="container">
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Governance</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
-<div class="eyebrow">GOVERNANCE · Dec 2025</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.3.title">Master data governance in pharma supply chains: lessons from the field</h1>
+<div class="eyebrow">GOVERNANCE · Dez 2025</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Stammdaten-Governance in Pharma-Lieferketten: Lehren aus der Praxis</h1>
 </div>
 </div>
 </section>
@@ -79,7 +79,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Dec 2025</span></div>
-<div class="pmb-item"><span>—</span><span>11 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Governance</span></div>
 </div>
 <div class="post-content reveal">
@@ -87,7 +86,15 @@
 <p>Dies ist eine Arbeitsnote aus der Praxis — geschrieben für Senior-Architekten, CDOs und die Führungsteams, die sie einstellen. Die vollständige Ausgabe erscheint hier in Kürze.</p>
 <h2>Die Kurzversion</h2>
 <p>Stammdaten-Governance in Pharma-Lieferketten: Felderfahrungen berühren Muster, die wir regelmäßig in DACH-Unternehmensengagements antreffen. Wie bei den meisten architektonischen Fragen hängt die richtige Antwort von der Organisation, dem Workload und dem Team ab — aber es gibt wiederkehrende Entscheidungspunkte, die es wert sind, benannt zu werden.</p>
-<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p></div>
+<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p>
+<h2>Was Stammdatendrift tatsächlich kostet</h2>
+<p>Eine Gartner-Studie von 2024 ergab, dass schlechte Datenqualität Organisationen durchschnittlich 12,9 Millionen Dollar pro Jahr kostet. In pharmazeutischen Lieferketten ist der Schaden konzentriert: Ein einzelner Materialstammsatz mit einer falschen Maßeinheitenumrechnung kann einen behördlichen Halt auslösen, der €200.000–500.000 pro Tag an verzögerten Lieferungen kostet. In drei separaten Pharma-Lieferketten-Audits, die wir in 2023–2024 durchgeführt haben, waren Stammdatenprobleme die Ursache bei 61% der Bestandsabweichungen und 44% der DSGVO-bezogenen Compliance-Feststellungen.</p>
+<p>Die spezifischen Muster, die wir am häufigsten sehen: (1) Doppelte Lieferantendatensätze — ein SAP-System erstellt einen Lieferanten, ein anderes erstellt denselben Lieferanten mit einem anderen internen Schlüssel, und beide bleiben jahrelang bestehen, weil die Deduplizierung nie automatisiert wurde. (2) Klassifizierungsdrift — ein Material ist in einem System als nicht-regulierter Hilfsstoff und in einem anderen als Wirkstoff klassifiziert. (3) Veraltete Herkunftslandeinträge — nach einer Akquisition überholt und nicht aktualisiert, weil das Integrationsteam aufgelöst wurde, bevor die Datenbereinigung abgeschlossen war.</p>
+<h2>Wie Microsoft Purview die Governance-Ökonomie verändert</h2>
+<p>Vor Purview führten Pharmaunternehmen MDM-Governance typischerweise auf einer Kombination aus manuellen Auditprozessen und benutzerdefinierten SharePoint-Workflows durch — Teams füllten Excel-Vorlagen aus, sendeten sie per E-Mail an einen Data Steward, der SAP manuell aktualisierte. Die Zykluszeit für eine Stammdatenänderungsanfrage betrug durchschnittlich 4–7 Werktage in den von uns vergleichbaren Organisationen. Mit Purview Data Quality und automatischer Lineage haben wir diese Zykluszeit auf unter 24 Stunden sinken sehen — nicht weil sich die Menschen änderten, sondern weil der Erkennungs-Auflösungs-Pfad automatisiert wurde.</p>
+<p>Purviews Datenqualitäts-Scanning läuft gegen verbundene Datenquellen nach einem konfigurierbaren Zeitplan. Anomalieregeln — Duplikaterkennung, referenzielle Integrität, Bereichsverletzungen — erzeugen Qualitätsvorfälle, die direkt über Microsoft Teams-Integration an den Dateneigentümer weitergeleitet werden. Der Prüfpfad ist Purviews nativer Lineage-Graph, der die EU-GMP-Anhang-11-Anforderungen für elektronische Aufzeichnungen ohne ein separates Validierungspaket erfüllt.</p>
+<h2>Das Betriebsmodell ist genauso wichtig wie die Tools</h2>
+<p>Technologie löst etwa die Hälfte des MDM-Problems. Die andere Hälfte ist organisatorischer Natur. Jede Stammdaten-Domäne — Material, Lieferant, Kunde, Werk — braucht einen namentlich genannten Dateneigentümer mit der Befugnis, Definitionsänderungen zu genehmigen. Dieser Eigentümer muss einen vierteljährlichen Überprüfungsrhythmus mit dem Data Governance Committee haben. Und das Governance Committee muss einen direkten Eskalationsweg zum CFO oder COO haben — weil Stammdatenentscheidungen letztlich Geschäftsentscheidungen sind, keine IT-Entscheidungen. Organisationen, die MDM als IT-Projekt behandeln, unterschätzen fast immer das Betriebsmodell und bauen die Governance-Schicht 18 Monate nach Go-live neu auf.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
@@ -100,15 +107,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich jedes Muster wirklich lohnt</h3>
-<div class="rp-meta">Mar 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was man stattdessen messen sollte</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

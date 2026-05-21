@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8">
-<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Streaming IoT analytics without breaking the cost model — FZD Global GmbH</title>
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Streaming-IoT-Analytics ohne das Kostenmodell zu brechen — FZD Global GmbH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +64,8 @@
 <div class="container">
 <div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Engineering</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
-<div class="eyebrow">ENGINEERING · Dec 2025</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.6.title">Streaming IoT analytics without breaking the cost model</h1>
+<div class="eyebrow">ENGINEERING · Dez 2025</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Streaming-IoT-Analytics ohne das Kostenmodell zu brechen</h1>
 </div>
 </div>
 </section>
@@ -79,7 +79,6 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Dec 2025</span></div>
-<div class="pmb-item"><span>—</span><span>9 Min. Lesezeit</span></div>
 <div class="pmb-item"><span>—</span><span>Engineering</span></div>
 </div>
 <div class="post-content reveal">
@@ -87,7 +86,16 @@
 <p>Dies ist eine Arbeitsnote aus der Praxis — geschrieben für Senior-Architekten, CDOs und die Führungsteams, die sie einstellen. Die vollständige Ausgabe erscheint hier in Kürze.</p>
 <h2>Die Kurzversion</h2>
 <p>Streaming-IoT-Analytics ohne das Kostenmodell zu brechen berührt Muster, die wir regelmäßig in DACH-Unternehmensengagements antreffen. Wie bei den meisten architektonischen Fragen hängt die richtige Antwort von der Organisation, dem Workload und dem Team ab — aber es gibt wiederkehrende Entscheidungspunkte, die es wert sind, benannt zu werden.</p>
-<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p></div>
+<p>Abonnieren Sie die Praxis-Updates unten, um die vollständige Version zu erhalten, wenn sie veröffentlicht wird, oder nehmen Sie direkt Kontakt auf, wenn Sie besprechen möchten, wie dies auf Ihre spezifische Situation zutrifft.</p>
+<h2>Wo Streaming-Kosten außer Kontrolle geraten</h2>
+<p>Azure Event Hubs-Preise beginnen bei €0,028 pro Million Ereignisse für den Basic-Tier und steigen auf €0,090 pro Million für Dedicated. Bei 10.000 IoT-Geräten, die alle 30 Sekunden Telemetrie senden, sind das 28,8 Millionen Ereignisse pro Tag — ca. €800/Monat allein für Event Hubs-Ingestion zum Standard-Tier-Preis. Fügen Sie Azure Stream Analytics hinzu (€0,11 pro Streaming-Unit pro Stunde, wobei die meisten Produktions-Workloads 6–12 SUs benötigen) und die Compute-Rechnung erreicht €500–1.000/Monat vor Storage, Dashboards oder Alerting. Für Organisationen mit 50.000+ Geräten multiplizieren sich diese Zahlen linear, wenn die Architektur sie nicht aktiv steuert.</p>
+<p>Der größte Kostentreiber in Streaming-Architekturen ist nicht das Ereignisvolumen — es ist die Anzahl der Konsumenten. Jede zusätzliche Kafka-Consumer-Group, jeder Stream Analytics-Job oder jeder Azure Function-Trigger, der denselben Ereignis-Stream liest, multipliziert die I/O-Kosten. Wir haben Streaming-Deployments auditiert, bei denen derselbe rohe Telemetrie-Stream von 7 separaten Konsumenten gelesen wurde, die jeweils überlappende Aggregationen durchführten, weil jedes Team seine eigene Pipeline ohne Kenntnis der anderen aufgebaut hatte.</p>
+<h2>Die Muster, die Kosten vorhersehbar halten</h2>
+<p><strong>Gestufte Aggregation am Edge:</strong> 1-Sekunden-Aggregationen (Min, Max, Mittelwert, Anzahl) in die Cloud senden statt roher Gerätewerte. Bei Temperatur- und Vibrationssensoren reduziert eine 1-Minuten-Voraggregation am Gateway das eingehende Ereignisvolumen um 60–97%, während alle operativ relevanten Informationen erhalten bleiben. Der Siemens MindSphere Edge Stack, Bosch IoT Suite und Azure IoT Edge unterstützen dieses Muster nativ.</p>
+<p><strong>Hot-Warm-Cold-Speichertrennung:</strong> Rohe Telemetrie landet in ADX (Azure Data Explorer) für das Hot-Fenster — typischerweise 7–30 Tage — wo Sub-Sekunden-Abfragelatenz für Dashboards erforderlich ist. Nach Ablauf des Hot-Fensters werden Daten zu Delta Lake auf ADLS Gen2 zu ca. 8× niedrigeren Speicherkosten verschoben. Archivdaten, die älter als 90 Tage sind, werden in den Cool/Archive-Tier verschoben, zu 20× niedrigeren Kosten als Hot. Eine automatisierte Tiering-Richtlinie in Fabric Shortcuts erledigt dies ohne manuellen Eingriff.</p>
+<p><strong>Intelligentes Alerting statt kontinuierlichem Polling:</strong> Die teuersten Echtzeit-Dashboards sind die, die alle 5 Sekunden von 50 gleichzeitigen Nutzern aktualisiert werden. Ein Hybridansatz — Push-Alerts über Azure Notification Hub bei Schwellenwertüberschreitungen, Pull-Refreshes alle 60 Sekunden für operative Dashboards — reduziert Dashboard-API-Aufrufe um 85–90% ohne nennenswerten Verlust an operativer Wahrnehmung. Bei einem Medizingeräte-Monitoring-Deployment reduzierte diese Änderung allein die Azure Monitor- und Power BI Embedded-Kosten um €18.000/Jahr.</p>
+<h2>Die DevOps-Disziplin, die es aufrechthält</h2>
+<p>Kostenoptimierung in Streaming-Architekturen ist keine einmalige Aktivität. IoT-Geräteflotten wachsen, neue Konsumenten erscheinen, und Alert-Schwellenwerte driften, während Operations-Teams falsche Positive abstimmen. Wir implementieren Kostenobservabilität als First-Class-Metrik: ein dediziertes Grafana-Dashboard, das Kosten pro Pipeline und pro Konsument täglich aktualisiert, sichtbar für das Engineering-Team neben Latenz- und Fehlerraten-Dashboards. Wenn ein neuer Konsument hinzugefügt wird, der die Stream Analytics-Kosten verdoppelt, sieht das Team es innerhalb von 24 Stunden — nicht am Ende des Abrechnungszyklus.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
@@ -100,15 +108,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich jedes Muster wirklich lohnt</h3>
-<div class="rp-meta">Mar 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">KI</div>
 <h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was man stattdessen messen sollte</h3>
-<div class="rp-meta">Feb 2026 · 10 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a></div>
 </div>
 </section>

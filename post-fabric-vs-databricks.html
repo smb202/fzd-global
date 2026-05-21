@@ -76,9 +76,8 @@
 <section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
 <div class="container">
 <div class="post-meta-bar">
-<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>By</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Rashidjon Saminov</span></div>
 <div class="pmb-item"><span>—</span><span>Feb 2026</span></div>
-<div class="pmb-item"><span>—</span><span>12 min read</span></div>
 <div class="pmb-item"><span>—</span><span>Tooling</span></div>
 </div>
 <div class="post-content reveal">
@@ -92,10 +91,19 @@
 <p>Pure storage and SQL warehousing for moderate workloads. Both are perfectly adequate. The decision becomes about everything else.</p>
 <h2>What we look for in the diagnostic</h2>
 <p>Existing skill mix. Cloud commitments. The shape of the analytical workload. The roadmap for ML. The maturity of the operations function. The Power Platform footprint. License economics over a three-year horizon.</p>
-<p>Most decisions tip on the people, not the platform. Both products are mature enough that a competent team can deliver on either. The question is which environment your team will thrive in.</p></div>
+<p>Most decisions tip on the people, not the platform. Both products are mature enough that a competent team can deliver on either. The question is which environment your team will thrive in.</p>
+<h2>Pricing: what the three-year TCO actually looks like</h2>
+<p>Microsoft Fabric pricing is capacity-based: a single F64 SKU (roughly equivalent to 64 vCores of compute) costs around €5,800 per month in West Europe. This capacity is shared across all Fabric workloads — pipelines, notebooks, SQL endpoints, Power BI Premium. For organizations already paying Power BI Premium P2 (€4,200/month), the incremental cost to add full Fabric capabilities is lower than most licensing teams expect.</p>
+<p>Databricks pricing is consumption-based via DBU (Databricks Unit). A Photon-enabled SQL Warehouse on Azure runs at roughly €0.22–0.55 per DBU, depending on tier. A real-world analytics workload running 10 hours/day on a medium cluster (8 cores) consumes approximately 80 DBU/day — around €1,750/month for that cluster alone, before storage and orchestration. Organizations with unpredictable or bursty workloads can end up paying significantly more than their Fabric-equivalent counterparts.</p>
+<p>The break-even point in our modelling typically falls between 40 and 80 average concurrent users. Below that threshold, Fabric's all-inclusive model is usually cheaper. Above it, Databricks' granular scaling often wins — especially if ML and ETL workloads dominate over BI.</p>
+<h2>The governance comparison</h2>
+<p>Microsoft Purview integrates natively with Fabric and captures lineage across pipelines, notebooks, dataflows, and semantic models automatically. In DACH enterprise environments where DSGVO compliance documentation is required, this automatic lineage capture is a material differentiator — setting it up in Databricks requires Unity Catalog (available from the Premium tier) plus additional configuration for external BI tools.</p>
+<p>Unity Catalog is Databricks' response to this gap, and it is genuinely good. Column-level lineage, row-level security, and centralized access policies work across all Databricks workloads. If your organization already has Databricks and is evaluating a governance layer, Unity Catalog is the right answer. If you are starting greenfield and Microsoft is your cloud, Fabric + Purview wins on time-to-governance by several months.</p>
+<h2>Our actual recommendation process</h2>
+<p>We run a six-question diagnostic before recommending either platform: (1) Is your primary cloud Microsoft Azure? (2) Do you have existing Power BI Premium licenses? (3) Is ML a current priority or a two-year-away aspiration? (4) Do you have data engineers comfortable with Spark and Python, or SQL-first analysts? (5) Is your data architecture multi-cloud or single-cloud? (6) What is your three-year data volume projection? The answers almost always point clearly to one platform. When they split 3–3, we recommend starting with Fabric and re-evaluating at 18 months.</p></div>
 <div class="author-card reveal">
-<div class="av av--photo" style="background-image:url('assets/rasulov.png');background-position:18% 12%;"></div>
-<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Founder &amp; Senior Data &amp; AI Solutions Architect, FZD Global. A decade of enterprise data architecture across DACH. Heidelberg, Deutschland.</p></div>
+<div class="av av--photo" style="background-image:url('assets/saminov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Rashidjon Saminov</h4><p class="ac-bio">Senior Consultant &amp; BI Architect, FZD Global. 18+ years of enterprise data and Microsoft Fabric expertise across MedTech, insurance and consumer goods. Heidelberg, Deutschland.</p></div>
 </div>
 
 <div class="post-content" style="margin-top: 96px;">
@@ -105,15 +113,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architecture</div>
 <h3>Lakehouse vs. Warehouse: when each pattern actually pays off</h3>
-<div class="rp-meta">Mar 2026 · 8 min read</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-rag-evaluation.html">
 <div class="rp-cat">AI</div>
 <h3>Why most enterprise RAG projects fail — and what to instrument instead</h3>
-<div class="rp-meta">Feb 2026 · 10 min read</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-sap-modernization.html">
 <div class="rp-cat">Strategy</div>
 <h3>Modernizing SAP analytics in the Microsoft Fabric era</h3>
-<div class="rp-meta">Jan 2026 · 9 min read</div>
+<div class="rp-meta">Jan 2026</div>
 </a></div>
 </div>
 </section>

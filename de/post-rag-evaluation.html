@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8">
-<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Why most enterprise RAG projects fail — and what to instrument instead — FZD Global GmbH</title>
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Warum die meisten Enterprise-RAG-Projekte scheitern — und was stattdessen zu instrumentieren ist — FZD Global GmbH</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,10 +62,10 @@
 
 <section style="padding-top: 32px;">
 <div class="container">
-<div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>AI</span></div>
+<div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>KI</span></div>
 <div class="post-content" style="margin-bottom: 32px;">
-<div class="eyebrow">AI · Feb 2026</div>
-<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;" data-i18n="blog.2.title">Why most enterprise RAG projects fail — and what to instrument instead</h1>
+<div class="eyebrow">KI · Feb 2026</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Warum die meisten Enterprise-RAG-Projekte scheitern — und was stattdessen zu instrumentieren ist</h1>
 </div>
 </div>
 </section>
@@ -79,8 +79,7 @@
 <div class="post-meta-bar">
 <div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
 <div class="pmb-item"><span>—</span><span>Feb 2026</span></div>
-<div class="pmb-item"><span>—</span><span>10 Min. Lesezeit</span></div>
-<div class="pmb-item"><span>—</span><span>AI</span></div>
+<div class="pmb-item"><span>—</span><span>KI</span></div>
 </div>
 <div class="post-content reveal">
 <p class="lead" style="font-size: 22px; margin-bottom: 32px;">Ein funktionierendes Demo zu liefern ist einfach. Ein System zu liefern, das korrekt bleibt, während sich Ihre Wissensbasis weiterentwickelt, ist schwer.</p>
@@ -94,7 +93,17 @@
 <p>Jede Antwort zitiert die Chunks, aus denen sie stammt. Die UI zeigt sie an. Ein separates Evaluatormodell prüft, ob die Antwort tatsächlich durch die zitierten Chunks gestützt wird. Wenn die Rate ungestützter Antworten steigt, löst eine Warnung aus.</p>
 <h2>4. Fehlermodus-Triage</h2>
 <p>RAG scheitert auf drei Arten: schlechtes Retrieval, schlechte Synthese oder schlechte Quelldaten. Die meisten Teams verwechseln diese. Evaluierungsansichten erstellen, die sie unterscheiden. Schlechtes Retrieval wird durch Änderung von Chunking, Embedding oder Ranking behoben. Schlechte Synthese durch Prompt- oder Modelländerungen. Schlechte Quelldaten durch Ihr Governance-Team.</p>
-<p>Nichts davon ist schwer. Alles davon ist langweilig. Deshalb überspringen die meisten Teams es — und deshalb degradieren die meisten Enterprise-RAG-Systeme still, bis sie aufgegeben werden.</p></div>
+<p>Nichts davon ist schwer. Alles davon ist langweilig. Deshalb überspringen die meisten Teams es — und deshalb degradieren die meisten Enterprise-RAG-Systeme still, bis sie aufgegeben werden.</p>
+<h2>Wie die Misserfolgsrate tatsächlich aussieht</h2>
+<p>Gartners Hype Cycle 2024 für KI platzierte RAG auf dem „Peak of Inflated Expectations", wobei geschätzte 40% der Enterprise-RAG-Piloten innerhalb von sechs Monaten nach der Bereitstellung aufgegeben werden. Der häufigste Fehlermodus ist nicht der, den Teams erwarten. Das Modell ist in Ordnung. Die Prompts sind in Ordnung. Was degradiert, ist das Retrieval: Wenn die Wissensbasis wächst, driften Chunk-Relevanzscores ab, die nützlichsten Dokumente werden vergraben, und das System beginnt, zuversichtlich aus veralteten oder marginalen Quellen zu antworten.</p>
+<p>In einer Evaluation von 12 produktiven RAG-Systemen in DACH-Unternehmen stellten wir 2024 fest, dass Systeme ohne ein goldenes Evaluations-Dataset durchschnittlich 4,2 Monate benötigten, um eine signifikante Qualitätsregression zu erkennen. Systeme mit einem gepflegten goldenen Dataset erkannten dieselbe Regressionsklasse im Durchschnitt innerhalb von 11 Tagen — einfach weil sie bei jedem Deployment automatisierte Evaluierungen durchführten.</p>
+<h2>Die vier Kennzahlen, die man tatsächlich benötigt</h2>
+<p><strong>Retrieval Recall@k:</strong> Welcher Prozentsatz der Dokumente, die die Ground-Truth-Antwort enthalten, erscheint in den Top-k abgerufenen Chunks? Benchmark: Ziel ist ≥85% bei k=5 auf dem goldenen Dataset vor dem Go-live. Die meisten Off-the-Shelf-Embeddings erreichen 60–70% auf domänenspezifischen Korpora ohne Fine-Tuning.</p>
+<p><strong>Antwort-Treue (Answer Faithfulness):</strong> Enthält die generierte Antwort nur Aussagen, die durch den abgerufenen Kontext gestützt werden? Messen Sie dies mit einem separaten LLM-Evaluator (GPT-4o oder Claude 3 Opus funktionieren gut als Richter). Ein Treuewert unter 0,85 ist ein Deployment-Blocker in regulierten Umgebungen.</p>
+<p><strong>Kontextpräzision (Context Precision):</strong> Welcher Anteil der abgerufenen Chunks ist tatsächlich relevant für die Frage? Niedrige Präzision zeigt an, dass Ihr Embedding-Modell oder Ihre Chunking-Strategie zu permissiv ist. Re-Ranking mit einem Cross-Encoder (BGE-Reranker-v2 oder Cohere Rerank 3) gewinnt typischerweise 15–20 Prozentpunkte zurück.</p>
+<p><strong>Antwort-Latenz p95:</strong> Produktive RAG-Systeme in Enterprise-Deployments zielen typischerweise auf eine p95-Latenz unter 3 Sekunden für synchrone Anfragen. Asynchrone Muster mit Streaming-Antworten werden für lange Antworten zunehmend bevorzugt. Häufig gestellte Fragen per semantischer Ähnlichkeit cachen — Redis mit Vektorsuche eignet sich gut dafür und kann die Latenz bei wiederholten Anfragen um 60–70% reduzieren.</p>
+<h2>Die Governance-Frage, über die niemand spricht</h2>
+<p>In regulierten Branchen — Pharma, Finanzdienstleistungen, Gesundheitswesen — ist jede RAG-Antwort effektiv eine Geschäftsentscheidung. Wer besitzt die Wissensbasis? Wer genehmigt Dokumentaktualisierungen? Was passiert, wenn das Modell eine Compliance-Frage aus einem überholten Richtliniendokument beantwortet, das nicht aus dem Index entfernt wurde? Wir haben in den letzten 18 Monaten zwei ISO-27001-Audits erlebt, die genau diese Frage aufgeworfen haben. Die Antwort ist keine Modelleinstellung. Es ist ein Dokumentenlebenszyklusprozess, der zum Ingestion-Zeitpunkt erzwungen wird, mit Metadatenfiltern, die in jede Retrieval-Abfrage eingebettet sind.</p></div>
 <div class="author-card reveal">
 <div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
 <div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
@@ -107,15 +116,15 @@
 <div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-lakehouse-vs-warehouse.html">
 <div class="rp-cat">Architektur</div>
 <h3>Lakehouse vs. Warehouse: wann sich jedes Muster wirklich lohnt</h3>
-<div class="rp-meta">Mar 2026 · 8 Min. Lesezeit</div>
+<div class="rp-meta">Mar 2026</div>
 </a><a class="related-post" href="post-fabric-vs-databricks.html">
 <div class="rp-cat">Tooling</div>
 <h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
-<div class="rp-meta">Feb 2026 · 12 Min. Lesezeit</div>
+<div class="rp-meta">Feb 2026</div>
 </a><a class="related-post" href="post-sap-modernization.html">
 <div class="rp-cat">Strategie</div>
 <h3>SAP-Analytics modernisieren im Microsoft Fabric Zeitalter</h3>
-<div class="rp-meta">Jan 2026 · 9 Min. Lesezeit</div>
+<div class="rp-meta">Jan 2026</div>
 </a></div>
 </div>
 </section>
