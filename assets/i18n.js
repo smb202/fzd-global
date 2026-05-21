@@ -79,6 +79,8 @@ window.FZD_I18N = {
     "industries.lead": "Eight industries. Real engagements. The methodology is the same. The vocabulary is yours.",
     "industries.cta": "Browse industries",
 
+    "industries.readmore": "Read case studies →",
+    "industries.ticker.label": "Trusted by industry leaders",
     "ind.1.name": "Manufacturing & Industrial",
     "ind.1.tags": "IoT sensors · OEE analytics · Production scheduling · Quality control · ERP integration",
     "ind.2.name": "Financial Services & Insurance",
@@ -742,6 +744,8 @@ window.FZD_I18N = {
     "industries.lead": "Acht Branchen. Echte Mandate. Die Methodik ist dieselbe. Das Vokabular ist Ihres.",
     "industries.cta": "Branchen ansehen",
 
+    "industries.readmore": "Fallstudien lesen →",
+    "industries.ticker.label": "Vertrauen von Branchenführern",
     "ind.1.name": "Industrie & Fertigung",
     "ind.1.tags": "IoT-Sensoren · OEE-Analytics · Produktionsplanung · Qualitätskontrolle · ERP-Integration",
     "ind.2.name": "Finanzdienstleistungen & Versicherung",
