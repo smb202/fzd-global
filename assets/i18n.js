@@ -1382,7 +1382,7 @@ window.FZD_setLang = function(lang) {
 
 window.FZD_getLang = function() {
   if (window.FZD_FORCE_LANG) return window.FZD_FORCE_LANG;
-  try { return localStorage.getItem('fzd_lang') || 'en'; } catch(e) { return 'en'; }
+  try { return localStorage.getItem('fzd_lang') || 'de'; } catch(e) { return 'de'; }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
