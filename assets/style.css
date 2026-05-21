@@ -893,3 +893,102 @@ button { font-family: inherit; cursor: pointer; }
 .mt-16 { margin-top: 16px; }
 .mt-32 { margin-top: 32px; }
 .mt-48 { margin-top: 48px; }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Breadcrumb: always allow wrapping ──────────────────── */
+.breadcrumb { flex-wrap: wrap; }
+
+/* ── Post meta bar: always allow wrapping ───────────────── */
+.post-meta-bar { flex-wrap: wrap !important; }
+
+/* ── Typography: reduce minimum sizes for small phones ──── */
+@media (max-width: 500px) {
+  .h-display { font-size: clamp(28px, 8.5vw, 40px); }
+  .h-section { font-size: clamp(22px, 7vw, 32px); }
+  .lead { font-size: 16px; }
+}
+
+/* ── Page hero: reduce heading size and padding on phones ── */
+@media (max-width: 500px) {
+  .page-hero { padding-top: 80px; padding-bottom: 48px; }
+  .page-hero .h-display { font-size: clamp(26px, 8vw, 44px) !important; }
+}
+
+/* ── Section: reduce vertical padding on phones ─────────── */
+@media (max-width: 500px) {
+  .section { padding: clamp(48px, 10vw, 72px) 0; }
+}
+
+/* ── Brand: tighten on very narrow screens (<370px) ──────── */
+@media (max-width: 370px) {
+  .brand { font-size: 15px; gap: 8px; }
+  .brand__mark { width: 28px; height: 28px; flex: 0 0 28px; }
+  .brand__sub { display: none; }
+  .lang-switch button { width: 34px; }
+  .site-header__inner { height: 64px; }
+}
+
+/* ── Author card: stack vertically on phones ─────────────── */
+@media (max-width: 580px) {
+  .author-card { grid-template-columns: 1fr; }
+  .author-card .av { width: 56px; height: 56px; }
+}
+
+/* ── Client ticker: reduce fade width on phones ─────────── */
+@media (max-width: 600px) {
+  .client-ticker::before,
+  .client-ticker::after { width: 48px; }
+  .client-ticker__set { gap: 32px; padding-right: 32px; }
+}
+
+/* ── Logo grid: smaller columns so 2 fit on phones ─────── */
+@media (max-width: 500px) {
+  .logo-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .logo-pill { height: 80px; }
+}
+
+/* ── Footer: tighten padding and stack bottom row ────────── */
+@media (max-width: 560px) {
+  .site-footer { padding-top: 56px; padding-bottom: 28px; }
+  .site-footer .container { gap: 36px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* ── Cards: reduce padding on phones ───────────────────── */
+@media (max-width: 480px) {
+  .card { padding: 20px 16px; }
+}
+
+/* ── Hero portrait: release min-height on mobile ─────────── */
+@media (max-width: 640px) {
+  .imgph--hero { min-height: 0; }
+}
+
+/* ── Buttons: ensure tap targets are large enough ────────── */
+@media (max-width: 480px) {
+  .btn { padding: 12px 18px; }
+  .btn--lg { padding: 12px 20px; }
+}
+
+/* ── Insights post cards: tighten image height on phones ─── */
+@media (max-width: 480px) {
+  .pc-img { height: 130px; }
+}
+
+/* ── Related posts grid: 1 column on small phones ───────── */
+@media (max-width: 480px) {
+  .related-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Field grid in contact form: 1 column below 500px ───── */
+@media (max-width: 500px) {
+  .field-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CTA band email link: smaller on phones ──────────────── */
+@media (max-width: 500px) {
+  .cta-band__email { font-size: 16px; }
+}
