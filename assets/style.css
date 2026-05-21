@@ -259,7 +259,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 .brand__gmbh {
-  color: var(--text-3);
+  color: inherit;
   margin-left: 3px;
 }
 .brand__mark {

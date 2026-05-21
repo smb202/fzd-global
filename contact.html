@@ -48,9 +48,6 @@
 .info-row .v a:hover { color: var(--accent-1); border-bottom-color: var(--accent-1); }
 .checkbox-row { display: flex; align-items: start; gap: 12px; font-size: 13px; color: var(--text-2); line-height: 1.5; }
 .checkbox-row input { margin-top: 4px; }
-.contact-signature { margin-top: 28px; padding: 20px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); }
-.contact-signature img { display: block; width: 100%; max-width: 280px; height: auto; background: #fff; padding: 10px 14px; border-radius: 2px; }
-.contact-signature .sig-caption { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 14px; }
 
 /* ── Hero background image ────────────────────────────────── */
 .page-hero {
@@ -142,10 +139,10 @@
 <div class="info-row"><div class="k" data-i18n="contact.direct.phone">Phone</div><div class="v"><a href="tel:+4962216736786">+49 6221 6736786</a></div></div>
 <div class="info-row"><div class="k" data-i18n="contact.direct.office">Office</div><div class="v">Neuenheimer Landstr. 5<br>69120 Heidelberg<br>Deutschland</div></div>
 <div class="info-row"><div class="k" data-i18n="contact.direct.hours">Hours</div><div class="v" data-i18n="contact.direct.hours.value">Mon–Fri 09:00–18:00 CET</div></div>
-<div class="contact-signature">
-<img src="assets/fzd-wordmark.jpg" alt="FZD Global GmbH — We Make The Difference">
-<div class="sig-caption">— Eingetragen in Heidelberg · HRB</div>
-</div>
+<a href="https://www.google.com/maps/search/?api=1&query=Neuenheimer+Landstr.+5,+69120+Heidelberg,+Deutschland" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:28px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);text-decoration:none;" aria-label="Open in Google Maps">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2591.6!2d8.6891!3d49.4172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797c11a7b3c1f6b%3A0x1!2sNeuenheimer+Landstr.+5%2C+69120+Heidelberg!5e0!3m2!1sen!2sde!4v1" width="100%" height="220" style="border:0;display:block;pointer-events:none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
+<div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-1);padding:10px 14px;background:var(--surface);">Open in Google Maps →</div>
+</a>
 </div>
 </aside>
 </div>
