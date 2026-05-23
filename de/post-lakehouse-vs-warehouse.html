@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png"><title>Lakehouse vs. Warehouse: wann sich welches Muster wirklich lohnt — FZD Global GmbH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.post-hero-image { background-size: cover; background-position: center; background-color: #07090f; aspect-ratio: 21/9; margin: 0 0 48px; position: relative; overflow: hidden; }
+.post-hero-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,8,18,0.60) 0%, rgba(5,8,18,0.35) 50%, rgba(5,8,18,0.70) 100%); }
+.post-hero-image::after { content: "01"; position: absolute; right: 32px; bottom: -24px; font-family: var(--serif); font-size: 280px; color: rgba(255,255,255,0.10); line-height: 0.85; }
+.post-content { max-width: 720px; margin: 0 auto; }
+.post-content p { font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; }
+.post-content h2 { font-family: var(--serif); font-size: 30px; color: var(--text); margin: 48px 0 20px; font-weight: 500; letter-spacing: -0.01em; }
+.post-content em { font-style: italic; color: var(--accent-light-1); }
+.post-content strong { font-weight: 600; color: var(--text); }
+.post-meta-bar { max-width: 720px; margin: 0 auto 48px; display: flex; flex-wrap: wrap; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
+.post-meta-bar .pmb-item { display: flex; gap: 8px; align-items: center; }
+.post-meta-bar .pmb-item span:first-child { color: var(--accent-light-1); }
+.author-card { max-width: 720px; margin: 64px auto 0; padding: 32px; background: var(--surface-2); border-left: 3px solid var(--accent-1); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
+.author-card .av { width: 64px; height: 64px; background: var(--surface-3); color: var(--text); display: grid; place-items: center; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+.author-card .ac-name { font-family: var(--serif); font-size: 20px; color: var(--text); margin: 0; font-weight: 500; }
+.author-card .ac-bio { color: var(--text-2); font-size: 14px; margin: 4px 0 0; line-height: 1.5; }
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; background: transparent; border: none; margin-top: 32px; }
+@media (min-width: 800px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
+.related-post { background: rgba(16,20,21,0.92); backdrop-filter: blur(6px); border: 1px solid var(--border); padding: 28px; text-decoration: none; color: inherit; transition: background .2s, border-color .2s; border-radius: 4px; }
+.related-post:hover { background: rgba(25,28,30,0.96); border-color: var(--border-strong); }
+.related-post .rp-cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent-light-1); text-transform: uppercase; }
+.related-post h3 { font-family: var(--serif); font-size: 18px; color: var(--text); margin: 12px 0; font-weight: 500; line-height: 1.3; }
+.related-post .rp-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); }
+@media (max-width: 580px) { .author-card { grid-template-columns: 1fr; } .author-card .av { width: 52px; height: 52px; } }
+@media (max-width: 480px) { .post-content p { font-size: 17px; } .post-content h2 { font-size: 24px; } }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head><body>
+<div class="top-bar"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+<nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+      <a href="industries.html" data-i18n="nav.industries">Industries</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Case Studies</a>
+      <a href="insights.html" class="is-active" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+<div class="header-tools">
+<div class="lang-switch"><button data-lang-btn="de" class="is-active">DE</button><button data-lang-btn="en">EN</button></div>
+<a href="contact.html" class="btn"><span data-i18n="nav.cta">Start a project</span> <span class="arr">→</span></a>
+
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+          <rect width="18" height="2" fill="currentColor"/>
+          <rect y="5" width="18" height="2" fill="currentColor"/>
+          <rect y="10" width="18" height="2" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top: 32px;">
+<div class="container">
+<div class="breadcrumb" style="margin-bottom: 32px;"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><a href="insights.html">Insights</a><span class="breadcrumb__sep">/</span><span>Architektur</span></div>
+<div class="post-content" style="margin-bottom: 32px;">
+<div class="eyebrow">ARCHITEKTUR · Mär 2026</div>
+<h1 class="h-display" style="font-size: clamp(36px, 5vw, 56px); margin-top: 16px; line-height: 1.1;">Lakehouse vs. Warehouse: wann sich welches Muster wirklich lohnt</h1>
+</div>
+</div>
+</section>
+
+<div class="container">
+<div class="post-hero-image" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=85')"></div>
+</div>
+
+<section style="padding: 0 0 96px; background: linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.82) 8%,rgba(7,9,15,0.82) 92%,#101415 100%),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat fixed;">
+<div class="container">
+<div class="post-meta-bar">
+<div class="pmb-item"><span>Von</span><span style="color: var(--ink); letter-spacing: 0.04em; text-transform: none; font-family: var(--sans); font-size: 13px; font-weight: 500;">Farhod Rasulov</span></div>
+<div class="pmb-item"><span>—</span><span>Mär 2026</span></div>
+<div class="pmb-item"><span>—</span><span>Architektur</span></div>
+</div>
+<div class="post-content reveal">
+<p class="lead" style="font-size: 22px; margin-bottom: 32px;">Ein Jahrzehnt nachdem der Lakehouse-Begriff erstmals in Hersteller-Präsentationen auftauchte, ist die Architekturdebatte weitgehend entschieden. Die Entscheidung auf Engagement-Ebene dagegen noch nicht.</p>
+<p>Alle paar Quartale fragt mich ein Führungsteam, ob es einen Lakehouse aufbauen sollte. Die Analystenberichte wurden gelesen, die Diagramme gesehen. Die Frage ist nicht, was ein Lakehouse ist. Die Frage ist, ob es die richtige Antwort für genau diese Organisation ist — mit diesen Quellsystemen und diesem Team.</p>
+<p>Die ehrliche Antwort: meistens ja, manchmal nein, und der entscheidende Faktor ist selten der aus dem Marketingmaterial.</p>
+<h2>Was der Lakehouse wirklich löst</h2>
+<p>Der ursprüngliche Vorteil des Lakehouses war nie Kosten oder Performance — beides war workloadabhängig diskutierbar. Es ging um <em>Speicherneutralität</em>. Das Versprechen: Daten in offenen Formaten (Parquet, Delta, Iceberg) auf günstigem Object Storage halten und jede Compute-Engine darauf lesen lassen. Kein Neu-Ingestieren mehr, wenn ein neues Tool kommt.</p>
+<p>Das ist für manche Organisationen wichtiger als für andere. Wenn das Datenteam klein, das Tooling stabil und die Workloads eng sind, kauft der Lakehouse eine Flexibilität, die man vielleicht nie nutzt. Wenn das Team groß, das Tooling im Wandel und die Workloads gleichzeitig BI, ML, Streaming und Ad-hoc-Analyse umfassen, zahlt die Speicherneutralitätsdividende sich schnell aus.</p>
+<h2>Wo das Warehouse noch gewinnt</h2>
+<p>Für Organisationen, deren primärer analytischer Workload klar definiertes Finanz- und Betriebsreporting gegen gut verstandene relationale Quellen mit wenigen Konsumenten ist — gewinnen Snowflake, Synapse Dedicated Pools oder BigQuery beim Time-to-Value, bei der Governance-Einfachheit und bei der Möglichkeit, erfahrene Mitarbeiter einzustellen.</p>
+<p>Das Argument „Wir brauchen ML irgendwann" ist real, aber oft übergewichtet. Viele Organisationen verbringen Jahre damit, einen Lakehouse für eine ML-Roadmap aufzubauen, die kleiner und später als geplant eintrifft — und zahlen täglich eine Komplexitätssteuer.</p>
+<h2>Der Entscheidungsbaum, den wir tatsächlich verwenden</h2>
+<p>Drei Fragen, in dieser Reihenfolge:</p>
+<p><strong>1. Werden Sie mehrere analytische Engines haben?</strong> Wenn Ihr einziger Konsument Power BI und einige Stored Procedures sind, brauchen Sie keine Speicherneutralität. Ein Warehouse reicht.</p>
+<p><strong>2. Werden Sie Data-Science- oder ML-Workloads gegen dieselben Daten wie Ihr BI haben?</strong> Wenn ja, rechtfertigt das Lakehouse-Muster seinen Platz — Sie pflegen dann keine zwei Wahrheitskopien mehr.</p>
+<p><strong>3. Verfügen Sie über die nötige operative Reife oder sind Sie bereit, sie aufzubauen?</strong> Lakehouses sind leistungsstärker und anspruchsvoller. Teams, die in DataOps, Schema-Management und Observability investiert haben, werden belohnt. Teams, die das nicht getan haben, werden bestraft.</p>
+<h2>Das Hybrid-Modell, das oft gewinnt</h2>
+<p>Für die meisten Unternehmen im DACH-Raum, mit denen wir arbeiten, lautet die Antwort: hybrid. Ein Lakehouse auf Microsoft Fabric oder Databricks für den breiten analytischen Bestand, ergänzt durch eine kuratierte Warehouse-Schicht (Snowflake, Synapse oder Fabric Warehouse) für regulierte, finanzkritische Workloads. Speicherneutralität wo Flexibilität zählt, governed Serving wo Konsistenz zählt.</p>
+<p>Der Markt hat sich auf dieses Muster konvergiert. Microsoft Fabric liefert es als ein einziges Produkt. Databricks setzt es über Unity Catalog und SQL Warehouses um. Sogar Snowflake unterstützt Iceberg jetzt nativ. Die Architekturdebatte ist vorbei. Die Entscheidung auf Engagement-Ebene bleibt.</p>
+<h2>Die Zahlen hinter der Debatte</h2>
+<p>Eine Databricks-Umfrage von 2024 unter 1.600 Datenteams ergab, dass 73% heute eine Form von Lakehouse-Architektur betreiben, gegenüber 41% im Jahr 2021. In derselben Umfrage berichteten jedoch 38% der Befragten, dass ihre Warehouse-Workloads auf Databricks SQL oder Snowflake neben einem Lakehouse laufen — nicht stattdessen. Das „Entweder-oder"-Framing ist überholt. Die praktische Frage ist, wo man die Grenze zieht.</p>
+<p>Speicherkosten sind real, werden in Hersteller-Unterlagen aber häufig übertrieben. Zu aktuellen Azure-Preisen kostet Data Lake Storage Gen2 etwa €0,018 pro GB/Monat für den Hot-Tier. Synapse Dedicated SQL Pool beginnt bei ca. €5,80 pro DWH-Unit pro Stunde. Bei einem analytischen Bestand von 100 TB ist der reine Speicherunterschied spürbar — doch Compute, Governance und Betriebsaufwand überwiegen in den Gesamtbetriebskosten typischerweise den rohen Speicher bei Weitem.</p>
+<h2>Wo offene Tabellenformate die Kalkulation verschieben</h2>
+<p>Delta Lake (Databricks), Apache Iceberg und Apache Hudi haben den Lakehouse-Wertbeitrag seit 2022 grundlegend verändert. ACID-Transaktionen, Schema-Evolution und Time Travel — bisher nur in verwalteten Warehouses verfügbar — funktionieren nun zuverlässig auf Object Storage. Microsoft Fabrics OneLake verwendet nativ Delta Parquet. Snowflake hat 2023 Iceberg-Unterstützung hinzugefügt. Diese Konvergenz bedeutet, dass die Speicherneutralitätsdividende jetzt ohne Einbußen bei der Governance verfügbar ist.</p>
+<p>In der Praxis sehen wir drei Muster, die konsistent funktionieren: (1) Vollständiger Lakehouse auf Fabric oder Databricks für Organisationen mit gemischten BI-, ML- und Streaming-Workloads. (2) Warehouse (Snowflake, Synapse, BigQuery) für Organisationen, deren gesamter analytischer Workload strukturiertes SQL gegen klar verstandene relationale Quellen umfasst. (3) Hybrid: Delta Lake auf ADLS für Raw- und Silver-Schichten, Fabric Warehouse oder Snowflake für die kuratierte Gold-Schicht, die Power BI konsumiert. Muster 3 ist das häufigste Ergebnis unserer Architekturprüfungen.</p>
+<h2>Was Projekte tatsächlich scheitern lässt</h2>
+<p>In unserer Erfahrung aus 80+ Enterprise-Daten-Engagements macht die Entscheidung zwischen Lakehouse und Warehouse vielleicht 20% der Projektergebnisse aus. Die restlichen 80% werden bestimmt durch Datenqualitätsdisziplin, Eigentümerschaftsmodelle und ob das Team die operative Reife hat, Schema-Verträge über die Zeit einzuhalten. Wir haben gut architektonierte Lakehouses scheitern sehen, weil niemand die Schema-Registry verantwortete, und einfache SQL-Warehouses erfolgreich sein sehen, weil das Finanzteam die Datenqualitätskennzahlen jeden Montag überprüfte.</p></div>
+<div class="author-card reveal">
+<div class="av av--photo" style="background-image:url('../assets/rasulov.png');background-position:18% 12%;"></div>
+<div><h4 class="ac-name">Farhod Rasulov</h4><p class="ac-bio">Gründer &amp; Senior Data &amp; AI Solutions Architect, FZD Global. Ein Jahrzehnt Enterprise-Datenarchitektur in der DACH-Region. Heidelberg, Deutschland.</p></div>
+</div>
+
+<div class="post-content" style="margin-top: 96px;">
+<div class="eyebrow">— Weiterlesen</div>
+<h2 style="font-family: var(--serif); font-size: 28px; color: var(--text); margin: 16px 0 0; font-weight: 500;">Verwandte Beiträge.</h2>
+</div>
+<div class="related-grid reveal" style="max-width: 720px; margin: 32px auto 0;"><a class="related-post" href="post-fabric-vs-databricks.html">
+<div class="rp-cat">Tooling</div>
+<h3>Microsoft Fabric vs. Databricks: Praxisnotizen eines Senior-Architekten</h3>
+<div class="rp-meta">Feb 2026</div>
+</a><a class="related-post" href="post-rag-evaluation.html">
+<div class="rp-cat">KI</div>
+<h3>Warum die meisten Enterprise-RAG-Projekte scheitern — und was man stattdessen messen sollte</h3>
+<div class="rp-meta">Feb 2026</div>
+</a><a class="related-post" href="post-sap-modernization.html">
+<div class="rp-cat">Strategie</div>
+<h3>SAP-Analytics modernisieren im Microsoft Fabric Zeitalter</h3>
+<div class="rp-meta">Jan 2026</div>
+</a></div>
+</div>
+</section>
+
+<section class="client-ticker">
+  <div class="client-ticker__label">Vertrauen von Branchenführern</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set"><span class="client-logo"><img src="../assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true"><span class="client-logo"><img src="../assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
+      
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ibm.svg" alt="IBM" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sap.svg" alt="SAP" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"></span>
+    </div>
+  </div>
+</section>
+<section class="cta-band"><div class="container cta-band__inner">
+<div class="reveal"><h2 class="h-section" data-i18n="cta.title">Have a data problem worth solving?</h2><p class="lead" data-i18n="cta.lead">First conversation is always free.</p></div>
+<div class="reveal" data-delay="1" style="text-align:right;"><a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Start the conversation</span> <span class="arr">→</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="container">
+<div class="footer-top">
+<div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+<div class="footer-col"><h4 data-i18n="footer.col1">Practice</h4><ul><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Solutions</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Case Studies</a></li><li><a href="how-we-work.html">Arbeitsweise</a></li><li><a href="technology.html">Technologie-Stack</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col2">Industries</h4><ul><li><a href="industries.html" data-i18n="nav.industries">Industries</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col3">Company</h4><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="team.html" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+<div class="footer-col"><h4 data-i18n="footer.col4">Contact</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+491754642026">+49 175 4642 026</a></li></ul></div>
+</div>
+<div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Imprint</a><a href="../assets/fzd_privacy.pdf" target="_blank" data-i18n="footer.privacy">Privacy</a></div></div>
+</div></footer>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>

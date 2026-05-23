@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../assets/fzd-mark.png">
+<title>Team — FZD Global GmbH</title>
+<meta name="description" content="Das Team hinter FZD Global GmbH — Fazliddin Akhmedov, Farhod Rasulov und Rashidjon Saminov. 50+ kombinierte Jahre Enterprise-Daten-, KI- und Cloud-Beratung.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* ── Hero ──────────────────────────────────────────────── */
+.page-hero {
+  background: #07090f url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat;
+  border-bottom: 0;
+}
+.page-hero::before {
+  background: linear-gradient(135deg, rgba(5,8,18,0.92) 0%, rgba(5,8,18,0.76) 55%, rgba(5,8,18,0.52) 100%);
+  filter: none;
+  z-index: 0;
+}
+.page-hero::after { display:block; content:""; position:absolute; bottom:0; left:0; right:0; height:140px; background:linear-gradient(to bottom,transparent,#101415); z-index:2; pointer-events:none; }
+.page-hero > .container { position: relative; z-index: 1; }
+.page-hero .eyebrow { color: rgba(255,255,255,0.52) !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+.page-hero .h-display { color: #fff !important; font-size: clamp(34px, 4.2vw, 58px) !important; }
+.page-hero .h-display em { font-style: italic; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .h-display strong { font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-hero .lead { color: rgba(255,255,255,0.72) !important; }
+.page-hero .lead strong { color: #fff !important; font-weight: 600; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,0.38); }
+.page-hero .breadcrumb__sep { color: rgba(255,255,255,0.2); }
+
+/* ── Team cards ──────────────────────────────────────────── */
+.team-card {
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+.team-card__overlay { position: absolute; inset: 0; pointer-events: none; }
+.team-card--left  .team-card__overlay { background: linear-gradient(to right, rgba(5,8,18,0.97) 0%, rgba(5,8,18,0.90) 30%, rgba(5,8,18,0.55) 54%, transparent 70%); }
+.team-card--right .team-card__overlay { background: linear-gradient(to left,  rgba(5,8,18,0.97) 0%, rgba(5,8,18,0.90) 30%, rgba(5,8,18,0.55) 54%, transparent 70%); }
+
+.team-card__text {
+  position: relative;
+  z-index: 1;
+  width: 52%;
+  padding: clamp(36px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.team-card--right .team-card__text { margin-left: auto; }
+
+.team-card__role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+.team-card__name {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.team-card__title {
+  font-size: 15px;
+  color: rgba(255,255,255,0.58);
+}
+.team-card__exp { font-size: 16px; color: rgba(255,255,255,0.78); }
+.team-card__exp strong { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+.team-card__bio { font-size: 14.5px; color: rgba(255,255,255,0.64); line-height: 1.65; }
+.team-card__bio strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+.team-card__cert { font-size: 13px; color: rgba(255,255,255,0.60); line-height: 1.6; }
+.team-card__cert strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+.team-card__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.team-card__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border: 1px solid rgba(0,212,255,0.38);
+  color: rgba(0,212,255,0.88);
+  border-radius: 3px;
+}
+.team-card__industries {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+}
+.team-card__langs {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .team-card { min-height: 480px; flex-direction: column; }
+  .team-card__text { width: 100%; padding: 32px 24px; justify-content: flex-end; min-height: 280px; }
+  .team-card--left  .team-card__overlay,
+  .team-card--right .team-card__overlay { background: linear-gradient(to top, rgba(5,8,18,0.98) 0%, rgba(5,8,18,0.82) 48%, transparent 74%); }
+  .team-card--right .team-card__text { margin-left: 0; }
+}
+
+/* ── Credential blocks ──────────────────────────────────── */
+.cred-row { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 32px; }
+@media (min-width: 800px) { .cred-row { grid-template-columns: repeat(3, 1fr); } }
+.cred-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.cred-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-1); margin: 0 0 16px; font-weight: 500; }
+.cred-block ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cred-block ul li { padding-left: 16px; position: relative; font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.cred-block ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 1px; background: var(--accent-1); }
+.cred-block ul li strong { color: var(--text); font-weight: 600; }
+
+/* ── Member section wrapper ─────────────────────────────── */
+.member-section { padding: clamp(64px, 8vw, 96px) 0; border-bottom: 1px solid var(--border); }
+.member-section:last-of-type { border-bottom: none; }
+.member-section--alt { background: var(--bg-2); }
+
+/* ── Timeline ──────────────────────────────────────────── */
+.timeline { display: grid; gap: 0; border-top: 1px solid var(--border); margin-top: 40px; }
+.tl-item { display: grid; grid-template-columns: 1fr; gap: 16px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+@media (min-width: 800px) { .tl-item { grid-template-columns: 200px 1fr 220px; gap: 32px; align-items: start; } }
+.tl-when { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-1); padding-top: 4px; }
+.tl-role { font-family: var(--display); font-size: 22px; font-weight: 500; color: var(--text); margin: 0 0 6px; letter-spacing: -0.015em; }
+.tl-industry { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
+.tl-desc { font-size: 14.5px; color: var(--text-2); line-height: 1.6; margin: 0; }
+.tl-desc strong { color: var(--text); font-weight: 600; }
+.tl-tools { font-family: var(--mono); font-size: 12px; color: var(--text-3); line-height: 1.6; padding-top: 4px; }
+</style>
+<script>window.FZD_FORCE_LANG="de";</script>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Startseite</a>
+      <a href="services.html" data-i18n="nav.services">Leistungen</a>
+      <a href="solutions.html" data-i18n="nav.solutions">Lösungen</a>
+      <a href="industries.html" data-i18n="nav.industries">Branchen</a>
+      <a href="case-studies.html" data-i18n="nav.cases">Fallstudien</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="about.html" data-i18n="nav.about">Über uns</a>
+      <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switch"><button data-lang-btn="de" class="is-active">DE</button><button data-lang-btn="en">EN</button></div>
+      <a href="contact.html" class="btn"><span data-i18n="nav.cta">Anruf buchen</span> <span class="arr">→</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><rect width="18" height="2" fill="currentColor"/><rect y="5" width="18" height="2" fill="currentColor"/><rect y="10" width="18" height="2" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Startseite</a>
+      <span class="breadcrumb__sep">/</span>
+      <span data-i18n="nav.team">Team</span>
+    </div>
+    <div class="split-2 split-2--6-5">
+      <div>
+        <div class="eyebrow">Drei Senior-Experten · Heidelberg</div>
+        <h1 class="h-display" style="margin-top:24px;"><strong>Senior-Experten.</strong><br><em>In jedem Mandat.</em></h1>
+      </div>
+      <div style="display:flex; align-items:end;">
+        <p class="lead"><strong>50+ kombinierte Jahre</strong> Enterprise-Daten-, KI- und Cloud-Erfahrung. Der Architekt, der Ihre Lösung entwirft, ist der, der sie umsetzt — kein Junior-lastiges Liefern, keine Foliensatz-Übergaben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEMBER 1: FAZLIDDIN AKHMEDOV ──────────────────────── -->
+<section class="member-section">
+  <div class="container">
+
+    <div class="team-card team-card--left reveal" style="background-image:url('../assets/akhmedov.png');background-position:right center;">
+      <div class="team-card__overlay"></div>
+      <div class="team-card__text">
+        <div class="team-card__role">CEO &amp; Gründer</div>
+        <h2 class="team-card__name">Fazliddin Akhmedov</h2>
+        <div class="team-card__title">Principal Consultant · MDM &amp; Controlling</div>
+        <div class="team-card__exp"><strong>18+ Jahre</strong> Enterprise-Datenerfahrung</div>
+        <p class="team-card__bio">Fazliddin hat FZD Global GmbH mitgegründet, um <strong>Senior-geführte Enterprise-Datenberatung</strong> ohne die Junior-lastigen Teams zu liefern, die in großen Beratungsunternehmen üblich sind. Mit 18+ Jahren Hands-on-Expertise in <strong>S/4HANA, Master-Data-Management, finanzieller Konzernkonsolidierung</strong> und Controlling leitet er die komplexesten ERP-Analytics- und Reporting-Mandate — über Stahl, Zement, Energie und Automotive.</p>
+        <div class="team-card__tags">
+          <span class="team-card__tag">Data Warehousing</span>
+          <span class="team-card__tag">S/4HANA</span>
+          <span class="team-card__tag">Power BI</span>
+          <span class="team-card__tag">Financial Reporting</span>
+          <span class="team-card__tag">MDM</span>
+          <span class="team-card__tag">Group Consolidation</span>
+        </div>
+        <div class="team-card__industries">Stahl · Energie · Automotive · Zement · Fertigung</div>
+        <div class="team-card__langs">DE · EN · TR · RU</div>
+      </div>
+    </div>
+
+    <div class="cred-row reveal" style="margin-top:32px;">
+      <div class="cred-block">
+        <h3>Expertise</h3>
+        <ul>
+          <li><strong>S/4HANA</strong> — ERP-Analytics und Integration</li>
+          <li><strong>MDM</strong> — Stammdaten-Governance und Qualität</li>
+          <li><strong>Konzernkonsolidierung</strong> — IFRS-konformes Finanzreporting</li>
+          <li><strong>Financial Controlling</strong> — KPI-Frameworks, FP&amp;A</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Branchen</h3>
+        <ul>
+          <li><strong>Stahl &amp; Zement</strong> — Produktion und Konzernreporting</li>
+          <li><strong>Energie</strong> — Datenplattformen und operative Analytics</li>
+          <li><strong>Automotive</strong> — ERP-Integration und Kostenreporting</li>
+          <li><strong>Fertigung</strong> — DWH-Konsolidierung über ERPs</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Arbeits-Stack</h3>
+        <ul>
+          <li><strong>ERP:</strong> SAP S/4HANA · SAP BPC · Dynamics</li>
+          <li><strong>BI:</strong> Power BI · Grafana · Cognos</li>
+          <li><strong>Data:</strong> Azure SQL · Azure Data Factory · SSIS</li>
+          <li><strong>Sprachen:</strong> SQL · DAX · Deutsch · Englisch</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MEMBER 2: FARHOD RASULOV ──────────────────────────── -->
+<section class="member-section member-section--alt">
+  <div class="container">
+
+    <div class="team-card team-card--right reveal" style="background-image:url('../assets/rasulov.png');background-position:left center;">
+      <div class="team-card__overlay"></div>
+      <div class="team-card__text">
+        <div class="team-card__role">CIO &amp; Mitgründer</div>
+        <h2 class="team-card__name">Farhod Rasulov</h2>
+        <div class="team-card__title">Senior Data &amp; Azure Solutions Architect</div>
+        <div class="team-card__exp"><strong>15+ Jahre</strong> Enterprise-Datenerfahrung</div>
+        <p class="team-card__bio">Farhod hat FZD Global GmbH mitgegründet, um <strong>Senior-geführte Datenberatung</strong> richtig zu machen — keine Foliensatz-Übergaben, keine Junior-Lieferteams. Jedes Mandat wird von einem erfahrenen Architekten geführt — von <strong>Discovery bis Produktion</strong>. Spezialisiert auf <strong>Microsoft Fabric, Azure, Power BI</strong> und den breiteren Microsoft-Datenstack, mit tiefer Erfahrung in Healthcare, MedTech, Fertigung, Versicherung und Energie.</p>
+        <div class="team-card__cert"><strong>Azure Solutions Architect</strong> · <strong>Azure Data Engineer Associate</strong> · Azure Administrator Associate</div>
+        <div class="team-card__tags">
+          <span class="team-card__tag">MS Fabric</span>
+          <span class="team-card__tag">Azure</span>
+          <span class="team-card__tag">Power BI</span>
+          <span class="team-card__tag">Databricks</span>
+          <span class="team-card__tag">Grafana</span>
+          <span class="team-card__tag">Python</span>
+        </div>
+        <div class="team-card__langs">DE · EN · UZ · TR</div>
+      </div>
+    </div>
+
+    <div class="cred-row reveal" style="margin-top:32px;">
+      <div class="cred-block">
+        <h3>Ausbildung</h3>
+        <ul>
+          <li><strong>M.Sc. Informatik</strong>, Informationssysteme — TH Köln (2019)</li>
+          <li><strong>B.Sc. Wirtschaftsinformatik</strong> — HS Südwestfalen (2015)</li>
+          <li>Schwerpunkte: Business Intelligence · Data Warehousing · Data Mining · Performance Management</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Zertifizierungen</h3>
+        <ul>
+          <li><strong>Azure Solutions Architect Expert</strong></li>
+          <li><strong>Azure Data Engineer Associate</strong></li>
+          <li><strong>Azure Administrator Associate</strong></li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Arbeits-Stack</h3>
+        <ul>
+          <li><strong>Data:</strong> MS Fabric · Azure Synapse · Databricks · ADF · Kafka · Event Hubs</li>
+          <li><strong>BI:</strong> Power BI · Grafana · DAX</li>
+          <li><strong>KI:</strong> LangChain · LangGraph · Azure ML · RAG</li>
+          <li><strong>Sprachen:</strong> SQL · Python · JavaScript · Bash</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MEMBER 3: RASHIDJON SAMINOV ───────────────────────── -->
+<section class="member-section">
+  <div class="container">
+
+    <div class="team-card team-card--left reveal" style="background-image:url('../assets/saminov.png');background-position:right center;">
+      <div class="team-card__overlay"></div>
+      <div class="team-card__text">
+        <div class="team-card__role">Senior Consultant</div>
+        <h2 class="team-card__name">Rashidjon Saminov</h2>
+        <div class="team-card__title">MS Fabric Consultant &amp; BI-Architekt</div>
+        <div class="team-card__exp"><strong>18+ Jahre</strong> Enterprise-Datenerfahrung</div>
+        <p class="team-card__bio">Rashidjon bringt 18+ Jahre Enterprise-BI- und Datenplattform-Expertise in MedTech, Versicherung und Konsumgütern ein. Spezialisiert auf <strong>Microsoft Fabric, Power BI und Cloud-first-Analytics-Architekturen</strong>, leitet er Dashboard-Modernisierungen und Datenplattform-Mandate, wo Skalierbarkeit, Governance und Performance zusammenkommen müssen. Bekannt für schnelle Lieferung und tiefe technische Präzision in komplexen Multi-Source-Umgebungen.</p>
+        <div class="team-card__tags">
+          <span class="team-card__tag">MS Fabric</span>
+          <span class="team-card__tag">Power BI</span>
+          <span class="team-card__tag">Azure</span>
+          <span class="team-card__tag">Grafana</span>
+          <span class="team-card__tag">Python</span>
+          <span class="team-card__tag">Qlik</span>
+        </div>
+        <div class="team-card__industries">MedTech · Versicherung · Telekommunikation · Konsumgüter · Verpackung</div>
+        <div class="team-card__langs">EN · DE · TR · RU · UZ</div>
+      </div>
+    </div>
+
+    <div class="cred-row reveal" style="margin-top:32px;">
+      <div class="cred-block">
+        <h3>Expertise</h3>
+        <ul>
+          <li><strong>Microsoft Fabric</strong> — Lakehouse, Data Mesh, OneLake</li>
+          <li><strong>Power BI</strong> — Enterprise-Dashboards, Semantic Models, DAX</li>
+          <li><strong>BI-Modernisierung</strong> — Qlik, Cognos, Legacy-Migration</li>
+          <li><strong>Cloud-Analytics</strong> — Azure, Stream Processing, IoT</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Branchen</h3>
+        <ul>
+          <li><strong>MedTech</strong> — Geräteanalytik und klinisches Reporting</li>
+          <li><strong>Versicherung</strong> — regulatorisches Reporting und Dashboards</li>
+          <li><strong>Telekommunikation</strong> — operative BI und Datenplattformen</li>
+          <li><strong>Konsumgüter &amp; Verpackung</strong> — Konzern-DWH</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h3>Arbeits-Stack</h3>
+        <ul>
+          <li><strong>BI:</strong> Power BI · Qlik Cloud · Grafana · Cognos</li>
+          <li><strong>Data:</strong> MS Fabric · Azure Synapse · ADF · Databricks</li>
+          <li><strong>Cloud:</strong> Azure SQL · Azure IoT Hub · Stream Analytics</li>
+          <li><strong>Sprachen:</strong> SQL · DAX · Python · M Query</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CLIENT TICKER ─────────────────────────────────────── -->
+<section class="client-ticker">
+  <div class="client-ticker__label">Vertrauen von Branchenführern</div>
+  <div class="client-ticker__track">
+    <div class="client-ticker__set"><span class="client-logo"><img src="../assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
+    </div>
+    <div class="client-ticker__set" aria-hidden="true"><span class="client-logo"><img src="../assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="../assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/infomotion.svg" alt="Infomotion" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="client-logo"><img src="../assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="reveal">
+      <h2 class="h-section" data-i18n="cta.title">Bereit, fragmentierte Daten in verlässliche Entscheidungen zu verwandeln?</h2>
+      <p class="lead" data-i18n="cta.lead">Sagen Sie uns, wo Ihr Reporting, Ihre Systeme oder Ihre KI-Initiativen feststecken. Wir antworten innerhalb eines Werktags.</p>
+    </div>
+    <div class="reveal" data-delay="1" style="text-align:right;">
+      <div style="display:inline-flex;flex-direction:column;align-items:flex-end;gap:14px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="contact.html" class="btn btn--coral btn--lg"><span data-i18n="cta.button">Jetzt buchen</span> <span class="arr">→</span></a>
+          <a href="case-studies.html" class="btn btn--ghost btn--lg"><span data-i18n="cta.button2">Fallstudien ansehen</span></a>
+        </div>
+        <a class="cta-band__email" href="mailto:info@fzd-global.de" data-i18n="cta.email">info@fzd-global.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="brand" href="index.html"><span class="brand__mark" aria-label="FZD Global GmbH"></span><span class="brand__stack"><span>FZD Global <span class="brand__gmbh">GmbH</span></span><span class="brand__sub">Heidelberg · DE</span></span></a><div class="footer-tagline" data-i18n="footer.tagline">We Make The Difference.</div><div class="footer-address" data-i18n="footer.address">Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</div></div>
+      <div class="footer-col"><h4 data-i18n="footer.col1">Praxis</h4><ul><li><a href="services.html" data-i18n="nav.services">Leistungen</a></li><li><a href="solutions.html" data-i18n="nav.solutions">Lösungen</a></li><li><a href="case-studies.html" data-i18n="nav.cases">Fallstudien</a></li><li><a href="how-we-work.html">Arbeitsweise</a></li><li><a href="technology.html">Technologie-Stack</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col2">Branchen</h4><ul><li><a href="industry-medtech.html">Healthcare &amp; MedTech</a></li><li><a href="industry-manufacturing.html">Fertigung</a></li><li><a href="industry-financial.html">Finanzen</a></li><li><a href="industry-energy.html">Energie</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col3">Unternehmen</h4><ul><li><a href="about.html" data-i18n="nav.about">Über uns</a></li><li><a href="team.html" class="is-active" data-i18n="nav.team">Team</a></li><li><a href="insights.html" data-i18n="nav.insights">Insights</a></li><li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.col4">Kontakt</h4><ul><li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li><li><a href="tel:+4962216736786">+49 6221 6736786</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div data-i18n="footer.legal">© 2026 FZD Global GmbH. Alle Rechte vorbehalten.</div><div class="legal-links"><a href="#" data-i18n="footer.imprint">Impressum</a><a href="../assets/fzd_privacy.pdf" target="_blank" data-i18n="footer.privacy">Datenschutz</a><a href="#" data-i18n="footer.terms">AGB</a></div></div>
+  </div>
+</footer>
+
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

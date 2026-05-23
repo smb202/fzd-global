@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Helm wheel simplified: hexagon outline -->
+  <polygon points="30,5 50,5 60,22 50,39 30,39 20,22" stroke="#000" stroke-width="3" fill="none"/>
+  <circle cx="40" cy="22" r="7" fill="#000"/>
+  <!-- Spokes -->
+  <line x1="40" y1="5" x2="40" y2="12" stroke="#000" stroke-width="2"/>
+  <line x1="40" y1="32" x2="40" y2="39" stroke="#000" stroke-width="2"/>
+  <line x1="20" y1="22" x2="27" y2="22" stroke="#000" stroke-width="2"/>
+  <line x1="53" y1="22" x2="60" y2="22" stroke="#000" stroke-width="2"/>
+  <text x="68" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#000">Kubernetes</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 56" fill="none">
+  <!-- Container stack icon -->
+  <rect x="4"  y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="19" y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="26" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="19" y="15" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="15" width="13" height="9" rx="1" fill="#000"/>
+  <rect x="34" y="4"  width="13" height="9" rx="1" fill="#000"/>
+  <!-- Base line -->
+  <rect x="2" y="37" width="55" height="3" rx="1.5" fill="#000"/>
+  <!-- Whale spout curve -->
+  <path d="M55 38 Q66 28 75 32" stroke="#000" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Wordmark -->
+  <text x="80" y="40" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#000">Docker</text>
+</svg>
