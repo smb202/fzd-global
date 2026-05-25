@@ -341,3 +341,270 @@
 
   document.addEventListener('DOMContentLoaded', buildModal);
 }());
+
+// ——— Terms & Conditions Modal ————————————————————
+(function () {
+  var TERMS = {
+    en: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'General Terms and Conditions',
+      date:    'English Version · Effective date: May 2026',
+      body: [
+        '<p style="font-size:13px;color:var(--text-3);font-family:var(--mono);line-height:1.6;margin-bottom:20px;">These General Terms and Conditions ("GTC") apply exclusively to all consulting, data, technology and related services provided by FZD Global GmbH to business clients. They govern the contractual relationship between the parties unless an individual written agreement expressly derogates from them.</p>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5, 69120 Heidelberg, Germany<br>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a> &nbsp;|&nbsp; Phone: +49 6221 6736786</address>',
+
+        '<h3>§ 1 &nbsp;Scope of Application</h3>',
+        '<p>(1) These GTC apply to all contracts for consulting, data engineering, analytics, business intelligence, AI, automation, governance, and related advisory services ("Services") concluded between FZD Global GmbH ("FZD" or "Contractor") and the Client.</p>',
+        '<p>(2) These GTC apply exclusively to entrepreneurs within the meaning of § 14 BGB (German Civil Code). FZD does not contract with consumers (§ 13 BGB). Any purchase or payment on the website requires the Client to confirm it is acting as a business.</p>',
+        '<p>(3) Conflicting or deviating general terms and conditions of the Client are hereby rejected and shall not become part of the contract, even if FZD does not object to them again after receiving them.</p>',
+        '<p>(4) Individual written agreements ("Statement of Work", "Project Order", "Service Agreement") take precedence over these GTC in the event of any conflict.</p>',
+
+        '<h3>§ 2 &nbsp;Conclusion of Contract</h3>',
+        '<p>(1) All descriptions of services on FZD\'s website or in proposals are non-binding invitations to submit an offer (invitatio ad offerendum).</p>',
+        '<p>(2) A binding contract is concluded only when FZD sends a written order confirmation, signs a Statement of Work, or commences performance with the Client\'s knowledge and without objection.</p>',
+        '<p>(3) The Client\'s acceptance of a proposal or Statement of Work constitutes the offer; FZD\'s written confirmation constitutes acceptance.</p>',
+
+        '<h3>§ 3 &nbsp;Scope of Services</h3>',
+        '<p>(1) The precise scope, deliverables, timelines, and acceptance criteria for each engagement are defined in the applicable Statement of Work ("SoW") or Project Order agreed by both parties in writing.</p>',
+        '<p>(2) FZD\'s obligations are obligations of means (Dienstvertrag, §§ 611 et seq. BGB) unless the SoW expressly designates a specific result as a guaranteed work product (Werkvertrag, §§ 631 et seq. BGB). Advisory and consulting services are generally classified as service contracts.</p>',
+        '<p>(3) Changes to the agreed scope require a written change order signed by both parties. FZD is entitled to adjust timelines and fees accordingly.</p>',
+        '<p>(4) FZD is entitled to engage qualified subcontractors for partial performance. FZD remains fully responsible to the Client for all subcontracted work.</p>',
+        '<p>(5) The Client shall provide all information, access, data, test environments, and personnel cooperation reasonably necessary for FZD to perform the Services. Delays caused by the Client\'s failure to cooperate will extend agreed timelines and may entitle FZD to invoice for waiting time at the applicable day rate.</p>',
+
+        '<h3>§ 4 &nbsp;Fees, Payment, and Default</h3>',
+        '<p>(1) FZD operates two standard pricing models, which are defined in the applicable SoW:</p>',
+        '<ul><li><strong>Fixed-Price Projects:</strong> A lump-sum fee for a defined scope and deliverables. Payment is structured in milestones as set out in the SoW (typically 30% on contract signature, intermediate milestone payments, and a final payment on acceptance or go-live).</li><li><strong>Time &amp; Materials (T&amp;M):</strong> Services are invoiced based on actual time spent at the agreed day or hourly rates, plus reimbursable expenses. Invoices are issued monthly in arrears unless agreed otherwise.</li></ul>',
+        '<p>(2) All prices are stated net of statutory value-added tax (VAT). VAT is added at the applicable rate on each invoice.</p>',
+        '<p>(3) Invoices are payable within 14 days of the invoice date without deduction, unless a different period is specified in the SoW.</p>',
+        '<p>(4) If the Client fails to pay within the agreed period, the Client enters into default without the need for a reminder (pursuant to § 286 BGB). From the date of default, FZD is entitled to charge default interest at the statutory B2B rate (§ 288 Abs. 2 BGB: base rate + 9 percentage points p.a.) plus a flat collection fee of EUR 40 pursuant to § 288 Abs. 5 BGB.</p>',
+        '<p>(5) FZD reserves the right to suspend performance if the Client is more than 30 days overdue on any undisputed invoice, upon 5 business days\' prior written notice.</p>',
+        '<p>(6) The Client may only offset amounts against FZD\'s claims if the counterclaim is undisputed, legally established by a court, or ready for decision.</p>',
+
+        '<h3>§ 5 &nbsp;Intellectual Property and Licence Rights</h3>',
+        '<p>(1) Ownership of intellectual property rights in deliverables shall be expressly addressed in each SoW. If the SoW is silent, the default rules in paragraphs (2)–(4) apply.</p>',
+        '<p>(2) <strong>Background IP:</strong> All tools, frameworks, methodologies, templates, code libraries, and know-how developed by FZD prior to or independently of a specific engagement remain FZD\'s exclusive property. FZD grants the Client a non-exclusive, non-transferable, perpetual licence to use such background IP solely as embedded in the deliverables and solely for the Client\'s internal business purposes, conditional on full payment.</p>',
+        '<p>(3) <strong>Project-specific deliverables:</strong> Where the SoW expressly provides that the Client shall own project-specific deliverables (foreground IP), such ownership vests in the Client upon receipt of full payment. FZD retains the right to use anonymised, aggregated learnings and methodologies for its own practice development.</p>',
+        '<p>(4) If the SoW does not specify ownership, FZD retains all intellectual property rights and grants the Client an exclusive, perpetual, royalty-free licence for internal business purposes, conditional on full payment.</p>',
+        '<p>(5) Third-party components: FZD will disclose material third-party licences in the SoW or project documentation.</p>',
+
+        '<h3>§ 6 &nbsp;Confidentiality</h3>',
+        '<p>(1) Each party shall keep confidential all non-public information disclosed by the other party in connection with the engagement ("Confidential Information") and shall use it exclusively for the purpose of performing or receiving the Services.</p>',
+        '<p>(2) Confidential Information does not include information that was already publicly known, lawfully known to the receiving party prior to disclosure, received from a third party without a confidentiality duty, or independently developed.</p>',
+        '<p>(3) The confidentiality obligation survives termination of the contract for a period of five (5) years.</p>',
+
+        '<h3>§ 7 &nbsp;Data Protection</h3>',
+        '<p>(1) Both parties shall comply with all applicable data protection laws, in particular the GDPR and the Federal Data Protection Act (BDSG).</p>',
+        '<p>(2) Where FZD processes personal data on behalf of the Client, the parties shall conclude a Data Processing Agreement (DPA) pursuant to Art. 28 GDPR prior to commencement of such processing.</p>',
+        '<p>(3) FZD\'s general data practices are described in the <a href="#" onclick="FZD_openPrivacy(event)">Privacy Policy</a>.</p>',
+
+        '<h3>§ 8 &nbsp;Liability</h3>',
+        '<p>(1) FZD is fully liable without limitation for damages caused by intent or gross negligence; injury to life, body, or health; liability under the German Product Liability Act; and fraudulent concealment of a defect.</p>',
+        '<p>(2) For damages caused by slight negligence, FZD is only liable if a material contractual obligation (Kardinalpflicht) has been breached. In such cases, liability is limited to the foreseeable, contract-typical damage.</p>',
+        '<p>(3) FZD\'s aggregate liability per project engagement is limited to the total fees paid by the Client under the relevant SoW, unless caused by gross negligence or intent.</p>',
+        '<p>(4) Claims for defects in Werkvertrag services expire in 12 months from acceptance, unless caused by intent or fraudulent concealment.</p>',
+
+        '<h3>§ 9 &nbsp;Force Majeure</h3>',
+        '<p>(1) Neither party shall be liable for failure or delay in performing its obligations caused by circumstances beyond its reasonable control, including acts of God, war, pandemic, governmental restrictions, power outages, or failures of third-party infrastructure.</p>',
+        '<p>(2) If a Force Majeure Event continues for more than 60 consecutive calendar days, either party may terminate the affected SoW by written notice without liability, save that the Client shall pay for Services properly performed up to termination.</p>',
+
+        '<h3>§ 10 &nbsp;Non-Solicitation</h3>',
+        '<p>During the term of any active engagement and for twelve (12) months thereafter, neither party shall directly solicit or recruit for employment the other party\'s employees or key subcontractors who were personally involved in the engagement, without prior written consent.</p>',
+
+        '<h3>§ 11 &nbsp;Reference and Portfolio</h3>',
+        '<p>FZD may, unless the Client expressly objects in writing, name the Client as a reference client and describe the nature of the engagement (without disclosing confidential project details) in FZD\'s marketing materials, website, and pitch decks.</p>',
+
+        '<h3>§ 12 &nbsp;Term and Termination</h3>',
+        '<p>(1) Each engagement commences on the date specified in the SoW and continues until completion of the agreed deliverables or the expiry of the agreed term.</p>',
+        '<p>(2) Either party may terminate for cause with immediate effect if the other party materially breaches the contract and fails to cure within 14 calendar days of written notice, or if insolvency proceedings are opened.</p>',
+        '<p>(3) For T&amp;M engagements without a fixed end date, either party may terminate with 30 days\' written notice to the end of a calendar month.</p>',
+        '<p>(4) Upon termination: the Client shall pay for all Services performed up to the effective date; each party shall return or destroy the other party\'s Confidential Information; any licence granted under § 5 is conditional on full payment.</p>',
+
+        '<h3>§ 13 &nbsp;Amendments to These GTC</h3>',
+        '<p>(1) FZD reserves the right to amend these GTC. Amendments will be communicated at least 30 days before they take effect.</p>',
+        '<p>(2) Amendments are deemed accepted if the Client does not object in writing within 30 days and continues to use FZD\'s services.</p>',
+
+        '<h3>§ 14 &nbsp;Governing Law and Jurisdiction</h3>',
+        '<p>(1) These GTC and all contracts concluded under them are governed exclusively by the law of the Federal Republic of Germany, excluding the CISG.</p>',
+        '<p>(2) The exclusive place of jurisdiction is Heidelberg, Germany, provided the Client is a merchant, a legal entity under public law, or a public-law special fund.</p>',
+
+        '<h3>§ 15 &nbsp;Miscellaneous</h3>',
+        '<p>(1) <strong>Severability:</strong> If any provision is or becomes invalid, the remaining provisions remain in full force.</p>',
+        '<p>(2) <strong>Written form:</strong> Amendments and waivers require written form. Electronic text form (e-mail, PDF) satisfies this requirement unless a notarised document is required by law.</p>',
+        '<p>(3) <strong>Entire agreement:</strong> These GTC together with the applicable SoW constitute the entire agreement and supersede all prior agreements and understandings.</p>',
+
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — All rights reserved.</div>'
+      ].join('')
+    },
+
+    de: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'Allgemeine Geschäftsbedingungen (AGB)',
+      date:    'Deutsche Version · Gültig ab: Mai 2026',
+      body: [
+        '<p style="font-size:13px;color:var(--text-3);font-family:var(--mono);line-height:1.6;margin-bottom:20px;">Diese Allgemeinen Geschäftsbedingungen („AGB") gelten ausschließlich für alle Beratungs-, Daten-, Technologie- und verwandten Dienstleistungen, die von der FZD Global GmbH an Geschäftskunden erbracht werden. Sie regeln das Vertragsverhältnis zwischen den Parteien, sofern keine individuelle schriftliche Vereinbarung ausdrücklich von ihnen abweicht.</p>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland<br>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a> &nbsp;|&nbsp; Telefon: +49 6221 6736786</address>',
+
+        '<h3>§ 1 &nbsp;Geltungsbereich</h3>',
+        '<p>(1) Diese AGB gelten für alle Verträge über Beratung, Data Engineering, Analytics, Business Intelligence, KI, Automatisierung, Governance und verwandte Beratungsleistungen („Dienstleistungen"), die zwischen FZD Global GmbH („FZD" oder „Auftragnehmer") und dem Auftraggeber geschlossen werden.</p>',
+        '<p>(2) Diese AGB gelten ausschließlich gegenüber Unternehmern im Sinne von § 14 BGB. FZD kontrahiert nicht mit Verbrauchern im Sinne von § 13 BGB.</p>',
+        '<p>(3) Entgegenstehende oder abweichende AGB des Auftraggebers werden hiermit abgelehnt und werden nicht Vertragsbestandteil.</p>',
+        '<p>(4) Individuelle schriftliche Vereinbarungen („Leistungsbeschreibung", „Projektauftrag", „Dienstleistungsvertrag") haben im Konfliktfall Vorrang vor diesen AGB.</p>',
+
+        '<h3>§ 2 &nbsp;Vertragsschluss</h3>',
+        '<p>(1) Alle Leistungsbeschreibungen auf der Website von FZD oder in Angeboten sind unverbindliche Aufforderungen zur Abgabe eines Angebots (invitatio ad offerendum).</p>',
+        '<p>(2) Ein verbindlicher Vertrag kommt erst zustande, wenn FZD eine schriftliche Auftragsbestätigung versendet, eine Leistungsbeschreibung unterzeichnet oder die Leistungserbringung mit Wissen des Auftraggebers aufnimmt.</p>',
+        '<p>(3) Die Annahme eines Angebots durch den Auftraggeber stellt das Angebot dar; die schriftliche Bestätigung durch FZD die Annahme.</p>',
+
+        '<h3>§ 3 &nbsp;Leistungsumfang</h3>',
+        '<p>(1) Der genaue Umfang, die Liefergegenstände, Zeitpläne und Abnahmekriterien werden in der jeweiligen Leistungsbeschreibung („LB") festgelegt.</p>',
+        '<p>(2) Die Leistungspflichten von FZD sind grundsätzlich Dienstleistungspflichten (Dienstvertrag gemäß §§ 611 ff. BGB), es sei denn, die LB bezeichnet einen bestimmten Erfolg ausdrücklich als geschuldetes Werkleistungsprodukt.</p>',
+        '<p>(3) Änderungen des vereinbarten Leistungsumfangs bedürfen eines schriftlichen Änderungsauftrags. FZD ist berechtigt, Zeitpläne und Vergütungen anzupassen.</p>',
+        '<p>(4) FZD ist berechtigt, für Teilleistungen qualifizierte Subunternehmer einzusetzen. FZD bleibt gegenüber dem Auftraggeber vollständig verantwortlich.</p>',
+        '<p>(5) Der Auftraggeber stellt alle erforderlichen Informationen, Zugriffsrechte und personelle Mitwirkung zur Verfügung. Verzögerungen durch mangelnde Mitwirkung verlängern vereinbarte Termine.</p>',
+
+        '<h3>§ 4 &nbsp;Vergütung, Zahlung und Verzug</h3>',
+        '<p>(1) FZD betreibt zwei Standard-Vergütungsmodelle:</p>',
+        '<ul><li><strong>Festpreisprojekte:</strong> Pauschalvergütung mit Meilensteinzahlungen (typischerweise 30 % bei Vertragsunterzeichnung, Zwischenmeilensteinzahlungen, Abschlusszahlung bei Abnahme).</li><li><strong>Zeit &amp; Material (T&amp;M):</strong> Abrechnung auf Basis tatsächlichen Aufwands zum vereinbarten Satz, monatlich nachträglich.</li></ul>',
+        '<p>(2) Alle Preise verstehen sich netto zuzüglich gesetzlicher Umsatzsteuer.</p>',
+        '<p>(3) Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum fällig.</p>',
+        '<p>(4) Bei Zahlungsverzug ist FZD berechtigt, Verzugszinsen zum gesetzlichen B2B-Satz (§ 288 Abs. 2 BGB: Basiszinssatz + 9 Prozentpunkte p. a.) sowie eine Pauschale von 40 € gemäß § 288 Abs. 5 BGB geltend zu machen.</p>',
+        '<p>(5) FZD behält sich vor, die Leistungserbringung auszusetzen, wenn der Auftraggeber mehr als 30 Tage in Verzug ist.</p>',
+
+        '<h3>§ 5 &nbsp;Geistiges Eigentum und Nutzungsrechte</h3>',
+        '<p>(1) Die Inhaberschaft an Rechten des geistigen Eigentums wird in jeder LB ausdrücklich geregelt. Enthält die LB keine Regelung, gelten die Absätze (2)–(4).</p>',
+        '<p>(2) <strong>Background-IP:</strong> Alle Werkzeuge, Frameworks, Methoden, Templates und Know-how von FZD verbleiben im ausschließlichen Eigentum von FZD. FZD räumt dem Auftraggeber ein einfaches, nicht übertragbares, dauerhaftes Nutzungsrecht für interne Zwecke ein, bedingt durch vollständige Zahlung.</p>',
+        '<p>(3) <strong>Projektspezifische Liefergegenstände:</strong> Sieht die LB Eigentumsübertragung vor, geht das Eigentum mit vollständiger Zahlung auf den Auftraggeber über.</p>',
+        '<p>(4) Fehlt eine Regelung in der LB, verbleiben alle Rechte bei FZD und der Auftraggeber erhält ein ausschließliches, dauerhaftes, lizenzgebührenfreies Nutzungsrecht für interne Zwecke.</p>',
+
+        '<h3>§ 6 &nbsp;Vertraulichkeit</h3>',
+        '<p>(1) Jede Partei hält alle nichtöffentlichen Informationen der anderen Partei streng vertraulich und nutzt sie ausschließlich zur Leistungserbringung.</p>',
+        '<p>(2) Die Geheimhaltungspflicht gilt fünf (5) Jahre nach Beendigung des Vertrags fort.</p>',
+
+        '<h3>§ 7 &nbsp;Datenschutz</h3>',
+        '<p>(1) Beide Parteien halten alle anwendbaren Datenschutzgesetze ein, insbesondere die DSGVO und das BDSG.</p>',
+        '<p>(2) Soweit FZD personenbezogene Daten im Auftrag des Auftraggebers verarbeitet, schließen die Parteien vorab einen Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO ab.</p>',
+        '<p>(3) Die allgemeinen Datenschutzpraktiken von FZD sind in der <a href="#" onclick="FZD_openPrivacy(event)">Datenschutzerklärung</a> beschrieben.</p>',
+
+        '<h3>§ 8 &nbsp;Haftung</h3>',
+        '<p>(1) FZD haftet unbeschränkt für Schäden aus Vorsatz oder grober Fahrlässigkeit, Verletzungen von Leben, Körper oder Gesundheit sowie nach dem Produkthaftungsgesetz.</p>',
+        '<p>(2) Für leichte Fahrlässigkeit haftet FZD nur bei Verletzung einer Kardinalpflicht, begrenzt auf den vorhersehbaren, vertragstypischen Schaden.</p>',
+        '<p>(3) Die Gesamthaftung pro Projektauftrag ist auf die Gesamtvergütung der jeweiligen LB begrenzt, sofern kein Vorsatz oder grobe Fahrlässigkeit vorliegt.</p>',
+        '<p>(4) Ansprüche wegen Mängeln bei Werkvertragsleistungen verjähren 12 Monate nach Abnahme.</p>',
+
+        '<h3>§ 9 &nbsp;Höhere Gewalt</h3>',
+        '<p>(1) Keine Partei haftet für Leistungsstörungen durch Umstände höherer Gewalt (Force Majeure), einschließlich Naturkatastrophen, Krieg, Pandemie, staatlicher Beschränkungen oder Infrastrukturausfällen.</p>',
+        '<p>(2) Dauert ein Ereignis mehr als 60 aufeinanderfolgende Tage an, kann jede Partei die LB ohne Haftung kündigen; der Auftraggeber vergütet bereits erbrachte Leistungen.</p>',
+
+        '<h3>§ 10 &nbsp;Abwerbeverbot</h3>',
+        '<p>Während der Laufzeit eines aktiven Auftrags und für 12 Monate danach wirbt keine Partei Mitarbeiter oder Schlüssel-Subunternehmer der anderen Partei ohne vorherige schriftliche Zustimmung aktiv ab.</p>',
+
+        '<h3>§ 11 &nbsp;Referenz und Portfolio</h3>',
+        '<p>FZD darf den Auftraggeber als Referenzkunden nennen und die Art des Auftrags beschreiben, sofern der Auftraggeber nicht schriftlich widerspricht. Der Auftraggeber kann diese Erlaubnis jederzeit schriftlich widerrufen.</p>',
+
+        '<h3>§ 12 &nbsp;Laufzeit und Kündigung</h3>',
+        '<p>(1) Jeder Auftrag beginnt am in der LB angegebenen Datum und läuft bis zur Fertigstellung der Leistungen.</p>',
+        '<p>(2) Außerordentliche Kündigung aus wichtigem Grund ist möglich bei wesentlicher Vertragsverletzung (Heilungsfrist 14 Tage) oder Insolvenz der anderen Partei.</p>',
+        '<p>(3) T&amp;M-Aufträge ohne festes Enddatum können mit 30 Tagen Frist zum Monatsende ordentlich gekündigt werden.</p>',
+        '<p>(4) Nach Kündigung gilt: Vergütung für erbrachte Leistungen, Rückgabe vertraulicher Informationen, Lizenzen bedingt durch vollständigen Zahlungseingang.</p>',
+
+        '<h3>§ 13 &nbsp;Änderungen dieser AGB</h3>',
+        '<p>(1) FZD behält sich das Recht vor, diese AGB zu ändern. Änderungen werden mindestens 30 Tage vor Wirksamwerden mitgeteilt.</p>',
+        '<p>(2) Änderungen gelten als genehmigt, wenn der Auftraggeber nicht innerhalb von 30 Tagen schriftlich widerspricht und die Dienstleistungen weiterhin in Anspruch nimmt.</p>',
+
+        '<h3>§ 14 &nbsp;Anwendbares Recht und Gerichtsstand</h3>',
+        '<p>(1) Diese AGB unterliegen ausschließlich dem Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>',
+        '<p>(2) Ausschließlicher Gerichtsstand ist Heidelberg, sofern der Auftraggeber Kaufmann, eine juristische Person des öffentlichen Rechts oder ein öffentlich-rechtliches Sondervermögen ist.</p>',
+
+        '<h3>§ 15 &nbsp;Schlussbestimmungen</h3>',
+        '<p>(1) <strong>Salvatorische Klausel:</strong> Unwirksame Bestimmungen berühren die Wirksamkeit der übrigen AGB nicht.</p>',
+        '<p>(2) <strong>Schriftformerfordernis:</strong> Änderungen bedürfen der Schriftform. Elektronische Textform (E-Mail, PDF) genügt.</p>',
+        '<p>(3) <strong>Gesamtheit der Vereinbarungen:</strong> Diese AGB bilden zusammen mit der LB die vollständige Vereinbarung und ersetzen alle vorherigen Absprachen.</p>',
+
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — Alle Rechte vorbehalten.</div>'
+      ].join('')
+    }
+  };
+
+  function getLang() {
+    return (typeof window.FZD_getLang === 'function') ? window.FZD_getLang() : 'en';
+  }
+
+  function buildModal() {
+    var overlay = document.createElement('div');
+    overlay.id = 'fzd-terms-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Terms and Conditions');
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px;';
+    overlay.innerHTML =
+      '<div id="fzd-terms-panel" style="background:#191c1e;border:1px solid rgba(255,255,255,0.12);border-radius:4px;max-width:720px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,0,0,0.6),0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(0,212,255,0.06);">' +
+        '<div id="fzd-terms-header" style="padding:24px 28px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-shrink:0;">' +
+          '<div>' +
+            '<div class="fzd-pm-eyebrow" id="fzd-tm-eyebrow"></div>' +
+            '<div class="fzd-pm-title"   id="fzd-tm-title"></div>' +
+            '<div class="fzd-pm-date"    id="fzd-tm-date"></div>' +
+          '</div>' +
+          '<button id="fzd-terms-close" style="background:none;border:1px solid rgba(255,255,255,0.08);border-radius:4px;color:#859398;cursor:pointer;padding:5px 10px;font-size:18px;line-height:1;flex-shrink:0;transition:color .15s,border-color .15s;" aria-label="Close">×</button>' +
+        '</div>' +
+        '<div id="fzd-terms-body" style="padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    // Reuse the same body styles as privacy modal
+    var body = overlay.querySelector('#fzd-terms-body');
+    body.className = '';
+    body.id = 'fzd-terms-body';
+    // Apply same styles via the existing #fzd-privacy-body rules by sharing class
+    overlay.querySelector('#fzd-terms-body').setAttribute('id', 'fzd-terms-body');
+
+    var closeBtn = document.getElementById('fzd-terms-close');
+    closeBtn.addEventListener('mouseenter', function() { this.style.color='#e0e3e5'; this.style.borderColor='rgba(255,255,255,0.24)'; });
+    closeBtn.addEventListener('mouseleave', function() { this.style.color='#859398'; this.style.borderColor='rgba(255,255,255,0.08)'; });
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+    window.addEventListener('fzd:langchange', function(e) {
+      if (overlay.classList.contains('is-open')) updateContent(e.detail.lang);
+    });
+  }
+
+  function updateContent(lang) {
+    var c = TERMS[lang] || TERMS.en;
+    document.getElementById('fzd-tm-eyebrow').textContent = c.eyebrow;
+    document.getElementById('fzd-tm-title').textContent   = c.title;
+    document.getElementById('fzd-tm-date').textContent    = c.date;
+    var body = document.getElementById('fzd-terms-body');
+    body.innerHTML = c.body;
+    // Apply same visual styles as privacy body
+    body.style.cssText = 'padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;';
+  }
+
+  function openModal() {
+    updateContent(getLang());
+    var overlay = document.getElementById('fzd-terms-overlay');
+    overlay.style.display = 'flex';
+    overlay.style.animation = 'fzd-pm-fade 0.2s ease';
+    var panel = document.getElementById('fzd-terms-panel');
+    panel.style.animation = 'fzd-pm-slide 0.25s ease';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('fzd-terms-close').focus();
+  }
+
+  function closeModal() {
+    var overlay = document.getElementById('fzd-terms-overlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  window.FZD_openTerms = function(e) {
+    if (e) { e.preventDefault(); }
+    openModal();
+  };
+
+  document.addEventListener('DOMContentLoaded', buildModal);
+}());
