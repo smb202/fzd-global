@@ -297,6 +297,7 @@
 }
 .svc-card:hover .svc-card__cta .arr { transform: translateX(4px); }
 .svc-card__cta .arr { transition: transform .25s; }
+@media (min-width: 1100px) { .svc-grid--fixed-2 { grid-template-columns: 1fr 1fr; } }
 
 /* ── Industries ───────────────────────────────────────────── */
 .ind-grid {
@@ -718,7 +719,7 @@
       </div>
     </div>
 
-    <div class="svc-grid reveal" style="grid-template-columns:1fr 1fr;">
+    <div class="svc-grid svc-grid--fixed-2 reveal">
       <a class="svc-card" href="services.html#data-platforms" style="min-height:280px;">
         <div class="svc-card__num">SERVICE GROUP 01</div>
         <h3 class="svc-card__title" data-i18n="svcfam.1.t">Data Platforms &amp; Engineering</h3>
