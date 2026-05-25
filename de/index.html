@@ -149,8 +149,11 @@
 .stats { background: var(--bg-2); position: relative; }
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
+}
+@media (min-width: 600px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 900px) {
   .stats__grid { grid-template-columns: repeat(4, 1fr); }

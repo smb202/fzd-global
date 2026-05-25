@@ -149,8 +149,11 @@
 .stats { background: var(--bg-2); position: relative; }
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
+}
+@media (min-width: 600px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 900px) {
   .stats__grid { grid-template-columns: repeat(4, 1fr); }
@@ -558,7 +561,7 @@
     <a href="index.html" class="brand">
       <span class="brand__mark" aria-label="FZD Global GmbH"></span>
       <span class="brand__stack">
-        <span>FZD Global GmbH </span>
+        <span>FZD GLOBAL GMBH </span>
         <span class="brand__sub">Heidelberg · DE</span>
       </span>
     </a>
@@ -1005,7 +1008,7 @@
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-label="FZD Global GmbH"></span>
           <span class="brand__stack">
-            <span>FZD Global GMBH </span>
+            <span>FZD GLOBAL GMBH </span>
         <span class="brand__sub">Heidelberg · DE</span>
           </span>
         </a>
@@ -1031,12 +1034,11 @@
         <h4 data-i18n="footer.col4">Contact</h4>
         <ul>
           <li><a href="mailto:info@fzd-global.de">info@fzd-global.de</a></li>
-          <li><a href="tel:+491754642026">+49 175 4642 026</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div data-i18n="footer.legal">© 2026 FZD Global GmbH. All rights reserved.</div>
+      <div data-i18n="footer.legal">© 2026 FZD GLOBAL GMBH. All rights reserved.</div>
       <div class="legal-links">
         <a href="#" data-i18n="footer.imprint">Imprint</a>
         <a href="assets/fzd_privacy.pdf" target="_blank" data-i18n="footer.privacy">Privacy</a>

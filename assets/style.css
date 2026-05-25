@@ -992,3 +992,46 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 500px) {
   .cta-band__email { font-size: 16px; }
 }
+
+/* ── Back-to-top button ──────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .25s, visibility .25s, transform .25s, border-color .25s, background .25s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.back-to-top svg {
+  transition: transform .25s;
+}
+.back-to-top:hover {
+  border-color: var(--accent-1);
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-1);
+}
+.back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+@media (max-width: 480px) {
+  .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+}

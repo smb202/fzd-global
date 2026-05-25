@@ -89,4 +89,25 @@
   document.querySelectorAll('[data-year]').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
+
+  // Back-to-top button
+  const btt = document.createElement('button');
+  btt.className = 'back-to-top';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(btt);
+
+  btt.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  var bttVisible = false;
+  function onBttScroll() {
+    var show = window.scrollY > 400;
+    if (show !== bttVisible) {
+      bttVisible = show;
+      btt.classList.toggle('is-visible', show);
+    }
+  }
+  window.addEventListener('scroll', onBttScroll, { passive: true });
 })();
