@@ -161,11 +161,38 @@
 <script src="assets/i18n.js"></script>
 <script src="assets/site.js"></script>
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  form.innerHTML = '<div style="padding: 48px 40px; background: var(--paper); border-left: 3px solid var(--coral);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">— Received</div><h3 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin: 16px 0; font-weight: 500;">Thank you. We will be in touch within one business day.</h3><p style="color: var(--ink-2); line-height: 1.6;">If your timeline is urgent, email <a href="mailto:info@fzd-global.de" style="color: var(--coral);">info@fzd-global.de</a> directly and reference this inquiry.</p></div>';
-  return false;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalBtn = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span data-i18n="contact.form.submit">Sending…</span>';
+
+  try {
+    const res = await fetch('https://formspree.io/f/xvzybenq', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      form.innerHTML = '<div style="padding: 48px 40px; background: var(--paper); border-left: 3px solid var(--coral);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">— Received</div><h3 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin: 16px 0; font-weight: 500;">Thank you. We will be in touch within one business day.</h3><p style="color: var(--ink-2); line-height: 1.6;">If your timeline is urgent, email <a href="mailto:info@fzd-global.de" style="color: var(--coral);">info@fzd-global.de</a> directly and reference this inquiry.</p></div>';
+    } else {
+      throw new Error('submission failed');
+    }
+  } catch (_) {
+    btn.disabled = false;
+    btn.innerHTML = originalBtn;
+    const existing = form.querySelector('.fs-error-msg');
+    if (!existing) {
+      const err = document.createElement('p');
+      err.className = 'fs-error-msg';
+      err.style.cssText = 'color:var(--coral);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;margin-top:8px;';
+      err.textContent = 'Something went wrong. Please try again or email info@fzd-global.de directly.';
+      form.insertBefore(err, btn.parentElement);
+    }
+  }
 }
 </script>
 </body></html>
