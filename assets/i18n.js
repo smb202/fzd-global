@@ -259,6 +259,7 @@ window.FZD_I18N = {
     "common.home": "Home",
     "common.received": "— Received",
     "common.thanks": "Thank you. We will be in touch within one business day.",
+    "common.urgent": "If your timeline is urgent, email <a href=\"mailto:info@fzd-global.de\" style=\"color:var(--accent-1);\">info@fzd-global.de</a> directly and reference this inquiry.",
 
     "nav.team": "Team",
 
@@ -945,6 +946,7 @@ window.FZD_I18N = {
     "common.home": "Startseite",
     "common.received": "— Eingegangen",
     "common.thanks": "Vielen Dank. Wir melden uns innerhalb eines Werktags.",
+    "common.urgent": "Bei dringendem Bedarf schreiben Sie direkt an <a href=\"mailto:info@fzd-global.de\" style=\"color:var(--accent-1);\">info@fzd-global.de</a> und beziehen Sie sich auf diese Anfrage.",
 
     "nav.team": "Team",
 

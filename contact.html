@@ -177,7 +177,8 @@ async function handleSubmit(e) {
     });
 
     if (res.ok) {
-      form.innerHTML = '<div style="padding: 48px 40px; background: var(--paper); border-left: 3px solid var(--coral);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">— Received</div><h3 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin: 16px 0; font-weight: 500;">Thank you. We will be in touch within one business day.</h3><p style="color: var(--ink-2); line-height: 1.6;">If your timeline is urgent, email <a href="mailto:info@fzd-global.de" style="color: var(--coral);">info@fzd-global.de</a> directly and reference this inquiry.</p></div>';
+      const t = window.FZD_I18N[window.FZD_getLang()];
+      form.innerHTML = `<div style="padding: 48px 40px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--coral); border-radius: var(--radius);"><div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--coral); text-transform: uppercase;">${t['common.received']}</div><h3 style="font-family: var(--display); font-size: 28px; color: var(--text); margin: 16px 0; font-weight: 500;">${t['common.thanks']}</h3><p style="color: var(--text-2); line-height: 1.6;">${t['common.urgent']}</p></div>`;
     } else {
       throw new Error('submission failed');
     }
