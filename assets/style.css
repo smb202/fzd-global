@@ -965,9 +965,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ── Logo grid: tighter on small phones ─────────────────── */
+@media (max-width: 480px) {
+  .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 10px; }
+}
 @media (max-width: 500px) {
   .logo-pill { padding: 14px 8px 12px; }
-  .logo-pill img { height: 28px; }
+  .logo-pill img { height: 28px; max-width: 100%; }
   .logo-pill__name { font-size: 9px; white-space: normal; }
 }
 
