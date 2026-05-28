@@ -122,11 +122,30 @@
 }
 
 @media (max-width: 700px) {
-  .team-card { min-height: 440px; flex-direction: column; }
-  .team-card__text { width: 100%; padding: 28px 24px; justify-content: flex-end; min-height: 260px; }
-  .team-card--left  .team-card__overlay,
-  .team-card--right .team-card__overlay { background: linear-gradient(to top, rgba(5,8,18,0.97) 0%, rgba(5,8,18,0.8) 45%, transparent 72%); }
-  .team-card--right .team-card__text { margin-left: 0; }
+  .team-card {
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background-position: center 20% !important;
+  }
+  .team-card--left .team-card__overlay,
+  .team-card--right .team-card__overlay {
+    height: 300px;
+    top: 0; left: 0; right: 0; bottom: auto;
+    background: linear-gradient(to top, rgba(5,8,18,0.45) 0%, transparent 55%);
+  }
+  .team-card__text {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-top: 300px;
+    margin-left: 0 !important;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+    justify-content: flex-start;
+    min-height: 0;
+  }
 }
 
 /* ── Hero background image ────────────────────────────────── */
@@ -181,9 +200,9 @@
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="breadcrumb__sep">/</span><span data-i18n="nav.about">About</span></div>
-<div class="eyebrow">The team · Heidelberg</div>
-<h1 class="h-display" style="margin-top: 24px;"><strong>Three seniors.</strong><br><em>Every engagement.</em></h1>
-<p class="lead" style="margin-top: 32px; max-width: 60ch;"><strong>50+ combined years</strong> of enterprise data experience. Senior people on the work, every day — not a sales motion that ends with a junior team.</p>
+<div class="eyebrow" data-i18n="about.hero.eyebrow">The team · Heidelberg</div>
+<h1 class="h-display" style="margin-top: 24px;" data-i18n-html="about.hero.title"><strong>Three seniors.</strong><br><em>Every engagement.</em></h1>
+<p class="lead" style="margin-top: 32px; max-width: 60ch;" data-i18n-html="about.hero.lead"><strong>50+ combined years</strong> of enterprise data experience. Senior people on the work, every day — not a sales motion that ends with a junior team.</p>
 </div>
 </section>
 
@@ -192,11 +211,11 @@
 <div class="container">
   <div class="section-head">
     <div class="reveal">
-      <div class="eyebrow">— Our team</div>
-      <h2 class="h-section" style="margin-top:20px;">The people <em>behind the work.</em></h2>
+      <div class="eyebrow" data-i18n="about.team.eyebrow">— Our team</div>
+      <h2 class="h-section" style="margin-top:20px;" data-i18n-html="about.team.title">The people <em>behind the work.</em></h2>
     </div>
     <div class="reveal" data-delay="1">
-      <p class="lead">Three senior practitioners. <strong>50+ combined years</strong> of enterprise data, cloud and AI experience across DACH and beyond.</p>
+      <p class="lead" data-i18n-html="about.team.lead">Three senior practitioners. <strong>50+ combined years</strong> of enterprise data, cloud and AI experience across DACH and beyond.</p>
     </div>
   </div>
 
@@ -204,10 +223,10 @@
   <div class="team-card team-card--left reveal" style="background-image:url('assets/akhmedov.png');background-position:right center;">
     <div class="team-card__overlay"></div>
     <div class="team-card__text">
-      <div class="team-card__role">CEO &amp; Founder</div>
+      <div class="team-card__role" data-i18n="about.team.akhmedov.role">CEO &amp; Founder</div>
       <h3 class="team-card__name">Fazliddin Akhmedov</h3>
-      <div class="team-card__title">Principal Consultant · MDM &amp; Controlling</div>
-      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__title" data-i18n="about.team.akhmedov.title">Principal Consultant · MDM &amp; Controlling</div>
+      <div class="team-card__exp" data-i18n-html="about.team.akhmedov.exp"><strong>18+ years</strong> of enterprise data experience</div>
       <div class="team-card__tags">
         <span class="team-card__tag">Data Warehousing</span>
         <span class="team-card__tag">S/4HANA</span>
@@ -216,7 +235,7 @@
         <span class="team-card__tag">MDM</span>
         <span class="team-card__tag">Group Consolidation</span>
       </div>
-      <div class="team-card__industries">Steel · Energy · Automotive · Cement · Manufacturing</div>
+      <div class="team-card__industries" data-i18n="about.team.akhmedov.industries">Steel · Energy · Automotive · Cement · Manufacturing</div>
       <div class="team-card__langs">DE · EN · TR · RU</div>
     </div>
   </div>
@@ -225,11 +244,11 @@
   <div class="team-card team-card--right reveal" style="background-image:url('assets/rasulov.png');background-position:left center;">
     <div class="team-card__overlay"></div>
     <div class="team-card__text">
-      <div class="team-card__role">CIO &amp; Co-Founder</div>
+      <div class="team-card__role" data-i18n="about.team.rasulov.role">CIO &amp; Co-Founder</div>
       <h3 class="team-card__name">Farhod Rasulov</h3>
-      <div class="team-card__title">Senior Data &amp; Azure Solutions Architect</div>
-      <div class="team-card__exp"><strong>15+ years</strong> of enterprise data experience</div>
-      <div class="team-card__cert"><strong>Azure Solutions Architect</strong> · <strong>Azure Data Engineer Associate</strong> · Azure Administrator Associate</div>
+      <div class="team-card__title" data-i18n="about.team.rasulov.title">Senior Data &amp; Azure Solutions Architect</div>
+      <div class="team-card__exp" data-i18n-html="about.team.rasulov.exp"><strong>15+ years</strong> of enterprise data experience</div>
+      <div class="team-card__cert" data-i18n-html="about.team.rasulov.cert"><strong>Azure Solutions Architect</strong> · <strong>Azure Data Engineer Associate</strong> · Azure Administrator Associate</div>
       <div class="team-card__tags">
         <span class="team-card__tag">MS Fabric</span>
         <span class="team-card__tag">Azure</span>
@@ -246,10 +265,10 @@
   <div class="team-card team-card--left reveal" style="background-image:url('assets/saminov.png');background-position:right center;">
     <div class="team-card__overlay"></div>
     <div class="team-card__text">
-      <div class="team-card__role">Senior Consultant</div>
+      <div class="team-card__role" data-i18n="about.team.saminov.role">Senior Consultant</div>
       <h3 class="team-card__name">Rashidjon Saminov</h3>
-      <div class="team-card__title">MS Fabric Consultant &amp; BI Architect</div>
-      <div class="team-card__exp"><strong>18+ years</strong> of enterprise data experience</div>
+      <div class="team-card__title" data-i18n="about.team.saminov.title">MS Fabric Consultant &amp; BI Architect</div>
+      <div class="team-card__exp" data-i18n-html="about.team.saminov.exp"><strong>18+ years</strong> of enterprise data experience</div>
       <div class="team-card__tags">
         <span class="team-card__tag">MS Fabric</span>
         <span class="team-card__tag">Power BI</span>
@@ -258,7 +277,7 @@
         <span class="team-card__tag">Python</span>
         <span class="team-card__tag">Qlik</span>
       </div>
-      <div class="team-card__industries">MedTech · Insurance · Telecom · Consumer Goods · Packaging</div>
+      <div class="team-card__industries" data-i18n="about.team.saminov.industries">MedTech · Insurance · Telecom · Consumer Goods · Packaging</div>
       <div class="team-card__langs">EN · DE · TR · RU · UZ</div>
     </div>
   </div>
@@ -267,23 +286,6 @@
 </section>
 
 
-<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
-<div class="container">
-<div class="section-head">
-<div class="reveal"><div class="eyebrow" data-i18n="about.section.track.eyebrow">— Track record</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.track.title">A decade across industries that don't tolerate slop.</h2></div>
-<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.track.lead">Selected milestones from a hands-on practice. Specific clients shared under NDA.</p></div>
-</div>
-<div class="timeline reveal">
-<div class="timeline-row"><div class="yr">2024–2025</div><div><h4>Insurance — 200 dashboards migrated, end-to-end</h4><p>Led the migration of 200 Power BI dashboards to Grafana for a tier-1 European insurer. Built CIO-level dashboards. Implemented row-level security across all departments. Delivered training and adoption.</p></div></div>
-<div class="timeline-row"><div class="yr">2024–Present</div><div><h4>Medical Technology — MS Fabric Data Mesh, Lakehouse and IoT analytics</h4><p>Architecting a Data Mesh and Lakehouse on Microsoft Fabric. Power BI reports across aggregated and live data. Asset-management Power Apps. PoC IoT analytics for medical devices.</p></div></div>
-<div class="timeline-row"><div class="yr">2023–2024</div><div><h4>Packaging — Five-country DWH consolidation</h4><p>Cloud DWH consolidating ERPs across five countries. SSIS-to-ADF migration. ERP and OLAP source systems connected. Group reporting cycle cut materially.</p></div></div>
-<div class="timeline-row"><div class="yr">2021–2022</div><div><h4>Energy &amp; Public Transportation — Cloud platforms and IoT</h4><p>Lead Architect on cloud-based data platforms for a renewable-energy operator and a major public transportation network. Streaming, governance, REST APIs and Power Apps for operational workflows.</p></div></div>
-<div class="timeline-row"><div class="yr">2017–2020</div><div><h4>Banking &amp; Insurance — Cognos and BI modernization</h4><p>Migration from Cognos 10 to Cognos 11. Sales-management reporting. Data modeling, dashboards and coaching across multiple financial-services clients.</p></div></div>
-<div class="timeline-row"><div class="yr">2014–2017</div><div><h4>Foundations — DWH, group consolidation, IFRS reporting</h4><p>Hands-on engineering across enterprise data warehousing, group consolidation and IFRS group reporting. The discipline of getting the numbers right shaped everything that came after.</p></div></div>
-</div>
-</div>
-</section>
-
 <section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
@@ -291,9 +293,9 @@
 <div class="reveal" data-delay="1"><p class="lead" data-i18n="about.section.principles.lead">These are not posters. They are how engagements are scoped, staffed and judged.</p></div>
 </div>
 <div class="values-grid reveal">
-<div class="value-card"><div class="vc-num">01</div><h3>Senior on the work.</h3><p>You buy our practice, you get our practice. No bait-and-switch to junior teams. Every engagement has a senior architect doing the work — not just attending the steerco.</p></div>
-<div class="value-card"><div class="vc-num">02</div><h3>Outcome over output.</h3><p>Anyone can ship slides and deliverables. We measure ourselves on what changes after we leave: faster close cycles, better forecasts, decisions made on data instead of intuition.</p></div>
-<div class="value-card"><div class="vc-num">03</div><h3>Boutique by choice.</h3><p>We say no to engagements that need 30 consultants. The work we take is the work that benefits from depth and continuity, not headcount. That keeps quality up and senior attention undiluted.</p></div>
+<div class="value-card"><div class="vc-num">01</div><h3 data-i18n="about.principles.1.title">Senior on the work.</h3><p data-i18n="about.principles.1.desc">You buy our practice, you get our practice. No bait-and-switch to junior teams. Every engagement has a senior architect doing the work — not just attending the steerco.</p></div>
+<div class="value-card"><div class="vc-num">02</div><h3 data-i18n="about.principles.2.title">Outcome over output.</h3><p data-i18n="about.principles.2.desc">Anyone can ship slides and deliverables. We measure ourselves on what changes after we leave: faster close cycles, better forecasts, decisions made on data instead of intuition.</p></div>
+<div class="value-card"><div class="vc-num">03</div><h3 data-i18n="about.principles.3.title">Boutique by choice.</h3><p data-i18n="about.principles.3.desc">We say no to engagements that need 30 consultants. The work we take is the work that benefits from depth and continuity, not headcount. That keeps quality up and senior attention undiluted.</p></div>
 </div>
 </div>
 </section>
@@ -301,8 +303,8 @@
 <section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
-<div class="reveal"><div class="eyebrow">— Our clients</div><h2 class="h-section" style="margin-top:20px;">The organisations that trust us.</h2></div>
-<div class="reveal" data-delay="1"><p class="lead">From global manufacturers and energy operators to banks and logistics groups — we have delivered across sectors where the cost of bad data is highest.</p></div>
+<div class="reveal"><div class="eyebrow" data-i18n="about.clients.eyebrow">— Our clients</div><h2 class="h-section" style="margin-top:20px;" data-i18n="about.clients.title">The organisations that trust us.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.clients.lead">From global manufacturers and energy operators to banks and logistics groups — we have delivered across sectors where the cost of bad data is highest.</p></div>
 </div>
 <div class="logo-grid reveal">
   <div class="logo-pill"><img src="assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></div>
@@ -334,8 +336,8 @@
 <section class="section section--alt" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
-<div class="reveal"><div class="eyebrow">— Technology ecosystem</div><h2 class="h-section" style="margin-top:20px;">Trusted partners &amp; platforms.</h2></div>
-<div class="reveal" data-delay="1"><p class="lead">We are technology-agnostic in principle and expert in practice. These are the platforms and ecosystems we work inside every day.</p></div>
+<div class="reveal"><div class="eyebrow" data-i18n="about.tech.eyebrow">— Technology ecosystem</div><h2 class="h-section" style="margin-top:20px;" data-i18n="about.tech.title">Trusted partners &amp; platforms.</h2></div>
+<div class="reveal" data-delay="1"><p class="lead" data-i18n="about.tech.lead">We are technology-agnostic in principle and expert in practice. These are the platforms and ecosystems we work inside every day.</p></div>
 </div>
 <div class="logo-grid reveal">
   <div class="logo-pill logo-pill--partner"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></div>
@@ -359,7 +361,7 @@
 </section>
 
 <section class="client-ticker">
-  <div class="client-ticker__label">Trusted by industry leaders</div>
+  <div class="client-ticker__label" data-i18n="industries.ticker.label">Trusted by industry leaders</div>
   <div class="client-ticker__track">
     <div class="client-ticker__set"><span class="client-logo"><img src="assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
       
@@ -376,17 +378,7 @@
       <span class="client-logo"><img src="assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
       
       <span class="client-logo"><img src="assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"></span>
-    </div>
+      </div>
     <div class="client-ticker__set" aria-hidden="true"><span class="client-logo"><img src="assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></span><span class="client-logo"><img src="assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></span>
       
       <span class="client-logo"><img src="assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></span>
@@ -402,17 +394,7 @@
       <span class="client-logo"><img src="assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></span>
       
       <span class="client-logo"><img src="assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"></span>
-      <span class="client-logo"><img src="assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"></span>
-    </div>
+      </div>
   </div>
 </section>
 <section class="cta-band"><div class="container cta-band__inner">
