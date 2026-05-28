@@ -304,7 +304,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 400;
 }
 .brand__stack { display: flex; flex-direction: column; line-height: 1; gap: 4px; }
-.brand__stack > span:first-child { white-space: nowrap; }
+.brand__stack > span:first-child { white-space: nowrap; text-transform: uppercase; }
 
 /* ── Global CTA band — brand gradient, no image ─────────── */
 .cta-band {
@@ -1055,6 +1055,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 480px) {
   .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+}
+
+/* ── Service cards: stack CTA below content on mobile ─────── */
+@media (max-width: 640px) {
+  .svc-card {
+    grid-template-columns: auto 1fr !important;
+    grid-template-rows: auto auto !important;
+  }
+  .svc-card__cta {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    margin-top: 8px;
+  }
 }
 
 /* ——— Privacy Modal ——————————————————————————————— */
