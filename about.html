@@ -122,21 +122,24 @@
 }
 
 @media (max-width: 700px) {
-  /* Grid: row 1 = 300px photo area, row 2 = text below */
   .team-card {
-    display: grid;
-    grid-template-rows: 300px auto;
+    display: block;
     min-height: 0;
-    background-position: center 20% !important;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top center !important;
   }
-  .team-card--left .team-card__overlay,
-  .team-card--right .team-card__overlay {
-    height: 300px;
-    top: 0; left: 0; right: 0; bottom: auto;
-    background: linear-gradient(to bottom, transparent 40%, rgba(5,8,18,0.55) 100%);
+  .team-card::before {
+    content: "";
+    display: block;
+    padding-top: 56.3%; /* 941/1672 — shows full landscape photo */
+  }
+  .team-card__overlay {
+    top: 0;
+    height: calc(56.3% + 4px); /* cover only the photo area */
+    background: linear-gradient(to bottom, transparent 55%, rgba(5,8,18,0.4) 100%) !important;
   }
   .team-card__text {
-    grid-row: 2;
     position: relative;
     z-index: 2;
     width: 100%;
@@ -144,6 +147,9 @@
     background: var(--bg);
     border-top: 1px solid var(--border);
     padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     justify-content: flex-start;
     min-height: 0;
   }
@@ -208,7 +214,7 @@
 </section>
 
 <!-- ── TEAM ──────────────────────────────────────────────── -->
-<section class="section team-section">
+<section class="section team-section" style="background: linear-gradient(to bottom,rgba(7,9,15,0.92) 0%,rgba(7,9,15,0.72) 12%,rgba(7,9,15,0.72) 88%,rgba(7,9,15,0.92) 100%), url('https://images.unsplash.com/photo-1724582586529-62622e50c0b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1440') center/cover no-repeat;">
 <div class="container">
   <div class="section-head">
     <div class="reveal">
@@ -287,7 +293,7 @@
 </section>
 
 
-<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<section class="section" style="background: linear-gradient(rgba(7,9,15,0.55),rgba(7,9,15,0.55)), url('https://images.unsplash.com/photo-1510507024924-fc3847d49ae2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1440') center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
 <div class="reveal"><div class="eyebrow" data-i18n="about.section.principles.eyebrow">— Operating principles</div><h2 class="h-section" style="margin-top: 20px;" data-i18n="about.section.principles.title">Three commitments that shape the work.</h2></div>
@@ -301,62 +307,63 @@
 </div>
 </section>
 
-<section class="section" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<section class="section" style="background: linear-gradient(to bottom,rgba(7,9,15,0.88) 0%,rgba(7,9,15,0.42) 10%,rgba(7,9,15,0.42) 90%,rgba(7,9,15,0.88) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
 <div class="reveal"><div class="eyebrow" data-i18n="about.clients.eyebrow">— Our clients</div><h2 class="h-section" style="margin-top:20px;" data-i18n="about.clients.title">The organisations that trust us.</h2></div>
 <div class="reveal" data-delay="1"><p class="lead" data-i18n="about.clients.lead">From global manufacturers and energy operators to banks and logistics groups — we have delivered across sectors where the cost of bad data is highest.</p></div>
 </div>
 <div class="logo-grid reveal">
-  <div class="logo-pill"><img src="assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/sapplier.svg" alt="SAPPLIER" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/wahl.svg" alt="WAHL" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill"><img src="assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="logo-pill"><img src="assets/logos/rwe.svg" alt="RWE" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">RWE</span></div>
+  <div class="logo-pill"><img src="assets/logos/becker.svg" alt="Becker" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Becker</span></div>
+  <div class="logo-pill"><img src="assets/logos/telekom.svg" alt="Deutsche Telekom" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Deutsche Telekom</span></div>
+  <div class="logo-pill"><img src="assets/logos/heidelbergengineering.svg" alt="Heidelberg Engineering" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Heidelberg Engineering</span></div>
+  <div class="logo-pill"><img src="assets/logos/vaillant.svg" alt="Vaillant Group" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Vaillant Group</span></div>
+  <div class="logo-pill"><img src="assets/logos/groupeseb.svg" alt="Groupe SEB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Groupe SEB</span></div>
+  <div class="logo-pill"><img src="assets/logos/stihl.svg" alt="STIHL" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">STIHL</span></div>
+  <div class="logo-pill"><img src="assets/logos/westernacher.svg" alt="Westernacher" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Westernacher</span></div>
+  <div class="logo-pill"><img src="assets/logos/sapplier.svg" alt="Sapplier" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Sapplier</span></div>
+  <div class="logo-pill"><img src="assets/logos/thimm.svg" alt="THIMM" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">THIMM</span></div>
+  <div class="logo-pill"><img src="assets/logos/wahl.svg" alt="Wahl" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Wahl</span></div>
+  <div class="logo-pill"><img src="assets/logos/provinzial.svg" alt="Provinzial" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Provinzial</span></div>
+  <div class="logo-pill"><img src="assets/logos/deutschebahn.svg" alt="Deutsche Bahn" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Deutsche Bahn</span></div>
+  <div class="logo-pill"><img src="assets/logos/daimler.svg" alt="Daimler" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Daimler</span></div>
+  <div class="logo-pill"><img src="assets/logos/wienenergie.svg" alt="Wien Energie" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Wien Energie</span></div>
+  <div class="logo-pill"><img src="assets/logos/ruv.svg" alt="R+V Versicherung" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">R+V Versicherung</span></div>
+  <div class="logo-pill"><img src="assets/logos/lufthansa.svg" alt="Lufthansa" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Lufthansa</span></div>
+  <div class="logo-pill"><img src="assets/logos/deutschebank.svg" alt="Deutsche Bank" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Deutsche Bank</span></div>
+  <div class="logo-pill"><img src="assets/logos/siemens.svg" alt="Siemens" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Siemens</span></div>
+  <div class="logo-pill"><img src="assets/logos/alten.svg" alt="ALTEN" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Alten</span></div>
+  <div class="logo-pill"><img src="assets/logos/enercon.svg" alt="ENERCON" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Enercon</span></div>
+  <div class="logo-pill"><img src="assets/logos/askchemicals.svg" alt="ASK Chemicals" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">ASK Chemicals</span></div>
+  <div class="logo-pill"><img src="assets/logos/oyora.png" alt="Oyora GmbH" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Oyora GmbH</span></div>
 </div>
 </div>
 </section>
 
-<section class="section section--alt" style="background:linear-gradient(to bottom,#101415 0%,rgba(7,9,15,0.78) 10%,rgba(7,9,15,0.78) 90%,#101415 100%),url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1440&q=80')center/cover no-repeat;">
+<section class="section section--alt" style="background: linear-gradient(to bottom,rgba(14,17,25,0.90) 0%,rgba(14,17,25,0.42) 10%,rgba(14,17,25,0.42) 90%,rgba(14,17,25,0.90) 100%), url('https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?auto=format&fit=crop&w=1440&q=80') center/cover no-repeat;">
 <div class="container">
 <div class="section-head">
 <div class="reveal"><div class="eyebrow" data-i18n="about.tech.eyebrow">— Technology ecosystem</div><h2 class="h-section" style="margin-top:20px;" data-i18n="about.tech.title">Trusted partners &amp; platforms.</h2></div>
 <div class="reveal" data-delay="1"><p class="lead" data-i18n="about.tech.lead">We are technology-agnostic in principle and expert in practice. These are the platforms and ecosystems we work inside every day.</p></div>
 </div>
 <div class="logo-grid reveal">
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/fabric.svg" alt="Microsoft Fabric" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/dbt.svg" alt="dbt" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/powerautomate.svg" alt="Power Automate" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/powerapps.svg" alt="Power Apps" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/docker.svg" alt="Docker" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/kubernetes.svg" alt="Kubernetes" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="logo-pill logo-pill--partner"><img src="assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Azure</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/fabric.svg" alt="Microsoft Fabric" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Microsoft Fabric</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/powerapps.svg" alt="Power Apps" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Power Apps</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/databricks.svg" alt="Databricks" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Databricks</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/powerautomate.svg" alt="Power Automate" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Power Automate</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/dbt.svg" alt="dbt" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">dbt</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/docker.svg" alt="Docker" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Docker</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/kubernetes.svg" alt="Kubernetes" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Kubernetes</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/microsoft.svg" alt="Microsoft" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Microsoft</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/oracle.svg" alt="Oracle" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Oracle</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/aws.svg" alt="AWS" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">AWS</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/python.svg" alt="Python" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">Python</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/sqlserver.svg" alt="SQL Server" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">SQL Server</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/mongodb.svg" alt="MongoDB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">MongoDB</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/influxdb.svg" alt="InfluxDB" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">InfluxDB</span></div>
+  <div class="logo-pill logo-pill--partner"><img src="assets/logos/javascript.svg" alt="JavaScript" loading="lazy" onerror="this.style.display='none'"><span class="logo-pill__name">JavaScript</span></div>
 </div>
 </div>
 </section>
