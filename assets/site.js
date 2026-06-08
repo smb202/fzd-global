@@ -342,6 +342,150 @@
   document.addEventListener('DOMContentLoaded', buildModal);
 }());
 
+// ——— Imprint Modal ————————————————————————————————
+(function () {
+  var IMPRINT = {
+    en: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'Imprint',
+      date:    'English Version · Information pursuant to § 5 DDG',
+      body: [
+        '<h3>Provider Information</h3>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5<br>69120 Heidelberg, Germany</address>',
+        '<p>Managing Director: Akhmedov Fazliddin</p>',
+        '<p>Commercial Register: District Court (Amtsgericht) Mannheim, HRB 745892<br>VAT Identification Number (§ 27a UStG): DE815826531</p>',
+
+        '<h3>Contact</h3>',
+        '<address>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a><br>Phone: +49 6221 6736786<br>Website: <a href="https://fzd-global.de">https://fzd-global.de</a></address>',
+
+        '<h3>Responsible for Content (§ 18 Abs. 2 MStV)</h3>',
+        '<p>Akhmedov Fazliddin<br>FZD Global GmbH, Neuenheimer Landstr. 5, 69120 Heidelberg, Germany</p>',
+
+        '<h3>Dispute Resolution</h3>',
+        '<p>The European Commission provides a platform for online dispute resolution (OS), available at <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a>. We are not obliged and not willing to participate in dispute resolution proceedings before a consumer arbitration board.</p>',
+
+        '<h3>Liability for Content</h3>',
+        '<p>As a service provider, we are responsible for our own content on these pages in accordance with general law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block the use of information under general law remain unaffected. Liability in this regard is only possible from the point in time at which a concrete infringement of the law becomes known. Upon becoming aware of corresponding infringements, we will remove this content immediately.</p>',
+
+        '<h3>Liability for Links</h3>',
+        '<p>Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot assume any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking. A permanent control of the content of the linked pages is not reasonable without concrete evidence of an infringement. Upon becoming aware of legal infringements, we will remove such links immediately.</p>',
+
+        '<h3>Copyright</h3>',
+        '<p>The content and works on these pages created by the site operator are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please notify us accordingly. Upon becoming aware of legal infringements, we will remove such content immediately.</p>',
+
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — All rights reserved.</div>'
+      ].join('')
+    },
+
+    de: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'Impressum',
+      date:    'Deutsche Version · Angaben gemäß § 5 DDG',
+      body: [
+        '<h3>Angaben gemäß § 5 DDG</h3>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5<br>69120 Heidelberg, Deutschland</address>',
+        '<p>Geschäftsführer: Akhmedov Fazliddin</p>',
+        '<p>Handelsregister: Amtsgericht Mannheim, HRB 745892<br>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE815826531</p>',
+
+        '<h3>Kontakt</h3>',
+        '<address>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a><br>Telefon: +49 6221 6736786<br>Website: <a href="https://fzd-global.de">https://fzd-global.de</a></address>',
+
+        '<h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>',
+        '<p>Akhmedov Fazliddin<br>FZD Global GmbH, Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland</p>',
+
+        '<h3>Streitschlichtung</h3>',
+        '<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, abrufbar unter <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>',
+
+        '<h3>Haftung für Inhalte</h3>',
+        '<p>Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>',
+
+        '<h3>Haftung für Links</h3>',
+        '<p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>',
+
+        '<h3>Urheberrecht</h3>',
+        '<p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>',
+
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — Alle Rechte vorbehalten.</div>'
+      ].join('')
+    }
+  };
+
+  function getLang() {
+    return (typeof window.FZD_getLang === 'function') ? window.FZD_getLang() : 'en';
+  }
+
+  function buildModal() {
+    var overlay = document.createElement('div');
+    overlay.id = 'fzd-imprint-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Imprint');
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px;';
+    overlay.innerHTML =
+      '<div id="fzd-imprint-panel" style="background:#191c1e;border:1px solid rgba(255,255,255,0.12);border-radius:4px;max-width:720px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,0,0,0.6),0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(0,212,255,0.06);">' +
+        '<div id="fzd-imprint-header" style="padding:24px 28px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-shrink:0;">' +
+          '<div>' +
+            '<div class="fzd-pm-eyebrow" id="fzd-im-eyebrow"></div>' +
+            '<div class="fzd-pm-title"   id="fzd-im-title"></div>' +
+            '<div class="fzd-pm-date"    id="fzd-im-date"></div>' +
+          '</div>' +
+          '<button id="fzd-imprint-close" style="background:none;border:1px solid rgba(255,255,255,0.08);border-radius:4px;color:#859398;cursor:pointer;padding:5px 10px;font-size:18px;line-height:1;flex-shrink:0;transition:color .15s,border-color .15s;" aria-label="Close">×</button>' +
+        '</div>' +
+        '<div id="fzd-imprint-body" style="padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var closeBtn = document.getElementById('fzd-imprint-close');
+    closeBtn.addEventListener('mouseenter', function() { this.style.color='#e0e3e5'; this.style.borderColor='rgba(255,255,255,0.24)'; });
+    closeBtn.addEventListener('mouseleave', function() { this.style.color='#859398'; this.style.borderColor='rgba(255,255,255,0.08)'; });
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+    window.addEventListener('fzd:langchange', function(e) {
+      if (overlay.style.display === 'flex') updateContent(e.detail.lang);
+    });
+  }
+
+  function updateContent(lang) {
+    var c = IMPRINT[lang] || IMPRINT.en;
+    document.getElementById('fzd-im-eyebrow').textContent = c.eyebrow;
+    document.getElementById('fzd-im-title').textContent   = c.title;
+    document.getElementById('fzd-im-date').textContent    = c.date;
+    var body = document.getElementById('fzd-imprint-body');
+    body.innerHTML = c.body;
+    body.style.cssText = 'padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;';
+  }
+
+  function openModal() {
+    updateContent(getLang());
+    var overlay = document.getElementById('fzd-imprint-overlay');
+    overlay.style.display = 'flex';
+    overlay.style.animation = 'fzd-pm-fade 0.2s ease';
+    var panel = document.getElementById('fzd-imprint-panel');
+    panel.style.animation = 'fzd-pm-slide 0.25s ease';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('fzd-imprint-close').focus();
+  }
+
+  function closeModal() {
+    var overlay = document.getElementById('fzd-imprint-overlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  window.FZD_openImprint = function(e) {
+    if (e) { e.preventDefault(); }
+    openModal();
+  };
+
+  document.addEventListener('DOMContentLoaded', buildModal);
+}());
+
 // ——— Terms & Conditions Modal ————————————————————
 (function () {
   var TERMS = {
