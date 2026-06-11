@@ -752,3 +752,223 @@
 
   document.addEventListener('DOMContentLoaded', buildModal);
 }());
+
+// ——— Cookie Policy Modal ————————————————————————————
+(function () {
+  var COOKIES = {
+    en: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'Cookie Policy',
+      date:    'English Version · Effective date: May 2026',
+      body: [
+        '<h3>1. What This Policy Covers</h3>',
+        '<p>This Cookie Policy explains which cookies and similar local-storage technologies are used on fzd-global.de, what they do, and how you can manage them. It supplements our <a href="#" onclick="FZD_closeCookies(); FZD_openPrivacy(event); return false;">Privacy Policy</a>.</p>',
+
+        '<h3>2. Cookies and Local Storage We Use</h3>',
+        '<table class="fzd-cookie-table"><thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead><tbody>' +
+          '<tr><td>fzd_cookie_consent</td><td>Essential (localStorage)</td><td>Stores whether you have acknowledged this cookie notice, so it is not shown again.</td><td>Persistent, until cleared by you</td></tr>' +
+          '<tr><td>fzd_lang</td><td>Essential (localStorage)</td><td>Remembers your selected language (English/German) across pages and visits.</td><td>Persistent, until cleared by you</td></tr>' +
+        '</tbody></table>',
+        '<p>We do not currently use any analytics, advertising, or third-party tracking cookies. If this changes in the future, we will update this policy and request your consent where required by law before activating any non-essential cookies.</p>',
+
+        '<h3>3. Legal Basis</h3>',
+        '<p>The cookies and local storage listed above are strictly necessary for the website to function (Art. 6(1)(f) GDPR and § 25(2) TDDDG) and do not require separate consent. We nonetheless inform you of their use for transparency.</p>',
+
+        '<h3>4. Managing Cookies</h3>',
+        '<p>You can delete or block cookies and local storage at any time through your browser settings. Please note that disabling essential storage may affect the basic functionality of this website, such as remembering your language preference.</p>',
+
+        '<h3>5. Contact</h3>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5, 69120 Heidelberg, Germany<br>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a></address>',
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — All rights reserved.</div>'
+      ].join('')
+    },
+    de: {
+      eyebrow: 'FZD Global GmbH',
+      title:   'Cookie-Richtlinie',
+      date:    'Deutsche Version · Gültig ab: Mai 2026',
+      body: [
+        '<h3>1. Geltungsbereich</h3>',
+        '<p>Diese Cookie-Richtlinie erläutert, welche Cookies und ähnlichen lokalen Speichertechnologien auf fzd-global.de verwendet werden, wofür sie dienen und wie Sie diese verwalten können. Sie ergänzt unsere <a href="#" onclick="FZD_closeCookies(); FZD_openPrivacy(event); return false;">Datenschutzerklärung</a>.</p>',
+
+        '<h3>2. Verwendete Cookies und lokaler Speicher</h3>',
+        '<table class="fzd-cookie-table"><thead><tr><th>Name</th><th>Art</th><th>Zweck</th><th>Dauer</th></tr></thead><tbody>' +
+          '<tr><td>fzd_cookie_consent</td><td>Essenziell (localStorage)</td><td>Speichert, dass Sie den Cookie-Hinweis bestätigt haben, damit er nicht erneut angezeigt wird.</td><td>Dauerhaft, bis Löschung durch Sie</td></tr>' +
+          '<tr><td>fzd_lang</td><td>Essenziell (localStorage)</td><td>Speichert Ihre gewählte Sprache (Englisch/Deutsch) seitenübergreifend.</td><td>Dauerhaft, bis Löschung durch Sie</td></tr>' +
+        '</tbody></table>',
+        '<p>Wir verwenden derzeit keine Analyse-, Werbe- oder Tracking-Cookies von Drittanbietern. Sollte sich dies künftig ändern, aktualisieren wir diese Richtlinie und holen, sofern gesetzlich erforderlich, vorab Ihre Einwilligung ein, bevor nicht essenzielle Cookies aktiviert werden.</p>',
+
+        '<h3>3. Rechtsgrundlage</h3>',
+        '<p>Die oben aufgeführten Cookies und Speichertechnologien sind für den Betrieb der Website unbedingt erforderlich (Art. 6 Abs. 1 lit. f DSGVO und § 25 Abs. 2 TDDDG) und bedürfen keiner gesonderten Einwilligung. Wir informieren Sie dennoch transparent über deren Nutzung.</p>',
+
+        '<h3>4. Verwaltung von Cookies</h3>',
+        '<p>Sie können Cookies und lokalen Speicher jederzeit über Ihre Browsereinstellungen löschen oder blockieren. Bitte beachten Sie, dass das Deaktivieren essenzieller Speicherfunktionen die Grundfunktionalität dieser Website beeinträchtigen kann, z. B. das Speichern Ihrer Spracheinstellung.</p>',
+
+        '<h3>5. Kontakt</h3>',
+        '<address>FZD Global GmbH<br>Neuenheimer Landstr. 5, 69120 Heidelberg, Deutschland<br>E-Mail: <a href="mailto:info@fzd-global.de">info@fzd-global.de</a></address>',
+        '<div class="fzd-pm-doc-footer">© 2026 FZD Global GmbH — Alle Rechte vorbehalten.</div>'
+      ].join('')
+    }
+  };
+
+  function getLang() {
+    return (typeof window.FZD_getLang === 'function') ? window.FZD_getLang() : 'en';
+  }
+
+  function buildModal() {
+    var overlay = document.createElement('div');
+    overlay.id = 'fzd-cookies-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Cookie Policy');
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px;';
+    overlay.innerHTML =
+      '<div id="fzd-cookies-panel" style="background:#191c1e;border:1px solid rgba(255,255,255,0.12);border-radius:4px;max-width:720px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,0,0,0.6),0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(0,212,255,0.06);">' +
+        '<div id="fzd-cookies-header" style="padding:24px 28px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-shrink:0;">' +
+          '<div>' +
+            '<div class="fzd-pm-eyebrow" id="fzd-ck-eyebrow"></div>' +
+            '<div class="fzd-pm-title"   id="fzd-ck-title"></div>' +
+            '<div class="fzd-pm-date"    id="fzd-ck-date"></div>' +
+          '</div>' +
+          '<button id="fzd-cookies-close" style="background:none;border:1px solid rgba(255,255,255,0.08);border-radius:4px;color:#859398;cursor:pointer;padding:5px 10px;font-size:18px;line-height:1;flex-shrink:0;transition:color .15s,border-color .15s;" aria-label="Close">×</button>' +
+        '</div>' +
+        '<div id="fzd-cookies-body" style="padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var closeBtn = document.getElementById('fzd-cookies-close');
+    closeBtn.addEventListener('mouseenter', function() { this.style.color='#e0e3e5'; this.style.borderColor='rgba(255,255,255,0.24)'; });
+    closeBtn.addEventListener('mouseleave', function() { this.style.color='#859398'; this.style.borderColor='rgba(255,255,255,0.08)'; });
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal();
+    });
+    window.addEventListener('fzd:langchange', function(e) {
+      if (overlay.style.display === 'flex') updateContent(e.detail.lang);
+    });
+  }
+
+  function updateContent(lang) {
+    var c = COOKIES[lang] || COOKIES.en;
+    document.getElementById('fzd-ck-eyebrow').textContent = c.eyebrow;
+    document.getElementById('fzd-ck-title').textContent   = c.title;
+    document.getElementById('fzd-ck-date').textContent    = c.date;
+    var body = document.getElementById('fzd-cookies-body');
+    body.innerHTML = c.body;
+    body.style.cssText = 'padding:28px;overflow-y:auto;flex:1;overscroll-behavior:contain;';
+  }
+
+  function openModal() {
+    updateContent(getLang());
+    var overlay = document.getElementById('fzd-cookies-overlay');
+    overlay.style.display = 'flex';
+    overlay.style.animation = 'fzd-pm-fade 0.2s ease';
+    var panel = document.getElementById('fzd-cookies-panel');
+    panel.style.animation = 'fzd-pm-slide 0.25s ease';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('fzd-cookies-close').focus();
+  }
+
+  function closeModal() {
+    var overlay = document.getElementById('fzd-cookies-overlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  window.FZD_openCookies = function(e) {
+    if (e) { e.preventDefault(); }
+    openModal();
+  };
+  window.FZD_closeCookies = function() {
+    closeModal();
+  };
+
+  document.addEventListener('DOMContentLoaded', buildModal);
+}());
+
+// ——— Cookie Consent Banner ————————————————————————————
+(function () {
+  var STORAGE_KEY = 'fzd_cookie_consent';
+
+  function getLang() {
+    return (typeof window.FZD_getLang === 'function') ? window.FZD_getLang() : 'en';
+  }
+
+  function t(key) {
+    var lang = getLang();
+    var dict = window.FZD_I18N && window.FZD_I18N[lang];
+    if (dict && dict[key]) return dict[key];
+    var fallback = {
+      'cookie.text': 'We use essential cookies and local storage to make this website work and to remember your preferences. See our',
+      'cookie.link': 'Cookie Policy',
+      'cookie.accept': 'Accept'
+    };
+    return fallback[key] || key;
+  }
+
+  function hasConsent() {
+    try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) { return false; }
+  }
+
+  function setConsent() {
+    try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+  }
+
+  function build() {
+    if (hasConsent()) return;
+
+    var bar = document.createElement('div');
+    bar.id = 'fzd-cookie-banner';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Cookie consent');
+    bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9998;background:#191c1e;border-top:1px solid rgba(255,255,255,0.12);box-shadow:0 -4px 12px rgba(0,0,0,0.4);padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;font-family:var(--mono, monospace);';
+    bar.innerHTML =
+      '<label id="fzd-cookie-label" style="display:flex;align-items:flex-start;gap:10px;color:#c7ced1;font-size:13px;line-height:1.6;max-width:760px;cursor:pointer;">' +
+        '<input type="checkbox" id="fzd-cookie-checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:#00d4ff;cursor:pointer;">' +
+        '<span><span id="fzd-cookie-text"></span> <a href="#" id="fzd-cookie-link" style="color:#00d4ff;text-decoration:underline;"></a>.</span>' +
+      '</label>' +
+      '<button id="fzd-cookie-accept" disabled style="background:none;border:1px solid rgba(255,255,255,0.18);border-radius:4px;color:#555;cursor:not-allowed;padding:9px 22px;font-size:13px;font-family:inherit;transition:color .15s,border-color .15s,background .15s;flex-shrink:0;"></button>';
+    document.body.appendChild(bar);
+
+    var checkbox = document.getElementById('fzd-cookie-checkbox');
+    var acceptBtn = document.getElementById('fzd-cookie-accept');
+    var link = document.getElementById('fzd-cookie-link');
+
+    function refreshTexts() {
+      document.getElementById('fzd-cookie-text').textContent = t('cookie.text');
+      link.textContent = t('cookie.link');
+      acceptBtn.textContent = t('cookie.accept');
+    }
+    refreshTexts();
+    window.addEventListener('fzd:langchange', refreshTexts);
+
+    link.addEventListener('click', function(e) {
+      window.FZD_openCookies(e);
+    });
+
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        acceptBtn.disabled = false;
+        acceptBtn.style.color = '#00d4ff';
+        acceptBtn.style.borderColor = 'rgba(0,212,255,0.4)';
+        acceptBtn.style.cursor = 'pointer';
+      } else {
+        acceptBtn.disabled = true;
+        acceptBtn.style.color = '#555';
+        acceptBtn.style.borderColor = 'rgba(255,255,255,0.18)';
+        acceptBtn.style.cursor = 'not-allowed';
+      }
+    });
+
+    acceptBtn.addEventListener('click', function() {
+      if (!checkbox.checked) return;
+      setConsent();
+      bar.remove();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', build);
+}());
