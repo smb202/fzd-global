@@ -1274,7 +1274,10 @@ button { font-family: inherit; cursor: pointer; }
 .fzd-cookie-table { width: 100%; border-collapse: collapse; margin: 0 0 14px; font-family: var(--mono); font-size: 12px; }
 .fzd-cookie-table th, .fzd-cookie-table td { border: 1px solid rgba(255,255,255,0.08); padding: 8px 10px; text-align: left; vertical-align: top; color: var(--text-2); }
 .fzd-cookie-table th { color: var(--accent-1); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; background: rgba(255,255,255,0.03); }
+#fzd-cookie-panel .fzd-cookie-table { font-size: 11px; }
+#fzd-cookie-more:hover { color: #e0e3e5; border-color: rgba(255,255,255,0.32); }
+#fzd-cookie-accept:hover { background: rgba(0,212,255,0.12); }
 @media (max-width: 600px) {
-  #fzd-cookie-banner { padding: 14px 16px; flex-direction: column; align-items: stretch; }
-  #fzd-cookie-banner #fzd-cookie-accept { width: 100%; }
+  #fzd-cookie-panel { padding: 22px; }
+  #fzd-cookie-panel > div:last-child { flex-direction: column; align-items: stretch; }
 }

@@ -211,8 +211,10 @@ window.FZD_I18N = {
     "footer.terms": "Terms",
     "footer.cookies": "Cookie Policy",
 
+    "cookie.title": "Cookies & Privacy",
     "cookie.text": "We use essential cookies and local storage to make this website work and to remember your preferences. See our",
     "cookie.link": "Cookie Policy",
+    "cookie.more": "More info",
     "cookie.accept": "Accept",
 
     "back.home": "← Back to home",
@@ -1150,8 +1152,10 @@ window.FZD_I18N = {
     "footer.terms": "AGB",
     "footer.cookies": "Cookie-Richtlinie",
 
+    "cookie.title": "Cookies & Datenschutz",
     "cookie.text": "Wir verwenden essenzielle Cookies und lokalen Speicher, um diese Website zu betreiben und Ihre Einstellungen zu speichern. Siehe unsere",
     "cookie.link": "Cookie-Richtlinie",
+    "cookie.more": "Mehr erfahren",
     "cookie.accept": "Akzeptieren",
 
     "back.home": "← Zurück zur Startseite",

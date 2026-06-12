@@ -897,13 +897,26 @@
     return (typeof window.FZD_getLang === 'function') ? window.FZD_getLang() : 'en';
   }
 
+  var DETAILS_TABLE = {
+    en: '<table class="fzd-cookie-table"><thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead><tbody>' +
+      '<tr><td>fzd_cookie_consent</td><td>Essential (localStorage)</td><td>Stores whether you have acknowledged this cookie notice, so it is not shown again.</td><td>Persistent, until cleared by you</td></tr>' +
+      '<tr><td>fzd_lang</td><td>Essential (localStorage)</td><td>Remembers your selected language (English/German) across pages and visits.</td><td>Persistent, until cleared by you</td></tr>' +
+      '</tbody></table>',
+    de: '<table class="fzd-cookie-table"><thead><tr><th>Name</th><th>Art</th><th>Zweck</th><th>Dauer</th></tr></thead><tbody>' +
+      '<tr><td>fzd_cookie_consent</td><td>Essenziell (localStorage)</td><td>Speichert, dass Sie den Cookie-Hinweis bestätigt haben, damit er nicht erneut angezeigt wird.</td><td>Dauerhaft, bis Löschung durch Sie</td></tr>' +
+      '<tr><td>fzd_lang</td><td>Essenziell (localStorage)</td><td>Speichert Ihre gewählte Sprache (Englisch/Deutsch) seitenübergreifend.</td><td>Dauerhaft, bis Löschung durch Sie</td></tr>' +
+      '</tbody></table>'
+  };
+
   function t(key) {
     var lang = getLang();
     var dict = window.FZD_I18N && window.FZD_I18N[lang];
     if (dict && dict[key]) return dict[key];
     var fallback = {
+      'cookie.title': 'Cookies & Privacy',
       'cookie.text': 'We use essential cookies and local storage to make this website work and to remember your preferences. See our',
       'cookie.link': 'Cookie Policy',
+      'cookie.more': 'More info',
       'cookie.accept': 'Accept'
     };
     return fallback[key] || key;
@@ -920,53 +933,63 @@
   function build() {
     if (hasConsent()) return;
 
-    var bar = document.createElement('div');
-    bar.id = 'fzd-cookie-banner';
-    bar.setAttribute('role', 'region');
-    bar.setAttribute('aria-label', 'Cookie consent');
-    bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9998;background:#191c1e;border-top:1px solid rgba(255,255,255,0.12);box-shadow:0 -4px 12px rgba(0,0,0,0.4);padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;font-family:var(--mono, monospace);';
-    bar.innerHTML =
-      '<label id="fzd-cookie-label" style="display:flex;align-items:flex-start;gap:10px;color:#c7ced1;font-size:13px;line-height:1.6;max-width:760px;cursor:pointer;">' +
-        '<input type="checkbox" id="fzd-cookie-checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:#00d4ff;cursor:pointer;">' +
-        '<span><span id="fzd-cookie-text"></span> <a href="#" id="fzd-cookie-link" style="color:#00d4ff;text-decoration:underline;"></a>.</span>' +
-      '</label>' +
-      '<button id="fzd-cookie-accept" disabled style="background:none;border:1px solid rgba(255,255,255,0.18);border-radius:4px;color:#555;cursor:not-allowed;padding:9px 22px;font-size:13px;font-family:inherit;transition:color .15s,border-color .15s,background .15s;flex-shrink:0;"></button>';
-    document.body.appendChild(bar);
+    var overlay = document.createElement('div');
+    overlay.id = 'fzd-cookie-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Cookie consent');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(7,9,15,0.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;';
+    overlay.innerHTML =
+      '<div id="fzd-cookie-panel" style="background:#191c1e;border:1px solid rgba(255,255,255,0.12);border-radius:4px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto;padding:28px;box-shadow:0 4px 12px rgba(0,0,0,0.6),0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(0,212,255,0.06);font-family:var(--mono, monospace);">' +
+        '<div class="fzd-pm-eyebrow" id="fzd-cookie-eyebrow" style="margin-bottom:6px;"></div>' +
+        '<div class="fzd-pm-title" id="fzd-cookie-title" style="margin-bottom:14px;"></div>' +
+        '<div id="fzd-cookie-text" style="color:#c7ced1;font-size:13px;line-height:1.7;margin-bottom:8px;"></div>' +
+        '<div id="fzd-cookie-details" style="display:none;margin:14px 0;"></div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;justify-content:flex-end;">' +
+          '<button id="fzd-cookie-more" style="background:none;border:1px solid rgba(255,255,255,0.18);border-radius:4px;color:#c7ced1;cursor:pointer;padding:9px 22px;font-size:13px;font-family:inherit;transition:color .15s,border-color .15s;"></button>' +
+          '<button id="fzd-cookie-accept" style="background:none;border:1px solid rgba(0,212,255,0.4);border-radius:4px;color:#00d4ff;cursor:pointer;padding:9px 22px;font-size:13px;font-family:inherit;transition:color .15s,border-color .15s,background .15s;"></button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
 
-    var checkbox = document.getElementById('fzd-cookie-checkbox');
+    var detailsBox = document.getElementById('fzd-cookie-details');
+    var moreBtn = document.getElementById('fzd-cookie-more');
     var acceptBtn = document.getElementById('fzd-cookie-accept');
-    var link = document.getElementById('fzd-cookie-link');
 
     function refreshTexts() {
-      document.getElementById('fzd-cookie-text').textContent = t('cookie.text');
-      link.textContent = t('cookie.link');
+      var lang = getLang();
+      document.getElementById('fzd-cookie-eyebrow').textContent = 'FZD Global GmbH';
+      document.getElementById('fzd-cookie-title').textContent = t('cookie.title');
+      document.getElementById('fzd-cookie-text').innerHTML =
+        t('cookie.text') + ' <a href="#" id="fzd-cookie-link" style="color:#00d4ff;text-decoration:underline;">' + t('cookie.link') + '</a>.';
+      moreBtn.textContent = t('cookie.more');
       acceptBtn.textContent = t('cookie.accept');
+      if (detailsBox.style.display !== 'none') {
+        detailsBox.innerHTML = DETAILS_TABLE[lang] || DETAILS_TABLE.en;
+      }
+      document.getElementById('fzd-cookie-link').addEventListener('click', function(e) {
+        window.FZD_openCookies(e);
+      });
     }
     refreshTexts();
     window.addEventListener('fzd:langchange', refreshTexts);
 
-    link.addEventListener('click', function(e) {
-      window.FZD_openCookies(e);
-    });
-
-    checkbox.addEventListener('change', function() {
-      if (checkbox.checked) {
-        acceptBtn.disabled = false;
-        acceptBtn.style.color = '#00d4ff';
-        acceptBtn.style.borderColor = 'rgba(0,212,255,0.4)';
-        acceptBtn.style.cursor = 'pointer';
+    moreBtn.addEventListener('click', function() {
+      var lang = getLang();
+      var showing = detailsBox.style.display !== 'none';
+      if (showing) {
+        detailsBox.style.display = 'none';
       } else {
-        acceptBtn.disabled = true;
-        acceptBtn.style.color = '#555';
-        acceptBtn.style.borderColor = 'rgba(255,255,255,0.18)';
-        acceptBtn.style.cursor = 'not-allowed';
+        detailsBox.innerHTML = DETAILS_TABLE[lang] || DETAILS_TABLE.en;
+        detailsBox.style.display = 'block';
       }
     });
 
     acceptBtn.addEventListener('click', function() {
-      if (!checkbox.checked) return;
       setConsent();
-      bar.remove();
+      overlay.remove();
+      document.body.style.overflow = '';
     });
   }
 
